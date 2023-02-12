@@ -49,7 +49,3 @@ function getContrastYIQ(backgroundColor) {
   return (yiq >= 128) ? '#000000' : '#ffffff';
 }
 
-var image = document.getElementsByTagName("img");
-  image.addEventListener("contextmenu", function(event) {
-    event.preventDefault();
-  });
