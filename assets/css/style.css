@@ -52,8 +52,7 @@ body.disabledScroll {
     width: 2rem;
     height: 2rem;
     cursor: pointer;
-    background-color: #fff;
-    color: black;
+    background: #252525;
     padding: .5rem;
     transition: .7s ease-in-out;
     z-index: 400;
@@ -64,14 +63,15 @@ body.disabledScroll {
 .line3 {
     width: 100%;
     height: 0.20rem;
-    background-color: black;
+    background: #fff;
     border-radius: 0px;
     transition: all 0.3s ease;
     margin-bottom: 3px;
 }
 
 .burger.open {
-    background-color: #ff0045;
+    background: #ff0045;
+    color: white;
 }
 
 .burger.open .line1 {
