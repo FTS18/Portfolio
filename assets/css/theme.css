@@ -1,0 +1,67 @@
+.projects {
+    position: relative;
+    top: 400px;
+    left: 0;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.column {
+    float: left;
+    width: 33%;
+    padding: 0 10px;
+    margin-bottom: 20px;
+}
+
+/* Remove extra left and right margins, due to padding in columns */
+.row {
+    margin: 0 -5px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Style the counter cards */
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    /* this adds the "card" effect */
+    padding: 0px;
+    text-align: center;
+    background-color: #252525;
+    overflow: hidden;
+    max-height: 260px;
+    transition: .7s ease-in-out;
+}
+.card img{
+   width: 100%;
+   height: 200px;
+   top: 50%;
+   left: 50%;
+    object-fit: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+.card:hover{
+    border-radius: 4px;
+    outline-offset: 3px;
+    outline: 1.8px solid #fff;
+}
+.p-title{
+    padding: 20px;
+    text-align: left;
+    padding-bottom: 40px;
+}
+
+/* Responsive columns - one column layout (vertical) on small screens */
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+    }
+}
