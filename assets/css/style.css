@@ -52,8 +52,8 @@ body.disabledScroll {
     width: 2rem;
     height: 2rem;
     cursor: pointer;
-    background-color: #111;
-    color: white;
+    background-color: #fff;
+    color: black;
     padding: .5rem;
     transition: .7s ease-in-out;
     z-index: 400;
@@ -64,7 +64,7 @@ body.disabledScroll {
 .line3 {
     width: 100%;
     height: 0.20rem;
-    background-color: white;
+    background-color: black;
     border-radius: 0px;
     transition: all 0.3s ease;
     margin-bottom: 3px;
