@@ -53,6 +53,7 @@ body.disabledScroll {
     height: 2rem;
     cursor: pointer;
     background-color: #111;
+    color: white;
     padding: .5rem;
     transition: .7s ease-in-out;
     z-index: 400;
