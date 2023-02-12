@@ -48,3 +48,8 @@ function getContrastYIQ(backgroundColor) {
   const yiq = ((backgroundColor[0] * 299) + (backgroundColor[1] * 587) + (backgroundColor[2] * 114)) / 1000;
   return (yiq >= 128) ? '#000000' : '#ffffff';
 }
+
+var image = document.getElementsByTagName("img");
+  image.addEventListener("contextmenu", function(event) {
+    event.preventDefault();
+  });
