@@ -310,7 +310,7 @@ nav .content .links{
   <input type="checkbox" id="show-menu">
   <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
   <div class="content">
-  <div class="logo"><a href="#">Ananay Dubey</a></div>
+  <div class="logo"><a href="#">Ananay</a></div>
     <ul class="links">
       <li><a href="#">Home</a></li>
       <li>
