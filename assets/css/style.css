@@ -33,7 +33,7 @@ body.disabledScroll {
 
 main {
     height: auto;
-    min-height: 200vh;
+    min-height: 95vh;
     width: 100%;
     position: absolute;
     top: 53vh;
@@ -43,6 +43,7 @@ main {
     padding-top: 20px;
     margin: 0;
     z-index: 60;
+    padding-bottom: 100px;
 }
 
 c-nav {
@@ -121,8 +122,9 @@ c-nav {
     color: #e7e7e7;
     font-size: 40px;
     position: fixed;
-    top: 27vh;
+    top: 25vh;
     left: 50%;
+    font-weight: 900;
     transform: translateX(-50%);
     text-align: center;
     z-index: 5;
@@ -140,9 +142,6 @@ c-nav {
     -moz-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
     -o-transform: translateX(-50%);
-}
-
-.welcome-div h1 {
     filter: invert(10%);
 }
 
@@ -163,7 +162,7 @@ c-nav {
         position: fixed;
         top: 180px;
         left: 50%;
-        height: 80vh;
+        height: 60vh;
         transform: translate(-50%, -50%);
         -webkit-transform: translate(-50%, -50%);
         -moz-transform: translate(-50%, -50%);
@@ -173,13 +172,13 @@ c-nav {
     .welcome-div h1 {
         font-size: 30px;
         position: fixed;
-        top: 44vh;
+        top: 30.5vh;
         left: 50%;
         transform: translateX(-50%);
         text-align: center;
     }
     main {
-        top: 52vh;
+        top: 48vh;
     }
 }
 
@@ -191,7 +190,7 @@ footer {
     padding-bottom: 0px;
     padding-top: 80px;
     position: absolute;
-    top: 243vh;
+    top: 150vh;
     background: #111;
 }
 
@@ -430,10 +429,10 @@ a {
     border-radius: 1.5px;
 }
 
-@media screen and (max-width:900px) {
+@media screen and (max-width:1000px) {
     footer {
         position: absolute;
-        top: 243vh;
+        top: 190vh;
         background: #111;
     }
     .footer {
@@ -442,5 +441,26 @@ a {
         background: #111;
         flex-direction: column;
         margin-bottom: 0;
+    }
+    main {
+        height: 150vh;
+    }
+}
+
+@media screen and (max-width:700px) {
+    footer {
+        position: absolute;
+        top: 260vh;
+        background: #111;
+    }
+    .footer {
+        padding: 40px;
+        flex-wrap: wrap;
+        background: #111;
+        flex-direction: column;
+        margin-bottom: 0;
+    }
+    main {
+        height: 220vh;
     }
 }

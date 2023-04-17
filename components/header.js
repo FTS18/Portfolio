@@ -13,6 +13,24 @@ headerTemplate.innerHTML = `
   text-decoration: none;
   font-family: 'Chivo Mono', monospace;
 }
+body::-webkit-scrollbar {
+    width: 14px;
+    background: #111111;
+}
+
+body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 0px rgba(0, 0, 0, 0.7);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #383838;
+    border: 3.8px solid #111111;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+}
 .wrapper{
   background: #121212;
   position: fixed;
