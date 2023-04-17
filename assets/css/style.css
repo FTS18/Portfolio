@@ -32,8 +32,7 @@ body.disabledScroll {
 }
 
 main {
-    height: auto;
-    min-height: 95vh;
+    height: 110vh;
     width: 100%;
     position: absolute;
     top: 53vh;
@@ -190,7 +189,7 @@ footer {
     padding-bottom: 0px;
     padding-top: 80px;
     position: absolute;
-    top: 150vh;
+    top: 165vh;
     background: #111;
 }
 
@@ -432,7 +431,7 @@ a {
 @media screen and (max-width:1000px) {
     footer {
         position: absolute;
-        top: 190vh;
+        top: 200vh;
         background: #111;
     }
     .footer {
@@ -443,7 +442,7 @@ a {
         margin-bottom: 0;
     }
     main {
-        height: 150vh;
+        height: 160vh;
     }
 }
 
