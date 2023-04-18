@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <meta name="viewport" content="width=device-width, height=device-height, minimum-scale=1, maximum-scale=1, user-scalable=no, initial-scale=1">
-    <title>Portfolio | Ananay Dubey</title>
-    <link rel="manifest" href="manifest.json">
+    <meta name="viewport" content="width=device-width, height=device-height, minimum-scale=1, maximum-scale=1, initial-scale=1">
+    <!--user-scalable=no,-->
+    <title>Portfolio | Ananay</title>
+    <link rel="manifest" href="/manifest.json">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
@@ -14,9 +15,58 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" integrity="sha512-oHDEc8Xed4hiW6CxD7qjbnI+B07vDdX7hEPTvn9pSZO1bcRqHp8mj9pyr+8RVC2GmtEfI2Bi9Ke9Ass0as+zpg==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/theme.css">
-    <script src="components/header.js"></script>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/theme.css">
+    <script src="/components/header.js"></script>
+    <script>
+        function registerServiceWorker() {
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('assets/js/sw.js').then(reg => {
+                        console.log('Service Worker successfully Registration successful', reg);
+                    })
+                    .catch(e => console.error('Error during service worker registration:', e));
+            } else {
+                console.warn('Service Worker is not supported');
+            }
+        }
+        registerServiceWorker();
+        const btnAdd = document.getElementById("btnAdd");
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            btnAdd.style.display = 'block';
+        });
+        btnAdd.addEventListener('click', (e) => {
+            btnAdd.style.display = 'none';
+            deferredPrompt.prompt();
+            deferredPrompt.userChoice
+                .then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('User accepted the A2HS prompt');
+                    } else {
+                        console.log('User dismissed the A2HS prompt');
+                    }
+                    deferredPrompt = null;
+                });
+        });
+        window.addEventListener('appinstalled', () => {
+            hideInstallPromotion();
+            deferredPrompt = null;
+            console.log('PWA was installed');
+        });
+        if (navigator.share) {
+            navigator.share({
+                    title: 'Portfolio | Ananay',
+                    text: 'Check out my Portfolio',
+                    url: 'https://portfolio-ananay.netlify.app',
+                })
+                .then(() => console.log('Successful share'))
+                .catch((error) => console.log('Error sharing', error));
+        } else {
+            console.log(`Your system doesn't support sharing files.`);
+        }
+    </script>
 </head>
 
 <body>
@@ -25,20 +75,21 @@
         <div class="overlay">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <img class="lazy" src="assets/images/2.webp">
+                    <img class="lazy" alt="" src="assets/images/2.webp">
                 </div>
                 <div class="swiper-slide">
-                    <img class="lazy" src="assets/images/7.webp">
+                    <img class="lazy" alt="" src="assets/images/7.webp">
                 </div>
                 <div class="swiper-slide">
-                    <img class="lazy" src="assets/images/4.webp">
+                    <img class="lazy" alt="" src="assets/images/4.webp">
                 </div>
                 <div class="swiper-slide">
-                    <img class="lazy" src="assets/images/image8.webp">
+                    <img class="lazy" alt="" src="assets/images/image8.webp">
                 </div>
             </div>
         </div>
         <H1>Projects</H1>
+        <!--<button id="btnAdd">Install</button>-->
     </section>
     <main>
         <div class="projects">
@@ -46,7 +97,7 @@
                 <div class="column">
                     <div class="card">
                         <a href="https://radioo.netlify.app">
-                            <img src="assets/images/screenshots/ss2.webp">
+                            <img alt="" src="assets/images/screenshots/ss2.webp">
                             <div class="p-title">
                                 Music Website
                             </div>
@@ -56,7 +107,7 @@
                 <div class="column">
                     <div class="card">
                         <a href="https://finixx.netlify.app">
-                            <img src="assets/images/screenshots/ss1.webp">
+                            <img alt="" src="assets/images/screenshots/ss1.webp">
                             <div class="p-title">
                                 Gaming Website
                             </div>
@@ -66,7 +117,7 @@
                 <div class="column">
                     <div class="card">
                         <a href="https://spacify-v1.netlify.app">
-                            <img src="assets/images/screenshots/ss3.webp">
+                            <img alt="" src="assets/images/screenshots/ss3.webp">
                             <div class="p-title">
                                 My First Website
                             </div>
@@ -76,7 +127,7 @@
                 <div class="column">
                     <div class="card">
                         <a href="https://youtube.com/@Spacify18">
-                            <img src="assets/images/screenshots/ss4.webp">
+                            <img alt="" src="assets/images/screenshots/ss4.webp">
                             <div class="p-title">
                                 YouTube
                             </div>
@@ -86,7 +137,7 @@
                 <div class="column">
                     <div class="card">
                         <a href="https://fts18.github.io/Computer-Practical/">
-                            <img src="assets/images/screenshots/ss5.webp">
+                            <img alt="" src="assets/images/screenshots/ss5.webp">
                             <div class="p-title">
                                 Practicals (HTML+PYTHON)
                             </div>
@@ -121,7 +172,7 @@
                             <span class="location text">Kanpur, India</span></a>
                     </div>
                     <div class="phone">
-                        <a href="#"><span class="fa fa-broadcast-tower"></span>
+                        <a href="tel:9580711960"><span class="fa fa-broadcast-tower"></span>
                             <span class="phone text">+91-9580711960</span></a>
                     </div>
                     <div class="email">
@@ -163,8 +214,6 @@
             </center>
         </div>
     </footer>
-    <script src="assets/js/script.js"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script>
         const swiper = new Swiper('.overlay', {
@@ -177,7 +226,6 @@
             speed: 600
         });
     </script>
-
 </body>
 
 </html>

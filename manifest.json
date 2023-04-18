@@ -1,0 +1,10 @@
+{
+    "name": "Portfolio",
+    "short_name": "Portfolio",
+    "description": "All my projects are available here!",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "start_url": "/",
+    "theme_color": "#00ff73",
+    "background_color": "#000"
+}
