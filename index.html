@@ -4,32 +4,42 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <meta name="viewport" content="width=device-width, height=device-height, minimum-scale=1, maximum-scale=1, initial-scale=1">
+    <meta name="viewport" content="width=device-width, height=device-height, minimum-scale=1, initial-scale=1">
     <!--user-scalable=no,-->
     <title>Portfolio | Ananay</title>
+    <meta name="description" content="Portfolio Page">
+    <meta name="google" content="notranslate" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="theme-color" content="#121212">
+    <meta name="msapplication-navbutton-color" content="#121212">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#121212">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="msapplication-starturl" content="/index.html">
+    <meta name="application-name" content="Portfolio">
+    <meta name="apple-mobile-web-app-title" content="Portfolio">
     <link rel="manifest" href="/manifest.json">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <script src="https://kit.fontawesome.com/47c40e1acb.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" integrity="sha512-oHDEc8Xed4hiW6CxD7qjbnI+B07vDdX7hEPTvn9pSZO1bcRqHp8mj9pyr+8RVC2GmtEfI2Bi9Ke9Ass0as+zpg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-oHDEc8Xed4hiW6CxD7qjbnI+B07vDdX7hEPTvn9pSZO1bcRqHp8mj9pyr+8RVC2GmtEfI2Bi9Ke9Ass0as+zpg==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/theme.css">
     <script src="/components/header.js"></script>
     <script>
-        function registerServiceWorker() {
-            if ('serviceWorker' in navigator) {
-                navigator.serviceWorker.register('assets/js/sw.js').then(reg => {
-                        console.log('Service Worker successfully Registration successful', reg);
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then(registration => {
+                        console.log('Service Worker is registered with scope: ', registration.scope);
                     })
-                    .catch(e => console.error('Error during service worker registration:', e));
-            } else {
-                console.warn('Service Worker is not supported');
-            }
-        }
-        registerServiceWorker();
+                    .catch(err => {
+                        console.error('Registration failed: ', err);
+                    });
+            });
+        };
         const btnAdd = document.getElementById("btnAdd");
         let deferredPrompt;
         window.addEventListener('beforeinstallprompt', (e) => {
@@ -156,10 +166,10 @@
                         Maecenas ac aliquet justo, ut dictum nunc. Mauris vel condimentum felis. Duis ipsum velit, tempor venenatis libero sed, aliquam maximus ex. Praesent gravida vitae est sit amet tempor. Fusce ex purus, tristique quis consectetur
                         ac, elementum nec tortor. Cras scelerisque tellus et mauris rhoncus, vitae pulvinar metus rhoncus.</p>
                     <div class="footer-f">
-                        <a href="https://youtube.com/c/spacify18" class="fa fa-youtube-play"></a>
+                        <a href="https://youtube.com/c/spacify18" class="fa fa-youtube"></a>
                         <a href="mailto:spacify1807@gmail.com?Subject=Hi%20there!" class="fa fa-comments"></a>
-                        <a href="instagram.com/spacify18" class="fa fa-instagram"></a>
-                        <!--<a href="https://GitHub.com/fts18" class="fa fa-github"></a>-->
+                        <a href="instagram.com/spacify18" class="fa fa-hashtag"></a>
+                        <a href="https://GitHub.com/fts18" class="fa fa-github"></a>
                         <a href="https://twitter.com/spacify18" class="fa fa-twitter"></a>
                     </div>
                 </div>
