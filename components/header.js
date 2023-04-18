@@ -310,9 +310,9 @@ nav .content .links{
   <input type="checkbox" id="show-menu">
   <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
   <div class="content">
-  <div class="logo"><a href="#">Ananay</a></div>
+  <div class="logo"><a href="index.html">Ananay</a></div>
     <ul class="links">
-      <li><a href="#">Home</a></li>
+      <li><a href="index.html">Home</a></li>
       <li>
         <a href="#" class="desktop-link">Explore</a>
         <input type="checkbox" id="show-features">
@@ -344,7 +344,7 @@ nav .content .links{
         </ul>
       </li>
       <li><a href="#">Feedback</a></li>
-      <li><a class="active" href="#">Login</a></li>
+      <li><a class="active" href="login.html">Login</a></li>
     </ul>
   </div>
   <label for="show-search" class="search-icon"><i class="fas fa-search"></i></label>
