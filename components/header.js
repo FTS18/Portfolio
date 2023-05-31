@@ -310,7 +310,7 @@ nav .content .links{
   <input type="checkbox" id="show-menu">
   <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
   <div class="content">
-  <div class="logo"><a href="index.html">Ananay</a></div>
+  <div class="logo"><a href="https://portfolio-ananay.netlify.app/index.html">Ananay</a></div>
     <ul class="links">
       <li><a href="https://portfolio-ananay.netlify.app/index.html">Home</a></li>
       <li>
@@ -329,16 +329,18 @@ nav .content .links{
         <input type="checkbox" id="show-services">
         <label for="show-services">Connect</label>
         <ul>
-          <li><a href="#">Mail Us</a></li>
-          <li><a href="#">Chat</a></li>
+          <li><a href='mailto:dubeyananay@gmail.com&Subject=Feedback'>Mail Us</a></li>
+          <li><a href="https://wa.me/9005811799">Chat</a></li>
           <li>
             <a href="#" class="desktop-link">Social</a>
             <input type="checkbox" id="show-items">
             <label for="show-items">Social</label>
             <ul>
-            <li><a href="#">Youtube</a></li>
-            <li><a href="#">Instagram</a></li>
-            <li><a href="#">Twitter</a></li>
+            <li><a href="https://youtube.com/c/spacify18">Youtube</a></li>
+            <li><a href="https://instagram.com/ananay_dubey">Instagram</a></li>
+            <li><a href="https://twitter.com/ananaydubey">Twitter</a></li>
+            <li><a href="https://linkedin.com/in/ananaydubey">LinkedIN</a></li>
+            <li><a href="https://github.com/FTS18/">Github</a></li>
             </ul>
           </li>
         </ul>
