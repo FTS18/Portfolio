@@ -312,16 +312,16 @@ nav .content .links{
   <div class="content">
   <div class="logo"><a href="index.html">Ananay</a></div>
     <ul class="links">
-      <li><a href="index.html">Home</a></li>
+      <li><a href="https://portfolio-ananay.netlify.app/index.html">Home</a></li>
       <li>
         <a href="#" class="desktop-link">Explore</a>
         <input type="checkbox" id="show-features">
         <label for="show-features">Explore</label>
         <ul>
-          <li><a href="finixx.netlify.app">Finixx</a></li>
-          <li><a href="radioo.netlify.app">Musify</a></li>
-          <li><a href="#">Python</a></li>
-          <li><a href="#">Weather</a></li>
+          <li><a href="https://finixx.netlify.app">Finixx</a></li>
+          <li><a href="https://radioo.netlify.app">Musify</a></li>
+          <li><a href="https://github.com/FTS18/Class-12-Python">Python Projects</a></li>
+          <li><a href="https://portfolio-ananay.netlify.app/pages/youtube-video-downloader.html">Video Downloader</a></li>
         </ul>
       </li>
       <li>

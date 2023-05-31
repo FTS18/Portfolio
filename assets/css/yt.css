@@ -45,26 +45,6 @@ c-nav {
     font-family: 'Chivo Mono', monospace;
 }
 
-#btnConvert {
-    position: fixed;
-    top: 450px;
-    left: 50%;
-    z-index: 10000000;
-    background: #fff;
-    color: black;
-    transform: translate(-50%, 0%);
-    -webkit-transform: translate(-50%, 0%);
-    -moz-transform: translate(-50%, 0%);
-    -ms-transform: translate(-50%, 0%);
-    -o-transform: translate(-50%, 0%);
-    padding: 20px;
-    border-radius: 10%;
-    -webkit-border-radius: 10%;
-    -moz-border-radius: 10%;
-    -ms-border-radius: 10%;
-    -o-border-radius: 10%;
-}
-
 .welcome-div {
     position: fixed;
     top: 0;
