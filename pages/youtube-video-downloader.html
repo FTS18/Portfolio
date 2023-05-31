@@ -29,7 +29,7 @@
                 <H1>Convert Youtube Videos!</H1>
             </div>
             <div class="find">
-                <input type="text" id="input" placeholder="Enter the URL">
+                <input type="text" id="input" placehlder="Enter the URL">
                 <!--<i class="fas fa-magnifying-glass"></i>-->
                 <select class='opt'>
                         <option value='mp3'>mp3</option>
@@ -59,7 +59,7 @@
             var format = selectBox.options[selectBox.selectedIndex].value;
             alert(format);
             var title = head;
-            window.location.href = `https://portfolio-ananay.netlify.app/pages/download?URL=${URL}&title=${title}&format=${format}`;
+            window.location.href = `http://localhost:4000/download?URL=${URL}&title=${title}&format=${format}`;
         }
 
         function convert() {

@@ -8,7 +8,7 @@ const filesToCache = [
     'components/header.js',
 ];
 
-const staticCacheName = 'v2';
+const staticCacheName = 'v3';
 
 self.addEventListener('install', event => {
     console.log('Attempting to install service worker and cache static assets');
