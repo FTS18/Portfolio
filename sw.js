@@ -1,15 +1,14 @@
 const filesToCache = [
-    /**
-        'assets/css/style.css',
-        'assets/css/theme.css',
-        'pages/offline.html',
-        'pages/404.html',
-        '/index.html',
-        'assets/js/script.js',
-        'components/header.js',**/
+    'assets/css/style.css',
+    'assets/css/theme.css',
+    'pages/offline.html',
+    'pages/404.html',
+    '/index.html',
+    'assets/js/script.js',
+    'components/header.js',
 ];
 
-const staticCacheName = 'v1';
+const staticCacheName = 'v2';
 
 self.addEventListener('install', event => {
     console.log('Attempting to install service worker and cache static assets');

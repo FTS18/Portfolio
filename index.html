@@ -24,7 +24,7 @@
     <script src="https://kit.fontawesome.com/47c40e1acb.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-oHDEc8Xed4hiW6CxD7qjbnI+B07vDdX7hEPTvn9pSZO1bcRqHp8mj9pyr+8RVC2GmtEfI2Bi9Ke9Ass0as+zpg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/theme.css">
     <script src="/components/header.js"></script>
@@ -40,31 +40,6 @@
                     });
             });
         };
-        const btnAdd = document.getElementById("btnAdd");
-        let deferredPrompt;
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-            btnAdd.style.display = 'block';
-        });
-        btnAdd.addEventListener('click', (e) => {
-            btnAdd.style.display = 'none';
-            deferredPrompt.prompt();
-            deferredPrompt.userChoice
-                .then((choiceResult) => {
-                    if (choiceResult.outcome === 'accepted') {
-                        console.log('User accepted the A2HS prompt');
-                    } else {
-                        console.log('User dismissed the A2HS prompt');
-                    }
-                    deferredPrompt = null;
-                });
-        });
-        window.addEventListener('appinstalled', () => {
-            hideInstallPromotion();
-            deferredPrompt = null;
-            console.log('PWA was installed');
-        });
         if (navigator.share) {
             navigator.share({
                     title: 'Portfolio | Ananay',
