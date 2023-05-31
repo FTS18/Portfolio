@@ -1,11 +1,12 @@
 const filesToCache = [
-    'assets/css/style.css',
-    'assets/css/theme.css',
-    'pages/offline.html',
-    'pages/404.html',
-    '/index.html',
-    'assets/js/script.js',
-    'components/header.js',
+    /**
+        'assets/css/style.css',
+        'assets/css/theme.css',
+        'pages/offline.html',
+        'pages/404.html',
+        '/index.html',
+        'assets/js/script.js',
+        'components/header.js',**/
 ];
 
 const staticCacheName = 'v1';
