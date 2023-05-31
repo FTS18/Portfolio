@@ -1,6 +1,6 @@
 {
     "name": "portfolio",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Has links to all projects i'd worked on",
     "main": "server.js",
     "type": "module",
