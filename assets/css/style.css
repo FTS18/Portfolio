@@ -431,7 +431,8 @@ a {
         margin-bottom: 0;
     }
     main{
-        top: 43vh;}
+        top: 43vh;
+    }
 }
 
 @media screen and (max-width:700px) {
