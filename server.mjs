@@ -1,14 +1,15 @@
 import express from 'express';
 import cors from 'cors';
 import ytdl from 'ytdl-core';
-const app = express();
-const PORT = 4000;
-app.use(cors());
+import http from 'http';
+import fs from 'fs';
+import { fileURLToPath } from 'url';
+import path from 'path';
 
-app.listen(PORT, () => {
-    console.log(`Server Works !!! At port ${PORT}`);
-});
-app.get('/download', async(req, res) => {
+const app = express();
+const router = express.Router();
+app.use(cors());
+router.get('/download', async(req, res) => {
     try {
         var URL = req.query.URL;
         var title = req.query.title;
@@ -40,4 +41,22 @@ app.get('/download', async(req, res) => {
     } catch (err) {
         console.error('Error saving the video:', err);
     }
+});
+app.use('/api', router);
+
+const __filename = fileURLToPath(
+    import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const socketPath = path.resolve(__dirname, 'socket.sock'); // Replace with your desired socket file path
+
+// Create the socket file
+if (fs.existsSync(socketPath)) {
+    fs.unlinkSync(socketPath);
+}
+
+const server = http.createServer(app);
+server.listen(socketPath, () => {
+    fs.chmodSync(socketPath, '777');
+    console.log(`Server is running on Unix socket ${socketPath}`);
 });
