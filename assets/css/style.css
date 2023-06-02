@@ -9,7 +9,7 @@ html {
     top: 0;
     left: 0;
     width: 100%;
-    background: #000;
+    background: #080808;
     scroll-behavior: smooth;
 }
 
@@ -23,7 +23,6 @@ body {
     background: #121212;
     width: 100vw;
     height: auto;
-    min-height: 200vh;
     position: relative;
 }
 
@@ -32,17 +31,14 @@ body.disabledScroll {
 }
 
 main {
-    height: 110vh;
     width: 100%;
     position: absolute;
     top: 53vh;
     left: 0;
     background: #080808;
-    padding: 20px;
     padding-top: 20px;
     margin: 0;
     z-index: 60;
-    padding-bottom: 100px;
 }
 
 c-nav {
@@ -101,26 +97,6 @@ c-nav {
 
 .slide {
     left: 300px;
-}
-
-#btnConvert {
-    position: fixed;
-    top: 250px;
-    left: 50%;
-    z-index: 10000000;
-    background: #fff;
-    color: black;
-    transform: translate(-50%, 0%);
-    -webkit-transform: translate(-50%, 0%);
-    -moz-transform: translate(-50%, 0%);
-    -ms-transform: translate(-50%, 0%);
-    -o-transform: translate(-50%, 0%);
-    padding: 20px;
-    border-radius: 10%;
-    -webkit-border-radius: 10%;
-    -moz-border-radius: 10%;
-    -ms-border-radius: 10%;
-    -o-border-radius: 10%;
 }
 
 .welcome-div {
@@ -196,9 +172,6 @@ c-nav {
         transform: translateX(-50%);
         text-align: center;
     }
-    main {
-        top: 48vh;
-    }
 }
 
 footer {
@@ -214,10 +187,11 @@ footer {
 }
 
 .footer {
+    position: relative;
+    top: 0;
     padding: 40px;
     background: #111;
-    margin-bottom: 0;
-    bottom: 0;
+    margin: 0;
     display: flex;
     font-family: 'Space Grotesk', sans-serif;
     text-decoration: none;
@@ -356,7 +330,7 @@ a {
 
 .bottom center {
     position: relative;
-    bottom: 0;
+    top: 0;
     width: 100%;
     left: 0;
     color: #e7e7e7;
@@ -449,11 +423,6 @@ a {
 }
 
 @media screen and (max-width:1000px) {
-    footer {
-        position: absolute;
-        top: 200vh;
-        background: #111;
-    }
     .footer {
         padding: 40px;
         flex-wrap: wrap;
@@ -461,25 +430,16 @@ a {
         flex-direction: column;
         margin-bottom: 0;
     }
-    main {
-        height: 160vh;
-    }
+    main{
+        top: 43vh;}
 }
 
 @media screen and (max-width:700px) {
-    footer {
-        position: absolute;
-        top: 260vh;
-        background: #111;
-    }
     .footer {
         padding: 40px;
         flex-wrap: wrap;
         background: #111;
         flex-direction: column;
         margin-bottom: 0;
-    }
-    main {
-        height: 220vh;
     }
 }
