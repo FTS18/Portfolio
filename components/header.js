@@ -320,7 +320,7 @@ nav .content .links{
         <ul>
           <li><a href="https://finixx.netlify.app">Finixx</a></li>
           <li><a href="https://radioo.netlify.app">Musify</a></li>
-          <li><a href="https://github.com/FTS18/Class-12-Python">Python Projects</a></li>
+          <li><a href="https://github.com/FTS18/Python-Projects">Python Projects</a></li>
           <li><a href="/pages/youtube-video-downloader.html">Video Downloader</a></li>
         </ul>
       </li>
@@ -329,7 +329,7 @@ nav .content .links{
         <input type="checkbox" id="show-services">
         <label for="show-services">Connect</label>
         <ul>
-          <li><a href='mailto:dubeyananay@gmail.com&Subject=Feedback'>Mail Us</a></li>
+          <li><a href='mailto:spacify107@gmail.com&Subject=Feedback'>Mail Us</a></li>
           <li><a href="https://wa.me/9005811799">Chat</a></li>
           <li>
             <a href="#" class="desktop-link">Social</a>
@@ -693,7 +693,7 @@ nav .content .links{
         <ul>
           <li><a href="https://finixx.netlify.app">Finixx</a></li>
           <li><a href="https://radioo.netlify.app">Musify</a></li>
-          <li><a href="https://github.com/FTS18/Python-Programs">Python Projects</a></li>
+          <li><a href="https://github.com/FTS18/Python-Projects">Python Projects</a></li>
           <li><a href="#">Video Downloader</a></li>
         </ul>
       </li>
@@ -702,7 +702,7 @@ nav .content .links{
         <input type="checkbox" id="show-services">
         <label for="show-services">Connect</label>
         <ul>
-          <li><a href='mailto:dubeyananay@gmail.com&Subject=Feedback'>Mail Us</a></li>
+          <li><a href='mailto:spacify1807@gmail.com&Subject=Feedback'>Mail Us</a></li>
           <li><a href="https://wa.me/9005811799">Chat</a></li>
           <li>
             <a href="#" class="desktop-link">Social</a>
