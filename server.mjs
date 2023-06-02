@@ -1,10 +1,6 @@
 import express from 'express';
 import cors from 'cors';
 import ytdl from 'ytdl-core';
-import http from 'http';
-import fs from 'fs';
-import { fileURLToPath } from 'url';
-import path from 'path';
 //AIzaSyAe1zGORzeLjOLOXWAnZVu74k1xxoLw5Nk
 const app = express();
 const router = express.Router();
