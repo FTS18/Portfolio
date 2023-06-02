@@ -29,7 +29,7 @@ body.disabledScroll {
     overflow: hidden;
 }
 
-c-nav {
+c-nav,c-nav1 {
     z-index: 10000;
     overflow: hidden;
     position: fixed;
@@ -167,10 +167,6 @@ a {
     display: inline-block;
     text-align: center;
     margin-left: -9.5px;
-}
-
-.c1 {
-    /**border-right: 1px solid #fff;**/
 }
 
 .c2 {
