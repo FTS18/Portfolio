@@ -54,7 +54,7 @@ body::-webkit-scrollbar-thumb {
     text-align: center;
     background-color: #222;
     overflow: hidden;
-    height: 45vh;
+    height: 37vh;
     max-height: 16rem;
     transition: .7s ease-in-out;
     font-size: 0.7rem;
