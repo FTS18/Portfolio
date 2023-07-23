@@ -53,7 +53,7 @@ nav .content .links{
   margin-left: 380px;
   display: flex;
 }
-.content .logo a{
+.content  a{
   color: #e7e7e7;
   font-size: 30px;
   font-weight: 600;

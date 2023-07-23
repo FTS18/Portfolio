@@ -58,6 +58,7 @@ body::-webkit-scrollbar-thumb {
     max-height: 16rem;
     transition: .7s ease-in-out;
     font-size: 0.7rem;
+    object-fit: cover;
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -67,14 +68,14 @@ body::-webkit-scrollbar-thumb {
     -moz-transition: .7s ease-in-out;
     -ms-transition: .7s ease-in-out;
     -o-transition: .7s ease-in-out;
+    border: 1.8px solid #111;
 }
 
 .card img {
     width: 100%;
-    height: 12.5rem;
+    height: 80%;
     top: 50%;
     left: 50%;
-    object-fit: cover;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: bottom;
@@ -83,6 +84,7 @@ body::-webkit-scrollbar-thumb {
 .card:hover {
     border-radius: 4px;
     outline-offset: 3px;
+    border: 0;
     outline: 1.8px solid #e7e7e7;
 }
 .content{
@@ -127,10 +129,10 @@ body::-webkit-scrollbar-thumb {
         margin-bottom: 20px;
     }
     .card {
-        max-height: 258px;
+        max-height: 210px;
     }
     .card img {
-        height: 12.6rem;
+        height:75%;
     }
     .projects {
         position: relative;

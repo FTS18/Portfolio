@@ -117,7 +117,7 @@ c-nav {
     color: #e7e7e7;
     font-size: 40px;
     position: fixed;
-    top: 25vh;
+    top: 23vh;
     left: 50%;
     font-weight: 900;
     transform: translateX(-50%);
@@ -167,7 +167,7 @@ c-nav {
     .welcome-div h1 {
         font-size: 30px;
         position: fixed;
-        top: 29.5vh;
+        top: 25vh;
         left: 50%;
         transform: translateX(-50%);
         text-align: center;
