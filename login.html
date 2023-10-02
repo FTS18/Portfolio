@@ -80,46 +80,29 @@
                 </div>
             </div>
         </div>
+        <script src="assets/js/main.js"></script>
         <script>
-        const signUpButton1 = document.getElementById('signUp1');
-        const signInButton1 = document.getElementById('signIn1');
-        const signUpButton2 = document.getElementById('signUp2');
-        const signInButton2 = document.getElementById('signIn2');
-        const container = document.getElementById('container');
-
-        signUpButton1.addEventListener('click', () => {
-            container.classList.add("right-panel-active");
-        });
-
-        signInButton1.addEventListener('click', () => {
-            container.classList.remove("right-panel-active");
-        });
-
-        signUpButton2.addEventListener('click', () => {
-            container.classList.add("right-panel-active");
-        });
-
-        signInButton2.addEventListener('click', () => {
-            container.classList.remove("right-panel-active");
-        });
-const headerUrl = 'components/navbar.html';
-
-function loadHeader() {
-const cNav = document.querySelector('c-nav'); 
-
-fetch(headerUrl)
-.then((response) => response.text())
-.then((headerHtml) => {
-cNav.innerHTML = headerHtml;
-})
-.catch((error) => {
-console.error('Error loading header:', error);
-});
-}
-
-loadHeader();
-
-    </script>
+            const signUpButton1 = document.getElementById('signUp1');
+            const signInButton1 = document.getElementById('signIn1');
+            const signUpButton2 = document.getElementById('signUp2');
+            const signInButton2 = document.getElementById('signIn2');
+            const container = document.getElementById('container');
+            
+            signUpButton1.addEventListener('click', () => {
+                container.classList.add("right-panel-active");
+            });
+            
+            signInButton1.addEventListener('click', () => {
+                container.classList.remove("right-panel-active");
+            });
+            
+            signUpButton2.addEventListener('click', () => {
+                container.classList.add("right-panel-active");
+            });
+            
+            signInButton2.addEventListener('click', () => {
+                container.classList.remove("right-panel-active");
+            });</script>
     </body>
 
 </html>
