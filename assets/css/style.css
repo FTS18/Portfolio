@@ -1,3 +1,12 @@
+:root {
+    --background-color: #080808;
+    --text-color: #e7e7e7;
+    --primary-color: #00ff73;
+    --secondary-color: #111;
+    --tertiary-color: #242424;
+    --footer-color: #101010;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -9,18 +18,18 @@ html {
     top: 0;
     left: 0;
     width: 100%;
-    background: #080808;
+    background: var(--background-color);
     scroll-behavior: smooth;
 }
 
 body {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 15px;
-    color: #e7e7e7;
+    color: var(--text-color);
     padding: 0;
     margin: 0;
     overflow-x: hidden;
-    background: #121212;
+    background: var(--secondary-color);
     width: 100vw;
     height: auto;
     position: relative;
@@ -33,9 +42,10 @@ body.disabledScroll {
 main {
     width: 100%;
     position: absolute;
-    top: 53vh;
+    top: 54vh;
     left: 0;
-    background: #080808;
+    background: var(--background-color);
+    background: #090909;
     padding-top: 20px;
     margin: 0;
     z-index: 60;
@@ -43,10 +53,12 @@ main {
 
 c-nav {
     z-index: 10000;
-    overflow: hidden;
     position: fixed;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 75px;
+    background: #000;
 }
 
 * {
@@ -73,7 +85,7 @@ c-nav {
     -ms-flex-align: center;
     -webkit-align-items: center;
     align-items: center;
-    background: #121212;
+    background: var(--secondary-color);
 }
 
 .overlay {
@@ -114,7 +126,7 @@ c-nav {
 }
 
 .welcome-div h1 {
-    color: #e7e7e7;
+    color: var(--text-color);
     font-size: 40px;
     position: fixed;
     top: 23vh;
@@ -127,12 +139,6 @@ c-nav {
     padding: 10px 20px 10px 20px;
     border-radius: 8px;
     transition: .5s ease;
-    /**background: url(../images/back.png);
-    -webkit-text-stroke: 2px #e7e7e7;
-    -webkit-background-clip: text;
-    background-position: 0 0;
-    animation: back 11s linear infinite;
-    **/
     -webkit-transform: translateX(-50%);
     -moz-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
@@ -141,7 +147,7 @@ c-nav {
 }
 
 .welcome-div h1::selection {
-    color: #e7e7e7;
+    color: var(--text-color);
     background: rgba(255, 255, 255, 0.6);
 }
 
@@ -151,46 +157,23 @@ c-nav {
     }
 }
 
-@media only screen and (max-width: 968px) {
-    /* For mobile phones: */
-    .welcome-div {
-        position: fixed;
-        top: 180px;
-        left: 50%;
-        height: 60vh;
-        transform: translate(-50%, -50%);
-        -webkit-transform: translate(-50%, -50%);
-        -moz-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        -o-transform: translate(-50%, -50%);
-    }
-    .welcome-div h1 {
-        font-size: 30px;
-        position: fixed;
-        top: 25vh;
-        left: 50%;
-        transform: translateX(-50%);
-        text-align: center;
-    }
-}
-
 footer {
     width: 100%;
     height: auto;
-    color: #e7e7e7;
+    color: var(--text-color);
     z-index: 20;
     padding-bottom: 0px;
     padding-top: 80px;
     position: absolute;
     top: 165vh;
-    background: #111;
+    background: var(--tertiary-color);
 }
 
 .footer {
     position: relative;
     top: 0;
-    padding: 40px;
-    background: #111;
+    padding: 40px 8%;
+    background: var(--footer-color);
     margin: 0;
     display: flex;
     font-family: 'Space Grotesk', sans-serif;
@@ -206,7 +189,8 @@ footer {
 
 .box h2 {
     font-size: 30px;
-    font-weight: 800;
+    font-weight: 900;
+    letter-spacing: -2px;
     font-family: 'Poppins', sans-serif;
     text-transform: uppercase;
 }
@@ -229,19 +213,19 @@ footer {
     position: absolute;
     content: '';
     height: 0px;
-    width: 25%;
-    top: 10px;
+    width: 30%;
+    top: 12px;
     padding-bottom: 2px;
-    background: #00ff73;
+    background: var(--primary-color);
 }
 
 a {
     text-decoration: none;
-    color: #e7e7e7;
+    color: var(--text-color);
 }
 
 .left .footer-content p {
-    text-align: justify;
+    text-align: left;
     font-size: 15px;
 }
 
@@ -253,17 +237,17 @@ a {
     padding: 0 2px;
     width: 35px;
     height: 35px;
-    background: #222;
+    background: var(--tertiary-color);
     text-align: center;
     font-size: 20px;
-    line-height: 45px;
+    line-height: 35px;
     border-radius: 4px;
     transition: 0.3s ease-in-out;
     -webkit-tap-highlight-color: transparent;
 }
 
 .left .footer-content .footer-f a:hover {
-    color: #00ff73;
+    color: var(--primary-color);
 }
 
 .center .footer-content a {
@@ -279,17 +263,17 @@ a {
     font-size: 17px;
     height: 35px;
     width: 35px;
-    line-height: 42.5px;
+    line-height: 35px;
     text-align: center;
     border-radius: 50%;
-    background: #222;
+    background: var(--tertiary-color);
     transition: 0.275s ease-in-out;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
 }
 
 .center .footer-content a:hover {
-    color: #00ff73;
+    color: var(--primary-color);
 }
 
 .center .footer-content .text {
@@ -319,11 +303,11 @@ a {
 .right form input,
 .right form textarea {
     width: 100%;
-    background: #252525;
+    background: var(--tertiary-color);
     font-size: 15px;
     padding-left: 7px;
     outline: none;
-    border: 1px solid #222;
+    border: 1px solid var(--secondary-color);
     border-radius: 1.5px;
     color: #888;
 }
@@ -333,11 +317,11 @@ a {
     top: 0;
     width: 100%;
     left: 0;
-    color: #e7e7e7;
+    color: var(--text-color);
     z-index: 5000;
     padding: 40px;
-    border-top: .5px solid #222;
-    background: #000;
+    border-top: .5px solid var(--secondary-color);
+    background: var(--background-color);
 }
 
 .bottom center span {
@@ -346,7 +330,7 @@ a {
 }
 
 .bottom center a {
-    color: #00ff73;
+    color: var(--primary-color);
     font-weight: 500;
     transition: .3s ease-in-out;
     -webkit-tap-highlight-color: transparent;
@@ -373,7 +357,7 @@ a {
 
 .right form .text sub,
 .right form .text sup {
-    color: #e7e7e7;
+    color: var(--text-color);
 }
 
 .right form input {
@@ -387,9 +371,13 @@ a {
     max-height: 120px;
     padding-top: 10px;
     padding-bottom: 10px;
-    overflow: scroll;
+    overflow-y: scroll;
     resize: none;
     font-size: 18px;
+    overflow-x: hidden;
+    border: 1px solid var(--secondary-color);
+    border-radius: 1.5px;
+    color: #888;
 }
 
 .right form .sendEmail {
@@ -398,20 +386,20 @@ a {
 }
 
 .right form .sendEmail button {
-    color: #e7e7e7;
+    color: var(--text-color);
     text-align: center;
     border-radius: 0.75px;
     width: 100%;
     height: 50px;
-    background: #00ff73;
-    border: 0.5px solid #000;
+    background: var(--primary-color);
+    border: 0.5px solid var(--secondary-color);
     outline: none;
     font-weight: 600;
     font-family: 'Poppins', sans-serif;
     text-transform: uppercase;
     cursor: pointer;
     transition: .3s ease-in-out;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -422,25 +410,57 @@ a {
     border-radius: 1.5px;
 }
 
-@media screen and (max-width:1000px) {
+@media screen and (max-width:968px) {
     .footer {
         padding: 40px;
         flex-wrap: wrap;
-        background: #111;
+        background: var(--tertiary-color);
         flex-direction: column;
         margin-bottom: 0;
     }
-    main{
-        top: 43vh;
+
+    main {
+        position: absolute;
+        top: 45vh;
+        left: 0;
     }
+
+    .welcome-div {
+        position: fixed;
+        top: 180px;
+        left: 50%;
+        height: 60vh;
+        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+    }
+
+    .welcome-div h1 {
+        font-size: 30px;
+        position: fixed;
+        top: 48%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+
+    }
+
 }
 
 @media screen and (max-width:700px) {
     .footer {
-        padding: 40px;
+        padding: 60px 10px;
         flex-wrap: wrap;
-        background: #111;
+        background: var(--footer-color);
         flex-direction: column;
         margin-bottom: 0;
+    }
+    .footer .box{
+        margin-bottom: 30px;
+    }
+    .right form .sendEmail button {
+        margin-bottom: 0px;
     }
 }

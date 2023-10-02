@@ -1,7 +1,5 @@
 
-const headerTemplatee = document.createElement('template');
 
-headerTemplatee.innerHTML = `
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
@@ -40,11 +38,16 @@ body::-webkit-scrollbar-thumb {
 .wrapper nav{
   position: relative;
   display: flex;
-  max-width: calc(100% - 200px);
+  max-width: calc(100% - 290px);
   margin: 0 auto;
   height: 75px;
   align-items: center;
   justify-content: space-between;
+}.wrapper{
+  background: rgba(19, 19, 19, 0.8);
+  position: fixed;
+  width: 100%;
+  box-shadow: 0px 20px 100px rgba(0, 0, 0, 1);
 }
 nav .content{
   display: flex;
@@ -54,7 +57,7 @@ nav .content .links{
   margin-left: 380px;
   display: flex;
 }
-.content .logo a{
+.content  a{
   color: #e7e7e7;
   font-size: 30px;
   font-weight: 600;
@@ -80,7 +83,7 @@ nav .content .links{
   background: #323c4e;
 }
 .content .links li .active{
-  color: #03fc7f:;
+  color: #03fc7f;
 }
 .wrapper .search-icon,
 .wrapper .menu-icon{
@@ -185,11 +188,11 @@ nav .content .links{
 /* Responsive code start */
 @media screen and (max-width: 1250px){
   .wrapper nav{
-    max-width: 100%;
+    max-width: calc(100% - 200px);
     padding: 0 20px;
   }
   nav .content .links{
-    margin-left: 270px;
+    margin-left: 150px;
   }
   .content .links li a{
     padding: 8px 13px;
@@ -202,7 +205,9 @@ nav .content .links{
   }
 }
 
-@media screen and (max-width: 900px){
+@media screen and (max-width: 968px){
+    .wrapper,.wrapper nav{max-width: 100%;
+    padding:0;}
   .wrapper .menu-icon{
     display: block;
   }
@@ -212,7 +217,7 @@ nav .content .links{
   nav .content .links{
     display: block;
     position: fixed;
-    background: #121212;
+    background: #0e0e0e;
     height: 100%;
     width: 100%;
     top: 70px;
@@ -311,9 +316,9 @@ nav .content .links{
   <input type="checkbox" id="show-menu">
   <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
   <div class="content">
-  <div class="logo"><a href="../index.html">Ananay</a></div>
+  <div class="logo"><a href="index.html">Ananay</a></div>
     <ul class="links">
-      <li><a href="../index.html">Home</a></li>
+      <li><a href="index.html">Home</a></li>
       <li>
         <a href="#" class="desktop-link">Explore</a>
         <input type="checkbox" id="show-features">
@@ -322,7 +327,7 @@ nav .content .links{
           <li><a href="https://finixx.netlify.app">Finixx</a></li>
           <li><a href="https://radioo.netlify.app">Musify</a></li>
           <li><a href="https://github.com/FTS18/Python-Projects">Python Projects</a></li>
-          <li><a href="#">Video Downloader</a></li>
+          <li><a href="/pages/youtube-video-downloader.html">Video Downloader</a></li>
         </ul>
       </li>
       <li>
@@ -330,7 +335,7 @@ nav .content .links{
         <input type="checkbox" id="show-services">
         <label for="show-services">Connect</label>
         <ul>
-          <li><a href='mailto:spacify1807@gmail.com&Subject=Feedback'>Mail Us</a></li>
+          <li><a href='mailto:spacify107@gmail.com&Subject=Feedback'>Mail Us</a></li>
           <li><a href="https://wa.me/9005811799">Chat</a></li>
           <li>
             <a href="#" class="desktop-link">Social</a>
@@ -357,17 +362,3 @@ nav .content .links{
   </form>
 </nav>
 </div>
-`;
-
-class Headerr extends HTMLElement {
-    constructor() {
-        super();
-    }
-
-    connectedCallback() {
-        const shadowRooot = this.attachShadow({ mode: 'closed' });
-        shadowRooot.appendChild(headerTemplatee.content);
-    }
-}
-
-customElements.define('c-nav1', Headerr);
