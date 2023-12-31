@@ -1,9 +1,21 @@
 [
     {
-        "title": "VSEC | School Website",
-        "link": "https://fts18.github.io/VSEC/",
+        "title": "DynWave | Chat",
+        "link": "https://dynwave.onrender.com/",
+        "image": "assets/images/screenshots/chat.webp",
+        "date": "Dec, 2023"
+    },
+    {
+        "title": "VSEC | School",
+        "link": "https://vsec.netlify.app/",
         "image": "assets/images/screenshots/ss12.webp",
         "date": "Aug, 2023"
+    },
+    {
+        "title": "Reartify | Bytekart V2",
+        "link": "https://reartify.netlify.app/",
+        "image": "assets/images/screenshots/ecomv2.webp",
+        "date": "Sept, 2023"
     },
     {
         "title": "TechnoFair | Space",
@@ -12,7 +24,7 @@
         "date": "July, 2023"
     },
     {
-        "title": "ByteKart | E Commerce Site",
+        "title": "ByteKart | E Commerce",
         "link": "https://bytekart.netlify.app/",
         "image": "assets/images/screenshots/ecom.webp",
         "date": "June, 2023"
@@ -24,7 +36,7 @@
         "date": "May, 2022"
     },
     {
-        "title": "Video Downloader | Youtube",
+        "title": "Youtube Video Downloader",
         "link": "/pages/youtube-video-downloader.html",
         "image": "assets/images/screenshots/ss6.webp",
         "date": "May, 2023"

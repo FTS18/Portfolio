@@ -1,0 +1,6 @@
+[build]
+  command = "npm start"
+  functions="functions"
+
+[dev]
+  functions = "functions"  

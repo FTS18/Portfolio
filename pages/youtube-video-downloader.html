@@ -16,8 +16,6 @@
     <link rel="stylesheet" href="/assets/css/yt.css">
     <link rel="stylesheet" href="/assets/css/theme.css">
     <script src="/components/header.js"></script>
-    <script src="/assets/js/script.js"></script>
-    <script type="module" src="/server.mjs"></script>
 </head>
 
 <body>
@@ -52,16 +50,13 @@
         function dnl() {
             convert()
             sendURL(value)
-        }
-
-        function sendURL(URL) {
-            var selectBox = document.querySelector(".opt");
-            var format = selectBox.options[selectBox.selectedIndex].value;
-            alert(format);
-            var title = head;
-            window.location.href = `http://localhost:4000/download?URL=${URL}&title=${title}&format=${format}`;
-        }
-
+        }    function sendURL(URL) {
+        var selectBox = document.querySelector(".opt");
+        var format = selectBox.options[selectBox.selectedIndex].value;
+        alert(format);
+        var title = head;
+        window.location.href = `http://127.0.0.1:4000/download?URL=${URL}&title=${title}&format=${format}`;
+    }
         function convert() {
             input = document.getElementById('input');
             value = input.value;
