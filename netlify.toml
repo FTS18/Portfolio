@@ -1,5 +1,5 @@
 [build]
-  command = "npm start"
+  command = "node server.mjs"
   functions="functions"
 
 [dev]
