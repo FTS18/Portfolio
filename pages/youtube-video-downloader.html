@@ -55,7 +55,7 @@
         var format = selectBox.options[selectBox.selectedIndex].value;
         alert(format);
         var title = head;
-        window.location.href = `http://127.0.0.1:4000/download?URL=${URL}&title=${title}&format=${format}`;
+        window.location.href = `http://ananay.netlify.app/.netlify/functions/server/download?URL=${URL}&title=${title}&format=${format}`;
     }
         function convert() {
             input = document.getElementById('input');

@@ -1,6 +1,0 @@
-[build]
-  command = "node server.mjs"
-  functions="functions"
-
-[dev]
-  functions = "functions"  
