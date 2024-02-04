@@ -16,6 +16,88 @@
     <link rel="stylesheet" href="/assets/css/yt.css">
     <link rel="stylesheet" href="/assets/css/theme.css">
     <script src="/components/header.js"></script>
+    <script>
+        
+        function dnl() {
+            convert();
+            sendURL(value);
+        }
+    
+        function sendURL(URL) {
+            var selectBox = document.querySelector(".opt");
+            var format = selectBox.options[selectBox.selectedIndex].value;
+            alert(format);
+            var title = head;
+            var baseUrl = window.location.origin;
+            window.location.href = `http://localhost:8888/.netlify/functions/server/download?URL=${URL}&title=${title}&format=${format}`;
+        }
+    
+        function convert() {
+            input = document.getElementById('input');
+            value = input.value;
+            console.log('URL: ' + value);
+            getTitle();
+            thumb = img;
+            console.log(thumb);
+            title = head;
+            const addCSS = css => document.head.appendChild(document.createElement("style")).innerHTML = css;
+            addCSS(`.background {background:url(${thumb});background-repeat: no-repeat;background-attachment: fixed;background-position: center;background-size: cover;object-fit: cover;}`);
+        }
+    
+            function getTitle() {
+                var input = document.getElementById('input');
+                var value = input.value;
+                var videoId = getVideoIdFromUrl(value)
+                var apiKey = 'AIzaSyCHo41IKHPSn-MWzRCfK71vSPeN43b5xbw';
+                var url = 'https://www.youtube.com/oembed?url=' + value + '&format=json&alt=json&prettyprint=true';
+                var json = (function() {
+                    var json = null;
+                    $.ajax({
+                        'async': false,
+                        'global': false,
+                        'url': url,
+                        'dataType': "json",
+                        'success': function(data) {
+                            json = data;
+                        }
+                    });
+                    return json;
+                })();
+                img = json.thumbnail_url;
+                head = json.title;
+            }
+    
+            function getVideoIdFromUrl(url) {
+                var regExp = /^.*(youtu.be\/|v\/|e\/|u\/\w+\/|embed\/|v=)([^#\&\?]*).*/;
+                var match = url.match(regExp);
+                if (match && match[2].length === 11) {
+                    return match[2];
+                } else {
+                    return null;
+                }
+            }
+    
+            function getThumbnail() {
+                var input = document.getElementById('input');
+                var imgUrl = input.value;
+                if (imgUrl.indexOf("https://www.youtube.com/watch?v=") != -1) {
+                    let vidId = imgUrl.split('v=')[1].substring(0, 11);
+                    let ytImgUrl = `https://img.youtube.com/vi/${vidId}/maxresdefault.jpg`;
+                    console.log(ytImgUrl);
+                } else if (imgUrl.indexOf("https://youtu.be/") != -1) {
+                    let vidId = imgUrl.split('be/')[1].substring(0, 11);
+                    let ytImgUrl = `https://img.youtube.com/vi/${vidId}/maxresdefault.jpg`;
+                    console.log(ytImgUrl);
+                } else if (imgUrl.match(/\.(jpe?g|png|gif|bmp|webp)$/i)) {
+                    imgTag.src = imgUrl;
+                } else {
+                    imgTag.src = "";
+                    button.style.pointerEvents = "none";
+                    previewArea.classList.remove("active");
+                }
+            }
+        </script>
+    
 </head>
 
 <body>
@@ -46,82 +128,6 @@
                 2023 All Rights Reserved.</span>
         </center>
     </div>
-    <script>
-        function dnl() {
-            convert()
-            sendURL(value)
-        }    function sendURL(URL) {
-        var selectBox = document.querySelector(".opt");
-        var format = selectBox.options[selectBox.selectedIndex].value;
-        alert(format);
-        var title = head;
-        window.location.href = `http://ananay.netlify.app/.netlify/functions/server/download?URL=${URL}&title=${title}&format=${format}`;
-    }
-        function convert() {
-            input = document.getElementById('input');
-            value = input.value;
-            console.log('URL: ' + value);
-            getTitle();
-            thumb = img;
-            console.log(thumb);
-            title = head;
-            const addCSS = css => document.head.appendChild(document.createElement("style")).innerHTML = css;
-            addCSS(`.background {background:url(${thumb});background-repeat: no-repeat;background-attachment: fixed;background-position: center;background-size: cover;object-fit: cover;}`)
-        }
-
-        function getTitle() {
-            var input = document.getElementById('input');
-            var value = input.value;
-            var videoId = getVideoIdFromUrl(value)
-            var apiKey = 'AIzaSyCHo41IKHPSn-MWzRCfK71vSPeN43b5xbw';
-            var url = 'https://www.youtube.com/oembed?url=' + value + '&format=json&alt=json&prettyprint=true';
-            var json = (function() {
-                var json = null;
-                $.ajax({
-                    'async': false,
-                    'global': false,
-                    'url': url,
-                    'dataType': "json",
-                    'success': function(data) {
-                        json = data;
-                    }
-                });
-                return json;
-            })();
-            img = json.thumbnail_url;
-            head = json.title;
-        }
-
-        function getVideoIdFromUrl(url) {
-            var regExp = /^.*(youtu.be\/|v\/|e\/|u\/\w+\/|embed\/|v=)([^#\&\?]*).*/;
-            var match = url.match(regExp);
-            if (match && match[2].length === 11) {
-                return match[2];
-            } else {
-                return null;
-            }
-        }
-
-        function getThumbnail() {
-            var input = document.getElementById('input');
-            var imgUrl = input.value;
-            if (imgUrl.indexOf("https://www.youtube.com/watch?v=") != -1) {
-                let vidId = imgUrl.split('v=')[1].substring(0, 11);
-                let ytImgUrl = `https://img.youtube.com/vi/${vidId}/maxresdefault.jpg`;
-                console.log(ytImgUrl);
-            } else if (imgUrl.indexOf("https://youtu.be/") != -1) {
-                let vidId = imgUrl.split('be/')[1].substring(0, 11);
-                let ytImgUrl = `https://img.youtube.com/vi/${vidId}/maxresdefault.jpg`;
-                console.log(ytImgUrl);
-            } else if (imgUrl.match(/\.(jpe?g|png|gif|bmp|webp)$/i)) {
-                imgTag.src = imgUrl;
-            } else {
-                imgTag.src = "";
-                button.style.pointerEvents = "none";
-                previewArea.classList.remove("active");
-            }
-        }
-    </script>
 </body>
 
 </html>
