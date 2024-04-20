@@ -101,7 +101,6 @@ img{user-select: none;}
     z-index: 6;
     filter: blur(40px);
 }
-
 .slide {
     left: 300px;
 }
@@ -173,7 +172,7 @@ footer {
     border-top: 2px solid #222;
     margin: 0;
     display: flex;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: "Darker Grotesque", sans-serif;
     text-decoration: none;
     padding-bottom: 0px;
 }
@@ -188,7 +187,7 @@ footer {
     font-size: 30px;
     font-weight: 900;
     letter-spacing: -1px;
-    font-family: "Archivo Black", sans-serif;
+    font-family: "Darker Grotesque", sans-serif;
     text-transform: uppercase;
 }
 
@@ -223,7 +222,7 @@ a {
 
 .left .footer-content p {
     text-align: left;
-    font-size: 15px;
+    font-size: 18px;
 }
 
 .left .footer-content .footer-f {
@@ -236,9 +235,9 @@ a {
     height: 35px;
     background: var(--tertiary-color);
     text-align: center;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 35px;
-    border-radius: 4px;
+    border-radius: 0;
     transition: 0.3s ease-in-out;
     -webkit-tap-highlight-color: transparent;
 }
@@ -257,7 +256,7 @@ a {
 }
 
 .center .footer-content .fa {
-    font-size: 17px;
+    font-size: 18px;
     height: 35px;
     width: 35px;
     line-height: 35px;
@@ -274,11 +273,10 @@ a {
 }
 
 .center .footer-content .text {
-    font-size: 15px;
+    font-size: 16.5px;
     font-weight: 500;
     margin-left: 3px;
 }
-
 .right form .msg {
     margin-top: 20px;
 }

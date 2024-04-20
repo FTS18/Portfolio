@@ -75,8 +75,8 @@
     cursor: pointer;
     position: relative;
     transition: 0.3s ease-in-out;
-    height: 350px;
-    background: url("../images/image.png") center/cover;
+    height: 350px;background-position: center;
+    background-size: cover;
     justify-content: center;
 }
 
@@ -171,8 +171,8 @@
     width: 30%;
     overflow: hidden;
     height: 350px;
-    position: relative;
-    background: url('../images/32.webp')center/cover;
+    position: relative;background-position: center;
+    background-size: cover;
     /* Ensure the position context for .socialm */
 }
 
@@ -229,8 +229,8 @@
     /* Adjust width as needed */
     overflow: hidden;
     height: 350px;
-    position: relative;
-    background: url('../images/14.webp');
+    position: relative;background-position: top left;
+    background-size: cover;
     /* Ensure the position context for .lknown and .llearning */
 }
 
@@ -248,6 +248,13 @@
     /* Transition the top property */
 }
 
+.lazy-bg {
+    background-image: url('../images/placeholder.webp'); /* Placeholder image */
+}
+
+.loaded-bg {
+    background-image:none; 
+}
 .languages:hover .profcontent {
     /* Display language details when hovering over .languages */
     top: 0;
@@ -328,7 +335,7 @@
     object-fit: cover;
     border: 2px solid #2c2c2c;
     position: relative;
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 16 / 9;
 }
 
 
@@ -438,7 +445,8 @@
         width: 100%;
         transform: translateX(0%);
     }
-.card{margin: 0;}
+.card{margin: 0;
+    aspect-ratio: 16 / 10;}
     .intro {
         top: 60vh;
         background: #151515;

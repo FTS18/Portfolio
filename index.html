@@ -25,11 +25,8 @@
             href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
         <script src="https://kit.fontawesome.com/47c40e1acb.js"
             crossorigin="anonymous"></script>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-            rel="stylesheet"><link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-            <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Darker+Grotesque:wght@300..900&display=swap" rel="stylesheet"> <link
+            <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&display=swap" rel="stylesheet"> <link
             href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap"
             rel="stylesheet">
         <link rel="stylesheet"
@@ -38,7 +35,6 @@
         <link rel="stylesheet" href="/assets/css/style.css">
         <link rel="stylesheet" href="/assets/css/theme.css">
         <script src="/components/header.js"></script>
-        <script src="/assets/js/navbar.js"></script>
         <script>
         if (navigator.share) {
             navigator.share({
@@ -58,19 +54,17 @@
     <section class="welcome-div">
         <div class="overlay">
             <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <img class="lazy" alt src="assets/images/17.webp">
-                </div>
-                <div class="swiper-slide">
-                    <img class="lazy" alt src="assets/images/18.webp">
-                </div>
-                <div class="swiper-slide">
-                    <img class="lazy" alt src="assets/images/24.webp">
-                </div>
-                <div class="swiper-slide">
-                    <img class="lazy" alt src="assets/images/23.webp">
-                </div>
+            <div class="swiper-slide">
+                <img class="lazy" alt="" data-src="assets/images/18.webp" src="assets/images/placeholder.webp">
             </div>
+            <div class="swiper-slide">
+                <img class="lazy" alt="" data-src="assets/images/24.webp" src="assets/images/placeholder.webp">
+            </div>
+            <div class="swiper-slide">
+                <img class="lazy" alt="" data-src="assets/images/23.webp" src="assets/images/placeholder.webp">
+            </div>
+        </div>
+        
         </div>
         <h1>Portfolio.</h1>
         <div class="intro">
@@ -80,18 +74,18 @@
     <main>
         <section class="personal">
         <div class="p-container">
-            <div class="prof"><div class="stitle">Personal</div>
+            <div class="prof lazy-bg" data-bg="url('assets/images/image.webp')"><div class="stitle">Personal</div>
                 <div class="p-details">
                     <!-- Personal details -->
                     <div class="name">Ananay Dubey</div>
-                    <div class="age">18</div>
+                    <div class="age" id="age"></div>
                     <div class="leftbocx">
                     <div class="phonee"><a href="tel:+919580711960">+919580711960</a></div>
                     <div class="emaill"><a href="mailto:dubeyananay@gmail.com">dubeyananay@gmail.com</a></div>
                 </div>
                 </div>
             </div>      
-            <div class="languages"><div class="stitle">Skills</div>
+            <div class="languages lazy-bg" data-bg="url('assets/images/14.webp')"><div class="stitle">Skills</div>
             <div class="profcontent">
                 <div class="lknown">
                     <div class="llt">Known</div>
@@ -107,13 +101,13 @@
                 </div>
             </div>
             </div>
-            <div class="socialsp"><div class="stitle">CONNECT</div>
+            <div class="socialsp lazy-bg" data-bg="url('assets/images/32.webp')"><div class="stitle">CONNECT</div>
             <div class="socialm">
-                <!-- Social media links -->
-                <div class="bocx b3"><div class="btext">YouTube</div></div>
-                <div class="bocx b3"><div class="btext">Instagram</div></div>
-                <div class="bocx b3"><div class="btext">WhatsApp</div></div>
-                <div class="bocx b3"><div class="btext">GitHub</div></div>
+                <div class="bocx b3"><div class="btext"><a href="https://www.youtube.com/c/spacify18">YouTube</a></div></div>
+            <div class="bocx b3"><div class="btext"><a href="https://www.instagram.com/ananay_dubey">Instagram</a></div></div>
+            <div class="bocx b3"><div class="btext"><a href="https://wa.me/+919580711960">WhatsApp</a></div></div>
+            <div class="bocx b3"><div class="btext"><a href="https://github.com/fts18">GitHub</a></div></div>
+            
             </div></div>
         </div>
     </section>
@@ -125,7 +119,7 @@
             </div>
         </div>
         </section>
-        <div id="footer-placeholder"></div>
+        <div id="footer-placeholder"><span id="year"></span></div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="assets/js/main.js"></script>
