@@ -8,10 +8,12 @@
 }
 
 * {
+    font-optical-sizing: auto;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
+    font-optical-sizing: auto;
 }
 
 html {
@@ -23,7 +25,6 @@ html {
 }
 
 body {
-    font-family: 'Space Grotesk', sans-serif;
     font-size: 15px;
     color: var(--text-color);
     padding: 0;
@@ -33,20 +34,16 @@ body {
     width: 100vw;
     height: auto;
     position: relative;
+    font-family: "Chivo Mono", monospace;
 }
 
 body.disabledScroll {
     overflow: hidden;
-}
-
-main {
+}main {
     width: 100%;
     position: absolute;
-    top: 54vh;
+    top: 64vh;
     left: 0;
-    background: var(--background-color);
-    background: #090909;
-    padding-top: 20px;
     margin: 0;
     z-index: 60;
 }
@@ -65,8 +62,6 @@ c-nav {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    text-decoration: none;
-    font-family: 'Chivo Mono', monospace;
 }
 
 .swiper-slide {
@@ -94,17 +89,17 @@ c-nav {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(120deg, #eaee44, #33d0ff);
     opacity: 1;
     z-index: 5;
 }
-
+img{user-select: none;}
 .swiper-slide img {
     display: block;
     object-fit: cover;
-    width: 100%;
-    height: 200vh;
+    width: 90%;
+    height: 50vh;
     z-index: 6;
+    filter: blur(40px);
 }
 
 .slide {
@@ -113,23 +108,23 @@ c-nav {
 
 .welcome-div {
     position: absolute;
-    top: 50px;
+    top:40px;
     left: 0%;
     text-transform: uppercase;
     font-size: 20px;
     width: 100%;
-    height: 65vh;
+    height: 90vh;
     font-weight: 900;
     z-index: 4;
-    background: #000;
+    background: #111;
     overflow: hidden;
 }
 
 .welcome-div h1 {
     color: var(--text-color);
-    font-size: 40px;
-    position: fixed;
-    top: 23vh;
+    font-size: 60px;
+    position: absolute;
+    top: 35%;
     left: 50%;
     font-weight: 900;
     transform: translateX(-50%);
@@ -143,7 +138,9 @@ c-nav {
     -moz-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
     -o-transform: translateX(-50%);
-    filter: invert(10%);
+    filter: invert(20%);
+    font-family: 'Darker Grotesque', sans-serif;
+    display: none;
 }
 
 .welcome-div h1::selection {
@@ -166,14 +163,14 @@ footer {
     padding-top: 80px;
     position: absolute;
     top: 165vh;
-    background: var(--tertiary-color);
 }
 
 .footer {
     position: relative;
     top: 0;
     padding: 40px 8%;
-    background: var(--footer-color);
+    background: #151515;
+    border-top: 2px solid #222;
     margin: 0;
     display: flex;
     font-family: 'Space Grotesk', sans-serif;
@@ -190,8 +187,8 @@ footer {
 .box h2 {
     font-size: 30px;
     font-weight: 900;
-    letter-spacing: -2px;
-    font-family: 'Poppins', sans-serif;
+    letter-spacing: -1px;
+    font-family: "Archivo Black", sans-serif;
     text-transform: uppercase;
 }
 
@@ -419,34 +416,6 @@ a {
         margin-bottom: 0;
     }
 
-    main {
-        position: absolute;
-        top: 45vh;
-        left: 0;
-    }
-
-    .welcome-div {
-        position: fixed;
-        top: 180px;
-        left: 50%;
-        height: 60vh;
-        transform: translate(-50%, -50%);
-        -webkit-transform: translate(-50%, -50%);
-        -moz-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        -o-transform: translate(-50%, -50%);
-    }
-
-    .welcome-div h1 {
-        font-size: 30px;
-        position: fixed;
-        top: 48%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-
-    }
-
 }
 
 @media screen and (max-width:700px) {
@@ -457,6 +426,20 @@ a {
         flex-direction: column;
         margin-bottom: 0;
     }
+    main {
+        position: absolute;
+        top:43vh;
+        left: 0;
+    }
+
+    .welcome-div h1 {
+        font-size: 35px;
+        top: 33%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+display: block;
+    }
+
     .footer .box{
         margin-bottom: 30px;
     }

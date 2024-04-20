@@ -10,7 +10,6 @@
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
-  font-family: 'Chivo Mono', monospace;
 }
 body::-webkit-scrollbar {
     width: 14px;
@@ -56,11 +55,6 @@ nav .content{
 nav .content .links{
   margin-left: 380px;
   display: flex;
-}
-.content  a{
-  color: #e7e7e7;
-  font-size: 30px;
-  font-weight: 600;
 }
 .content .links li{
   list-style: none;
@@ -115,32 +109,36 @@ nav .content .links{
   pointer-events: auto;
 }
 .search-box input{
-  width: 100%;
-  height: 100%;
-  border: none;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 80%;
+  height: 70%;
   outline: none;
   font-size: 17px;
   color: #e7e7e7;
-  background: #222;
-  padding: 0 100px 0 15px;
+  background: #262626;
+  padding: 0 10px 0 15px;
+  border-radius: 50px;
+  border: 1px solid #555;
 }
 .search-box input::placeholder{
   color: #f2f2f2;
 }
 .search-box .go-icon{
   position: absolute;
-  right: 0px;
   top: 50%;
   transform: translateY(-50%);
-  line-height: 60px;
-  width: 70px;
-  height: 100%;
-  background: #121212;
-  border: none;
+  padding: 15px;
+  text-align: center;
+  background: #222;
+  border: 1px solid #555;
   outline: none;
   color: #e7e7e7;
   font-size: 20px;
   cursor: pointer;
+  z-index: 5;
+  border-radius: 50px;
 }
 .wrapper input[type="checkbox"]{
   display: none;
@@ -287,7 +285,6 @@ nav .content .links{
     max-width: calc(100% - 70px);
   }
   .wrapper .search-box .go-icon{
-    width: 30px;
     right: 0;
   }
   .wrapper .search-box input{
@@ -358,9 +355,9 @@ nav .content .links{
     </ul>
   </div>
   <label for="show-search" class="search-icon"><i class="fas fa-search"></i></label>
-  <form action="#" class="search-box">
-    <input type="text" placeholder="Type Something to Search..." required>
-    <button type="submit" class="go-icon"><i class="fas fa-long-arrow-alt-right"></i></button>
-  </form>
+  <div class="search-box">
+    <input type="text" id="search-input" placeholder="Type Something to Search..." required>
+    <button id="search-btn" href="#projects" onclick="searchProjects()" class="go-icon"><i class="fas fa-long-arrow-alt-right"></i></button>
+  </div>
 </nav>
 </div>

@@ -1,74 +1,100 @@
 [
     {
-        "title": "DynWave | Chat",
+        "title": "Lync Video Confrerencing",
+        "link": "https://lyncc.netlify.app/",
+        "image": "assets/images/screenshots/4.webp",
+        "date": "Apr, 2024",
+        "tags": ["Web","Call","Communication","Collaborations","Arunjay", "Video","HTML","CSS","Javascript","Firebase","WebRTC","Video","Login System"]
+    },
+    {
+        "title": "MySQL Project",
+        "link": "https://github.com/FTS18/mysql-python",
+        "image": "assets/images/screenshots/1.webp",
+        "date": "Feb, 2024",
+        "tags": ["Mysql","Database","class 12", "practicals","Python","Homework", "Projects", "Programming", "Education", "12"]
+    },
+    {
+        "title": "DynWave Chat",
         "link": "https://dynwave.onrender.com/",
         "image": "assets/images/screenshots/chat.webp",
-        "date": "Dec, 2023"
+        "date": "Jan, 2024",
+        "tags": ["Web", "Chatting","Communication","HTML","CSS","Javascript", "Messaging","Divyanshi"]
     },
     {
-        "title": "VSEC | School",
+        "title": "VSEC School",
         "link": "https://vsec.netlify.app/",
-        "image": "assets/images/screenshots/ss12.webp",
-        "date": "Aug, 2023"
+        "image": "assets/images/screenshots/school.webp",
+        "date": "Aug, 2023",
+        "tags": ["Web", "Education","HTML","CSS","Javascript", "School","Edtech"]
     },
     {
-        "title": "Reartify | Bytekart V2",
+        "title": "Reartify ECOMM",
         "link": "https://reartify.netlify.app/",
-        "image": "assets/images/screenshots/ecomv2.webp",
-        "date": "Sept, 2023"
+        "image": "assets/images/screenshots/yz.webp",
+        "date": "Sept, 2023",
+        "tags": ["Web", "Commerce","HTML","CSS","Javascript", "Shopping", "Online Store", "e commerce", "TechFest"]
     },
     {
-        "title": "TechnoFair | Space",
+        "title": "TechnoFair Space",
         "link": "https://fts18.github.io/technofair/",
-        "image": "assets/images/screenshots/ss7.webp",
-        "date": "July, 2023"
+        "image": "assets/images/screenshots/tf.webp",
+        "date": "July, 2023",
+        "tags": ["Web", "Event","HTML","CSS","Javascript", "Space", "TechFest","Isro"]
     },
     {
-        "title": "ByteKart | E Commerce",
+        "title": "ByteKart ECOMM",
         "link": "https://bytekart.netlify.app/",
         "image": "assets/images/screenshots/ecom.webp",
-        "date": "June, 2023"
+        "date": "June, 2023",
+        "tags": ["Web", "Commerce","HTML","CSS","Javascript", "Shopping", "Online Store", "e commerce"]
     },
     {
-        "title": "Finixx | Gaming",
+        "title": "Finixx Gaming",
         "link": "https://finixx.netlify.app",
-        "image": "assets/images/screenshots/ss9.webp",
-        "date": "May, 2022"
+        "image": "assets/images/screenshots/5.webp",
+        "date": "May, 2022",
+        "tags": ["Web", "Gaming","HTML","CSS","Javascript","Entertainment", "Online Gaming", "Collaborations","Arunjay","Fun"]
     },
     {
         "title": "Youtube Video Downloader",
         "link": "/pages/youtube-video-downloader.html",
         "image": "assets/images/screenshots/ss6.webp",
-        "date": "May, 2023"
+        "date": "May, 2023",
+        "tags": ["Web", "Video","HTML","CSS","Javascript", "Downloader", "YouTube", "Utility"]
     },
     {
-        "title": "Radioo | Music",
+        "title": "Radioo Music",
         "link": "https://radioo.netlify.app",
         "image": "assets/images/screenshots/ss10.webp",
-        "date": "Dec, 2021"
+        "date": "Dec, 2021",
+        "tags": ["Web", "Music","HTML","CSS","Javascript", "Radio", "Entertainment", "Streaming"]
     },
     {
-        "title": "Python Projects | Class 12",
+        "title": "Python Projects Class 12",
         "link": "https://github.com/FTS18/Python-Projects/",
-        "image": "assets/images/screenshots/py.webp",
-        "date": "May, 2023"
+        "image": "assets/images/screenshots/3.webp",
+        "date": "May, 2023",
+        "tags": ["Python","Holiday","Homework", "Projects", "Programming", "Education", "12","Practicals"]
     },
     {
-        "title": "Spacify | YouTube",
+        "title": "Spacify YouTube",
         "link": "https://youtube.com/@Spacify18",
-        "image": "assets/images/screenshots/ss4.webp",
-        "date": "Subscribe"
+        "image": "assets/images/screenshots/yt.webp",
+        "date": "Subscribe",
+        "tags": ["YouTube", "Channel", "Video", "Content", "FTS", "Ananay","spacify"]
     },
     {
-        "title": "Practicals [HTML+PYTHON]",
+        "title": "Practicals Class 10",
         "link": "https://fts18.github.io/Computer-Practical/",
-        "image": "assets/images/screenshots/ss5.webp",
-        "date": "Oct, 2021"
+        "image": "assets/images/screenshots/2.webp",
+        "date": "Oct, 2021",
+        "tags": ["Python","Holiday","HTML","CSS","Javascript","Homework", "Projects", "Programming", "Education", "10","Practicals", "Web"]
     },
     {
         "title": "My First Website",
         "link": "https://spacify-v1.netlify.app",
-        "image": "assets/images/screenshots/ss3.webp",
-        "date": "Jan, 2021"
+        "image": "assets/images/screenshots/mfw.webp",
+        "date": "Jan, 2021",
+        "tags": ["Web", "Website","HTML","CSS","Javascript", "Personal", "Portfolio", "Development"]
     }
 ]
