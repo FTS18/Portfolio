@@ -25,8 +25,10 @@
             href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
         <script src="https://kit.fontawesome.com/47c40e1acb.js"
             crossorigin="anonymous"></script>
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-            <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&display=swap" rel="stylesheet"> <link
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&display=swap"
+            rel="stylesheet"> <link
             href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap"
             rel="stylesheet">
         <link rel="stylesheet"
@@ -48,84 +50,131 @@
             console.log(`Your system doesn't support sharing files.`);}
     </script>
     </head>
-
-<body>
-    <c-nav></c-nav>
-    <section class="welcome-div">
-        <div class="overlay">
-            <div class="bars"></div>
-            <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <img alt src="assets/images/18.webp">
-            </div>
-            <div class="swiper-slide">
-                <img class="lazy" alt="" data-src="assets/images/24.webp" src="assets/images/placeholder.webp">
-            </div>
-            <div class="swiper-slide">
-                <img class="lazy" alt="" data-src="assets/images/23.webp" src="assets/images/placeholder.webp">
-            </div>
+    <body class="disabledScroll">
+        <div class="loader" id="loader">
+            <div class="clock-loader"></div>
         </div>
-        
-        </div>
-        <h1>Portfolio.</h1>
-        <div class="intro">
-            I am a Frontend Web Developer
-        </div>
-    </section>
-    <main>
-        <section class="personal">
-        <div class="p-container">
-            <div class="prof lazy-bg" data-bg="url('assets/images/image.webp')"><div class="stitle">Personal</div>
-                <div class="p-details">
-                    <!-- Personal details -->
-                    <div class="name">Ananay Dubey</div>
-                    <div class="age" id="age"></div>
-                    <div class="leftbocx">
-                    <div class="phonee"><a href="tel:+919580711960">+919580711960</a></div>
-                    <div class="emaill"><a href="mailto:dubeyananay@gmail.com">dubeyananay@gmail.com</a></div>
-                </div>
-                </div>
-            </div>      
-            <div class="languages lazy-bg" data-bg="url('assets/images/14.webp')"><div class="stitle">Skills</div>
-            <div class="profcontent">
-                <div class="lknown">
-                    <div class="llt">Known</div>
-                    <div class="bocx b11"><div class="btext">Python</div></div>
-                    <div class="bocx b12"><div class="btext">HTML/CSS/JS</div></div>
-                    <div class="bocx b13"><div class="btext">MySQL</div></div>
+        <c-nav></c-nav>
+        <section class="welcome-div">
+            <div class="overlay" id="zoomContainer">
+                <div class="bars"></div>
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img class="img" alt src="assets/images/20.webp">
                     </div>
-                <div class="llearning">
-                    <div class="llt">Learning</div>
-                    <div class="bocx b21"><div class="btext">Flutter</div></div>
-                    <div class="bocx b22"><div class="btext">React</div></div>
-                    <div class="bocx b23"><div class="btext">AI/ML</div></div>
+                    <div class="swiper-slide">
+                        <img class="lazy img" alt
+                            data-src="assets/images/24.webp"
+                            src="assets/images/placeholder.webp">
+                    </div>
+                    <div class="swiper-slide">
+                        <img class="img lazy" alt
+                            data-src="assets/images/23.webp"
+                            src="assets/images/placeholder.webp">
+                    </div>
+                </div>
+
+            </div>
+            <div class="demo">
+                <div id="textblock">
+                    <h1 id="charsUppercase">Portfolio</h1>
                 </div>
             </div>
+            <div class="intro">
+                I am a Frontend Web Developer
             </div>
-            <div class="socialsp lazy-bg" data-bg="url('assets/images/32.webp')"><div class="stitle">CONNECT</div>
-            <div class="socialm">
-                <div class="bocx b3"><div class="btext"><a href="https://www.youtube.com/c/spacify18">YouTube</a></div></div>
-            <div class="bocx b3"><div class="btext"><a href="https://www.instagram.com/ananay_dubey">Instagram</a></div></div>
-            <div class="bocx b3"><div class="btext"><a href="https://wa.me/+919580711960">WhatsApp</a></div></div>
-            <div class="bocx b3"><div class="btext"><a href="https://github.com/fts18">GitHub</a></div></div>
-            
-            </div></div>
-        </div>
-    </section>
-    
-        <section class="projects" id="projects">    
-            <div class="project-div">
-            <div class="row" id="project-row">
-                <!-- project cards-->
-            </div>
-        </div><div class="sidebar">
-            <div class="radio-buttons-container" id="tagContainer">
-            </div>
-        </div>
         </section>
-        <div id="footer-placeholder"><span id="year"></span></div>
-    </main>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <script src="assets/js/main.js"></script>
-</body>
+        <main>
+            <section class="personal">
+                <div class="p-container">
+                    <div class="prof lazy-bg"
+                        data-bg="url('assets/images/image.webp')"><div
+                            class="stitle">Personal</div>
+                        <div class="p-details">
+                            <!-- Personal details -->
+                            <div class="name">Ananay Dubey</div>
+                            <div class="age" id="age"></div>
+                            <div class="leftbocx">
+                                <div class="phonee"><a
+                                        href="tel:+919580711960">+919580711960</a></div>
+                                <div class="emaill"><a
+                                        href="mailto:dubeyananay@gmail.com">dubeyananay@gmail.com</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="languages lazy-bg"
+                        data-bg="url('assets/images/14.webp')"><div
+                            class="stitle">Skills</div>
+                        <div class="profcontent">
+                            <div class="lknown">
+                                <div class="llt">Known</div>
+                                <div class="bocx b11"><div
+                                        class="btext">Python</div></div>
+                                <div class="bocx b12"><div
+                                        class="btext">HTML/CSS/JS</div></div>
+                                <div class="bocx b13"><div
+                                        class="btext">MySQL</div></div>
+                            </div>
+                            <div class="llearning">
+                                <div class="llt">Learning</div>
+                                <div class="bocx b21"><div
+                                        class="btext">Flutter</div></div>
+                                <div class="bocx b22"><div
+                                        class="btext">React</div></div>
+                                <div class="bocx b23"><div
+                                        class="btext">AI/ML</div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="socialsp lazy-bg"
+                        data-bg="url('assets/images/32.webp')"><div
+                            class="stitle">CONNECT</div>
+                        <div class="socialm">
+                            <div class="bocx b3"><div class="btext"><a
+                                        href="https://www.youtube.com/c/spacify18">YouTube</a></div></div>
+                            <div class="bocx b3"><div class="btext"><a
+                                        href="https://www.instagram.com/ananay_dubey">Instagram</a></div></div>
+                            <div class="bocx b3"><div class="btext"><a
+                                        href="https://wa.me/+919580711960">WhatsApp</a></div></div>
+                            <div class="bocx b3"><div class="btext"><a
+                                        href="https://github.com/fts18">GitHub</a></div></div>
+
+                        </div></div>
+                </div>
+            </section>
+
+            <section class="projects" id="projects">
+                <div class="project-div">
+                    <div class="row" id="project-row">
+                        <!-- project cards-->
+                    </div>
+                </div><div class="sidebar">
+                    <div class="radio-buttons-container" id="tagContainer">
+                    </div>
+                </div>
+            </section>
+            <div id="footer-placeholder"></div>
+        </main>
+        <script
+            src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+        <script src="assets/js/main.js"></script>
+        <script>
+            // Show the loader when the page starts loading
+document.getElementById('loader').style.display = 'block';
+
+// Hide the loader and remove disabledScroll class when the DOM content is fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Calculate the time remaining until 3 seconds have passed
+    const currentTime = new Date().getTime();
+    const loadTime = currentTime - window.performance.timing.navigationStart;
+    const remainingTime = Math.max(2500 - loadTime, 0);
+
+    // Hide the loader after at least 3 seconds have passed
+    setTimeout(function() {
+        document.getElementById('loader').classList.add('hide');
+        document.body.classList.remove('disabledScroll');
+    }, remainingTime);
+});
+</script>
+    </body>
 </html>

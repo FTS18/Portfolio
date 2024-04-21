@@ -100,10 +100,10 @@ function extractAndFilterTags(projects, excludeTags) {
 }
 
 // Define the tags you want to exclude
-const excludeTags = ['Divyanshi', 'Messaging', "Commerce","Holiday","Homework","Video"]; // Example tags to exclude
+const excludeTags = ['Divyanshi', 'Messaging', "Commerce", "Holiday", "Homework", "Video"]; // Example tags to exclude
 // Function to render tags in the sidebar in randomized order
 function renderFilteredTags(tags) {
-    const shuffledTags = shuffleArray(tags); 
+    const shuffledTags = shuffleArray(tags);
     const slicedTags = shuffledTags.slice(0, 42); // Slice the array to get the first 40 tags
     const tagContainer = document.getElementById('tagContainer');
     slicedTags.forEach(tag => {
@@ -127,7 +127,7 @@ function shuffleArray(array) {
 function addTagEventListeners() {
     const tagButtons = document.querySelectorAll('.radio-button');
     tagButtons.forEach(tagButton => {
-        tagButton.addEventListener('click', function() {
+        tagButton.addEventListener('click', function () {
             const selectedTag = this.textContent.trim(); // Extract text content of clicked tag
             toggleActiveClass(this); // Toggle active class for clicked tag
             filterProjectsByTags(); // Filter projects based on selected tags
@@ -286,3 +286,13 @@ lazyLoadImages(); document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+const zoomContainer = document.getElementById('zoomContainer');
+const img = zoomContainer.querySelector('img');
+
+zoomContainer.addEventListener('mousemove', (e)=> {
+    const x = e.clientX - e.target.offsetLeft;
+    const y = e.clientY - e.target.offsetRight;
+    img.style.transformOrigin = `${x}px ${y}px`;
+    img.style.transform = "scale(2)";
+});
+
