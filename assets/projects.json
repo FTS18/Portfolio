@@ -11,7 +11,7 @@
         "link": "https://lyncc.netlify.app/",
         "image": "assets/images/screenshots/4.webp",
         "date": "Apr, 2024",
-        "tags": ["Web","Call","Communication","Collaborations","Arunjay", "Video","HTML","CSS","Javascript","Firebase","WebRTC","Video","Login System"]
+        "tags": ["Web","Video Calling","Arunjay", "Video","HTML","CSS","Javascript","Firebase","WebRTC","Communication"]
     },
     {
         "title": "DynWave Chat",
@@ -25,28 +25,28 @@
         "link": "https://github.com/FTS18/mysql-python",
         "image": "assets/images/screenshots/1.webp",
         "date": "Jan, 2024",
-        "tags": ["Mysql","Database","class 12", "practicals","Python","Homework", "Projects", "Programming", "Education", "12"]
+        "tags": ["Mysql","12","Database","class 12", "practicals","Python","Homework", "Projects", "Programming", "Education", "12"]
     },
     {
         "title": "VSEC School",
         "link": "https://vsec.netlify.app/",
         "image": "assets/images/screenshots/school.webp",
         "date": "Aug, 2023",
-        "tags": ["Web", "Education","HTML","CSS","Javascript", "School","Edtech"]
+        "tags": ["Web", "Education","HTML","CSS","Javascript", "School","Edtech","VSEC"]
     },
     {
         "title": "Reartify ECOMM",
         "link": "https://reartify.netlify.app/",
         "image": "assets/images/screenshots/yz.webp",
         "date": "Sept, 2023",
-        "tags": ["Web", "Commerce","HTML","CSS","Javascript", "Shopping", "Online Store", "e commerce", "TechFest"]
+        "tags": ["Web", "Commerce","HTML","CSS","Javascript","YouthZest" ,"Shopping", "Online Store", "E Commerce", "TechFest"]
     },
     {
         "title": "TechnoFair Space",
         "link": "https://fts18.github.io/technofair/",
         "image": "assets/images/screenshots/tf.webp",
         "date": "July, 2023",
-        "tags": ["Web", "Event","HTML","CSS","Javascript", "Space", "TechFest","Isro"]
+        "tags": ["Web", "Event","HTML","CSS","Javascript", "Space","TechnoFair", "TechFest","Isro"]
     },
     {
         "title": "ByteKart ECOMM",
@@ -60,7 +60,7 @@
         "link": "https://finixx.netlify.app",
         "image": "assets/images/screenshots/5.webp",
         "date": "May, 2022",
-        "tags": ["Web", "Gaming","HTML","CSS","Javascript","Entertainment", "Online Gaming", "Collaborations","Arunjay","Fun"]
+        "tags": ["Web", "Gaming","HTML","CSS","Javascript","Entertainment","Collaborations","Online Gaming", "Collaborations","Arunjay","Fun"]
     },
     {
         "title": "Youtube Video Downloader",
@@ -95,6 +95,6 @@
         "link": "https://spacify-v1.netlify.app",
         "image": "assets/images/screenshots/mfw.webp",
         "date": "Jan, 2021",
-        "tags": ["Web", "Website","HTML","CSS","Javascript", "Personal", "Portfolio", "Development"]
+        "tags": ["Web", "Website","HTML","CSS","Javascript", "Personal", "Portfolio"]
     }
 ]

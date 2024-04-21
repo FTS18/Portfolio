@@ -89,16 +89,96 @@ function searchProjects() {
         .catch(error => {
             console.error('Error fetching projects:', error);
         });
+}// Function to extract and filter out unwanted tags from projects
+function extractAndFilterTags(projects, excludeTags) {
+    let allTags = [];
+    projects.forEach(project => {
+        allTags = allTags.concat(project.tags);
+    });
+    // Use Set to get unique tags, filter out tags based on excludeTags array, and convert back to array
+    return [...new Set(allTags.filter(tag => !excludeTags.includes(tag)))];
 }
-// Display all projects initially
+
+// Define the tags you want to exclude
+const excludeTags = ['Divyanshi', 'Messaging', "Commerce","Holiday","Homework","Video"]; // Example tags to exclude
+// Function to render tags in the sidebar in randomized order
+function renderFilteredTags(tags) {
+    const shuffledTags = shuffleArray(tags); 
+    const slicedTags = shuffledTags.slice(0, 42); // Slice the array to get the first 40 tags
+    const tagContainer = document.getElementById('tagContainer');
+    slicedTags.forEach(tag => {
+        const capitalizedTag = tag.charAt(0).toUpperCase() + tag.slice(1); // Convert tag to capitalized case
+        const radioBtn = document.createElement('div');
+        radioBtn.className = 'radio-button';
+        radioBtn.textContent = capitalizedTag;
+        tagContainer.appendChild(radioBtn);
+    });
+}
+
+// Function to shuffle an array
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+// Function to add event listeners to tag elements
+function addTagEventListeners() {
+    const tagButtons = document.querySelectorAll('.radio-button');
+    tagButtons.forEach(tagButton => {
+        tagButton.addEventListener('click', function() {
+            const selectedTag = this.textContent.trim(); // Extract text content of clicked tag
+            toggleActiveClass(this); // Toggle active class for clicked tag
+            filterProjectsByTags(); // Filter projects based on selected tags
+        });
+    });
+}
+
+// Function to toggle active class for clicked tag
+function toggleActiveClass(tagButton) {
+    tagButton.classList.toggle('active'); // Toggle "active" class
+}
+
+// Function to filter projects based on selected tags
+function filterProjectsByTags() {
+    const selectedTags = getSelectedTags(); // Get an array of selected tag strings
+    fetchProjects()
+        .then(projects => {
+            let filteredProjects = projects;
+            if (selectedTags.length > 0) {
+                // Filter projects based on selected tags
+                filteredProjects = projects.filter(project => {
+                    return selectedTags.every(tag => project.tags.map(t => t.toLowerCase()).includes(tag.toLowerCase()));
+                });
+            }
+            displayProjects(filteredProjects);
+        })
+        .catch(error => {
+            console.error('Error fetching projects:', error);
+        });
+}
+
+// Function to get an array of selected tag strings
+function getSelectedTags() {
+    const selectedTags = [];
+    const tagButtons = document.querySelectorAll('.radio-button.active');
+    tagButtons.forEach(tagButton => {
+        selectedTags.push(tagButton.textContent.trim().toLowerCase());
+    });
+    return selectedTags;
+}
+// Fetch projects and render filtered tags in the sidebar
 fetchProjects()
     .then(projects => {
+        const filteredTags = extractAndFilterTags(projects, excludeTags);
+        renderFilteredTags(filteredTags);
         displayProjects(projects);
+        addTagEventListeners(); // Add event listeners to tag elements
     })
     .catch(error => {
         console.error('Error fetching projects:', error);
     });
-
 const swiper = new Swiper('.overlay', {
     spaceBetween: 0,
     centeredSlides: true,

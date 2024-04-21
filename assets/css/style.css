@@ -100,7 +100,33 @@ img{user-select: none;}
     height: 50vh;
     z-index: 6;
     filter: blur(40px);
-}
+}.bars {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #00000091;
+    --gap: 5em;
+    --line: 1px;
+    z-index: 10000;
+    --color: rgba(255, 255, 255, 0.2);
+  
+    background-image: linear-gradient(
+        -90deg,
+        transparent calc(var(--gap) - var(--line)),
+        var(--color) calc(var(--gap) - var(--line) + 1px),
+        var(--color) var(--gap)
+      ),
+      linear-gradient(
+        0deg,
+        transparent calc(var(--gap) - var(--line)),
+        var(--color) calc(var(--gap) - var(--line) + 1px),
+        var(--color) var(--gap)
+      );
+    background-size: var(--gap) var(--gap);
+  }
+  
 .slide {
     left: 300px;
 }
@@ -146,7 +172,6 @@ img{user-select: none;}
     color: var(--text-color);
     background: rgba(255, 255, 255, 0.6);
 }
-
 @keyframes back {
     100% {
         background-position: 2000px 0;
@@ -428,6 +453,8 @@ a {
         position: absolute;
         top:43vh;
         left: 0;
+    }.bars{
+        position: absolute;
     }
 
     .welcome-div h1 {
