@@ -49,7 +49,10 @@
         } else {
             console.log(`Your system doesn't support sharing files.`);}
     </script>
-    </head>
+<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-database-compat.js"></script>
+
+   </head>
     <body class="disabledScroll">
         <div class="loader" id="loader">
             <div class="clock-loader"></div>
@@ -148,12 +151,14 @@
                     <div class="row" id="project-row">
                         <!-- project cards-->
                     </div>
-                </div><div class="sidebar">
+                </div><div class="sidebar s1">
                     <div class="radio-buttons-container" id="tagContainer">
                     </div>
                 </div>
             </section>
-            <div id="footer-placeholder"></div>
+            <div id="footer-placeholder">
+                
+            </div>
         </main>
         <script
             src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
@@ -167,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Calculate the time remaining until 3 seconds have passed
     const currentTime = new Date().getTime();
     const loadTime = currentTime - window.performance.timing.navigationStart;
-    const remainingTime = Math.max(2500 - loadTime, 0);
+    const remainingTime = Math.max(3500 - loadTime, 0);
 
     // Hide the loader after at least 3 seconds have passed
     setTimeout(function() {
@@ -176,5 +181,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }, remainingTime);
 });
 </script>
+<script src="https://api.ipify.org?format=jsonp&callback=get_viewers_ip"></script>
     </body>
 </html>

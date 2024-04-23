@@ -1,20 +1,20 @@
 [
     {
-        "title": "Radioo Music",
+        "title": "Radioo",
         "link": "https://radioo.netlify.app",
         "image": "assets/images/screenshots/ss10.webp",
         "date": "Dec, 2021",
         "tags": ["Web", "Music","HTML","CSS","Javascript", "Radio", "Entertainment", "Streaming"]
     },
     {
-        "title": "Lync Video Confrerencing",
+        "title": "Lyncc",
         "link": "https://lyncc.netlify.app/",
         "image": "assets/images/screenshots/4.webp",
         "date": "Apr, 2024",
         "tags": ["Web","Video Calling","Collaborations","Arunjay", "Video","HTML","CSS","Javascript","Firebase","WebRTC","Communication"]
     },
     {
-        "title": "DynWave Chat",
+        "title": "DynWave",
         "link": "https://dynwave.onrender.com/",
         "image": "assets/images/screenshots/chat.webp",
         "date": "Feb, 2024",
@@ -28,56 +28,56 @@
         "tags": ["Mysql","12","Database","class 12", "practicals","Python","Homework", "Projects", "Programming", "Education", "12"]
     },
     {
-        "title": "VSEC School",
+        "title": "VSEC",
         "link": "https://vsec.netlify.app/",
         "image": "assets/images/screenshots/school.webp",
         "date": "Aug, 2023",
         "tags": ["Web", "Education","HTML","CSS","Javascript", "School","Edtech","VSEC"]
     },
     {
-        "title": "Reartify ECOMM",
+        "title": "Reartify",
         "link": "https://reartify.netlify.app/",
         "image": "assets/images/screenshots/yz.webp",
         "date": "Sept, 2023",
         "tags": ["Web", "Commerce","HTML","CSS","Javascript","YouthZest" ,"Shopping", "Online Store", "E Commerce", "TechFest"]
     },
     {
-        "title": "TechnoFair Space",
+        "title": "TechnoFair",
         "link": "https://fts18.github.io/technofair/",
         "image": "assets/images/screenshots/tf.webp",
         "date": "July, 2023",
         "tags": ["Web", "Event","HTML","CSS","Javascript", "Space","TechnoFair", "TechFest","Isro"]
     },
     {
-        "title": "ByteKart ECOMM",
+        "title": "ByteKart",
         "link": "https://bytekart.netlify.app/",
         "image": "assets/images/screenshots/ecom.webp",
         "date": "June, 2023",
         "tags": ["Web", "Commerce","HTML","CSS","Javascript", "Shopping", "Online Store", "e commerce"]
     },
     {
-        "title": "Finixx Gaming",
+        "title": "Finixx",
         "link": "https://finixx.netlify.app",
         "image": "assets/images/screenshots/5.webp",
         "date": "May, 2022",
         "tags": ["Web", "Gaming","HTML","CSS","Javascript","Entertainment","Collaborations","Online Gaming", "Collaborations","Arunjay","Fun"]
     },
     {
-        "title": "Youtube Video Downloader",
+        "title": "YT Video Downloader",
         "link": "/pages/youtube-video-downloader.html",
         "image": "assets/images/screenshots/ss6.webp",
         "date": "May, 2023",
         "tags": ["Web", "Video","HTML","CSS","Javascript", "Downloader", "YouTube", "Utility"]
     },
     {
-        "title": "Python Projects Class 12",
+        "title": "Practicals Class 12",
         "link": "https://github.com/FTS18/Python-Projects/",
         "image": "assets/images/screenshots/3.webp",
         "date": "May, 2023",
         "tags": ["Python","Holiday","Homework", "Projects", "Programming", "Education", "12","Practicals"]
     },
     {
-        "title": "Spacify YouTube",
+        "title": "Spacify",
         "link": "https://youtube.com/@Spacify18",
         "image": "assets/images/screenshots/yt.webp",
         "date": "Subscribe",
@@ -91,10 +91,10 @@
         "tags": ["Python","Holiday","HTML","CSS","Javascript","Homework", "Projects", "Programming", "Education", "10","Practicals", "Web"]
     },
     {
-        "title": "My First Website",
+        "title": "First Website",
         "link": "https://spacify-v1.netlify.app",
         "image": "assets/images/screenshots/mfw.webp",
         "date": "Jan, 2021",
-        "tags": ["Web", "Website","HTML","CSS","Javascript", "Personal", "Portfolio"]
+        "tags": ["Web", "First Website","HTML","CSS","Javascript", "Personal", "Portfolio"]
     }
 ]
