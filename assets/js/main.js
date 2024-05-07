@@ -87,7 +87,7 @@ function displayProjects(projects) {
         const projectId = project.title.replace(/\s/g, '');
 
         card.innerHTML = `
-            <div class="card" data-aos="zoom-in">
+            <div class="card">
                 <img class="lazy" alt="${project.title}" data-src="${project.image}" src="assets/images/placeholder.webp">
                 <div class="content img-content">
                     <div class="overlay">

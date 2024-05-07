@@ -45,6 +45,7 @@
     min-height: 120vh;
     position: relative;
     top: 0vh;
+    display: none;
     left: 40px;
     border-left: 2px solid #444;
 }
@@ -89,7 +90,6 @@
     color: white;
     /* Text color for the intro */
     font-size: 5.2vw;
-    animation:text-shadow  4s linear infinite;
 }
 @keyframes text-shadow {
     0% {  
@@ -141,6 +141,44 @@
             0 0 0 #fb203b, 
             0 0 0 #fefc4b;
     }
+}.card {
+    transition: transform 0.5s ease;
+    transform: scale(0);
+}
+
+.zoom-in {
+    transform: scale(1);
+    display: block;
+}
+.slide-in-right {
+    animation: slideRight 0.5s ease forwards;
+    display: block;
+}
+.slide-in-left {
+    animation: slideLeft 0.5s ease forwards;
+    display: block;
+}
+
+@keyframes slideRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -186,12 +224,19 @@
 
 .personal {
     top: 0;
+    left: 0;
     padding: 40px;
     justify-content: center;
     width: 100%;
     padding-top: 100px;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(20, 20, 20, 1) 100px);
+    transition-delay: 4s;
+    transition: transform 1s ease;
+    transform: translateY(100%); /* Initially position navbar off-screen */
+}
 
+.slide-in-up {
+    transform: translateY(0); /* Slide navbar down into view */
 }
 #zoomContainer {
     overflow: hidden;
