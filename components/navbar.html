@@ -66,7 +66,7 @@ nav .content .links{
   font-size: 18px;
   font-weight: 500;
   padding: 9px 17px;
-  border-radius: 5px;
+  border-radius: 50px;
   transition: all 0.3s ease;
 }
 .content .links li label{
@@ -360,8 +360,8 @@ nav .content .links{
   </div>
   <label for="show-search" class="search-icon"><i class="fas fa-search"></i></label>
   <div class="search-box">
-    <input type="text" id="search-input" placeholder="Type Something to Search..." required>
-    <button id="search-btn"  aria-label="Search" href="#projects" onclick="searchProjects()" class="go-icon"><i class="fas fa-long-arrow-alt-right"></i></button>
-  </div>
+    <input type="text" id="search-input" placeholder="Type Something to Search..." required onkeyup="handleSearch(event)">
+    <a id="search-btn" aria-label="Search" href="#projects" onclick="searchProjects()" class="go-icon"><i class="fas fa-long-arrow-alt-right"></i></a>
+</div>
 </nav>
 </div>

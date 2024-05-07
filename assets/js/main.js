@@ -82,7 +82,7 @@ function displayProjects(projects) {
     projects.forEach(project => {
         const card = document.createElement("div");
         card.className = "column";
-        
+
         // Remove spaces from project title to match the format in the database
         const projectId = project.title.replace(/\s/g, '');
 
@@ -107,12 +107,12 @@ function displayProjects(projects) {
         // Fetch and display views for each project
         const dbRefViews = app.database().ref("project_clicks/" + projectId);
         dbRefViews.once("value")
-            .then(function(snapshot) {
+            .then(function (snapshot) {
                 const views = snapshot.val() || 0;
                 const viewsElement = document.getElementById(projectId + "-views");
                 viewsElement.innerHTML = `<i class="fa-solid fa-eye"></i> ${views}`;
             })
-            .catch(function(error) {
+            .catch(function (error) {
                 console.error("Error fetching views for project:", projectId, error);
             });
     });
@@ -128,7 +128,7 @@ function updateClickCount(projectId) {
     const dbRef1 = app.database().ref("project_clicks/" + projectId);
     dbRef1.once("value")
         .then(function (snapshot) {
-            const views = (snapshot.val() || 0)+1;
+            const views = (snapshot.val() || 0) + 1;
             const viewsElement = document.getElementById(projectId + "-views");
             viewsElement.innerHTML = `<i class="fa-solid fa-eye"></i> ${views}`;
             return dbRef1.set(views);
@@ -140,9 +140,17 @@ function updateClickCount(projectId) {
             console.error("Error updating click count:", error);
         });
 }
-
+function handleSearch(event) {
+    if (event.key === "Enter") {
+        searchProjects();
+    }
+}
 // Function to search projects based on input text
 function searchProjects() {
+    var projectsDiv = document.getElementById('projects');
+    if (projectsDiv) {
+        projectsDiv.scrollIntoView({ behavior: 'smooth' });
+    }
     const searchTerm = document.getElementById("search-input").value.toLowerCase();
     fetchProjects()
         .then(projects => {
@@ -353,4 +361,4 @@ lazyLoadImages(); document.addEventListener("DOMContentLoaded", function () {
             div.classList.add('loaded-bg');
         }
     });
-});
+}); 

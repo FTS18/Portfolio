@@ -1,247 +1,225 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-        <meta name="viewport"
-            content="width=device-width, height=device-height, minimum-scale=1, initial-scale=1">
-        <!--user-scalable=no,-->
-        <title>Ananay | Portfolio</title>
-        <meta name="description" content="Portfolio Page">
-        <meta name="google" content="notranslate" />
-        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-        <meta name="theme-color" content="#121212">
-        <meta name="msapplication-navbutton-color" content="#121212">
-        <meta name="apple-mobile-web-app-status-bar-style" content="#121212">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="msapplication-starturl" content="/index.html">
-        <meta name="application-name" content="Portfolio">
-        <meta name="apple-mobile-web-app-title" content="Portfolio">
-        <link rel="manifest" href="/manifest.json">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-        <script src="https://kit.fontawesome.com/47c40e1acb.js"
-            crossorigin="anonymous"></script>
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&display=swap"
-            rel="stylesheet"> <link
-            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-            rel="stylesheet">
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
-            crossorigin="anonymous" referrerpolicy="no-referrer">
-        <link rel="stylesheet" href="/assets/css/style.css">
-        <link rel="stylesheet" href="/assets/css/theme.css">
-        <script src="/components/header.js"></script>
-        <script>
-        if (navigator.share) {
-            navigator.share({
-                    title: 'Ananay | Portfolio',
-                    text: 'Check out my Portfolio',
-                    url: 'https://ananay.netlify.app',
-                })
-                .then(() => console.log('Successful share'))
-                .catch((error) => console.log('Error sharing', error));
-        } else {
-            console.log(`Your system doesn't support sharing files.`);}
-    </script>
-<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-database-compat.js"></script>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, height=device-height, minimum-scale=1, initial-scale=1">
+	<!--user-scalable=no,-->
+	<title>Ananay | Portfolio</title>
+	<meta name="description" content="Portfolio Page">
+	<meta name="google" content="notranslate" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="theme-color" content="#121212">
+	<meta name="msapplication-navbutton-color" content="#121212">
+	<meta name="apple-mobile-web-app-status-bar-style" content="#121212">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="msapplication-starturl" content="/index.html">
+	<meta name="application-name" content="Portfolio">
+	<meta name="apple-mobile-web-app-title" content="Portfolio">
+	<link rel="manifest" href="/manifest.json">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+	<script src="https://kit.fontawesome.com/47c40e1acb.js" crossorigin="anonymous"></script>
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+	<link rel="stylesheet" href="/assets/css/style.css">
+	<link rel="stylesheet" href="/assets/css/theme.css">
+	<script src="/components/header.js"></script>
+	<script>
+	if(navigator.share) {
+		navigator.share({
+			title: 'Ananay | Portfolio',
+			text: 'Check out my Portfolio',
+			url: 'https://ananay.netlify.app',
+		}).then(() => console.log('Successful share')).catch((error) => console.log('Error sharing', error));
+	} else {
+		console.log(`Your system doesn't support sharing files.`);
+	}
+	</script>
+	<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-database-compat.js"></script>
+</head>
 
-   </head>
-    <body class="disabledScroll">
-        <div class="loader" id="loader">
-            <div class="clock-loader"></div>
-        </div>
-        <c-nav></c-nav>
-        <section class="welcome-div">
-            <div class="overlay" id="zoomContainer">
-                <div class="bars"></div>
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <img class="img" alt src="assets/images/20.webp">
-                    </div>
-                    <div class="swiper-slide">
-                        <img class="lazy img" alt
-                            data-src="assets/images/24.webp"
-                            src="assets/images/placeholder.webp">
-                    </div>
-                    <div class="swiper-slide">
-                        <img class="img lazy" alt
-                            data-src="assets/images/23.webp"
-                            src="assets/images/placeholder.webp">
-                    </div>
-                </div>
+<body class="disabledScroll">
+	<div class="loader" id="loader">
+		<div class="clock-loader"></div>
+	</div>
+	<c-nav></c-nav>
+	<section class="welcome-div">
+		<div class="overlay" id="zoomContainer">
+			<div class="bars"></div>
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<img class="img" alt src="assets/images/20.webp">
+				</div>
+				<div class="swiper-slide">
+					<img class="lazy img" alt data-src="assets/images/24.webp" src="assets/images/placeholder.webp">
+				</div>
+				<div class="swiper-slide">
+					<img class="img lazy" alt data-src="assets/images/23.webp" src="assets/images/placeholder.webp">
+				</div>
+			</div>
+		</div>
+		<div class="demo">
+			<div id="textblock">
+				<h1 id="charsUppercase">Portfolio</h1>
+			</div>
+		</div>
+		<div class="intro"> I am a Frontend Web Developer </div>
+	</section>
+	<main>
+		<section class="personal">
+			<div class="p-container">
+				<div class="prof lazy-bg" data-aos="fade-right" data-bg="url('assets/images/image.webp')">
+					<div class="stitle">Personal</div>
+					<div class="p-details">
+						<!-- Personal details -->
+						<div class="name">Ananay Dubey</div>
+						<div class="age" id="age"></div>
+						<div class="leftbocx">
+							<div class="phonee"><a href="tel:+919580711960">+919580711960</a></div>
+							<div class="emaill"><a href="mailto:dubeyananay@gmail.com">dubeyananay@gmail.com</a></div>
+						</div>
+					</div>
+				</div>
+				<div class="languages lazy-bg" data-aos="zoom-in" data-bg="url('assets/images/14.webp')">
+					<div class="stitle">Skills</div>
+					<div class="profcontent">
+						<div class="lknown">
+							<div class="llt">Known</div>
+							<div class="bocx b11">
+								<div class="btext">Python</div>
+							</div>
+							<div class="bocx b12">
+								<div class="btext">HTML/CSS/JS</div>
+							</div>
+							<div class="bocx b13">
+								<div class="btext">MySQL</div>
+							</div>
+						</div>
+						<div class="llearning">
+							<div class="llt">Learning</div>
+							<div class="bocx b21">
+								<div class="btext">Flutter</div>
+							</div>
+							<div class="bocx b22">
+								<div class="btext">React</div>
+							</div>
+							<div class="bocx b23">
+								<div class="btext">AI/ML</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="socialsp lazy-bg" data-aos="fade-left" data-bg="url('assets/images/32.webp')">
+					<div class="stitle">CONNECT</div>
+					<div class="socialm">
+						<div class="bocx b3">
+							<div class="btext"><a href="https://www.youtube.com/c/spacify18">YouTube</a></div>
+						</div>
+						<div class="bocx b3">
+							<div class="btext"><a href="https://www.instagram.com/ananay_dubey">Instagram</a></div>
+						</div>
+						<div class="bocx b3">
+							<div class="btext"><a href="https://wa.me/+919580711960">WhatsApp</a></div>
+						</div>
+						<div class="bocx b3">
+							<div class="btext"><a href="https://github.com/fts18">GitHub</a></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<svg class="fds" xmlns="http://www.w3.org/2000/svg" version="1.1">
+			<defs>
+				<filter id="squiggly-0">
+					<feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="0" />
+					<feDisplacementMap id="displacement" in="SourceGraphic" in2="noise" scale="6" />
+				</filter>
+				<filter id="squiggly-1">
+					<feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="1" />
+					<feDisplacementMap in="SourceGraphic" in2="noise" scale="8" />
+				</filter>
+				<filter id="squiggly-2">
+					<feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="2" />
+					<feDisplacementMap in="SourceGraphic" in2="noise" scale="6" />
+				</filter>
+				<filter id="squiggly-3">
+					<feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="3" />
+					<feDisplacementMap in="SourceGraphic" in2="noise" scale="8" />
+				</filter>
+				<filter id="squiggly-4">
+					<feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="4" />
+					<feDisplacementMap in="SourceGraphic" in2="noise" scale="6" />
+				</filter>
+			</defs>
+		</svg>
+		<section class="projects" id="projects">
+			<div class="project-div">
+				<div class="row" id="project-row">
+					<!-- project cards-->
+				</div>
+			</div>
+			<div class="sidebar s1">
+				<div class="radio-buttons-container" id="tagContainer">
+				</div>
+			</div>
+		</section>
+		<div id="footer-placeholder">
+		</div>
+	</main>
+	<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script>
+	// Show the loader when the page starts loading
+	document.getElementById('loader').style.display = 'block';
+	// Hide the loader and remove disabledScroll class when the DOM content is fully loaded
+	document.addEventListener('DOMContentLoaded', function() {
+		// Calculate the time remaining until 3 seconds have passed
+		const currentTime = new Date().getTime();
+		const loadTime = currentTime - window.performance.timing.navigationStart;
+		const remainingTime = Math.max(3000 - loadTime, 0);
+		// Hide the loader after at least 3 seconds have passed
+		setTimeout(function() {
+			document.getElementById('loader').classList.add('hide');
+			document.body.classList.remove('disabledScroll');
+			var navbar = document.querySelector('c-nav');
+			if(navbar) {
+				navbar.classList.add('slide-in-down');
+			}
+			var personalDiv = document.querySelector('.personal');
+			if(personalDiv) {
+				personalDiv.classList.add('slide-in-up'); // Add slide-in-up class after page load
+			}
+		}, remainingTime);
+	});
+	window.addEventListener('scroll', function() {
+		var cards = document.querySelectorAll('.card');
+		var sidebar = document.querySelector(".sidebar");
+		var projects = document.querySelector(".project-div");
+		var intro = document.querySelector('#textblock');
+		cards.forEach(function(card) {
+			if(!card.classList.contains('zoomed') && isElementInViewport(card)) {
+				card.classList.add('zoom-in');
+				card.classList.add('zoomed');
+				sidebar.classList.add('slide-in-right');
+				card.classList.add('zoom-in');
+				intro.classList.add('zoom-in');
+				projects.classList.add('slide-in-left');
+			}
+		});
+	});
 
-            </div>
-            <div class="demo">
-                <div id="textblock">
-                    <h1 id="charsUppercase">Portfolio</h1>
-                </div>
-            </div>
-            <div class="intro">
-                I am a Frontend Web Developer
-            </div>
-        </section>
-        <main>
-            <section class="personal" >
-                <div class="p-container">
-                    <div class="prof lazy-bg" data-aos="fade-right"
-                        data-bg="url('assets/images/image.webp')"><div
-                            class="stitle">Personal</div>
-                        <div class="p-details">
-                            <!-- Personal details -->
-                            <div class="name">Ananay Dubey</div>
-                            <div class="age" id="age"></div>
-                            <div class="leftbocx">
-                                <div class="phonee"><a
-                                        href="tel:+919580711960">+919580711960</a></div>
-                                <div class="emaill"><a
-                                        href="mailto:dubeyananay@gmail.com">dubeyananay@gmail.com</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="languages lazy-bg"  data-aos="zoom-in"                        data-bg="url('assets/images/14.webp')"><div
-                            class="stitle">Skills</div>
-                        <div class="profcontent">
-                            <div class="lknown">
-                                <div class="llt">Known</div>
-                                <div class="bocx b11"><div
-                                        class="btext">Python</div></div>
-                                <div class="bocx b12"><div
-                                        class="btext">HTML/CSS/JS</div></div>
-                                <div class="bocx b13"><div
-                                        class="btext">MySQL</div></div>
-                            </div>
-                            <div class="llearning">
-                                <div class="llt">Learning</div>
-                                <div class="bocx b21"><div
-                                        class="btext">Flutter</div></div>
-                                <div class="bocx b22"><div
-                                        class="btext">React</div></div>
-                                <div class="bocx b23"><div
-                                        class="btext">AI/ML</div></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="socialsp lazy-bg" data-aos="fade-left"
-                        data-bg="url('assets/images/32.webp')"><div
-                            class="stitle">CONNECT</div>
-                        <div class="socialm">
-                            <div class="bocx b3"><div class="btext"><a
-                                        href="https://www.youtube.com/c/spacify18">YouTube</a></div></div>
-                            <div class="bocx b3"><div class="btext"><a
-                                        href="https://www.instagram.com/ananay_dubey">Instagram</a></div></div>
-                            <div class="bocx b3"><div class="btext"><a
-                                        href="https://wa.me/+919580711960">WhatsApp</a></div></div>
-                            <div class="bocx b3"><div class="btext"><a
-                                        href="https://github.com/fts18">GitHub</a></div></div>
+	function isElementInViewport(el) {
+		var rect = el.getBoundingClientRect();
+		return (rect.top >= 0 && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && rect.right <= (window.innerWidth || document.documentElement.clientWidth));
+	}
+	</script>
+	<script src="https://api.ipify.org?format=jsonp&callback=get_viewers_ip"></script>
+</body>
 
-                        </div></div>
-                </div>
-            </section>
-
-
-            <svg class="fds" xmlns="http://www.w3.org/2000/svg" version="1.1">
-                <defs>
-                  <filter id="squiggly-0">
-                    <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="0"/>
-                    <feDisplacementMap id="displacement" in="SourceGraphic" in2="noise" scale="6" />
-                  </filter>
-                  <filter id="squiggly-1">
-                    <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="1"/>
-              <feDisplacementMap in="SourceGraphic" in2="noise" scale="8" />
-                  </filter>
-                  
-                  <filter id="squiggly-2">
-                    <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="2"/>
-              <feDisplacementMap in="SourceGraphic" in2="noise" scale="6" />
-                  </filter>
-                  <filter id="squiggly-3">
-                    <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="3"/>
-              <feDisplacementMap in="SourceGraphic" in2="noise" scale="8" />
-                  </filter>
-                  
-                  <filter id="squiggly-4">
-                    <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="4"/>
-              <feDisplacementMap in="SourceGraphic" in2="noise" scale="6" />
-                  </filter>
-                </defs> 
-              </svg>
-            <section class="projects" id="projects">
-                <div class="project-div">
-                    <div class="row" id="project-row">
-                        <!-- project cards-->
-                    </div>
-                </div><div class="sidebar s1">
-                    <div class="radio-buttons-container" id="tagContainer">
-                    </div>
-                </div>
-            </section>
-            <div id="footer-placeholder">
-                
-            </div>
-        </main>
-        <script
-            src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-        <script src="assets/js/main.js"></script>
-        <script>
-            // Show the loader when the page starts loading
-document.getElementById('loader').style.display = 'block';
-
-// Hide the loader and remove disabledScroll class when the DOM content is fully loaded
-document.addEventListener('DOMContentLoaded', function() {
-    // Calculate the time remaining until 3 seconds have passed
-    const currentTime = new Date().getTime();
-    const loadTime = currentTime - window.performance.timing.navigationStart;
-    const remainingTime = Math.max(3000 - loadTime, 0);
-
-    // Hide the loader after at least 3 seconds have passed
-    setTimeout(function() {
-        document.getElementById('loader').classList.add('hide');
-        document.body.classList.remove('disabledScroll');    
-        var navbar = document.querySelector('c-nav');
-    if(navbar) {
-        navbar.classList.add('slide-in-down');
-    }    var personalDiv = document.querySelector('.personal');
-    if(personalDiv) {
-        personalDiv.classList.add('slide-in-up'); // Add slide-in-up class after page load
-    } 
-    }, remainingTime);
-});window.addEventListener('scroll', function() {
-    var cards = document.querySelectorAll('.card');
-    var sidebar=document.querySelector(".sidebar");
-    var projects=document.querySelector(".project-div");
-    var intro = document.querySelector('#textblock'); 
-    
-    cards.forEach(function(card) {
-        if (!card.classList.contains('zoomed') && isElementInViewport(card)) {
-            card.classList.add('zoom-in');
-            card.classList.add('zoomed');
-            sidebar.classList.add('slide-in-right');            card.classList.add('zoom-in');
-            intro.classList.add('zoom-in');
-            projects.classList.add('slide-in-left');     
-        }
-    });
-});
-
-
-function isElementInViewport(el) {
-    var rect = el.getBoundingClientRect();
-    return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
-}
-
-</script>
-<script src="https://api.ipify.org?format=jsonp&callback=get_viewers_ip"></script>
-
-    </body>
 </html>
