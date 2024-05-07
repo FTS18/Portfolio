@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Calculate the time remaining until 3 seconds have passed
     const currentTime = new Date().getTime();
     const loadTime = currentTime - window.performance.timing.navigationStart;
-    const remainingTime = Math.max(3500 - loadTime, 0);
+    const remainingTime = Math.max(3000 - loadTime, 0);
 
     // Hide the loader after at least 3 seconds have passed
     setTimeout(function() {
