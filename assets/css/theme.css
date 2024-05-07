@@ -80,7 +80,8 @@
     position: fixed;
     top: 60vh;
     z-index: 1000;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
     width: 100%;
     text-align: center;
     padding: 20px 0;
@@ -88,8 +89,65 @@
     color: white;
     /* Text color for the intro */
     font-size: 5.2vw;
-    /* Set the initial font size */  -webkit-animation: squiggly-anim 0.34s linear infinite;
-          animation: squiggly-anim 0.34s linear infinite;
+    animation:text-shadow  4s linear infinite;
+}
+@keyframes text-shadow {
+    0% {  
+        transform: translateY(0.35em);
+        transform: translateX(-50%);
+        text-shadow: 
+            0 0 0 #0c2ffb, 
+            0 0 0 #2cfcfd, 
+            0 0 0 #fb203b, 
+            0 0 0 #fefc4b;
+    }
+
+    20% {  
+        transform: translateY(-0.35em);
+        transform: translateX(-50%);
+        text-shadow: 
+            0 0.125em 0 #0c2ffb, 
+            0 0.025em 0 #2cfcfd, 
+            0 -0.125em 0 #fb203b, 
+            0 -0.25em 0 #fefc4b;
+    }
+
+    40% {  
+        transform: translateY(0.25em);
+        transform: translateX(-50%);
+        text-shadow: 
+            0 -0.0625em 0 #0c2ffb, 
+            0 -0.125em 0 #2cfcfd, 
+            0 0.0625em 0 #fb203b, 
+            0 0.125em 0 #fefc4b;
+    }
+    
+   60% {
+        transform: translateY(-0.25em);
+        transform: translateX(-50%);
+        text-shadow: 
+            0 0.03125em 0 #0c2ffb, 
+            0 0.0625em 0 #2cfcfd, 
+            0 -0.03125em 0 #fb203b, 
+            0 -0.0625em 0 #fefc4b;
+    }
+
+    80% {  
+        transform: translateY(0);
+        transform: translateX(-50%);
+        text-shadow: 
+            0 0 0 #0c2ffb, 
+            0 0 0 #2cfcfd, 
+            0 0 0 #fb203b, 
+            0 0 0 #fefc4b;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+      animation: none !important;
+      transition: none !important;
+    }
 }
 @-webkit-keyframes squiggly-anim {
   0% {
@@ -551,8 +609,6 @@
     /* Added this for zoom effect on hover */
 }
 
-
-
 .p-title {
     position: relative;
     top: -10%;
@@ -645,6 +701,7 @@
         top: 60vh;
         background: #151515;
         position: absolute;
+        animation: none;
     }
 
     .personal {

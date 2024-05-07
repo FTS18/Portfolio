@@ -159,17 +159,11 @@ img{user-select: none;}
     top: 35%;
     left: 50%;
     font-weight: 900;
-    transform: translateX(-50%);
     text-align: center;
     z-index: 5;
     backdrop-filter: blur(40px);
     padding: 10px 20px 10px 20px;
     border-radius: 8px;
-    transition: .5s ease;
-    -webkit-transform: translateX(-50%);
-    -moz-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    -o-transform: translateX(-50%);
     filter: invert(20%);
     font-family: 'Darker Grotesque', sans-serif;
     display: none;
@@ -468,9 +462,12 @@ a {
 
     .welcome-div h1 {
         font-size: 35px;
-        top: 33%;
-        transform: translate(-50%, -50%);
+        top: 29.5%;
+        left: 50%;
         text-align: center;
+        transform: translateX(-50%);
+        text-align: center;
+        animation:text-shadow  4s linear infinite;
 display: block;
     }
 
