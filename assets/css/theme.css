@@ -224,12 +224,6 @@
     left: 2.5%;
     height: 350px;
     display: flex;
-    scroll-snap-type: y mandatory;
-    overflow-x: hidden;
-    overflow-y: scroll;
-}
-.p-container > * {
-    scroll-snap-align: start; /* Adjust this value as needed */
 }
 .prof {
     width: 30%;
@@ -696,7 +690,7 @@
         height: auto;
         width: 100vw;
         color: #ffffffc4;
-        background: #000;
+        background: #1d1d1dd3;
     }
 
     .personal {
