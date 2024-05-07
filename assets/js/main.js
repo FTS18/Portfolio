@@ -87,7 +87,7 @@ function displayProjects(projects) {
         const projectId = project.title.replace(/\s/g, '');
 
         card.innerHTML = `
-            <div class="card">
+            <div class="card" data-aos="zoom-in">
                 <img class="lazy" alt="${project.title}" data-src="${project.image}" src="assets/images/placeholder.webp">
                 <div class="content img-content">
                     <div class="overlay">
@@ -354,13 +354,3 @@ lazyLoadImages(); document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-const zoomContainer = document.getElementById('zoomContainer');
-const img = zoomContainer.querySelector('img');
-
-zoomContainer.addEventListener('mousemove', (e) => {
-    const x = e.clientX - e.target.offsetLeft;
-    const y = e.clientY - e.target.offsetRight;
-    img.style.transformOrigin = `${x}px ${y}px`;
-    img.style.transform = "scale(2)";
-});
-

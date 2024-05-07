@@ -88,7 +88,42 @@
     color: white;
     /* Text color for the intro */
     font-size: 5.2vw;
-    /* Set the initial font size */
+    /* Set the initial font size */  -webkit-animation: squiggly-anim 0.34s linear infinite;
+          animation: squiggly-anim 0.34s linear infinite;
+}
+@-webkit-keyframes squiggly-anim {
+  0% {
+    filter: url("#squiggly-0");
+  }
+  25% {
+    filter: url("#squiggly-1");
+  }
+  50% {
+    filter: url("#squiggly-2");
+  }
+  75% {
+    filter: url("#squiggly-3");
+  }
+  100% {
+    filter: url("#squiggly-4");
+  }
+}
+@keyframes squiggly-anim {
+  0% {
+    filter: url("#squiggly-0");
+  }
+  25% {
+    filter: url("#squiggly-1");
+  }
+  50% {
+    filter: url("#squiggly-2");
+  }
+  75% {
+    filter: url("#squiggly-3");
+  }
+  100% {
+    filter: url("#squiggly-4");
+  }
 }
 
 .personal {
@@ -115,7 +150,7 @@
 }
 .loader{
     position: fixed;
-    top: 0;
+    top: -100vh;
     left: 0;
     width: 100%;
     height: 100%;
@@ -185,10 +220,17 @@
 
 .p-container {
     width: 95%;
+    position: relative;
+    left: 2.5%;
     height: 350px;
     display: flex;
+    scroll-snap-type: y mandatory;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
-
+.p-container > * {
+    scroll-snap-align: start; /* Adjust this value as needed */
+}
 .prof {
     width: 30%;
     overflow: hidden;
@@ -621,6 +663,7 @@
         display: block;
         height: auto;
         width: 100%;
+        left: 0;
         margin: 0;
         padding: 0;
     }
@@ -645,10 +688,49 @@
         display: block;
         margin-bottom: 25px;
     }
+    .intro{
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: center;
+        overflow: hidden;
+        height: auto;
+        width: 100vw;
+        color: #ffffffc4;
+        background: #000;
+    }
 
+    .personal {
+        margin-top:27vh;
+        width: 100%;
+        padding: 0;
+    }
+    .p-container {
+        display: block;
+        left: 0;
+        height: auto;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .prof,
+    .languages,
+    .socialsp {
+        width: 100%;
+        font-size: 17px;
+    }.sidebar{
+        display: none;
+    }
+    .p-details{
+        top: 0;
+    }
+    .name {
+        font-size: 75px;
+    }
     .projects {
         margin: 0;
         padding: 25px;
         padding-top: 80px;
-    }
+    }.project-div{
+        width: 100%;}
 }

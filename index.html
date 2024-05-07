@@ -26,6 +26,7 @@
         <script src="https://kit.fontawesome.com/47c40e1acb.js"
             crossorigin="anonymous"></script>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <link
             href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&display=swap"
             rel="stylesheet"> <link
@@ -88,9 +89,9 @@
             </div>
         </section>
         <main>
-            <section class="personal">
+            <section class="personal" >
                 <div class="p-container">
-                    <div class="prof lazy-bg"
+                    <div class="prof lazy-bg" data-aos="fade-right"
                         data-bg="url('assets/images/image.webp')"><div
                             class="stitle">Personal</div>
                         <div class="p-details">
@@ -105,8 +106,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="languages lazy-bg"
-                        data-bg="url('assets/images/14.webp')"><div
+                    <div class="languages lazy-bg"  data-aos="zoom-in"                        data-bg="url('assets/images/14.webp')"><div
                             class="stitle">Skills</div>
                         <div class="profcontent">
                             <div class="lknown">
@@ -129,7 +129,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="socialsp lazy-bg"
+                    <div class="socialsp lazy-bg" data-aos="fade-left"
                         data-bg="url('assets/images/32.webp')"><div
                             class="stitle">CONNECT</div>
                         <div class="socialm">
@@ -146,12 +146,39 @@
                 </div>
             </section>
 
+
+            <svg class="fds" xmlns="http://www.w3.org/2000/svg" version="1.1">
+                <defs>
+                  <filter id="squiggly-0">
+                    <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="0"/>
+                    <feDisplacementMap id="displacement" in="SourceGraphic" in2="noise" scale="6" />
+                  </filter>
+                  <filter id="squiggly-1">
+                    <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="1"/>
+              <feDisplacementMap in="SourceGraphic" in2="noise" scale="8" />
+                  </filter>
+                  
+                  <filter id="squiggly-2">
+                    <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="2"/>
+              <feDisplacementMap in="SourceGraphic" in2="noise" scale="6" />
+                  </filter>
+                  <filter id="squiggly-3">
+                    <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="3"/>
+              <feDisplacementMap in="SourceGraphic" in2="noise" scale="8" />
+                  </filter>
+                  
+                  <filter id="squiggly-4">
+                    <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="4"/>
+              <feDisplacementMap in="SourceGraphic" in2="noise" scale="6" />
+                  </filter>
+                </defs> 
+              </svg>
             <section class="projects" id="projects">
-                <div class="project-div">
+                <div class="project-div" data-aos="fade-right">
                     <div class="row" id="project-row">
                         <!-- project cards-->
                     </div>
-                </div><div class="sidebar s1">
+                </div><div class="sidebar s1" data-aos="fade-left">
                     <div class="radio-buttons-container" id="tagContainer">
                     </div>
                 </div>
@@ -182,5 +209,11 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 <script src="https://api.ipify.org?format=jsonp&callback=get_viewers_ip"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    offset:100
+  });
+</script>
     </body>
 </html>

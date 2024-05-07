@@ -195,7 +195,9 @@ footer {
     position: absolute;
     top: 165vh;
 }
-
+.fds{
+  display: none;  
+}
 .footer {
     position: relative;
     top: 0;
