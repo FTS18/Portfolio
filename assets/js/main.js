@@ -146,7 +146,12 @@ function handleSearch(event) {
     }
 }
 // Function to search projects based on input text
-function searchProjects() {
+function searchProjects() {    // Check if the current page is index.html
+    if (window.location.pathname !== '/index.html') {
+        // Redirect to index.html with the #projects anchor tag
+        window.location.href = '/index.html#projects';
+        return;
+    }
     var projectsDiv = document.getElementById('projects');
     if (projectsDiv) {
         projectsDiv.scrollIntoView({ behavior: 'smooth' });

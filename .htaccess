@@ -7,9 +7,8 @@
 </IfModule>
 RewriteEngine On
 RewriteCond %{HTTP_HOST} ^ananay.netlify.app [NC]
-RewriteRule ^music$ https://radioo.netlify.app/ [L,R=301]
-RewriteRule ^games$ https://finixx.netlify.app/ [L,R=301]
-RewriteRule ^dvs$ https://dynwave.netlify.app/ [L,R=301]
-RewriteRule ^chat$ https://dynwave.netlify.app/ [L,R=301]
-RewriteRule ^vsec$ https://vsec.netlify.app/ [L,R=301]
-RewriteRule ^ananay$ https://ananay.netlify.app/ [L,R=301]
+<FilesMatch "^assets/css/.*">
+    Deny from all
+</FilesMatch>
+RewriteCond %{REQUEST_URI} \.(css|jpg|jpeg|png|gif|webp|js|json|py)$ [NC]
+RewriteRule ^ - [R=404,L]

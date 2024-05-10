@@ -1,7 +1,14 @@
 /assets/* /index.html 301
 /music https://radioo.netlify.app/ 301
+/radio https://radioo.netlify.app/ 301
+/radioo https://radioo.netlify.app/ 301
 /games https://finixx.netlify.app/ 301
-/dvs https://dynwave.netlify.app/ 301
-/chat https://dynwave.netlify.app/ 301
+/game https://finixx.netlify.app/ 301
+/dvs https://dynwave.onrender.com/ 301
+/chat https://dynwave.onrender.com/ 301
+/youthzest https://reartify.netlify.app/ 301
+/reartify https://reartify.netlify.app/ 301
+/bytekart https://bytekart.netlify.app/ 301
+/videocall https://lyncc.netlify.app/ 301
 /vsec https://vsec.netlify.app/ 301
 /ananay https://ananay.netlify.app/ 301
