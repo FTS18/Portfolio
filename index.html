@@ -7,7 +7,26 @@
 	<meta name="viewport" content="width=device-width, height=device-height, minimum-scale=1, initial-scale=1">
 	<!--user-scalable=no,-->
 	<title>Ananay | Portfolio</title>
-	<meta name="description" content="Portfolio Page">
+	<meta name="title" content="Ananay | Portfolio" />
+	<meta name="description" content="A dedicated student with proficiency in HTML, Python, CSS & JavaScript, actively participating in diverse projects and coding competitions." />
+	<meta name="keywords" content="portfolio ananay,who is ananay dubey, ananay,ananay dubey,ananay instagram,ananay vsec, programming, Class 12 vsec, Hacktoberfest ananay, technofair ananay,youthzest ananay,what has ananay done,spacify18, ananay linkedin, ananay youtube">
+	<meta name="robots" content="index, follow">
+	<meta name="copyright" content="Created By Ananay© | 2024 All Rights Reserved.">
+	<meta name="language" content="EN">
+	<meta name="author" content="Ananay Dubey">
+	<meta name="creationdate" content="1 Jun 2022">
+	<meta name="distribution" content="global">
+	<meta name="rating" content="general">
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://ananay.nelify.app/" />
+	<meta property="og:title" content="Ananay | Portfolio" />
+	<meta property="og:description" content="A dedicated student with proficiency in HTML, Python, CSS & JavaScript, actively participating in diverse projects and coding competitions." />
+	<meta property="og:image" content="https://ananay.netlify.app/assets/images/ss.png" />
+	<meta property="twitter:card" content="summary_large_image" />
+	<meta property="twitter:url" content="https://ananay.nelify.app/" />
+	<meta property="twitter:title" content="Ananay | Portfolio" />
+	<meta property="twitter:description" content="A dedicated student with proficiency in HTML, Python, CSS & JavaScript, actively participating in diverse projects and coding competitions." />
+	<meta property="twitter:image" content="https://ananay.netlify.app/assets/images/ss.png" />
 	<meta name="google" content="notranslate" />
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta name="theme-color" content="#121212">
@@ -137,24 +156,24 @@
 		<svg class="fds" xmlns="http://www.w3.org/2000/svg" version="1.1">
 			<defs>
 				<filter id="squiggly-0">
-					<feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="0" />
-					<feDisplacementMap id="displacement" in="SourceGraphic" in2="noise" scale="6" />
+					<feturbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="0" />
+					<fedisplacementmap id="displacement" in="SourceGraphic" in2="noise" scale="6" />
 				</filter>
 				<filter id="squiggly-1">
-					<feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="1" />
-					<feDisplacementMap in="SourceGraphic" in2="noise" scale="8" />
+					<feturbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="1" />
+					<fedisplacementmap in="SourceGraphic" in2="noise" scale="8" />
 				</filter>
 				<filter id="squiggly-2">
-					<feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="2" />
-					<feDisplacementMap in="SourceGraphic" in2="noise" scale="6" />
+					<feturbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="2" />
+					<fedisplacementmap in="SourceGraphic" in2="noise" scale="6" />
 				</filter>
 				<filter id="squiggly-3">
-					<feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="3" />
-					<feDisplacementMap in="SourceGraphic" in2="noise" scale="8" />
+					<feturbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="3" />
+					<fedisplacementmap in="SourceGraphic" in2="noise" scale="8" />
 				</filter>
 				<filter id="squiggly-4">
-					<feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="4" />
-					<feDisplacementMap in="SourceGraphic" in2="noise" scale="6" />
+					<feturbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="4" />
+					<fedisplacementmap in="SourceGraphic" in2="noise" scale="6" />
 				</filter>
 			</defs>
 		</svg>
@@ -175,15 +194,11 @@
 	<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 	<script src="assets/js/main.js"></script>
 	<script>
-	// Show the loader when the page starts loading
 	document.getElementById('loader').style.display = 'block';
-	// Hide the loader and remove disabledScroll class when the DOM content is fully loaded
 	document.addEventListener('DOMContentLoaded', function() {
-		// Calculate the time remaining until 3 seconds have passed
 		const currentTime = new Date().getTime();
 		const loadTime = currentTime - window.performance.timing.navigationStart;
 		const remainingTime = Math.max(3000 - loadTime, 0);
-		// Hide the loader after at least 3 seconds have passed
 		setTimeout(function() {
 			document.getElementById('loader').classList.add('hide');
 			document.body.classList.remove('disabledScroll');
@@ -193,7 +208,7 @@
 			}
 			var personalDiv = document.querySelector('.personal');
 			if(personalDiv) {
-				personalDiv.classList.add('slide-in-up'); // Add slide-in-up class after page load
+				personalDiv.classList.add('slide-in-up');
 			}
 		}, remainingTime);
 	});
