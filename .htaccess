@@ -1,0 +1,15 @@
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+</IfModule>
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^ananay.netlify.app [NC]
+RewriteRule ^music$ https://radioo.netlify.app/ [L,R=301]
+RewriteRule ^games$ https://finixx.netlify.app/ [L,R=301]
+RewriteRule ^dvs$ https://dynwave.netlify.app/ [L,R=301]
+RewriteRule ^chat$ https://dynwave.netlify.app/ [L,R=301]
+RewriteRule ^vsec$ https://vsec.netlify.app/ [L,R=301]
+RewriteRule ^ananay$ https://ananay.netlify.app/ [L,R=301]
