@@ -1,0 +1,251 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: 0;
+    transition: all 0.5s ease;
+}
+
+body {
+    font-family: "Poppins";
+    background: #000;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.container1 {
+    position: relative;
+    top: 20px;
+    left: 0;
+    height: 120vh;
+    width: 100vw;
+    background: url(../images/31.webp);
+    background-size: cover;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.c2 {
+    position: relative;
+    left: 0%;
+    margin-bottom: 120px;
+    height: fit-content;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    background: #111;
+    border-radius: 10px;
+    border: 1px solid #333;
+}
+
+.calculator,
+.c2 {
+    position: relative;
+    left: 0%;
+    margin-bottom: 120px;
+    height: fit-content;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    background: #111;
+    border-radius: 10px;
+    border: 1px solid #333;
+    align-content: stretch;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+}
+
+#display {
+    margin: 0 0px;
+    height: 150px;
+    width: 100%;
+    max-width: 17.5rem;
+    border: 0;
+    padding: 1rem;
+    padding-top: 100px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    font-size: 30px;
+    margin-bottom: 20px;
+    background: #222;
+    color: #ccc;
+    border-radius: 20px;
+    overflow-x: scroll;
+    font-weight: 900;
+    text-align: right;
+
+}
+
+#display::-webkit-scrollbar {
+    display: block;
+    height: 3px;
+}
+
+.resizable-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.resizable-table td {
+    width: calc(100% / 7);
+    /* Default: 7 columns */
+    text-align: center;
+    padding: 2px;
+}
+
+/* Media query for phones */
+@media screen and (max-width: 767px) {
+    .resizable-table tr {
+        display: flex;
+        flex-wrap: wrap;
+        width: 19.5rem;
+    }
+
+    .resizable-table td {
+        width: calc(100% / 4);
+        margin: 0.rem;
+        /* 4 columns for phones */
+    }
+}
+
+
+button {
+    height: 4rem;
+    width: 4rem;
+    border: 0;
+    border-radius: 50px;
+    margin: 0.15rem;
+    font-size: 25px;
+    cursor: pointer;
+    font-weight: 900;
+    transition: all 200ms ease;
+}
+
+button#equal {
+    height: 130px;
+}
+
+
+button#clear {
+    background-color: #490012;
+    color: #f60011;
+}
+
+button.btn-number {
+    background-color: #222;
+    color: #ccc;
+}
+
+button.btn-operator {
+    background-color: #003a11;
+    color: #00ff4c;
+}
+
+button.btn-equal {
+    background-color: #ffffff;
+    color: #404040;
+}
+
+button.btn-number:hover {
+    transform: scale(1.1);
+    background: #444;
+}
+
+button:active,
+button:hover {
+    transform: scale(1.05);
+}
+
+/* Adjust the input styling to match the display div */
+.c2 {
+    border-radius: 50px;
+}
+
+.c2 button {
+    color: #bbb;
+    background: #222;
+    margin: 0.15rem;
+}
+
+.c2 button:hover {
+    color: #00ff4c;
+    background: #005219;
+}
+
+.display-screen input:focus {
+    outline: none;
+}
+
+.more-btn {
+    position: relative;
+    top: 10px;
+    width: 19rem;
+    padding: 0px;
+    font-weight: 100;
+    font-size: 15px;
+    font-family: monospace;
+    background: #005a1bcf;
+    color: #fff;
+    display: none;
+}
+
+.more-btn:hover {
+    background: #ffffffce;
+    color: #003e13;
+}
+
+@media screen and (max-width:767px) {
+    .container1 {
+        top: 30px;
+        height: auto;
+        background: #111;
+    }
+
+    .calculator {
+        top: 55px;
+        border: 0;
+    }
+
+    .more-btn {
+        display: block;
+    }
+
+    #display {
+        width: 100%;
+        border: 0;
+        max-width: 19rem;
+    }
+
+    button {
+        margin: 0.45rem;
+    }
+
+    .c2 {
+        border: 0;
+        top: -60px;
+        left: 0;
+        width: 100vw;
+        display: none;
+    }
+
+    .c2.expanded {
+        display: block;
+    }
+
+    .c2 button {
+        margin: 0.45rem;
+    }
+}

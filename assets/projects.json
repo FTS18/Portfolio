@@ -7,6 +7,13 @@
         "tags": ["Web", "Music","HTML","CSS","Javascript", "Radio", "Entertainment", "Streaming"]
     },
     {
+        "title": "Calculator",
+        "link": "https://ananay.netlify.app/calculator.html",
+        "image": "assets/images/screenshots/sscc.webp",
+        "date": "Jun, 2024",
+        "tags": ["Web","Calculator","BMI","Linear", "Quadratic","HTML","CSS","Javascript","Loan","Volume","Inytrest"]
+    },
+    {
         "title": "Lyncc",
         "link": "https://lyncc.netlify.app/",
         "image": "assets/images/screenshots/4.webp",

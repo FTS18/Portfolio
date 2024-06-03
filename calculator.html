@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport"
+        content="width=device-width, height=device-height, minimum-scale=1, maximum-scale=1, user-scalable=no, initial-scale=1">
+    <title>Calculator</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/theme.css">
+    <link rel="stylesheet" href="assets/css/calc.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <div class="loader" id="loader">
+        <div class="clock-loader"></div>
+    </div>
+    <c-nav></c-nav>
+    <div class="container1">
+        <div class="calculator dark">
+            <div class="display-screen">
+                <input id="display">
+            </div>
+            <div class="buttons">
+                <table>
+                    <tr>
+                        <td><button class="btn-number" id="7">7</button></td>
+                        <td><button class="btn-number" id="8">8</button></td>
+                        <td><button class="btn-number" id="9">9</button></td>
+                        <td><button class="btn-operator" id="clear">C</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="btn-number" id="4">4</button></td>
+                        <td><button class="btn-number" id="5">5</button></td>
+                        <td><button class="btn-number" id="6">6</button></td>
+                        <td><button class="btn-operator" id="backspace">< </button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="btn-number" id="1">1</button></td>
+                        <td><button class="btn-number" id="2">2</button></td>
+                        <td><button class="btn-number" id="3">3</button></td>
+                        <td rowspan="2"><button class="btn-equal" id="equal">=</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="btn-operator" id="toggleMode">deg</button></td>
+                        <td><button class="btn-number" id="0">0</button></td>
+                        <td><button class="btn-operator" id=".">.</button></td>
+                    </tr>
+                </table>
+            </div>
+            <button class="more-btn">More</button>
+        </div>
+        <div class="c2">
+                <div class="buttons">
+                    <table class="resizable-table" id="myTable">
+                        <tr>
+                            <td><button class="btn-operator" id="+">+</button></td>
+                            <td><button class="btn-operator" id="-">-</button></td>
+                            <td><button class="btn-operator" id="/">&divide;</button></td>
+                            <td><button class="btn-operator" id="*">&times;</button></td>
+                            <td><button class="btn-operator" id="(">(</button></td>
+                            <td><button class="btn-operator" id=")">)</button></td>
+                            <td><button class="btn-operator" id="^">^</button></td>
+                            <td><button class="btn-operator" id="%">%</button></td>
+                        </tr>
+                        <tr>                            
+                            <td><button class="btn-operator" id="!">!</button></td>
+                            <td><button class="btn-operator" id="e">e</button></td>
+                            <td><button class="btn-operator" id="π">&pi;</button></td>
+                            <td><button class="btn-operator" id="ln(">ln</button></td>
+                            <td><button class="btn-operator" id="√">&#x221A;</button></td>
+                            <td><button class="btn-operator" id="∛">&#x221B;</button></td>
+                            <td><button class="btn-operator" id="log(">log</button></td>
+                            <td><button class="btn-operator" id="1/">1/x</button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="btn-operator" id="sin(">sin</button></td>
+                            <td><button class="btn-operator" id="cos(">cos</button></td>
+                            <td><button class="btn-operator" id="tan(">tan</button></td>
+                            <td><button class="btn-operator" id="asin(">sin⁻¹</button></td>
+                            <td><button class="btn-operator" id="acos(">cos⁻¹</button></td>
+                            <td><button class="btn-operator" id="atan(">tan⁻¹</button></td>
+                            <td><button class="btn-operator" id="|">| |</button></td>
+                            <td><button class="btn-operator" id=""></button></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+    </div>
+    <script src="assets/js/calc.js"></script>    
+    <script>
+        const headerUrl = 'components/navbar.html';
+
+        function loadHeader() {
+            const cNav = document.querySelector('c-nav');
+            fetch(headerUrl)
+                .then((response) => response.text())
+                .then((headerHtml) => {
+                    cNav.innerHTML = headerHtml;
+                })
+                .catch((error) => {
+                    console.error('Error loading header:', error);
+                });
+        }
+
+        loadHeader();
+        document.getElementById('loader').style.display = 'block';
+        document.addEventListener('DOMContentLoaded', function () {
+            const currentTime = new Date().getTime();
+            const loadTime = currentTime - window.performance.timing.navigationStart;
+            const remainingTime = Math.max(3000 - loadTime, 0);
+            setTimeout(function () {
+                document.getElementById('loader').classList.add('hide');
+                document.body.classList.remove('disabledScroll');
+                var navbar = document.querySelector('c-nav');
+                if (navbar) {
+                    navbar.classList.add('slide-in-down');
+                }
+            }, remainingTime);
+        });
+    </script>
+</body>
+
+</html>
