@@ -16,11 +16,12 @@ a {
     color: #fff;
 }
 
-.container1 {
+.calcui {
     position: relative;
     top: 20px;
     left: 0;
-    height: 120vh;
+    height: auto;
+    padding:80px;
     width: 100vw;
     background: url(../images/31.webp);
     background-size: cover;
@@ -64,7 +65,6 @@ a {
     align-content: stretch;
     flex-wrap: wrap;
     flex-direction: column;
-
 }
 
 #display {
@@ -122,7 +122,7 @@ a {
 }
 
 
-button {
+.calcui button {
     height: 4rem;
     width: 4rem;
     border: 0;
@@ -164,8 +164,8 @@ button.btn-number:hover {
     background: #444;
 }
 
-button:active,
-button:hover {
+.calcui button:active,
+.calcui button:hover {
     transform: scale(1.05);
 }
 
@@ -192,8 +192,8 @@ button:hover {
 .more-btn {
     position: relative;
     top: 10px;
-    width: 19rem;
-    padding: 0px;
+    width: 100px;
+    padding: 20px;
     font-weight: 100;
     font-size: 15px;
     font-family: monospace;
@@ -206,9 +206,138 @@ button:hover {
     background: #ffffffce;
     color: #003e13;
 }
+.calculators {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    background-color: #000;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    margin: auto;
+}
 
+.calculator1 {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #000;
+}
+
+.bmidiv {
+    position: relative;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 20rem;
+    background: #111;
+    padding: 30px;
+}
+
+.bmidiv input, .bmidiv select {
+    width: 100%;
+    padding: 20px;
+    background: #111;
+    border-radius: 50px;
+    margin-top: 15px;
+    border: 0;
+    outline: 0;
+    color: #ccc;
+    font-family: Poppins;
+    font-size: 15px;
+}
+
+.bmidiv button {
+    width: 100%;
+    background: #00b737;
+    color: #ccc;
+    border-radius: 50px;
+    margin-top: 15px;
+    border: 0;
+    padding: 20px;
+    outline: 0;
+    font-family: Poppins;
+    font-size: 15px;
+}
+
+.bmi-text {
+    font-family: Helvetica, sans-serif;
+    font-weight: 900;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.bmi-result, .equation-result {
+    margin: 20px 0;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.bmi-slider {
+    position: relative;
+    margin-top: 20px;
+}
+
+.bmi-scale {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.bmi-category {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+}
+
+.underweight {
+    background-color: #c9b67f;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+
+.healthy {
+    background-color: #00af00;
+}
+
+.overweight {
+    background-color: #c6a800;
+}
+
+.obese {
+    background-color: #ff2a00;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.bmi-indicator {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    font-size: 20px;
+    color: red;
+    transition: left 0.5s ease;
+}
+
+.bmi-text span {
+    font-size: 7rem;
+    line-height: 100px;
+}
+
+@media screen and (max-width: 767px) {
+    .calculators {
+        flex-direction: column;
+    }
+    .bmidiv {
+        width: 100%;
+        max-width: 100%;
+        border-radius: 0;
+    }
+}
 @media screen and (max-width:767px) {
-    .container1 {
+    .calcui {
         top: 30px;
         height: auto;
         background: #111;
@@ -236,16 +365,26 @@ button:hover {
     .c2 {
         border: 0;
         top: -60px;
-        left: 0;
+        left: 50%;
+        transform: translateX(-50%);
         width: 100vw;
         display: none;
     }
 
     .c2.expanded {
-        display: block;
+        display: flex;
     }
 
     .c2 button {
         margin: 0.45rem;
+    }.bmi{
+        padding: 0;
+        width: 100%;
+        background: #000;
+    }.bmidiv{
+        width: 100%;
+        max-width: 50vw;
+        border-radius: 0;
+        background: #111;
     }
 }

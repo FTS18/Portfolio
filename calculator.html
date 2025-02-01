@@ -26,7 +26,7 @@
         <div class="clock-loader"></div>
     </div>
     <c-nav></c-nav>
-    <div class="container1">
+    <div class="calcui">
         <div class="calculator dark">
             <div class="display-screen">
                 <input id="display">
@@ -96,7 +96,58 @@
                     </table>
                 </div>
             </div>
-    </div>
+        </div>
+        <section class="calculators">
+            <div class="calculator1 bmi">
+                <div class="bmidiv">
+                    <div class="bmi-text"><span class="">BMI</span> Calculator</div>
+                    <input id="height" type="text" placeholder="Height (in cm)">
+                    <input id="weight" type="text" placeholder="Weight (in kg)">
+                    <button class="submit-bmi">Check</button>
+                    <div class="bmi-result" id="bmiResult"></div>
+                    <div class="bmi-slider">
+                        <div class="bmi-scale">
+                            <div class="bmi-category underweight">UW</div>
+                            <div class="bmi-category healthy">HW</div>
+                            <div class="bmi-category overweight">OW</div>
+                            <div class="bmi-category obese">OB</div>
+                        </div>
+                        <div class="bmi-indicator" id="bmiIndicator">▼</div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="calculator1 equation-solver">
+                <div class="bmidiv">
+                    <div class="bmi-text"><span class="">Eqn</span> Solver</div>
+                    <select id="variable-count">
+                        <option value="2">2 Variables</option>
+                        <option value="3">3 Variables</option>
+                    </select>
+                    <div id="equations-input">
+                        <input id="eq1" type="text" placeholder="Equation 1 (e.g., 2x + 3y = 6)">
+                        <input id="eq2" type="text" placeholder="Equation 2 (e.g., x - y = 1)">
+                    </div>
+                    <button class="submit-equation">Solve</button>
+                    <div class="equation-result" id="equationResult"></div>
+                </div>
+            </div>
+            <div class="calculator1 equation-solver">
+                <div class="bmidiv">
+                    <div class="bmi-text"><span class="">Eqn</span> Solver</div>
+                    <select id="variable-count">
+                        <option value="2">2 Variables</option>
+                        <option value="3">3 Variables</option>
+                    </select>
+                    <div id="equations-input">
+                        <input id="eq1" type="text" placeholder="Equation 1 (e.g., 2x + 3y = 6)">
+                        <input id="eq2" type="text" placeholder="Equation 2 (e.g., x - y = 1)">
+                    </div>
+                    <button class="submit-equation">Solve</button>
+                    <div class="equation-result" id="equationResult"></div>
+                </div>
+            </div>
+        </section>
     <script src="assets/js/calc.js"></script>    
     <script>
         const headerUrl = 'components/navbar.html';

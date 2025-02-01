@@ -187,3 +187,99 @@ moreBtn.addEventListener('click', () => {
         c2.classList.toggle('expanded');
     }
 });
+// Function to calculate BMI
+function calculateBMI() {
+    const heightInput = document.getElementById('height');
+    const weightInput = document.getElementById('weight');
+    const height = parseFloat(heightInput.value);
+    const weight = parseFloat(weightInput.value);
+
+    if (isNaN(height) || isNaN(weight) || height <= 0 || weight <= 0) {
+        alert('Please enter valid height and weight values.');
+        return;
+    }
+
+    const bmi = weight / Math.pow(height / 100, 2);
+    displayBMI(bmi);
+}
+
+function displayBMI(bmi) {
+    const bmiResultDiv = document.getElementById('bmiResult');
+    bmiResultDiv.textContent = `Your BMI is: ${bmi.toFixed(2)}`;
+
+    const bmiIndicator = document.getElementById('bmiIndicator');
+    let category = "";
+    let position = 0;
+
+    if (bmi < 18.5) {
+        category = "Underweight";
+        position = 10;
+    } else if (bmi >= 18.5 && bmi < 24.9) {
+        category = "Healthy";
+        position = 35;
+    } else if (bmi >= 25 && bmi < 29.9) {
+        category = "Overweight";
+        position = 65;
+    } else {
+        category = "Obese";
+        position = 90;
+    }
+
+    bmiIndicator.style.left = `calc(${position}% - 10px)`;
+
+    const categoryDiv = document.createElement('div');
+    categoryDiv.textContent = `Category: ${category}`;
+    categoryDiv.className = 'bmi-category-text';
+
+    const previousCategory = document.querySelector('.bmi-category-text');
+    if (previousCategory) {
+        previousCategory.remove();
+    }
+    bmiResultDiv.appendChild(categoryDiv);
+}
+
+document.querySelector('.submit-bmi').addEventListener('click', calculateBMI);
+
+function solveEquations() {
+    const variableCount = document.getElementById('variable-count').value;
+    const eq1 = document.getElementById('eq1').value;
+    const eq2 = document.getElementById('eq2').value;
+    const eq3 = variableCount === '3' ? document.getElementById('eq3').value : null;
+
+    try {
+        const equations = [eq1, eq2];
+        if (eq3) equations.push(eq3);
+        const result = solveSystemOfEquations(equations);
+        displayEquationResult(result);
+    } catch (error) {
+        alert('Invalid equations. Please enter valid equations.');
+    }
+}
+
+function displayEquationResult(result) {
+    const equationResultDiv = document.getElementById('equationResult');
+    equationResultDiv.textContent = `Solution: ${result}`;
+}
+
+function solveSystemOfEquations(equations) {
+    // Placeholder solution - replace with actual logic
+    return "x = 1, y = 2, z = 3";
+}
+
+document.querySelector('.submit-equation').addEventListener('click', solveEquations);
+
+document.getElementById('variable-count').addEventListener('change', function () {
+    const variableCount = this.value;
+    const equationsInputDiv = document.getElementById('equations-input');
+    equationsInputDiv.innerHTML = `
+        <input id="eq1" type="text" placeholder="Equation 1 (e.g., 2x + 3y = 6)">
+        <input id="eq2" type="text" placeholder="Equation 2 (e.g., x - y = 1)">
+    `;
+    if (variableCount === '3') {
+        const eq3Input = document.createElement('input');
+        eq3Input.id = 'eq3';
+        eq3Input.type = 'text';
+        eq3Input.placeholder = 'Equation 3 (e.g., x + y + z = 3)';
+        equationsInputDiv.appendChild(eq3Input);
+    }
+});

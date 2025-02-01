@@ -1,5 +1,12 @@
 [
     {
+        "title": "Project J",
+        "link": "https://projectjee.netlify.app",
+        "image": "assets/images/screenshots/ss15.webp",
+        "date": "Jan, 2025",
+        "tags": ["Web", "JEE","HTML","CSS","Javascript", "Project J", "Edtech","Education", "College Predictor","Failed Dropper"]
+    },
+    {
         "title": "Radioo",
         "link": "https://radioo.netlify.app",
         "image": "assets/images/screenshots/ss10.webp",
@@ -11,7 +18,7 @@
         "link": "https://ananay.netlify.app/calculator.html",
         "image": "assets/images/screenshots/sscc.webp",
         "date": "Jun, 2024",
-        "tags": ["Web","Calculator","BMI","Linear", "Quadratic","HTML","CSS","Javascript","Loan","Volume","Inytrest"]
+        "tags": ["Web","Calculator","BMI","HTML","CSS","Javascript"]
     },
     {
         "title": "Lyncc",
@@ -32,7 +39,7 @@
         "link": "https://github.com/FTS18/mysql-python",
         "image": "assets/images/screenshots/1.webp",
         "date": "Jan, 2024",
-        "tags": ["Mysql","12","Database","class 12", "practicals","Python","Homework", "Projects", "Programming", "Education", "12"]
+        "tags": ["Mysql","Database","class 12", "practicals","Python","Homework", "Projects", "Programming", "Education", "12"]
     },
     {
         "title": "VSEC",
@@ -46,7 +53,7 @@
         "link": "https://reartify.netlify.app/",
         "image": "assets/images/screenshots/yz.webp",
         "date": "Sept, 2023",
-        "tags": ["Web", "Commerce","HTML","CSS","Javascript","YouthZest" ,"Shopping", "Online Store", "E Commerce", "TechFest"]
+        "tags": ["Web","HTML","CSS","Javascript","YouthZest" ,"Shopping", "Online Store", "E Commerce", "TechFest"]
     },
     {
         "title": "TechnoFair",
@@ -60,7 +67,7 @@
         "link": "https://bytekart.netlify.app/",
         "image": "assets/images/screenshots/ecom.webp",
         "date": "June, 2023",
-        "tags": ["Web", "Commerce","HTML","CSS","Javascript", "Shopping", "Online Store", "e commerce"]
+        "tags": ["Web", "Commerce","HTML","CSS","Javascript", "Shopping", "Online Store", "E Commerce"]
     },
     {
         "title": "Finixx",
@@ -81,7 +88,7 @@
         "link": "https://github.com/FTS18/Python-Projects/",
         "image": "assets/images/screenshots/3.webp",
         "date": "May, 2023",
-        "tags": ["Python","Holiday","Homework", "Projects", "Programming", "Education", "12","Practicals"]
+        "tags": ["Python","Holiday","Homework", "Projects", "Programming", "Education","Practicals"]
     },
     {
         "title": "Spacify",
@@ -95,13 +102,13 @@
         "link": "https://fts18.github.io/Computer-Practical/",
         "image": "assets/images/screenshots/2.webp",
         "date": "Oct, 2021",
-        "tags": ["Python","Holiday","HTML","CSS","Javascript","Homework", "Projects", "Programming", "Education", "10","Practicals", "Web"]
+        "tags": ["Python","Holiday","HTML","CSS","Javascript","Homework", "Projects", "Programming", "Education","Practicals", "Web"]
     },
     {
         "title": "First Website",
         "link": "https://spacify-v1.netlify.app",
         "image": "assets/images/screenshots/mfw.webp",
         "date": "Jan, 2021",
-        "tags": ["Web", "First Website","HTML","CSS","Javascript", "Personal", "Portfolio"]
+        "tags": ["Web", "First Website","HTML","CSS","Javascript", "Portfolio"]
     }
 ]
