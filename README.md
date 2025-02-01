@@ -1,2 +1,2 @@
 # Portfolio
-Has links to all projects i'd worked on
+Has links to all projects on which i had worked on 
