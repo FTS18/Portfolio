@@ -4,8 +4,9 @@
   "description": "Has links to all projects I've worked on",
   "main": "server.js",
   "type": "module",
-  "scripts": {                                                                             
+  "scripts": {
     "start": "node server.js",
+    "dev": "nodemon server.js",
     "build": "npm install"
   },
   "author": "Ananay",
@@ -25,5 +26,10 @@
   "bugs": {
     "url": "https://github.com/fts18/portfolio/issues"
   },
-  "homepage": "https://github.com/fts18/portfolio#readme"
+  "homepage": "https://github.com/fts18/portfolio#readme",
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "live-server": "^1.2.2",
+    "nodemon": "^3.1.10"
+  }
 }

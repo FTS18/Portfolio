@@ -1,5 +1,12 @@
 [
     {
+        "title": "Saksham AI",
+        "link": "https://hexaforces.netlify.app",
+        "image": "assets/images/screenshots/ss1.webp",
+        "date": "September, 2025",
+        "tags": ["Web", "Saksham AI","Internship","CSS","Javascript", "HTML", "Firebase","NLP", "Edtech","AI", "Internship Finder"]
+    },
+    {
         "title": "Project J",
         "link": "https://projectjee.netlify.app",
         "image": "assets/images/screenshots/ss15.webp",
@@ -15,7 +22,7 @@
     },
     {
         "title": "Calculator",
-        "link": "https://ananay.netlify.app/calculator.html",
+        "link": "/calculator.html",
         "image": "assets/images/screenshots/sscc.webp",
         "date": "Jun, 2024",
         "tags": ["Web","Calculator","BMI","HTML","CSS","Javascript"]

@@ -11,6 +11,12 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use(express.static('.')); // Serve static files from root directory
+
+app.get('/', (req, res) => {
+    res.sendFile('index.html', { root: '.' });
+});
+
 app.get('/server/download', async (req, res) => {
     try {
         var URL = req.query.URL;
@@ -45,9 +51,9 @@ app.get('/server/download', async (req, res) => {
         res.status(500).send('Internal Server Error: ' + err.message);
     }
 });
-const PORT = process.env.PORT || 8888;
-app.listen(PORT, '0.0.0.0', () => {
-    console.log(`Server is running on http://0.0.0.0:${PORT}`);
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, 'localhost', () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
 });
 
 export { app };

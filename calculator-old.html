@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport"
+        content="width=device-width, height=device-height, minimum-scale=1, maximum-scale=1, user-scalable=no, initial-scale=1">
+    <title>Calculator</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/theme.css">
+    <link rel="stylesheet" href="assets/css/calc.css">
+    <link rel="stylesheet" href="assets/css/calc-landing.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <div class="loader" id="loader">
+        <div class="clock-loader"></div>
+    </div>
+    <c-nav></c-nav>
+    
+    <!-- Calculator Landing Page - Main Categories -->
+    <div class="calc-landing" id="mainCategories">
+        <div class="calc-hero">
+            <h1 class="calc-title">Calculator Hub</h1>
+            <p class="calc-subtitle">Choose a category to explore calculators</p>
+        </div>
+        
+        <!-- Main Category Cards -->
+        <div class="main-categories">
+            <div class="category-card" data-category="basic-scientific">
+                <div class="category-icon">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <h2>Basic & Scientific</h2>
+                <p>3 Calculators</p>
+                <span class="card-arrow"><i class="fas fa-arrow-right"></i></span>
+            </div>
+
+            <div class="category-card" data-category="financial">
+                <div class="category-icon">
+                    <i class="fas fa-dollar-sign"></i>
+                </div>
+                <h2>Financial Calculators</h2>
+                <p>9 Calculators</p>
+                <span class="card-arrow"><i class="fas fa-arrow-right"></i></span>
+            </div>
+
+            <div class="category-card" data-category="fitness">
+                <div class="category-icon">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <h2>Fitness & Health</h2>
+                <p>6 Calculators</p>
+                <span class="card-arrow"><i class="fas fa-arrow-right"></i></span>
+            </div>
+
+            <div class="category-card" data-category="utility">
+                <div class="category-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <h2>Utility Calculators</h2>
+                <p>11 Calculators</p>
+                <span class="card-arrow"><i class="fas fa-arrow-right"></i></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Subcategory Pages (Hidden by default) -->
+    <!-- Basic & Scientific Subcategory -->
+    <div class="calc-subcategory" id="basic-scientific-sub" style="display: none;">
+        <button class="back-to-categories">
+            <i class="fas fa-arrow-left"></i> Back to Categories
+        </button>
+        <div class="calc-hero">
+            <h1 class="calc-title">Basic & Scientific Calculators</h1>
+            <p class="calc-subtitle">Choose a calculator</p>
+        </div>
+        
+        <div class="calc-grid">
+            <div class="calc-card" data-calc="basic">
+                <div class="card-icon">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <h3>Basic Calculator</h3>
+                <p>Simple arithmetic operations</p>
+            </div>
+            <div class="calc-card" data-calc="scientific">
+                <div class="card-icon">
+                    <i class="fas fa-square-root-alt"></i>
+                </div>
+                <h3>Scientific Calculator</h3>
+                <p>Advanced mathematical functions</p>
+            </div>
+            <div class="calc-card" data-calc="equation">
+                <div class="card-icon">
+                    <i class="fas fa-superscript"></i>
+                </div>
+                <h3>Equation Solver</h3>
+                <p>Solve 2-3 variable equations</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Financial Subcategory -->
+    <div class="calc-subcategory" id="financial-sub" style="display: none;">
+        <button class="back-to-categories">
+            <i class="fas fa-arrow-left"></i> Back to Categories
+        </button>
+        <div class="calc-hero">
+            <h1 class="calc-title">Financial Calculators</h1>
+            <p class="calc-subtitle">Choose a calculator</p>
+        </div>
+        
+        <div class="calc-grid">
+                <div class="calc-card" data-calc="basic">
+                    <div class="card-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Basic Calculator</h3>
+                    <p>Simple arithmetic operations</p>
+                </div>
+                <div class="calc-card" data-calc="scientific">
+                    <div class="card-icon">
+                        <i class="fas fa-square-root-alt"></i>
+                    </div>
+                    <h3>Scientific Calculator</h3>
+                    <p>Advanced mathematical functions</p>
+                </div>
+                <div class="calc-card" data-calc="equation">
+                    <div class="card-icon">
+                        <i class="fas fa-superscript"></i>
+                    </div>
+                    <h3>Equation Solver</h3>
+                    <p>Solve 2-3 variable equations</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Financial Calculators Category -->
+        <section class="calc-category">
+            <h2 class="category-title">
+                <i class="fas fa-dollar-sign"></i>
+                Financial Calculators
+            </h2>
+            <div class="calc-grid">
+                <div class="calc-card" data-calc="loan">
+                    <div class="card-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3>Loan Calculator</h3>
+                    <p>Calculate loan payments & interest</p>
+                </div>
+                <div class="calc-card" data-calc="emi">
+                    <div class="card-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3>EMI Calculator</h3>
+                    <p>Monthly installment calculator</p>
+                </div>
+                <div class="calc-card" data-calc="sip">
+                    <div class="card-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>SIP Calculator</h3>
+                    <p>Systematic investment plan</p>
+                </div>
+                <div class="calc-card" data-calc="interest">
+                    <div class="card-icon">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <h3>Interest Calculator</h3>
+                    <p>Simple & compound interest</p>
+                </div>
+                <div class="calc-card" data-calc="mortgage">
+                    <div class="card-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Mortgage Calculator</h3>
+                    <p>Home loan calculator</p>
+                </div>
+                <div class="calc-card" data-calc="retirement">
+                    <div class="card-icon">
+                        <i class="fas fa-piggy-bank"></i>
+                    </div>
+                    <h3>Retirement Calculator</h3>
+                    <p>Plan your retirement savings</p>
+                </div>
+                <div class="calc-card" data-calc="depreciation">
+                    <div class="card-icon">
+                        <i class="fas fa-chart-line-down"></i>
+                    </div>
+                    <h3>Depreciation Calculator</h3>
+                    <p>Asset depreciation calculator</p>
+                </div>
+                <div class="calc-card" data-calc="tax">
+                    <div class="card-icon">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <h3>Tax Calculator</h3>
+                    <p>Income tax & sales tax</p>
+                </div>
+                <div class="calc-card" data-calc="investment">
+                    <div class="card-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3>Investment Calculator</h3>
+                    <p>ROI & investment returns</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fitness & Health Calculators Category -->
+        <section class="calc-category">
+            <h2 class="category-title">
+                <i class="fas fa-heartbeat"></i>
+                Fitness & Health Calculators
+            </h2>
+            <div class="calc-grid">
+                <div class="calc-card" data-calc="bmi">
+                    <div class="card-icon">
+                        <i class="fas fa-weight"></i>
+                    </div>
+                    <h3>BMI Calculator</h3>
+                    <p>Body Mass Index calculator</p>
+                </div>
+                <div class="calc-card" data-calc="calorie">
+                    <div class="card-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3>Calorie Calculator</h3>
+                    <p>Daily calorie requirements</p>
+                </div>
+                <div class="calc-card" data-calc="bodyfat">
+                    <div class="card-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Body Fat Calculator</h3>
+                    <p>Estimate body fat percentage</p>
+                </div>
+                <div class="calc-card" data-calc="bmr">
+                    <div class="card-icon">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    <h3>BMR Calculator</h3>
+                    <p>Basal Metabolic Rate</p>
+                </div>
+                <div class="calc-card" data-calc="idealweight">
+                    <div class="card-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Ideal Weight Calculator</h3>
+                    <p>Find your ideal weight</p>
+                </div>
+                <div class="calc-card" data-calc="pace">
+                    <div class="card-icon">
+                        <i class="fas fa-stopwatch"></i>
+                    </div>
+                    <h3>Pace Calculator</h3>
+                    <p>Running & walking pace</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Utility Calculators Category -->
+        <section class="calc-category">
+            <h2 class="category-title">
+                <i class="fas fa-tools"></i>
+                Utility Calculators
+            </h2>
+            <div class="calc-grid">
+                <div class="calc-card" data-calc="currency">
+                    <div class="card-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h3>Currency Converter</h3>
+                    <p>Live exchange rates</p>
+                </div>
+                <div class="calc-card" data-calc="age">
+                    <div class="card-icon">
+                        <i class="fas fa-birthday-cake"></i>
+                    </div>
+                    <h3>Age Calculator</h3>
+                    <p>Calculate exact age</p>
+                </div>
+                <div class="calc-card" data-calc="date">
+                    <div class="card-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Date Calculator</h3>
+                    <p>Date difference calculator</p>
+                </div>
+                <div class="calc-card" data-calc="time">
+                    <div class="card-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Time Calculator</h3>
+                    <p>Time duration calculator</p>
+                </div>
+                <div class="calc-card" data-calc="hours">
+                    <div class="card-icon">
+                        <i class="fas fa-hourglass-half"></i>
+                    </div>
+                    <h3>Hours Calculator</h3>
+                    <p>Working hours calculator</p>
+                </div>
+                <div class="calc-card" data-calc="gpa">
+                    <div class="card-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>GPA Calculator</h3>
+                    <p>Grade point average</p>
+                </div>
+                <div class="calc-card" data-calc="grade">
+                    <div class="card-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Grade Calculator</h3>
+                    <p>Calculate final grades</p>
+                </div>
+                <div class="calc-card" data-calc="password">
+                    <div class="card-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Password Generator</h3>
+                    <p>Secure password generator</p>
+                </div>
+                <div class="calc-card" data-calc="conversion">
+                    <div class="card-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h3>Unit Converter</h3>
+                    <p>Convert various units</p>
+                </div>
+                <div class="calc-card" data-calc="subnet">
+                    <div class="card-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>Subnet Calculator</h3>
+                    <p>Network subnet calculator</p>
+                </div>
+                <div class="calc-card" data-calc="concrete">
+                    <div class="card-icon">
+                        <i class="fas fa-hammer"></i>
+                    </div>
+                    <h3>Concrete Calculator</h3>
+                    <p>Concrete volume calculator</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Hidden: Original Calculator Interface -->
+    <div class="calcui">
+        <div class="calculator dark">
+            <div class="display-screen">
+                <input id="display">
+            </div>
+            <div class="buttons">
+                <table>
+                    <tr>
+                        <td><button class="btn-number" id="7">7</button></td>
+                        <td><button class="btn-number" id="8">8</button></td>
+                        <td><button class="btn-number" id="9">9</button></td>
+                        <td><button class="btn-operator" id="clear">C</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="btn-number" id="4">4</button></td>
+                        <td><button class="btn-number" id="5">5</button></td>
+                        <td><button class="btn-number" id="6">6</button></td>
+                        <td><button class="btn-operator" id="backspace">< </button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="btn-number" id="1">1</button></td>
+                        <td><button class="btn-number" id="2">2</button></td>
+                        <td><button class="btn-number" id="3">3</button></td>
+                        <td rowspan="2"><button class="btn-equal" id="equal">=</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="btn-operator" id="toggleMode">deg</button></td>
+                        <td><button class="btn-number" id="0">0</button></td>
+                        <td><button class="btn-operator" id=".">.</button></td>
+                    </tr>
+                </table>
+            </div>
+            <button class="more-btn">More</button>
+        </div>
+        <div class="c2">
+                <div class="buttons">
+                    <table class="resizable-table" id="myTable">
+                        <tr>
+                            <td><button class="btn-operator" id="+">+</button></td>
+                            <td><button class="btn-operator" id="-">-</button></td>
+                            <td><button class="btn-operator" id="/">&divide;</button></td>
+                            <td><button class="btn-operator" id="*">&times;</button></td>
+                            <td><button class="btn-operator" id="(">(</button></td>
+                            <td><button class="btn-operator" id=")">)</button></td>
+                            <td><button class="btn-operator" id="^">^</button></td>
+                            <td><button class="btn-operator" id="%">%</button></td>
+                        </tr>
+                        <tr>                            
+                            <td><button class="btn-operator" id="!">!</button></td>
+                            <td><button class="btn-operator" id="e">e</button></td>
+                            <td><button class="btn-operator" id="π">&pi;</button></td>
+                            <td><button class="btn-operator" id="ln(">ln</button></td>
+                            <td><button class="btn-operator" id="√">&#x221A;</button></td>
+                            <td><button class="btn-operator" id="∛">&#x221B;</button></td>
+                            <td><button class="btn-operator" id="log(">log</button></td>
+                            <td><button class="btn-operator" id="1/">1/x</button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="btn-operator" id="sin(">sin</button></td>
+                            <td><button class="btn-operator" id="cos(">cos</button></td>
+                            <td><button class="btn-operator" id="tan(">tan</button></td>
+                            <td><button class="btn-operator" id="asin(">sin⁻¹</button></td>
+                            <td><button class="btn-operator" id="acos(">cos⁻¹</button></td>
+                            <td><button class="btn-operator" id="atan(">tan⁻¹</button></td>
+                            <td><button class="btn-operator" id="|">| |</button></td>
+                            <td><button class="btn-operator" id=""></button></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <section class="calculators">
+            <div class="calculator1 bmi">
+                <div class="bmidiv">
+                    <div class="bmi-text"><span class="">BMI</span> Calculator</div>
+                    <input id="height" type="text" placeholder="Height (in cm)">
+                    <input id="weight" type="text" placeholder="Weight (in kg)">
+                    <button class="submit-bmi">Check</button>
+                    <div class="bmi-result" id="bmiResult"></div>
+                    <div class="bmi-slider">
+                        <div class="bmi-scale">
+                            <div class="bmi-category underweight">UW</div>
+                            <div class="bmi-category healthy">HW</div>
+                            <div class="bmi-category overweight">OW</div>
+                            <div class="bmi-category obese">OB</div>
+                        </div>
+                        <div class="bmi-indicator" id="bmiIndicator">▼</div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="calculator1 equation-solver">
+                <div class="bmidiv">
+                    <div class="bmi-text"><span class="">Eqn</span> Solver</div>
+                    <select id="variable-count">
+                        <option value="2">2 Variables</option>
+                        <option value="3">3 Variables</option>
+                    </select>
+                    <div id="equations-input">
+                        <input id="eq1" type="text" placeholder="Equation 1 (e.g., 2x + 3y = 6)">
+                        <input id="eq2" type="text" placeholder="Equation 2 (e.g., x - y = 1)">
+                    </div>
+                    <button class="submit-equation">Solve</button>
+                    <div class="equation-result" id="equationResult"></div>
+                </div>
+            </div>
+            
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.11.0/math.min.js"></script>
+            <script>
+                function solveEquations() {
+                    const variableCount = document.getElementById('variable-count').value;
+                    const eq1 = document.getElementById('eq1').value.trim();
+                    const eq2 = document.getElementById('eq2').value.trim();
+                    const eq3 = variableCount === '3' ? document.getElementById('eq3').value.trim() : null;
+            
+                    try {
+                        const equations = [eq1, eq2];
+                        if (eq3) equations.push(eq3);
+                        const result = solveSystemOfEquations(equations);
+                        displayEquationResult(result);
+                    } catch (error) {
+                        alert('Invalid equations. Please enter valid equations.');
+                    }
+                }
+            
+                function displayEquationResult(result) {
+                    const equationResultDiv = document.getElementById('equationResult');
+                    equationResultDiv.textContent = `Solution: ${result}`;
+                }function solveSystemOfEquations(equations) {
+    try {
+        const variables = ['x', 'y', 'z'];
+        const variableCount = equations.length;
+
+        const matrix = [];
+        const constants = [];
+
+        equations.forEach(eq => {
+            const [lhs, rhs] = eq.split('=').map(side => side.trim());
+            if (!rhs || isNaN(rhs)) throw new Error("Invalid equation format");
+
+            const coefficients = variables.slice(0, variableCount).map(v => {
+                const match = lhs.match(new RegExp(`[+-]?\\d*\\.?\\d*${v}`));
+                if (match) {
+                    const num = match[0].replace(v, '');
+                    return num === '' || num === '+' ? 1 : num === '-' ? -1 : parseFloat(num);
+                }
+                return 0;
+            });
+
+            matrix.push(coefficients);
+            constants.push(parseFloat(rhs));
+        });
+
+        const result = math.lusolve(matrix, constants);
+        return result
+            .map((val, index) => `${variables[index]} = ${val[0].toFixed(2)}`)
+            .join(', ');
+    } catch (error) {
+        return 'Invalid or unsolvable system.';
+    }
+}
+
+function displayEquationResult(result) {
+    const equationResultDiv = document.getElementById('equationResult');
+    equationResultDiv.textContent = `Solution: ${result}`;
+}
+
+function solveEquations() {
+    const variableCount = document.getElementById('variable-count').value;
+    const eq1 = document.getElementById('eq1').value;
+    const eq2 = document.getElementById('eq2').value;
+    const eq3 = variableCount === '3' ? document.getElementById('eq3').value : null;
+
+    try {
+        const equations = [eq1, eq2];
+        if (eq3) equations.push(eq3);
+        const result = solveSystemOfEquations(equations);
+        displayEquationResult(result);
+    } catch (error) {
+        alert('Invalid equations. Please enter valid equations.');
+    }
+}
+
+document.querySelector('.submit-equation').addEventListener('click', solveEquations);
+
+document.getElementById('variable-count').addEventListener('change', function () {
+    const variableCount = this.value;
+    const equationsInputDiv = document.getElementById('equations-input');
+    equationsInputDiv.innerHTML = `
+        <input id="eq1" type="text" placeholder="Equation 1 (e.g., 2x + 3y = 6)">
+        <input id="eq2" type="text" placeholder="Equation 2 (e.g., x - y = 1)">
+    `;
+    if (variableCount === '3') {
+        const eq3Input = document.createElement('input');
+        eq3Input.id = 'eq3';
+        eq3Input.type = 'text';
+        eq3Input.placeholder = 'Equation 3 (e.g., x + y + z = 3)';
+        equationsInputDiv.appendChild(eq3Input);
+    }
+});
+
+
+                document.querySelector('.submit-equation').addEventListener('click', solveEquations);
+            
+                document.getElementById('variable-count').addEventListener('change', function () {
+                    const variableCount = this.value;
+                    const equationsInputDiv = document.getElementById('equations-input');
+                    equationsInputDiv.innerHTML = `
+                        <input id="eq1" type="text" placeholder="Equation 1 (e.g., 2x + 3y = 6)">
+                        <input id="eq2" type="text" placeholder="Equation 2 (e.g., x - y = 1)">
+                    `;
+                    if (variableCount === '3') {
+                        const eq3Input = document.createElement('input');
+                        eq3Input.id = 'eq3';
+                        eq3Input.type = 'text';
+                        eq3Input.placeholder = 'Equation 3 (e.g., x + y + z = 3)';
+                        equationsInputDiv.appendChild(eq3Input);
+                    }
+                });
+            </script>
+            
+    <script src="assets/js/calc.js"></script>    
+    <script src="/live-reload.js"></script>
+    <script>
+        const headerUrl = 'components/navbar.html';
+
+        function loadHeader() {
+            const cNav = document.querySelector('c-nav');
+            fetch(headerUrl)
+                .then((response) => response.text())
+                .then((headerHtml) => {
+                    cNav.innerHTML = headerHtml;
+                })
+                .catch((error) => {
+                    console.error('Error loading header:', error);
+                });
+        }
+
+        loadHeader();
+        document.getElementById('loader').style.display = 'block';
+        document.addEventListener('DOMContentLoaded', function () {
+            const currentTime = new Date().getTime();
+            const loadTime = currentTime - window.performance.timing.navigationStart;
+            const remainingTime = Math.max(3000 - loadTime, 0);
+            setTimeout(function () {
+                document.getElementById('loader').classList.add('hide');
+                document.body.classList.remove('disabledScroll');
+                var navbar = document.querySelector('c-nav');
+                if (navbar) {
+                    navbar.classList.add('slide-in-down');
+                }
+            }, remainingTime);
+        });
+
+        // Calculator Card Click Handlers
+        document.addEventListener('DOMContentLoaded', function() {
+            const calcLanding = document.querySelector('.calc-landing');
+            const calcUI = document.querySelector('.calcui');
+            const calcCards = document.querySelectorAll('.calc-card');
+            const searchInput = document.getElementById('calcSearch');
+            
+            // Search functionality
+            if (searchInput) {
+                searchInput.addEventListener('input', function() {
+                    const searchTerm = this.value.toLowerCase();
+                    const categories = document.querySelectorAll('.calc-category');
+                    
+                    categories.forEach(category => {
+                        const cards = category.querySelectorAll('.calc-card');
+                        let hasVisibleCards = false;
+                        
+                        cards.forEach(card => {
+                            const title = card.querySelector('h3').textContent.toLowerCase();
+                            const description = card.querySelector('p').textContent.toLowerCase();
+                            
+                            if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                                card.style.display = 'block';
+                                hasVisibleCards = true;
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        });
+                        
+                        // Hide category if no cards match
+                        if (hasVisibleCards) {
+                            category.style.display = 'block';
+                        } else {
+                            category.style.display = 'none';
+                        }
+                    });
+                });
+            }
+            
+            // Calculators that are implemented
+            const implementedCalcs = ['basic', 'scientific', 'bmi', 'equation'];
+            
+            calcCards.forEach(card => {
+                const calcType = card.getAttribute('data-calc');
+                
+                // Mark unimplemented calculators as coming soon
+                if (!implementedCalcs.includes(calcType)) {
+                    card.classList.add('coming-soon');
+                }
+                
+                card.addEventListener('click', function() {
+                    if (this.classList.contains('coming-soon')) {
+                        return;
+                    }
+                    
+                    // Add loading state
+                    this.classList.add('loading');
+                    
+                    setTimeout(() => {
+                        // Hide landing page
+                        calcLanding.style.display = 'none';
+                        
+                        // Show calculator UI
+                        calcUI.style.display = 'flex';
+                        
+                        // Scroll to top
+                        window.scrollTo(0, 0);
+                        
+                        // Show specific calculator section based on type
+                        const basicCalc = document.querySelector('.calculator');
+                        const c2 = document.querySelector('.c2');
+                        const calculators = document.querySelector('.calculators');
+                        
+                        if (calcType === 'basic') {
+                            basicCalc.style.display = 'flex';
+                            c2.style.display = 'none';
+                            calculators.style.display = 'none';
+                        } else if (calcType === 'scientific') {
+                            basicCalc.style.display = 'flex';
+                            c2.style.display = 'flex';
+                            calculators.style.display = 'none';
+                        } else if (calcType === 'bmi') {
+                            basicCalc.style.display = 'none';
+                            c2.style.display = 'none';
+                            calculators.style.display = 'flex';
+                            // Show only BMI calculator
+                            document.querySelectorAll('.calculator1').forEach(calc => {
+                                calc.style.display = 'none';
+                            });
+                            document.querySelector('.bmi').style.display = 'block';
+                        } else if (calcType === 'equation') {
+                            basicCalc.style.display = 'none';
+                            c2.style.display = 'none';
+                            calculators.style.display = 'flex';
+                            // Show only equation solver
+                            document.querySelectorAll('.calculator1').forEach(calc => {
+                                calc.style.display = 'none';
+                            });
+                            document.querySelector('.equation-solver').style.display = 'block';
+                        }
+                        
+                        this.classList.remove('loading');
+                    }, 300);
+                });
+            });
+            
+            // Add back button functionality
+            const backBtn = document.createElement('button');
+            backBtn.className = 'back-to-landing';
+            backBtn.innerHTML = '<i class="fas fa-arrow-left"></i> Back to Calculator Hub';
+            backBtn.style.display = 'none';
+            
+            backBtn.addEventListener('click', function() {
+                calcUI.style.display = 'none';
+                calcLanding.style.display = 'block';
+                this.style.display = 'none';
+                window.scrollTo(0, 0);
+            });
+            
+            calcUI.insertBefore(backBtn, calcUI.firstChild);
+            
+            // Show back button when calculator is visible
+            const observer = new MutationObserver((mutations) => {
+                mutations.forEach((mutation) => {
+                    if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
+                        if (calcUI.style.display === 'flex') {
+                            backBtn.style.display = 'block';
+                        } else {
+                            backBtn.style.display = 'none';
+                        }
+                    }
+                });
+            });
+            
+            observer.observe(calcUI, { attributes: true });
+        });
+    </script>
+</body>
+
+</html>
