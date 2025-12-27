@@ -1,121 +1,349 @@
 [
     {
+        "title": "Gramin Saathi",
+        "link": "https://graminsaathi.netlify.app",
+        "image": "assets/images/screenshots/gs.webp",
+        "date": "December, 2025",
+        "tags": [
+            "Web",
+            "React",
+            "Gramin Saathi",
+            "AI",
+            "TypeScript",
+            "Tailwind",
+            "Financial Literacy",
+            "Rural",
+            "Farmers",
+            "Weather",
+            "Govt APIs",
+            "Loan Processing Platform",
+            "NLP",
+            "Gemini"
+        ]
+    },
+    {
+        "title": "Project Orion",
+        "link": "https://porion.netlify.app",
+        "image": "assets/images/screenshots/po.webp",
+        "date": "November, 2025",
+        "tags": [
+            "Web",
+            "React",
+            "Project Orion",
+            "Loan",
+            "AI",
+            "TypeScript",
+            "FastAPI",
+            "Tailwind",
+            "Python",
+            "Langgraph",
+            "Langchain",
+            "AI Agents",
+            "Loan Processing Platform",
+            "ML",
+            "NLP",
+            "Gemini"
+        ]
+    },
+    {
+        "title": "PEC Fest 2025",
+        "link": "https://pecfest25.vercel.app",
+        "image": "assets/images/screenshots/pf.webp",
+        "date": "October, 2025",
+        "tags": [
+            "Web",
+            "PEC Fest",
+            "Fest",
+            "Next.js",
+            "TypeScript",
+            "SSR",
+            "MongoDB",
+            "Tailwind",
+            "Frontend"
+        ]
+    },
+    {
         "title": "Saksham AI",
         "link": "https://hexaforces.netlify.app",
         "image": "assets/images/screenshots/ss1.webp",
         "date": "September, 2025",
-        "tags": ["Web", "Saksham AI","Internship","CSS","Javascript", "HTML", "Firebase","NLP", "Edtech","AI", "Internship Finder"]
+        "tags": [
+            "Web",
+            "Saksham AI",
+            "Internship",
+            "Tailwind",
+            "TypeScript",
+            "React",
+            "Firebase",
+            "NLP",
+            "Edtech",
+            "AI",
+            "Internship Finder"
+        ]
     },
     {
         "title": "Project J",
         "link": "https://projectjee.netlify.app",
         "image": "assets/images/screenshots/ss15.webp",
         "date": "Jan, 2025",
-        "tags": ["Web", "JEE","HTML","CSS","Javascript", "Project J", "Edtech","Education", "College Predictor","Failed Dropper"]
+        "tags": [
+            "Web",
+            "JEE",
+            "HTML",
+            "CSS",
+            "Javascript",
+            "Project J",
+            "Edtech",
+            "Education",
+            "College Predictor",
+            "Failed Dropper"
+        ]
     },
     {
         "title": "Radioo",
         "link": "https://radioo.netlify.app",
         "image": "assets/images/screenshots/ss10.webp",
         "date": "Dec, 2021",
-        "tags": ["Web", "Music","HTML","CSS","Javascript", "Radio", "Entertainment", "Streaming"]
+        "tags": [
+            "Web",
+            "Music",
+            "HTML",
+            "CSS",
+            "Javascript",
+            "Radio",
+            "Entertainment",
+            "Streaming"
+        ]
     },
     {
         "title": "Calculator",
         "link": "/calculator.html",
         "image": "assets/images/screenshots/sscc.webp",
         "date": "Jun, 2024",
-        "tags": ["Web","Calculator","BMI","HTML","CSS","Javascript"]
+        "tags": [
+            "Web",
+            "Calculator",
+            "BMI",
+            "HTML",
+            "CSS",
+            "Javascript"
+        ]
     },
     {
         "title": "Lyncc",
         "link": "https://lyncc.netlify.app/",
         "image": "assets/images/screenshots/4.webp",
         "date": "Apr, 2024",
-        "tags": ["Web","Video Calling","Collaborations","Arunjay", "Video","HTML","CSS","Javascript","Firebase","WebRTC","Communication"]
+        "tags": [
+            "Web",
+            "Video Calling",
+            "Collaborations",
+            "Arunjay",
+            "Video",
+            "HTML",
+            "CSS",
+            "Javascript",
+            "Firebase",
+            "WebRTC",
+            "Communication"
+        ]
     },
     {
         "title": "DynWave",
         "link": "https://dynwave.onrender.com/",
         "image": "assets/images/screenshots/chat.webp",
         "date": "Feb, 2024",
-        "tags": ["Web", "Chatting","Communication","HTML","CSS","Javascript", "Messaging","Divyanshi"]
+        "tags": [
+            "Web",
+            "Chatting",
+            "Communication",
+            "HTML",
+            "CSS",
+            "Javascript",
+            "Messaging",
+            "Divyanshi"
+        ]
     },
     {
         "title": "MySQL Project",
         "link": "https://github.com/FTS18/mysql-python",
         "image": "assets/images/screenshots/1.webp",
         "date": "Jan, 2024",
-        "tags": ["Mysql","Database","class 12", "practicals","Python","Homework", "Projects", "Programming", "Education", "12"]
+        "tags": [
+            "Mysql",
+            "Database",
+            "class 12",
+            "practicals",
+            "Python",
+            "Homework",
+            "Projects",
+            "Programming",
+            "Education",
+            "12"
+        ]
     },
     {
         "title": "VSEC",
         "link": "https://vsec.netlify.app/",
         "image": "assets/images/screenshots/school.webp",
         "date": "Aug, 2023",
-        "tags": ["Web", "Education","HTML","CSS","Javascript", "School","Edtech","VSEC"]
+        "tags": [
+            "Web",
+            "Education",
+            "HTML",
+            "CSS",
+            "Javascript",
+            "School",
+            "Edtech",
+            "VSEC"
+        ]
     },
     {
         "title": "Reartify",
         "link": "https://reartify.netlify.app/",
         "image": "assets/images/screenshots/yz.webp",
         "date": "Sept, 2023",
-        "tags": ["Web","HTML","CSS","Javascript","YouthZest" ,"Shopping", "Online Store", "E Commerce", "TechFest"]
+        "tags": [
+            "Web",
+            "HTML",
+            "CSS",
+            "Javascript",
+            "YouthZest",
+            "Shopping",
+            "Online Store",
+            "E Commerce",
+            "TechFest"
+        ]
     },
     {
         "title": "TechnoFair",
         "link": "https://fts18.github.io/technofair/",
         "image": "assets/images/screenshots/tf.webp",
         "date": "July, 2023",
-        "tags": ["Web", "Event","HTML","CSS","Javascript", "Space","TechnoFair", "TechFest","Isro"]
+        "tags": [
+            "Web",
+            "Event",
+            "HTML",
+            "CSS",
+            "Javascript",
+            "Space",
+            "TechnoFair",
+            "TechFest",
+            "Isro"
+        ]
     },
     {
         "title": "ByteKart",
         "link": "https://bytekart.netlify.app/",
         "image": "assets/images/screenshots/ecom.webp",
         "date": "June, 2023",
-        "tags": ["Web", "Commerce","HTML","CSS","Javascript", "Shopping", "Online Store", "E Commerce"]
+        "tags": [
+            "Web",
+            "Commerce",
+            "HTML",
+            "CSS",
+            "Javascript",
+            "Shopping",
+            "Online Store",
+            "E Commerce"
+        ]
     },
     {
         "title": "Finixx",
         "link": "https://finixx.netlify.app",
         "image": "assets/images/screenshots/5.webp",
         "date": "May, 2022",
-        "tags": ["Web", "Gaming","HTML","CSS","Javascript","Entertainment","Collaborations","Online Gaming", "Collaborations","Arunjay","Fun"]
+        "tags": [
+            "Web",
+            "Gaming",
+            "HTML",
+            "CSS",
+            "Javascript",
+            "Entertainment",
+            "Collaborations",
+            "Online Gaming",
+            "Collaborations",
+            "Arunjay",
+            "Fun"
+        ]
     },
     {
         "title": "YT Video Downloader",
         "link": "/pages/youtube-video-downloader.html",
         "image": "assets/images/screenshots/ss6.webp",
         "date": "May, 2023",
-        "tags": ["Web", "Video","HTML","CSS","Javascript", "Downloader", "YouTube", "Utility"]
+        "tags": [
+            "Web",
+            "Video",
+            "HTML",
+            "CSS",
+            "Javascript",
+            "Downloader",
+            "YouTube",
+            "Utility"
+        ]
     },
     {
         "title": "Practicals Class 12",
         "link": "https://github.com/FTS18/Python-Projects/",
         "image": "assets/images/screenshots/3.webp",
         "date": "May, 2023",
-        "tags": ["Python","Holiday","Homework", "Projects", "Programming", "Education","Practicals"]
+        "tags": [
+            "Python",
+            "Holiday",
+            "Homework",
+            "Projects",
+            "Programming",
+            "Education",
+            "Practicals"
+        ]
     },
     {
         "title": "Spacify",
         "link": "https://youtube.com/@Spacify18",
         "image": "assets/images/screenshots/yt.webp",
         "date": "Subscribe",
-        "tags": ["YouTube", "Channel", "Video", "Content", "FTS", "Ananay","spacify"]
+        "tags": [
+            "YouTube",
+            "Channel",
+            "Video",
+            "Content",
+            "FTS",
+            "Ananay",
+            "spacify"
+        ]
     },
     {
         "title": "Practicals Class 10",
         "link": "https://fts18.github.io/Computer-Practical/",
         "image": "assets/images/screenshots/2.webp",
         "date": "Oct, 2021",
-        "tags": ["Python","Holiday","HTML","CSS","Javascript","Homework", "Projects", "Programming", "Education","Practicals", "Web"]
+        "tags": [
+            "Python",
+            "Holiday",
+            "HTML",
+            "CSS",
+            "Javascript",
+            "Homework",
+            "Projects",
+            "Programming",
+            "Education",
+            "Practicals",
+            "Web"
+        ]
     },
     {
         "title": "First Website",
         "link": "https://spacify-v1.netlify.app",
         "image": "assets/images/screenshots/mfw.webp",
         "date": "Jan, 2021",
-        "tags": ["Web", "First Website","HTML","CSS","Javascript", "Portfolio"]
+        "tags": [
+            "Web",
+            "First Website",
+            "HTML",
+            "CSS",
+            "Javascript",
+            "Portfolio"
+        ]
     }
 ]
