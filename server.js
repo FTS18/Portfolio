@@ -55,14 +55,16 @@ app.get('/server/download', async (req, res) => {
 // Proxy for Cobalt API to avoid CORS issues
 app.post('/api/cobalt', async (req, res) => {
     try {
-        const response = await fetch('https://cobalt.api.timelessnesses.me/', {
+        const response = await fetch('https://api.cobalt.best/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Accept': 'application/json'
+                'Accept': 'application/json',
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
             },
             body: JSON.stringify(req.body)
         });
+
 
         const contentType = response.headers.get('content-type');
         if (contentType && contentType.includes('application/json')) {

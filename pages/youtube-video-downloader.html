@@ -124,13 +124,19 @@
         const responseText = await response.text();
         console.log('Cobalt Raw Response:', responseText);
 
+        if (!responseText || responseText.trim() === "") {
+          console.error('Empty response from Cobalt proxy');
+          throw new Error('Mirror unreachable (Empty Response). This usually means the proxy is blocked or down.');
+        }
+
         let data;
         try {
           data = JSON.parse(responseText);
         } catch (e) {
           console.error('Failed to parse Cobalt response as JSON:', e);
-          throw new Error('Invalid response from server. It might be down or blocked.');
+          throw new Error('Invalid response from server. High traffic or mirror issue.');
         }
+
 
         console.log('Cobalt Parsed Data:', data);
 
