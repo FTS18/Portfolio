@@ -25,44 +25,81 @@ exports.handler = async (event, context) => {
       };
     }
 
-    // Use multiple APIs as fallback
-    const apis = [
-      `https://api.savetubeapp.com/v1/download?url=${encodeURIComponent(url)}`,
-      `https://api.y2mate.com/v1/analyze?url=${encodeURIComponent(url)}`,
-      `https://api.loader.to/ajax/download.php?format=${format}&url=${encodeURIComponent(url)}`
+    // Try direct stream extraction APIs
+    const streamApis = [
+      `https://api.streamtape.com/file/dlticket?file=${videoId}`,
+      `https://api.cobalt.tools/api/json`,
+      `https://api.alltubedownload.net/download?url=${encodeURIComponent(url)}`
     ];
 
-    for (const apiUrl of apis) {
-      try {
-        const response = await fetch(apiUrl);
-        const data = await response.json();
-        
-        if (data.url || data.download_url || data.link) {
+    // Try Cobalt API first
+    try {
+      const cobaltResponse = await fetch('https://api.cobalt.tools/api/json', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          url: url,
+          vQuality: quality,
+          aFormat: format === 'mp3' ? 'mp3' : 'best',
+          isAudioOnly: format === 'mp3'
+        })
+      });
+      
+      if (cobaltResponse.ok) {
+        const data = await cobaltResponse.json();
+        if (data.status === 'redirect' && data.url) {
           return {
             statusCode: 200,
             headers,
             body: JSON.stringify({
               status: 'redirect',
-              url: data.url || data.download_url || data.link,
+              url: data.url,
               quality: quality
             })
           };
         }
-      } catch (e) {
-        continue;
       }
-    }
+    } catch (e) {}
 
-    // Final fallback - direct YouTube stream
-    const streamUrl = `https://www.youtube.com/watch?v=${videoId}`;
-    
+    // Fallback to Y2Mate API
+    try {
+      const y2mateResponse = await fetch('https://www.y2mate.com/mates/analyzeV2/ajax', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: `url=${encodeURIComponent(url)}&q_auto=0&ajax=1`
+      });
+      
+      const y2data = await y2mateResponse.json();
+      if (y2data.status === 'ok' && y2data.links) {
+        const formatKey = format === 'mp3' ? 'mp3' : 'mp4';
+        const qualityLinks = y2data.links[formatKey];
+        
+        if (qualityLinks && Object.keys(qualityLinks).length > 0) {
+          const bestQuality = Object.keys(qualityLinks)[0];
+          const downloadKey = qualityLinks[bestQuality].k;
+          
+          return {
+            statusCode: 200,
+            headers,
+            body: JSON.stringify({
+              status: 'redirect',
+              url: `https://www.y2mate.com/mates/convertV2/index?vid=${y2data.vid}&k=${downloadKey}`,
+              quality: bestQuality
+            })
+          };
+        }
+      }
+    } catch (e) {}
+
+    // Last resort - return error instead of loader.to
     return {
-      statusCode: 200,
+      statusCode: 503,
       headers,
       body: JSON.stringify({
-        status: 'redirect',
-        url: `https://loader.to/api/button/?f=${format}&k=${videoId}`,
-        quality: quality
+        status: 'error',
+        text: 'All download services are currently unavailable. Please try again later.'
       })
     };
 
