@@ -83,85 +83,36 @@
     async function handleDownload() {
       const url = document.getElementById('videoUrl').value.trim();
       const format = document.getElementById('formatSelect').value;
-      const downloadBtn = document.getElementById('downloadBtn');
-      const statusMsg = document.getElementById('statusMessage');
-      const spinner = downloadBtn.querySelector('.loader-spinner');
-      const btnText = downloadBtn.querySelector('.btn-text');
 
-      if (!url) {
-        showStatus('Please enter a valid YouTube URL', 'error');
-        return;
-      }
-
-      if (!isValidYoutubeUrl(url)) {
+      if (!url || !isValidYoutubeUrl(url)) {
         showStatus('Please enter a valid YouTube link', 'error');
         return;
       }
 
-      // Start Loading
       setLoading(true);
       showStatus('Processing your request...', 'info');
 
       try {
-        // Fetch metadata first (optional, but good for UX)
         fetchMetaData(url);
-
-        // Call serverless function
+        
         const response = await fetch('/api/cobalt', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify({
-            url: url,
-            videoQuality: '1080',
-            isAudioOnly: format === 'mp3',
-            filenameStyle: 'basic' // Changed from filenamePattern
-          })
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ url, isAudioOnly: format === 'mp3' })
         });
 
-        const responseText = await response.text();
-        console.log('Cobalt Raw Response:', responseText);
-
-        if (!responseText || responseText.trim() === "") {
-          console.error('Empty response from Cobalt proxy');
-          throw new Error('Mirror unreachable (Empty Response). This usually means the proxy is blocked or down.');
-        }
-
-        let data;
-        try {
-          data = JSON.parse(responseText);
-        } catch (e) {
-          console.error('Failed to parse Cobalt response as JSON:', e);
-          throw new Error('Invalid response from server. High traffic or mirror issue.');
-        }
-
-
-        console.log('Cobalt Parsed Data:', data);
-
-        if (response.ok && (data.status === 'stream' || data.status === 'redirect' || data.status === 'tunnel')) {
+        const data = await response.json();
+        
+        if (data.status === 'redirect' && data.url) {
           showStatus('Download ready! Starting now...', 'success');
-          // Start the download
           window.location.href = data.url;
-
-          // Reset button after a delay
           setTimeout(() => setLoading(false), 3000);
         } else {
-          // Fix [object Object] - ensure we extract a string
-          let errorMsg = 'Service temporarily unavailable';
-          if (data && data.text) {
-            errorMsg = typeof data.text === 'string' ? data.text : JSON.stringify(data.text);
-          } else if (data && data.error) {
-            errorMsg = typeof data.error === 'string' ? data.error : JSON.stringify(data.error);
-          }
-          throw new Error(errorMsg);
+          throw new Error(data.text || 'Download failed');
         }
-
-
+        
       } catch (error) {
-        console.error('Download Error:', error);
-        showStatus(error.message || 'Something went wrong. Try again later.', 'error');
+        showStatus(error.message || 'Service unavailable', 'error');
         setLoading(false);
       }
     }

@@ -22,10 +22,9 @@
 /assets/images/*.webp /404.html 404
 /assets/images/*.svg /404.html 404
 /assets/*.json /404.html 404
-/mainfest.json /404.html 404
-
-# Proxy for YouTube Downloader (Serverless Function)
 /api/cobalt /.netlify/functions/cobalt 200
+
+/mainfest.json /404.html 404
 
 
 
