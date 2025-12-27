@@ -5,130 +5,224 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, height=device-height, minimum-scale=1, initial-scale=1">
-  <!--user-scalable=no,-->
-  <title>Youtube Video Downloader</title>
+  <title>YouTube Video Downloader | Premium Experience</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Space+Mono&display=swap"
+    rel="stylesheet">
   <script src="https://kit.fontawesome.com/47c40e1acb.js" crossorigin="anonymous"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
   <link rel="stylesheet" href="/assets/css/yt.css">
   <link rel="stylesheet" href="/assets/css/theme.css">
   <script src="/components/header.js"></script>
-  <script>
-
-  function dnl() {
-    convert();
-    sendURL(value);
-  }
-
-  function sendURL(URL) {
-    var selectBox = document.querySelector(".opt");
-    var format = selectBox.options[selectBox.selectedIndex].value;
-    alert(format);
-    var title = head;
-    var baseUrl = window.location.origin;
-    window.location.href = `https://server-nvou.vercel.app/api/download?URL=${URL}&title=${title}&format=${format}`;
-  }
-
-  function convert() {
-    input = document.getElementById('input');
-    value = input.value;
-    console.log('URL: ' + value);
-    getTitle();
-    thumb = img;
-    console.log(thumb);
-    title = head;
-    const addCSS = css => document.head.appendChild(document.createElement("style")).innerHTML = css;
-    addCSS(`.background {background:url(${thumb});background-repeat: no-repeat;background-attachment: fixed;background-position: center;background-size: cover;object-fit: cover;}`);
-  }
-
-  function getTitle() {
-    var input = document.getElementById('input');
-    var value = input.value;
-    var videoId = getVideoIdFromUrl(value)
-    var apiKey = 'AIzaSyCHo41IKHPSn-MWzRCfK71vSPeN43b5xbw';
-    var url = 'https://www.youtube.com/oembed?url=' + value + '&format=json&alt=json&prettyprint=true';
-    var json = (function() {
-      var json = null;
-      $.ajax({
-        'async': false,
-        'global': false,
-        'url': url,
-        'dataType': "json",
-        'success': function(data) {
-          json = data;
-        }
-      });
-      return json;
-    })();
-    img = json.thumbnail_url;
-    head = json.title;
-  }
-
-  function getVideoIdFromUrl(url) {
-    var regExp = /^.*(youtu.be\/|v\/|e\/|u\/\w+\/|embed\/|v=)([^#\&\?]*).*/;
-    var match = url.match(regExp);
-    if (match && match[2].length === 11) {
-      return match[2];
-    } else {
-      return null;
-    }
-  }
-
-  function getThumbnail() {
-    var input = document.getElementById('input');
-    var imgUrl = input.value;
-    if (imgUrl.indexOf("https://www.youtube.com/watch?v=") != -1) {
-      let vidId = imgUrl.split('v=')[1].substring(0, 11);
-      let ytImgUrl = `https://img.youtube.com/vi/${vidId}/maxresdefault.jpg`;
-      console.log(ytImgUrl);
-    } else if (imgUrl.indexOf("https://youtu.be/") != -1) {
-      let vidId = imgUrl.split('be/')[1].substring(0, 11);
-      let ytImgUrl = `https://img.youtube.com/vi/${vidId}/maxresdefault.jpg`;
-      console.log(ytImgUrl);
-    } else if (imgUrl.match(/\.(jpe?g|png|gif|bmp|webp)$/i)) {
-      imgTag.src = imgUrl;
-    } else {
-      imgTag.src = "";
-      button.style.pointerEvents = "none";
-      previewArea.classList.remove("active");
-    }
-  }
-  </script>
-
 </head>
 
 <body>
   <c-nav1></c-nav1>
-  <section class="welcome-div">
-    <div class="background"></div>
-    <div class="convert">
-      <div class="header">
-        <H1>Convert Youtube Videos!</H1>
-      </div>
-      <div class="find">
-        <input type="text" id="input" placeholder="Enter the URL" required>
-        <!--<i class="fas fa-magnifying-glass"></i>-->
-        <select class='opt'>
-          <option value='mp3'>mp3</option>
-          <option value='mp4'>mp4</option>
-        </select>
-        <div class="btn">
-          <a href="javascript:;" onclick=dnl() class="c1" id="convert">Download</a>
-          <!--<a href="javascript:;" onclick="mp3()" class="c2" id="convert">MP4</a>-->
+
+  <main class="downloader-container">
+    <div class="dynamic-background" id="dynamicBg"></div>
+    <div class="gradient-overlay"></div>
+
+    <section class="glass-card">
+      <div class="card-content">
+        <header class="hero-header">
+          <div class="icon-pulse">
+            <i class="fab fa-youtube"></i>
+          </div>
+          <h1>YouTube Converter</h1>
+          <p>Download your favorite videos in high quality, lightning fast.</p>
+        </header>
+
+        <div class="input-group">
+          <div class="input-wrapper">
+            <i class="fas fa-link input-icon"></i>
+            <input type="text" id="videoUrl" placeholder="Paste YouTube link here..." required>
+          </div>
+
+          <div class="controls-row">
+            <div class="select-wrapper">
+              <select id="formatSelect" class="styled-select">
+                <option value="mp4">Video (MP4)</option>
+                <option value="mp3">Audio (MP3)</option>
+              </select>
+            </div>
+
+            <button id="downloadBtn" class="primary-btn" onclick="handleDownload()">
+              <span class="btn-text">Download</span>
+              <span class="loader-spinner hidden"></span>
+            </button>
+          </div>
+        </div>
+
+        <div id="statusMessage" class="status-msg hidden"></div>
+
+        <div id="videoPreview" class="preview-section hidden">
+          <div class="preview-card">
+            <img id="thumbnailImg" src="" alt="Video Thumbnail">
+            <div class="preview-info">
+              <h3 id="videoTitle">Video Title</h3>
+              <span class="badge" id="videoQuality">HD</span>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-  <div class="bottom">
-    <center>
-      <span class="credit">Created By <a href="#">Spacify&copy;</a> |
-        2023 All Rights Reserved.</span>
-      </center>
-    </div>
-  </body>
+    </section>
+  </main>
 
-  </html>
-  
+  <footer class="footer-minimal">
+    <div class="footer-content">
+      <span class="copyright">Developed by <a href="#" class="accent-link">Spacify</a> &copy; <span
+          id="year">2024</span></span>
+    </div>
+  </footer>
+
+  <script>
+    async function handleDownload() {
+      const url = document.getElementById('videoUrl').value.trim();
+      const format = document.getElementById('formatSelect').value;
+      const downloadBtn = document.getElementById('downloadBtn');
+      const statusMsg = document.getElementById('statusMessage');
+      const spinner = downloadBtn.querySelector('.loader-spinner');
+      const btnText = downloadBtn.querySelector('.btn-text');
+
+      if (!url) {
+        showStatus('Please enter a valid YouTube URL', 'error');
+        return;
+      }
+
+      if (!isValidYoutubeUrl(url)) {
+        showStatus('Please enter a valid YouTube link', 'error');
+        return;
+      }
+
+      // Start Loading
+      setLoading(true);
+      showStatus('Processing your request...', 'info');
+
+      try {
+        // Fetch metadata first (optional, but good for UX)
+        fetchMetaData(url);
+
+        // Call your local/serverless proxy (configured in server.js and _redirects)
+        const response = await fetch('/api/cobalt', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            url: url,
+            videoQuality: '1080',
+            isAudioOnly: format === 'mp3',
+            filenameStyle: 'basic' // Changed from filenamePattern
+          })
+        });
+
+        const data = await response.json();
+        console.log('Cobalt API Response:', data); // Better logging
+
+        if (response.ok && (data.status === 'stream' || data.status === 'redirect' || data.status === 'tunnel')) {
+          showStatus('Download ready! Starting now...', 'success');
+          // Start the download
+          window.location.href = data.url;
+
+          // Reset button after a delay
+          setTimeout(() => setLoading(false), 3000);
+        } else {
+          // Fix [object Object] - ensure we extract a string
+          let errorMsg = 'Service temporarily unavailable';
+          if (data && data.text) {
+            errorMsg = typeof data.text === 'string' ? data.text : JSON.stringify(data.text);
+          } else if (data && data.error) {
+            errorMsg = typeof data.error === 'string' ? data.error : JSON.stringify(data.error);
+          }
+          throw new Error(errorMsg);
+        }
+
+
+      } catch (error) {
+        console.error('Download Error:', error);
+        showStatus(error.message || 'Something went wrong. Try again later.', 'error');
+        setLoading(false);
+      }
+    }
+
+    function isValidYoutubeUrl(url) {
+      const regExp = /^.*(youtu.be\/|v\/|e\/|u\/\w+\/|embed\/|v=)([^#\&\?]*).*/;
+      return url.match(regExp);
+    }
+
+    function showStatus(msg, type) {
+      const statusMsg = document.getElementById('statusMessage');
+      statusMsg.textContent = msg;
+      statusMsg.className = `status-msg ${type}`;
+      statusMsg.classList.remove('hidden');
+    }
+
+    function setLoading(isLoading) {
+      const downloadBtn = document.getElementById('downloadBtn');
+      const spinner = downloadBtn.querySelector('.loader-spinner');
+      const btnText = downloadBtn.querySelector('.btn-text');
+
+      if (isLoading) {
+        downloadBtn.disabled = true;
+        spinner.classList.remove('hidden');
+        btnText.classList.add('hidden');
+      } else {
+        downloadBtn.disabled = false;
+        spinner.classList.add('hidden');
+        btnText.classList.remove('hidden');
+      }
+    }
+
+    async function fetchMetaData(url) {
+      try {
+        const videoId = getVideoId(url);
+        if (!videoId) return;
+
+        const oembedUrl = `https://www.youtube.com/oembed?url=${url}&format=json`;
+        const res = await fetch(oembedUrl);
+        const data = await res.json();
+
+        const previewSection = document.getElementById('videoPreview');
+        const thumbnailImg = document.getElementById('thumbnailImg');
+        const videoTitle = document.getElementById('videoTitle');
+        const dynamicBg = document.getElementById('dynamicBg');
+
+        thumbnailImg.src = data.thumbnail_url;
+        videoTitle.textContent = data.title;
+        previewSection.classList.remove('hidden');
+
+        // Update dynamic background
+        dynamicBg.style.backgroundImage = `url(${data.thumbnail_url})`;
+
+        // Add subtle animation to background
+        dynamicBg.animate([
+          { transform: 'scale(1.1) rotate(0deg)' },
+          { transform: 'scale(1.15) rotate(1deg)' }
+        ], {
+          duration: 10000,
+          iterations: Infinity,
+          direction: 'alternate',
+          easing: 'ease-in-out'
+        });
+
+      } catch (e) {
+        console.warn('Metadata fetch failed', e);
+      }
+    }
+
+    function getVideoId(url) {
+      const regExp = /^.*(youtu.be\/|v\/|e\/|u\/\w+\/|embed\/|v=)([^#\&\?]*).*/;
+      const match = url.match(regExp);
+      return (match && match[2].length === 11) ? match[2] : null;
+    }
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+
+</html>

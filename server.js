@@ -3,8 +3,8 @@ import cors from 'cors';
 import ytdl from 'ytdl-core';
 
 const corsOptions = {
-  origin: 'https://localhost:5501', // Allow requests from this origin
-  methods: ['GET', 'POST'],      // Allow only specified HTTP methods
+    origin: 'https://localhost:5501', // Allow requests from this origin
+    methods: ['GET', 'POST'],      // Allow only specified HTTP methods
 };
 
 const app = express();
@@ -51,6 +51,31 @@ app.get('/server/download', async (req, res) => {
         res.status(500).send('Internal Server Error: ' + err.message);
     }
 });
+
+// Proxy for Cobalt API to avoid CORS issues
+app.post('/api/cobalt', async (req, res) => {
+    try {
+        const response = await fetch('https://cobalt-api.hyper.lol/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(req.body)
+        });
+
+        const data = await response.json();
+        if (response.status >= 400) {
+            console.error('Cobalt API Error:', response.status, data);
+        }
+        res.status(response.status).json(data);
+    } catch (err) {
+        console.error('Proxy Exception:', err);
+        res.status(500).json({ error: 'Failed to reach Cobalt API: ' + err.message });
+    }
+});
+
+
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, 'localhost', () => {
     console.log(`Server is running on http://localhost:${PORT}`);
