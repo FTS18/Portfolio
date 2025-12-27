@@ -1,0 +1,1 @@
+{\n  \"name\": \"netlify-functions\",\n  \"version\": \"1.0.0\",\n  \"dependencies\": {\n    \"yt-dlp-wrap\": \"^2.0.0\"\n  }\n}

@@ -44,6 +44,15 @@
 
           <div class="controls-row">
             <div class="select-wrapper">
+              <select id="qualitySelect" class="styled-select">
+                <option value="1080">1080p</option>
+                <option value="720" selected>720p</option>
+                <option value="480">480p</option>
+                <option value="360">360p</option>
+              </select>
+            </div>
+            
+            <div class="select-wrapper">
               <select id="formatSelect" class="styled-select">
                 <option value="mp4">Video (MP4)</option>
                 <option value="mp3">Audio (MP3)</option>
@@ -83,6 +92,7 @@
     async function handleDownload() {
       const url = document.getElementById('videoUrl').value.trim();
       const format = document.getElementById('formatSelect').value;
+      const quality = document.getElementById('qualitySelect').value;
 
       if (!url || !isValidYoutubeUrl(url)) {
         showStatus('Please enter a valid YouTube link', 'error');
@@ -90,23 +100,35 @@
       }
 
       setLoading(true);
-      showStatus('Processing your request...', 'info');
+      showStatus('Fetching video info...', 'info');
 
       try {
-        fetchMetaData(url);
+        await fetchMetaData(url);
+        
+        showStatus('Processing download...', 'info');
         
         const response = await fetch('/api/cobalt', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ url, isAudioOnly: format === 'mp3' })
+          body: JSON.stringify({ 
+            url, 
+            quality: format === 'mp3' ? 'audio' : quality,
+            format 
+          })
         });
 
         const data = await response.json();
         
         if (data.status === 'redirect' && data.url) {
-          showStatus('Download ready! Starting now...', 'success');
-          window.location.href = data.url;
-          setTimeout(() => setLoading(false), 3000);
+          showStatus(`Download ready! Quality: ${data.quality || quality}p`, 'success');
+          
+          // Create download link
+          const a = document.createElement('a');
+          a.href = data.url;
+          a.download = `video.${format}`;
+          a.click();
+          
+          setTimeout(() => setLoading(false), 2000);
         } else {
           throw new Error(data.text || 'Download failed');
         }
