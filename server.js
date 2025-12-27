@@ -55,7 +55,7 @@ app.get('/server/download', async (req, res) => {
 // Proxy for Cobalt API to avoid CORS issues
 app.post('/api/cobalt', async (req, res) => {
     try {
-        const response = await fetch('https://cobalt-api.hyper.lol/', {
+        const response = await fetch('https://cobalt.api.timelessnesses.me/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -64,16 +64,24 @@ app.post('/api/cobalt', async (req, res) => {
             body: JSON.stringify(req.body)
         });
 
-        const data = await response.json();
-        if (response.status >= 400) {
-            console.error('Cobalt API Error:', response.status, data);
+        const contentType = response.headers.get('content-type');
+        if (contentType && contentType.includes('application/json')) {
+            const data = await response.json();
+            if (response.status >= 400) {
+                console.error('Cobalt API Error:', response.status, data);
+            }
+            res.status(response.status).json(data);
+        } else {
+            const text = await response.text();
+            console.error('Non-JSON Cobalt Response:', response.status, text.substring(0, 200));
+            res.status(response.status).json({ error: 'Upstream server returned non-JSON response', text: text.substring(0, 500) });
         }
-        res.status(response.status).json(data);
     } catch (err) {
         console.error('Proxy Exception:', err);
         res.status(500).json({ error: 'Failed to reach Cobalt API: ' + err.message });
     }
 });
+
 
 
 const PORT = process.env.PORT || 8080;

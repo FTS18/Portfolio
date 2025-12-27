@@ -24,5 +24,6 @@
 /mainfest.json /404.html 404
 
 # Proxy for YouTube Downloader (Cobalt API Mirror)
-/api/cobalt  https://cobalt-api.hyper.lol/  200!
+/api/cobalt  https://cobalt.api.timelessnesses.me/  200!
+
 

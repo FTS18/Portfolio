@@ -121,8 +121,18 @@
           })
         });
 
-        const data = await response.json();
-        console.log('Cobalt API Response:', data); // Better logging
+        const responseText = await response.text();
+        console.log('Cobalt Raw Response:', responseText);
+
+        let data;
+        try {
+          data = JSON.parse(responseText);
+        } catch (e) {
+          console.error('Failed to parse Cobalt response as JSON:', e);
+          throw new Error('Invalid response from server. It might be down or blocked.');
+        }
+
+        console.log('Cobalt Parsed Data:', data);
 
         if (response.ok && (data.status === 'stream' || data.status === 'redirect' || data.status === 'tunnel')) {
           showStatus('Download ready! Starting now...', 'success');
