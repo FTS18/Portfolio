@@ -1,3 +1,4 @@
+/favicon.ico /assets/images/favicon/favicon.ico 200
 /assets/* /index.html 301
 /music https://radioo.netlify.app/ 301
 /radio https://radioo.netlify.app/ 301
@@ -23,8 +24,8 @@
 /assets/*.json /404.html 404
 /mainfest.json /404.html 404
 
-# Proxy for YouTube Downloader (Cobalt API Mirror)
-/api/cobalt  https://api.cobalt.best/  200!
+# Proxy for YouTube Downloader (Serverless Function)
+/api/cobalt /.netlify/functions/cobalt 200
 
 
 

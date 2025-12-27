@@ -106,7 +106,7 @@
         // Fetch metadata first (optional, but good for UX)
         fetchMetaData(url);
 
-        // Call your local/serverless proxy (configured in server.js and _redirects)
+        // Call serverless function
         const response = await fetch('/api/cobalt', {
           method: 'POST',
           headers: {
