@@ -1,0 +1,106 @@
+.layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #000000;
+    overflow-x: hidden;
+}
+
+main,
+footer {
+    transition: all 0.65s cubic-bezier(0.19, 1, 0.22, 1);
+    width: 100%;
+}
+
+main {
+    flex: 1;
+}
+
+/* Desktop: Shrink when menu opens */
+@media (min-width: 1025px) {
+
+    .layout.menu-open main,
+    .layout.menu-open footer {
+        width: calc(100% - clamp(260px, 38vw, 420px));
+        transform-origin: left center;
+        opacity: 0.85;
+    }
+}
+
+/* Mobile/Tablet: Full overlay, slight dim */
+@media (max-width: 1024px) {
+
+    .layout.menu-open main,
+    .layout.menu-open footer {
+        opacity: 0.5;
+        pointer-events: none;
+    }
+}
+
+/* Mobile Fixed Bottom CTAs */
+.mobile-fixed-ctas {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    z-index: 900;
+    padding: 12px;
+    gap: 12px;
+    background: linear-gradient(to top, var(--bg-primary) 60%, transparent);
+    pointer-events: none;
+    /* Let clicks pass through to content except buttons */
+}
+
+.mobile-cta-btn {
+    pointer-events: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px;
+    font-family: 'Monument Extended', sans-serif;
+    font-size: 13px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    border: 3px solid #000000;
+    box-shadow: 4px 4px 0px #000000;
+}
+
+.mobile-cta-btn i {
+    font-size: 18px;
+}
+
+.mobile-cta-btn.cta-resume {
+    background: var(--accent-primary, #5227FF);
+    color: #FFFFFF;
+}
+
+.mobile-cta-btn.cta-projects {
+    background: #FFFFFF;
+    color: #000000;
+}
+
+[data-theme='light'] .mobile-cta-btn.cta-resume {
+    background: #00C853;
+}
+
+[data-theme='bw'] .mobile-cta-btn {
+    border-color: #FFFFFF;
+    box-shadow: 4px 4px 0px #FFFFFF;
+}
+
+[data-theme='bw'] .mobile-cta-btn.cta-resume {
+    background: #000000;
+    color: #FFFFFF;
+}
+
+/* Hide mobile CTAs on Desktop */
+@media screen and (min-width: 1025px) {
+    .mobile-fixed-ctas {
+        display: none !important;
+    }
+}

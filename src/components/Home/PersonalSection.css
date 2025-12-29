@@ -1,0 +1,752 @@
+/* --- BENTO CSS - ASYMMETRIC RANDOMIZED Y2K EDITION --- */
+.personal-modern {
+    position: relative;
+    width: 100%;
+    padding: 80px 40px;
+    background: var(--bg-primary);
+    overflow: hidden;
+    transition: background 0.4s ease;
+}
+
+/* --- THEMATIC SHADE DEFINITIONS --- */
+:root {
+    --b-s1: #1a002e;
+    --b-s2: #240046;
+    --b-s3: #3c096c;
+    --b-s4: #4a148c;
+    --b-s5: #5a189a;
+    --b-s6: #6a1b9a;
+    --b-s7: #7b2cbf;
+    --b-s8: #8e24aa;
+    --b-s9: #9d4edd;
+    --b-s10: #240046;
+    --b-accent: #f3e5f5;
+    --b-text: #ffffff;
+    --b-image-filter: grayscale(1);
+    --b-image-overlay: rgba(60, 9, 108, 0.45);
+    --b-chart-filter: hue-rotate(180deg) saturate(2) brightness(1.2);
+}
+
+[data-theme='light'] {
+    --b-s1: #002415;
+    --b-s2: #003822;
+    --b-s3: #004d2f;
+    --b-s4: #006b41;
+    --b-s5: #008a55;
+    --b-s6: #00a86b;
+    --b-s7: #00c980;
+    --b-s8: #03cf82;
+    --b-s9: #0aff8d;
+    --b-s10: #002415;
+    --b-accent: #0aff8d;
+    --b-text: #ffffff;
+    --b-image-filter: grayscale(1);
+    --b-image-overlay: rgba(46, 125, 50, 0.4);
+    --b-chart-filter: saturate(2) brightness(1.1);
+}
+
+[data-theme='bw'] {
+    --b-s1: #000000;
+    --b-s2: #0a0a0a;
+    --b-s3: #111111;
+    --b-s4: #1a1a1a;
+    --b-s5: #222222;
+    --b-s6: #282828;
+    --b-s7: #333333;
+    --b-s8: #444444;
+    --b-s9: #555555;
+    --b-s10: #000000;
+    --b-accent: #ffffff;
+    --b-text: #ffffff;
+    --b-image-filter: grayscale(1);
+    --b-image-overlay: rgba(0, 0, 0, 0.3);
+    --b-chart-filter: grayscale(1) contrast(1.5) brightness(1.5);
+}
+
+.personal-modern-container {
+    max-width: 1500px;
+    margin: 0 auto;
+    z-index: 10;
+    position: relative;
+}
+
+/* --- COMPACT BENTO GRID - NO EMPTY SPACES --- */
+.personal-bento-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(3, minmax(120px, auto));
+    grid-template-areas:
+        "info info status status status age badge"
+        "info info exp loc loc image image"
+        "proj edu quote quote quote image image";
+    gap: 14px;
+}
+
+/* Base Tile Styling - Subtle 3D Depth */
+.bento-tile {
+    border-radius: 32px;
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    color: var(--b-text);
+
+    /* 3D Depth - Borders */
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+    border-right: 1px solid rgba(0, 0, 0, 0.15);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+    /* 3D Depth - Shadow */
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.15),
+        0 8px 24px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* 3D Inner Lighting Gradient */
+.bento-tile::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 32px;
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.06) 0%,
+            transparent 40%,
+            transparent 60%,
+            rgba(0, 0, 0, 0.08) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.bento-tile:hover {
+    transform: translateY(-6px) scale(1.015);
+
+    /* Enhanced 3D on hover */
+    box-shadow:
+        0 12px 24px rgba(0, 0, 0, 0.25),
+        0 24px 48px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-left: 1px solid rgba(255, 255, 255, 0.15);
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    z-index: 10;
+}
+
+/* Glow effect on hover */
+.bento-tile::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 34px;
+    background: linear-gradient(135deg, var(--b-accent), transparent 60%);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.4s ease;
+}
+
+.bento-tile:hover::before {
+    opacity: 0.15;
+}
+
+/* Shade Alignment - Editorial Flow */
+.b-s1 {
+    background: var(--b-s2);
+}
+
+.b-s2 {
+    background: var(--b-s5);
+}
+
+.b-s3 {
+    background: var(--b-s1);
+}
+
+.b-s4 {
+    background: var(--b-s7);
+}
+
+.b-s5 {
+    background: var(--b-s3);
+}
+
+.b-s6 {
+    background: var(--b-s9);
+}
+
+.b-s7 {
+    background: var(--b-s4);
+}
+
+.b-s8 {
+    background: var(--b-s8);
+}
+
+.b-s9 {
+    background: var(--b-s6);
+}
+
+.b-s10 {
+    background: var(--b-s10);
+}
+
+/* --- TYPOGRAPHY --- */
+.bento-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 800;
+    opacity: 0.8;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 2;
+}
+
+.bento-value {
+    font-family: 'Monument Extended', sans-serif;
+    font-weight: 900;
+    font-size: 42px;
+    line-height: 1.0;
+    letter-spacing: 0.04em;
+    position: relative;
+    z-index: 2;
+}
+
+.bento-value-small {
+    font-family: 'Monument Extended', sans-serif;
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 1.2;
+    position: relative;
+    z-index: 2;
+}
+
+/* --- GRID AREA ASSIGNMENTS (Compact Layout) ---
+   
+   Visual Layout (7 columns × 3 rows):
+   ┌──────────┬─────────────────┬─────┬──────┐
+   │   INFO   │     STATUS      │ AGE │BADGE │
+   │  (2×2)   │     (3×1)       │(1×1)│(1×2) │
+   ├──────────┼─────┬───────────┼─────┴──────┤
+   │          │ LOC │    EXP    │   IMAGE    │
+   │          │(1×1)│   (2×1)   │   (2×2)    │
+   ├─────┬────┼─────┴───────────┤            │
+   │PROJ │EDU │      QUOTE      │            │
+   │(1×1)│(1×1│     (3×1)       │            │
+   └─────┴────┴─────────────────┴────────────┘
+*/
+
+/* Row 1-2: Main Info (2 col × 2 rows) */
+.bento-info {
+    grid-area: info;
+    min-height: 260px;
+}
+
+/* Row 1: Status Banner (3 col × 1 row) */
+.bento-status {
+    grid-area: status;
+}
+
+/* Row 1: Age (1 col × 1 row) */
+.bento-age {
+    grid-area: age;
+    align-items: center;
+}
+
+/* Row 1-2: Badge/VLSI (1 col × 2 rows) */
+.bento-badge {
+    grid-area: badge;
+    align-items: center;
+    text-align: center;
+}
+
+/* Row 2: Location (1 col × 1 row) */
+.bento-location-small {
+    grid-area: loc;
+    align-items: center;
+}
+
+/* Row 2: Experience (2 col × 1 row) */
+.bento-stat-card.b-s6 {
+    grid-area: exp;
+    align-items: center;
+}
+
+/* Row 2-3: Image (2 col × 2 rows) */
+.bento-image-focal {
+    grid-area: image;
+    padding: 0;
+    background: #000;
+    min-height: 260px;
+}
+
+/* Row 3: Projects (1 col × 1 row) */
+.bento-stat-card.b-s7 {
+    grid-area: proj;
+    align-items: center;
+}
+
+/* Row 3: Education (1 col × 1 row) */
+.bento-college-square {
+    grid-area: edu;
+    align-items: center;
+}
+
+/* Row 3: Quote (3 col × 1 row) */
+.bento-quote-wide {
+    grid-area: quote;
+}
+
+/* Full-width Dashboard - Separate row after grid */
+.bento-github-dashboard {
+    grid-column: 1 / -1;
+    min-height: 120px;
+    cursor: pointer;
+}
+
+/* Focal Image Customization */
+.personal-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 32px;
+    overflow: hidden;
+}
+
+.personal-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(0);
+    opacity: 1;
+    transition: filter 0.5s ease, transform 0.5s ease, opacity 0.5s ease;
+}
+
+.personal-image-wrapper::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--b-image-overlay);
+    mix-blend-mode: color;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    opacity: 1;
+}
+
+/* Hover: Pure B&W - remove overlay */
+.bento-image-focal:hover .personal-image {
+    filter: grayscale(1) contrast(1.1);
+    transform: scale(1.02);
+}
+
+.bento-image-focal:hover .personal-image-wrapper::after {
+    opacity: 0;
+}
+
+
+.github-chart-container {
+    width: 100%;
+    padding-top: 10px;
+}
+
+.theme-filtered-chart {
+    width: 100%;
+    filter: var(--b-chart-filter);
+    transition: filter 0.4s ease;
+}
+
+.quote-text {
+    font-size: 18px;
+    line-height: 1.6;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Location scroll responsive */
+.location-scroll {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.location-scroll i {
+    color: var(--b-accent);
+    font-size: 14px;
+}
+
+/* Desktop: Show full names, hide compact */
+.location-full {
+    display: inline;
+}
+
+.location-compact {
+    display: none;
+}
+
+/* --- RESPONSIVE - COMPACT GRID AREAS --- */
+
+/* TABLET (4 Columns) */
+@media (max-width: 1200px) {
+    .personal-bento-grid {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, minmax(100px, auto));
+        grid-template-areas:
+            "info info status status"
+            "info info age badge"
+            "exp loc loc image"
+            "proj edu image image"
+            "quote quote quote quote";
+        gap: 12px;
+    }
+
+    .bento-info {
+        grid-area: info;
+        min-height: 200px;
+    }
+
+    .bento-status {
+        grid-area: status;
+    }
+
+    .bento-age {
+        grid-area: age;
+    }
+
+    .bento-badge {
+        grid-area: badge;
+    }
+
+    .bento-location-small {
+        grid-area: loc;
+    }
+
+    .bento-stat-card.b-s6 {
+        grid-area: exp;
+    }
+
+    .bento-image-focal {
+        grid-area: image;
+        min-height: 200px;
+    }
+
+    .bento-stat-card.b-s7 {
+        grid-area: proj;
+    }
+
+    .bento-college-square {
+        grid-area: edu;
+    }
+
+    .bento-quote-wide {
+        grid-area: quote;
+    }
+
+    .bento-github-dashboard {
+        grid-column: 1 / -1;
+    }
+
+    .y2k-icon {
+        width: 28px !important;
+        height: 28px !important;
+    }
+}
+
+/* SMALL TABLET (3 Columns) */
+@media (max-width: 900px) {
+    .personal-bento-grid {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(6, minmax(80px, auto));
+        grid-template-areas:
+            "info info status"
+            "info info age"
+            "badge exp loc"
+            "image image proj"
+            "image image edu"
+            "quote quote quote";
+        gap: 10px;
+    }
+
+    /* Tablet: Use compact location text */
+    .location-full {
+        display: none;
+    }
+
+    .location-compact {
+        display: inline;
+    }
+
+    .bento-info {
+        grid-area: info;
+        min-height: 160px;
+    }
+
+    .bento-status {
+        grid-area: status;
+    }
+
+    .bento-age {
+        grid-area: age;
+    }
+
+    .bento-badge {
+        grid-area: badge;
+    }
+
+    .bento-location-small {
+        grid-area: loc;
+    }
+
+    .bento-stat-card.b-s6 {
+        grid-area: exp;
+    }
+
+    .bento-image-focal {
+        grid-area: image;
+        min-height: 160px;
+    }
+
+    .bento-stat-card.b-s7 {
+        grid-area: proj;
+    }
+
+    .bento-college-square {
+        grid-area: edu;
+    }
+
+    .bento-quote-wide {
+        grid-area: quote;
+    }
+
+    .bento-github-dashboard {
+        grid-column: 1 / -1;
+    }
+
+    .y2k-icon {
+        width: 22px !important;
+        height: 22px !important;
+    }
+}
+
+/* MOBILE (2 Columns compact) */
+@media (max-width: 600px) {
+    .personal-modern {
+        padding: 32px 12px;
+    }
+
+    .personal-bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(6, minmax(80px, auto));
+        grid-template-areas:
+            "info info"
+            "status status"
+            "age badge"
+            "loc exp"
+            "image image"
+            "proj edu"
+            "quote quote";
+        gap: 8px;
+    }
+
+    .bento-tile {
+        padding: 16px;
+        border-radius: 24px;
+    }
+
+    .bento-info {
+        grid-area: info;
+        min-height: 120px;
+    }
+
+    .bento-status {
+        grid-area: status;
+        min-height: 70px;
+    }
+
+    .bento-age {
+        grid-area: age;
+    }
+
+    .bento-badge {
+        grid-area: badge;
+    }
+
+    .bento-location-small {
+        grid-area: loc;
+    }
+
+    .bento-stat-card.b-s6 {
+        grid-area: exp;
+    }
+
+    .bento-image-focal {
+        grid-area: image;
+        min-height: 200px;
+    }
+
+    .bento-stat-card.b-s7 {
+        grid-area: proj;
+    }
+
+    .bento-college-square {
+        grid-area: edu;
+    }
+
+    .bento-quote-wide {
+        grid-area: quote;
+        min-height: 80px;
+    }
+
+    .bento-github-dashboard {
+        grid-column: 1 / -1;
+        min-height: 90px;
+    }
+
+    /* Mobile: Hide full names, show compact */
+    .location-full {
+        display: none;
+    }
+
+    .location-compact {
+        display: inline;
+    }
+
+    .location-scroll {
+        gap: 4px;
+    }
+
+    .location-scroll i {
+        font-size: 12px;
+    }
+
+    /* Typography Compression */
+    .personal-name {
+        font-size: 26px;
+        line-height: 1.1;
+    }
+
+    .bento-value {
+        font-size: 24px;
+        line-height: 1.1;
+    }
+
+    .bento-value-small {
+        font-size: 14px;
+    }
+
+    .personal-role {
+        font-size: 10px;
+    }
+
+    .quote-text {
+        font-size: 13px;
+    }
+
+    .y2k-icon {
+        width: 20px !important;
+        height: 20px !important;
+        opacity: 0.1 !important;
+    }
+}
+
+/* --- MODAL --- */
+.github-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(25px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.github-modal-content {
+    background: #080808;
+    width: 100%;
+    max-width: 1100px;
+    border-radius: 40px;
+    padding: 60px;
+    color: #fff;
+    max-height: 90vh;
+    overflow-y: auto;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    position: relative;
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background: #1a1a1a;
+    border: none;
+    color: #fff;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.stats-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin: 40px 0;
+}
+
+@media (max-width: 900px) {
+    .stats-summary-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-summary-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.summary-card {
+    background: #111;
+    padding: 30px;
+    border-radius: 24px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.summary-value {
+    display: block;
+    font-family: 'Monument Extended', sans-serif;
+    font-size: 36px;
+    color: var(--b-accent);
+    margin-bottom: 8px;
+}
+
+.summary-label {
+    font-size: 12px;
+    color: #666;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.modal-charts-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 100%;
+}
+
+.modal-chart-wrapper {
+    width: 100%;
+    background: #000;
+    padding: 25px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}

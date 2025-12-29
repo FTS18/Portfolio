@@ -1,0 +1,151 @@
+@font-face {
+    font-family: 'Monument Extended';
+    src: url('/fonts/MonumentExtended.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Monument Extended';
+    src: url('/fonts/MonumentExtended-Ultrabold.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+:root {
+    /* Default - Dark Theme */
+    --bg-primary: #000000;
+    --bg-alternate: #080808;
+    /* Slightly less black */
+    --bg-secondary: #0A0A0A;
+    --bg-tertiary: #111111;
+    --bg-white-section: #FFFFFF;
+
+    --text-primary: #FFFFFF;
+    --text-secondary: #CCCCCC;
+    --text-muted: #888888;
+    --text-inverse: #000000;
+
+    --border-color: rgba(255, 255, 255, 0.1);
+    --border-hard: #000000;
+
+    --card-bg: #111111;
+    --card-border: #333333;
+
+    --font-heading: 'Monument Extended', sans-serif;
+}
+
+[data-theme='light'] {
+    --bg-primary: #FFFFFF;
+    --bg-alternate: #F8F8F8;
+    /* Slightly less white */
+    --bg-secondary: #F0F0F0;
+    --bg-tertiary: #EAEAEA;
+
+    --text-primary: #000000;
+    --text-secondary: #333333;
+    --text-muted: #666666;
+    --text-inverse: #FFFFFF;
+
+    --border-color: rgba(0, 0, 0, 0.1);
+    --border-hard: #000000;
+
+    --card-bg: #FFFFFF;
+    --card-border: #E0E0E0;
+}
+
+/* Black & White Theme - Pure Monochrome */
+[data-theme='bw'] {
+    --bg-primary: #000000;
+    --bg-alternate: #0A0A0A;
+    --bg-secondary: #111111;
+    --bg-tertiary: #1A1A1A;
+
+    --text-primary: #FFFFFF;
+    --text-secondary: #CCCCCC;
+    --text-muted: #888888;
+    --text-inverse: #000000;
+
+    --border-color: rgba(255, 255, 255, 0.2);
+    --border-hard: #FFFFFF;
+
+    --card-bg: #111111;
+    --card-border: #333333;
+
+    /* Flag to disable dynamic colors on cards */
+    --disable-dynamic-colors: 1;
+}
+
+/* Brutalist Symbols */
+.fraunces-italic {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: -0.06em;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.4s ease-in-out, color 0.3s ease;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    letter-spacing: -0.04em;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font-family: inherit;
+}
+
+/* Heading Styles */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-alternate);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--text-muted);
+    border-radius: 5px;
+    border: 2px solid var(--bg-alternate);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+}

@@ -1,0 +1,177 @@
+.skills-section-marquee {
+    padding: 60px 0 40px 0;
+    background: var(--bg-primary);
+    position: relative;
+    overflow: hidden;
+}
+
+.skills-marquee-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.skills-marquee-header {
+    text-align: center;
+    margin-bottom: 40px;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.skills-marquee-title {
+    font-size: 64px;
+    font-weight: 900;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+    font-family: 'Monument Extended', sans-serif;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.skills-marquee-subtitle {
+    font-size: 16px;
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+.skills-marquee-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.skills-marquee-row {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 6px 0;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.skills-marquee-track {
+    display: flex;
+    gap: 12px;
+    animation: marquee 30s linear infinite;
+    width: fit-content;
+}
+
+.skills-marquee-track.reverse {
+    animation: marquee-reverse 35s linear infinite;
+}
+
+.skills-marquee-track.slow {
+    animation: marquee-slow 40s linear infinite;
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-33.33%);
+    }
+}
+
+@keyframes marquee-reverse {
+    from {
+        transform: translateX(-33.33%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes marquee-slow {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-33.33%);
+    }
+}
+
+.skill-marquee-badge {
+    height: 48px;
+    border-radius: 12px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 16px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 2px 2px 0 var(--border-hard);
+}
+
+.skill-marquee-badge:hover {
+    background: var(--bg-tertiary);
+    border-color: var(--text-primary);
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0 var(--border-hard);
+}
+
+.skill-marquee-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+/* Fix for icons that are white by default */
+[data-theme='light'] .skill-marquee-icon[alt='ShadCN'],
+[data-theme='light'] .skill-marquee-icon[alt='Express'] {
+    filter: invert(1);
+}
+
+.skill-marquee-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+
+@media screen and (max-width: 768px) {
+    .skills-section-marquee {
+        padding: 60px 0;
+    }
+
+    .skills-marquee-container {
+        padding: 0 20px;
+    }
+
+    .skills-marquee-title {
+        font-size: clamp(32px, 10vw, 42px);
+        letter-spacing: 2px;
+    }
+
+    .skill-marquee-badge {
+        height: 40px;
+        padding: 0 14px;
+    }
+
+    .skill-marquee-icon {
+        width: 18px;
+        height: 18px;
+    }
+
+    .skill-marquee-name {
+        font-size: 13px;
+    }
+}

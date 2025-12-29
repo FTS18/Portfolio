@@ -1,0 +1,386 @@
+[
+    {
+        "title": "Gramin Saathi",
+        "shortDesc": "AI-powered rural financial literacy platform helping farmers access government schemes and weather data through intelligent loan processing.",
+        "longDesc": "Gramin Saathi is a revolutionary AI-powered rural financial literacy platform designed specifically for Indian farmers. Built during the Thapar Hackathon 2025, this comprehensive solution bridges the gap between rural communities and government welfare schemes by providing intelligent loan processing, real-time weather data integration, and multilingual support through i18n. The platform addresses the critical need for financial inclusion in rural India.\n\nThe platform leverages Google's Gemini AI for natural language processing, enabling farmers to interact in their native language without any technical barriers. Key features include personalized scheme recommendations based on individual farmer profiles, crop advisory services based on real-time weather patterns, integrated loan eligibility calculators, and a Progressive Web App (PWA) architecture that ensures offline access in areas with limited connectivity.\n\nThe technical architecture combines React with TypeScript for type-safe frontend development, Tailwind CSS for rapid UI development, and Firebase for backend services including authentication and real-time database. The responsive design ensures seamless usage across devices from basic feature phones to modern tablets, making it truly accessible to the rural population it serves.",
+        "link": "https://graminsaathi.netlify.app",
+        "github": "https://github.com/FTS18/gramin-saathi",
+        "image": "assets/images/screenshots/gs.webp",
+        "date": "December, 2025",
+        "pptLink": "https://docs.google.com/presentation/d/gramin-saathi-ppt",
+        "hackathon": "Thapar Hackathon 2025",
+        "tags": [
+            "React",
+            "TypeScript",
+            "Tailwind CSS",
+            "Gemini AI",
+            "Firebase",
+            "Vite",
+            "REST API",
+            "i18n",
+            "PWA",
+            "Node.js",
+            "AI",
+            "NLP",
+            "Hackathon",
+            "Thapar",
+            "TIET"
+        ]
+    },
+    {
+        "title": "Project Orion",
+        "shortDesc": "Advanced AI agent system for automated loan processing using LangGraph and multi-agent workflows with FastAPI backend.",
+        "longDesc": "Project Orion represents the next generation of banking automation, built for the EY Techathon 2025. This sophisticated AI agent system revolutionizes the loan processing workflow by implementing multi-agent orchestration using LangGraph and LangChain. The platform features autonomous AI agents that handle document verification, credit scoring, risk assessment, and loan approval decisions with minimal human intervention, significantly reducing processing time.\n\nThe architecture combines a React TypeScript frontend with a FastAPI Python backend, leveraging Pydantic for robust data validation and type safety. The system includes real-time agent visualization, showing users the decision-making process as AI agents collaborate on their application. This transparency builds trust and helps users understand each step of their loan journey. Features include automated KYC verification, income analysis with document parsing, collateral assessment, and intelligent underwriting.\n\nThe multi-agent system is powered by Google's Gemini AI for contextual understanding and decision-making. Each agent specializes in a specific domain - Document Agent for verification, Credit Agent for scoring, Risk Agent for assessment, and Approval Agent for final decisions. The agents communicate through a sophisticated message-passing system, ensuring coordinated processing while maintaining individual accountability for each decision.",
+        "link": "https://porion.netlify.app",
+        "github": "https://github.com/FTS18/project-orion",
+        "image": "assets/images/screenshots/po.webp",
+        "date": "November, 2025",
+        "pptLink": "https://docs.google.com/presentation/d/project-orion-ppt",
+        "hackathon": "EY Techathon 2025",
+        "tags": [
+            "React",
+            "TypeScript",
+            "FastAPI",
+            "Python",
+            "LangGraph",
+            "LangChain",
+            "Gemini AI",
+            "Tailwind CSS",
+            "Vite",
+            "Pydantic",
+            "AI",
+            "NLP",
+            "Multi-agent",
+            "EY",
+            "Hackathon"
+        ]
+    },
+    {
+        "title": "PEC Fest 2025",
+        "shortDesc": "Official website for PEC's annual technical festival featuring SSR, event management, and real-time updates.",
+        "longDesc": "The official website for PEC Chandigarh's flagship annual technical and cultural festival, serving as the digital hub for one of North India's largest college fests. Built with Next.js for server-side rendering, the platform handles thousands of concurrent users during peak registration periods while maintaining exceptional performance and SEO optimization. The website serves as the primary touchpoint for students from colleges across the country.\n\nThe website features comprehensive event management including online registration with team formation, detailed event schedules with calendar integration, live updates during the fest, and real-time results tracking. Participants can browse through various competitions, register their teams, track submission deadlines, and view their standings. The admin panel provides organizers with powerful tools to manage events, participants, schedules, and announcements in real-time.\n\nIntegration with MongoDB and Prisma ensures efficient data management with proper schema validation and query optimization. The Tailwind CSS design system creates a visually stunning and consistent user experience across all pages. Performance optimizations include image optimization, code splitting, and caching strategies that ensure the website remains responsive even during high-traffic periods like registration deadlines and result announcements.",
+        "link": "https://pecfest25.vercel.app",
+        "github": "Private",
+        "image": "assets/images/screenshots/pf.webp",
+        "date": "October, 2025",
+        "tags": [
+            "Next.js",
+            "TypeScript",
+            "MongoDB",
+            "Tailwind CSS",
+            "SSR",
+            "REST API",
+            "Prisma",
+            "Node.js",
+            "PEC"
+        ]
+    },
+    {
+        "title": "Saksham AI",
+        "shortDesc": "EdTech platform with AI-powered internship finder using NLP for matching students with relevant opportunities.",
+        "longDesc": "Developed for the prestigious Smart India Hackathon 2025, Saksham AI is an innovative EdTech platform that transforms how students discover and secure internship opportunities. The AI-powered matching engine uses advanced NLP algorithms to analyze student profiles, skills, projects, and preferences, then recommends highly relevant internships from a curated database of opportunities across various industries and domains.\n\nThe platform features a comprehensive skill assessment system with interactive quizzes that evaluate both theoretical knowledge and practical problem-solving abilities. Students can build their professional portfolio directly on the platform, generate ATS-friendly resumes with smart suggestions, and access curated interview preparation resources. Beautiful data visualizations using Chart.js help students track their progress, identify skill gaps, and set achievement goals.\n\nFramer Motion powers smooth animations throughout the interface, creating an engaging and modern user experience that keeps students motivated in their career journey. The platform includes mentorship matching, peer learning communities, and success story showcases from students who secured internships through the platform. Firebase handles authentication, real-time features, and scalable data storage, ensuring a seamless experience for the growing user base.",
+        "link": "https://hexaforces.netlify.app",
+        "github": "https://github.com/FTS18/saksham-pathfinder",
+        "image": "assets/images/screenshots/ss1.webp",
+        "date": "September, 2025",
+        "pptLink": "https://docs.google.com/presentation/d/saksham-ai-ppt",
+        "hackathon": "Smart India Hackathon 2025",
+        "tags": [
+            "React",
+            "TypeScript",
+            "Tailwind CSS",
+            "Firebase",
+            "Gemini AI",
+            "NLP",
+            "Vite",
+            "Framer Motion",
+            "Chart.js",
+            "AI",
+            "SIH",
+            "Hackathon"
+        ]
+    },
+    {
+        "title": "Project J",
+        "shortDesc": "JEE preparation platform with college predictor algorithm and educational resources for engineering aspirants.",
+        "longDesc": "Project J is a comprehensive JEE preparation platform born from personal experience as a JEE aspirant. The platform features an intelligent college predictor that analyzes previous year cutoffs, seat matrices, preference patterns, and historical trends to suggest the best possible college and branch combinations based on the student's expected rank, category, and home state. The predictions are updated annually with latest counseling data.\n\nBeyond prediction, the platform offers extensive study resources including chapter-wise notes organized by exam weightage, previous year questions with detailed solutions and video explanations, topic-wise test series with performance analytics, and a formula sheet generator that creates personalized revision sheets. Students can track their preparation progress, identify weak areas, and receive personalized improvement suggestions.\n\nThe responsive design built with Bootstrap ensures accessibility across all devices, from desktop computers in coaching centers to mobile phones during commute. LocalStorage integration saves student preferences, mock test history, and prediction history for quick future reference without requiring login, respecting privacy while providing convenience. The platform has helped thousands of students make informed decisions about their engineering career.",
+        "link": "https://projectjee.netlify.app",
+        "github": "https://github.com/FTS18/project-j",
+        "image": "assets/images/screenshots/ss15.webp",
+        "date": "Jan, 2025",
+        "tags": [
+            "HTML5",
+            "CSS3",
+            "JavaScript",
+            "Bootstrap",
+            "LocalStorage",
+            "Responsive",
+            "JEE",
+            "College Predictor"
+        ]
+    },
+    {
+        "title": "Radioo",
+        "shortDesc": "Online radio streaming platform with music discovery and entertainment features built with vanilla JavaScript.",
+        "longDesc": "Radioo brings the nostalgic charm of radio to the digital age through a beautifully designed online streaming platform. The application connects to various radio stations worldwide using public radio APIs, offering users an endless stream of music, news, talk shows, and entertainment. The clean, intuitive interface makes discovering new stations effortless, with categories ranging from jazz and classical to pop, electronic, and regional music.\n\nBuilt entirely with vanilla JavaScript, the platform demonstrates the power of native web technologies without framework dependencies. The Web Audio API integration provides real-time audio visualization effects that dance and pulse with the music, creating an immersive listening experience. Users can see frequency bars, waveforms, and color-reactive visuals that respond to the audio being played.\n\nFavorite stations can be bookmarked for quick access, and the platform remembers your listening history to provide personalized recommendations. The responsive design ensures perfect playback whether you're on desktop, tablet, or mobile. Features include sleep timer, station search, genre filtering, and the ability to share stations with friends via social media integration.",
+        "link": "https://radioo.netlify.app",
+        "github": "https://github.com/FTS18/musify1",
+        "image": "assets/images/screenshots/ss10.webp",
+        "date": "Dec, 2021",
+        "tags": [
+            "HTML5",
+            "CSS3",
+            "JavaScript",
+            "Web Audio API",
+            "REST API",
+            "Responsive",
+            "Streaming"
+        ]
+    },
+    {
+        "title": "Calculator",
+        "shortDesc": "Multi-purpose calculator web app with BMI calculator, graphing, and various mathematical operations.",
+        "longDesc": "This isn't your ordinary calculator – it's a comprehensive mathematical toolkit that handles everything from basic arithmetic to complex scientific calculations and interactive graph plotting. The multi-mode interface switches seamlessly between standard, scientific, graphing, and specialty calculators including BMI, age, percentage, unit converters, and programmers' calculators with hex/binary/octal conversions.\n\nThe graphing calculator powered by Math.js renders mathematical functions in real-time with smooth animations as you type. It supports multiple simultaneous equations with customizable colors, adjustable axis ranges, zoom and pan controls, and the ability to find intersection points. Users can plot standard functions, parametric equations, and even implicit curves with high precision.\n\nThe clean, modern interface features theme switching between light, dark, and colorful modes, along with comprehensive keyboard shortcuts for power users. Built as a Progressive Web App (PWA), it works completely offline once installed and can be added to your device's home screen for instant access. Calculation history is preserved across sessions, and results can be copied or shared easily.",
+        "link": "/calculator.html",
+        "github": "https://github.com/FTS18/calculator-app",
+        "image": "assets/images/screenshots/sscc.webp",
+        "date": "Jun, 2024",
+        "tags": [
+            "HTML5",
+            "CSS3",
+            "JavaScript",
+            "Math.js",
+            "Graphing",
+            "PWA"
+        ]
+    },
+    {
+        "title": "Lyncc",
+        "shortDesc": "Real-time video calling application with WebRTC integration and Firebase backend for seamless communication.",
+        "longDesc": "Lyncc is a peer-to-peer video calling solution that proves you don't need complicated backend infrastructure for real-time communication. Using WebRTC technology with Firebase for signaling, the application establishes direct connections between users, ensuring low-latency, high-quality video calls without routing through central servers. This architecture provides better privacy and reduces operational costs.\n\nThe application features room-based calling with shareable invite links, full-featured screen sharing capabilities for presentations and collaboration, text chat during calls for sharing links and notes, and intuitive camera/microphone controls with device selection. Users can switch cameras mid-call, blur their background, and adjust audio settings in real-time. The clean UI provides visual feedback for connection status and call quality indicators.\n\nDeveloped in collaboration with Arunjay, the project demonstrates advanced real-time web technologies while maintaining simplicity. Whether for casual catch-ups with friends and family or professional meetings and interviews, Lyncc delivers a reliable video calling experience entirely within the browser. No downloads, no plugins, no account required – just create a room and share the link.",
+        "link": "https://lyncc.netlify.app/",
+        "github": "https://github.com/FTS18/lync",
+        "image": "assets/images/screenshots/4.webp",
+        "date": "Apr, 2024",
+        "tags": [
+            "HTML5",
+            "CSS3",
+            "JavaScript",
+            "WebRTC",
+            "Firebase",
+            "Firestore",
+            "Real-time",
+            "Peer.js"
+        ]
+    },
+    {
+        "title": "DynWave",
+        "shortDesc": "Dynamic chat application with real-time messaging capabilities and modern UI for seamless communication.",
+        "longDesc": "DynWave delivers a dynamic real-time chat experience powered by Socket.io and Express.js. The platform supports both private one-on-one messaging and group conversations with unlimited participants. Features include typing indicators that show when someone is composing a message, read receipts for message delivery confirmation, and emoji reactions that make conversations feel natural and engaging.\n\nThe modern UI, developed in collaboration with Divyanshi, features smooth CSS animations, comprehensive emoji picker, file sharing capabilities, and a beautiful color scheme that adapts to user preferences with light and dark modes. Messages support rich formatting, link previews, and image embedding. Users can search through conversation history, star important messages, and create message threads.\n\nBuilt with Node.js on the backend, the application demonstrates full-stack JavaScript capabilities with efficient WebSocket connections handling hundreds of concurrent users without breaking a sweat. The architecture uses event-driven programming for real-time synchronization, ensuring messages appear instantly across all connected devices. Redis integration provides message persistence and enables horizontal scaling for production deployments.",
+        "link": "https://dynwave.onrender.com/",
+        "github": "https://github.com/FTS18/dynwave",
+        "image": "assets/images/screenshots/chat.webp",
+        "date": "Feb, 2024",
+        "tags": [
+            "HTML5",
+            "CSS3",
+            "JavaScript",
+            "Node.js",
+            "Socket.io",
+            "Express.js",
+            "Real-time"
+        ]
+    },
+    {
+        "title": "MySQL Project",
+        "shortDesc": "Database management system project with Python integration for Class 12 computer science practicals.",
+        "longDesc": "This project showcases the integration of Python with MySQL database, developed as part of the Class 12 Computer Science CBSE curriculum. The application implements a complete inventory management system with full CRUD operations (Create, Read, Update, Delete) through an intuitive command-line interface. The system manages product information, tracks stock levels, records transactions, and generates reports.\n\nThe system features secure user authentication with role-based access control, comprehensive data validation to prevent incorrect entries, advanced search functionality with multiple filter options, and detailed reporting capabilities including sales summaries and inventory status. The menu-driven interface makes navigation intuitive even for users unfamiliar with databases. Error handling ensures graceful recovery from invalid inputs or connection issues.\n\nDetailed documentation explains database normalization principles, SQL query optimization techniques, and Python's mysql.connector library usage with best practices. Each function is commented explaining the logic and algorithm used. This project serves as both a practical learning resource for students preparing for board exams and a functional application that demonstrates proper software development practices including separation of concerns and modular design.",
+        "link": "https://github.com/FTS18/mysql-python",
+        "github": "https://github.com/FTS18/mysql-python",
+        "image": "assets/images/screenshots/1.webp",
+        "date": "Jan, 2024",
+        "tags": [
+            "Python",
+            "MySQL",
+            "SQLite3",
+            "CRUD",
+            "Database",
+            "CLI"
+        ]
+    },
+    {
+        "title": "VSEC",
+        "shortDesc": "School website with educational resources and information management system built with modern web technologies.",
+        "longDesc": "VSEC (Vidya Sagar Education Centre) is a modern school website designed to streamline communication between the institution, students, parents, and prospective families. The platform features comprehensive sections for academics including curriculum details and academic calendar, admissions with downloadable forms and fee structure, upcoming events with registration, detailed faculty profiles, and a dynamic gallery showcasing school activities and achievements.\n\nBuilt with attention to accessibility and performance, the website loads quickly even on slower connections common in many parts of India. The design follows WCAG guidelines ensuring the content is accessible to users with disabilities. jQuery powers interactive elements like image sliders, dropdown menus, form validations, and smooth scrolling navigation. The contact forms integrate with email services for direct communication.\n\nSEO optimization ensures the school ranks well in local searches, helping parents find the institution when searching for schools in the area. The responsive design works flawlessly across devices, from feature phones used by many parents to desktop computers in offices. The CMS-like admin panel allows school staff to update content, post announcements, and manage the gallery without technical knowledge.",
+        "link": "https://vsec.netlify.app/",
+        "github": "https://github.com/FTS18/vsec",
+        "image": "assets/images/screenshots/school.webp",
+        "date": "Aug, 2023",
+        "tags": [
+            "HTML5",
+            "CSS3",
+            "JavaScript",
+            "jQuery",
+            "Responsive",
+            "SEO"
+        ]
+    },
+    {
+        "title": "Reartify",
+        "shortDesc": "E-commerce platform for YouthZest tech fest with shopping cart functionality and modern design patterns.",
+        "longDesc": "Reartify was developed for the YouthZest tech fest event, serving as an interactive e-commerce demonstration that teaches participants about web development and online business concepts. The platform features a fully functional shopping experience with product browsing across categories, advanced filtering and sorting options, persistent shopping cart management, wishlist functionality, and a simulated multi-step checkout process.\n\nThe project showcases modern e-commerce UI patterns including quick view modals for product details without leaving the page, dynamic wishlisting with sync across sessions, real-time pricing displays with discount calculations, inventory status indicators showing stock availability, and recently viewed products section. The product pages feature image galleries, size selectors, color variants, and related product recommendations.\n\nBuilt with vanilla JavaScript and LocalStorage for cart persistence, it demonstrates how complex shopping experiences can be created without backend dependencies for educational and demonstration purposes. The responsive design ensures the shopping experience works seamlessly on all devices. This project taught valuable lessons about state management, user experience design, and the complexity behind seemingly simple e-commerce interactions.",
+        "link": "https://reartify.netlify.app/",
+        "github": "https://github.com/FTS18/bytekart/pages/base.html",
+        "image": "assets/images/screenshots/yz.webp",
+        "date": "Sept, 2023",
+        "tags": [
+            "HTML5",
+            "CSS3",
+            "JavaScript",
+            "LocalStorage",
+            "Responsive",
+            "E-commerce"
+        ]
+    },
+    {
+        "title": "TechnoFair",
+        "shortDesc": "Space-themed technical fair website with interactive elements and ISRO collaboration showcase.",
+        "longDesc": "TechnoFair is a space-themed website created for a technical fair event that featured collaboration with ISRO (Indian Space Research Organisation). The immersive design transports visitors to the cosmos with stunning visual effects including starfield backgrounds, nebula gradients, planet animations, and parallax scrolling that capture the wonder and excitement of space exploration. Every element reinforces the cosmic theme.\n\nGSAP (GreenSock Animation Platform) powers the smooth scroll-triggered animations and transitions that bring the website to life. As users scroll, content fades in with cinematic timing, rockets launch across the screen, satellites orbit, and text reveals create dramatic reveals. The event schedule, speaker profiles with animated cards, registration forms with validation, countdown timer, and venue map keep visitors engaged and well-informed about event logistics.\n\nThe project demonstrates advanced CSS techniques including custom properties for theme consistency, clip-path for creative shapes, and blend modes for visual effects. Animation libraries are used judiciously to enhance rather than overwhelm the experience. Performance optimization ensures smooth animations even on mid-range devices. The website successfully attracted significant footfall and generated excitement for the technical fair.",
+        "link": "https://fts18.github.io/technofair/",
+        "github": "https://github.com/FTS18/technofair",
+        "image": "assets/images/screenshots/tf.webp",
+        "date": "July, 2023",
+        "tags": [
+            "HTML5",
+            "CSS3",
+            "JavaScript",
+            "GSAP",
+            "Animations",
+            "Responsive",
+            "GitHub Pages"
+        ]
+    },
+    {
+        "title": "ByteKart",
+        "shortDesc": "Full-featured e-commerce platform with shopping cart, product catalog, and checkout functionality.",
+        "longDesc": "ByteKart is a feature-rich e-commerce platform that simulates a complete online shopping experience from browsing to checkout. The application includes an extensive product catalog organized by categories, advanced search with autocomplete suggestions, filtering options by price range and attributes, sorting by various criteria, a persistent shopping cart with quantity management, wishlist functionality, and a multi-step checkout process with order summary.\n\nThe project taught valuable lessons about state management complexity, data persistence strategies, and user experience design for commercial applications. Products feature detailed views with zoomable images, comprehensive specifications, customer reviews section, Q&A functionality, and intelligently curated related product suggestions. The checkout flow includes address management, payment method selection (simulated), order review, and confirmation with order tracking.\n\nThe admin-like interface allows for product management, demonstrating full CRUD operations without a backend through clever use of LocalStorage and JavaScript object manipulation. Users can add products, update inventory, modify prices, and manage categories. This project serves as a practical demonstration of how complex e-commerce functionality can be prototyped on the frontend before backend integration.",
+        "link": "https://bytekart.netlify.app/",
+        "github": "https://github.com/FTS18/bytekart",
+        "image": "assets/images/screenshots/ecom.webp",
+        "date": "June, 2023",
+        "tags": [
+            "HTML5",
+            "CSS3",
+            "JavaScript",
+            "LocalStorage",
+            "Cart System",
+            "Filters",
+            "E-commerce"
+        ]
+    },
+    {
+        "title": "Finixx",
+        "shortDesc": "Online gaming platform with multiplayer functionality and entertainment features for collaborative gaming.",
+        "longDesc": "Finixx is an exciting space-themed arcade game built with HTML5 Canvas and vanilla JavaScript. Players navigate their spacecraft through an asteroid field while collecting power-ups, avoiding obstacles, and battling enemy ships. The game features multiple levels with progressively increasing difficulty, high score tracking with local leaderboards, smooth 60fps animations, and satisfying visual feedback for every action.\n\nDeveloped in collaboration with Arunjay, the project demonstrates game development fundamentals including sprite-based animation with sprite sheets, precise collision detection using bounding boxes and pixel-perfect techniques, particle effects for explosions and thrust, game state management with pause and resume, and progressive difficulty scaling that keeps players engaged without frustrating them.\n\nSound effects and a retro-inspired synthesized soundtrack enhance the gaming experience, with volume controls and mute options. The responsive controls work seamlessly with both keyboard arrows/WASD and touch inputs with virtual joystick, making it playable on desktop and mobile devices alike. The game includes multiple ship skins, weapon upgrades, and achievement badges that add replay value and encourage players to improve their skills.",
+        "link": "https://finixx.netlify.app",
+        "github": "https://github.com/FTS18/space-game",
+        "image": "assets/images/screenshots/5.webp",
+        "date": "May, 2022",
+        "tags": [
+            "HTML5",
+            "CSS3",
+            "JavaScript",
+            "JS Canvas",
+            "Game Dev",
+            "Animations",
+            "Responsive"
+        ]
+    },
+    {
+        "title": "YT Video Downloader",
+        "shortDesc": "YouTube video downloader utility with clean interface and multiple format support for content creators.",
+        "longDesc": "This utility provides a clean, ad-free interface for downloading YouTube videos in various formats and qualities. Users simply paste a video URL and select their preferred resolution, from 360p for mobile viewing and data saving to 4K for maximum quality viewing. The tool supports both video downloads in various formats including MP4 and WebM, as well as audio-only downloads in MP3 and M4A for music enthusiasts.\n\nThe interface is intentionally minimal and focused on functionality, avoiding the bloat, confusing options, and intrusive ads found on most download websites. Built with modern JavaScript, it leverages external API services for video processing while handling errors gracefully with helpful, user-friendly feedback messages. The tool shows video thumbnails, titles, duration, and available quality options before download.\n\nThe project demonstrates API integration patterns, asynchronous JavaScript with async/await, Blob handling for file downloads, and progressive enhancement for broad browser compatibility. Features include download progress tracking, batch download queue for multiple videos, remembering preferred quality settings, and the ability to resume interrupted downloads. Note: Users are encouraged to respect copyright and only download content they have rights to use.",
+        "link": "/pages/youtube-video-downloader.html",
+        "github": "https://github.com/FTS18/Youtube-Video-Downloader",
+        "image": "assets/images/screenshots/ss6.webp",
+        "date": "May, 2023",
+        "tags": [
+            "HTML5",
+            "CSS3",
+            "JavaScript",
+            "YouTube API",
+            "REST API",
+            "Blob",
+            "Utility"
+        ]
+    },
+    {
+        "title": "Practicals Class 12",
+        "shortDesc": "Comprehensive collection of Python programming practicals and projects for Class 12 computer science.",
+        "longDesc": "A comprehensive repository of Python programming practicals covering the entire Class 12 Computer Science (CBSE) curriculum. Each practical includes a clear problem statement, well-commented solution code following PEP-8 guidelines, sample inputs/outputs demonstrating various edge cases, and detailed explanations of the logic, algorithms, and time complexity considerations used in the solution.\n\nTopics covered include Python fundamentals with advanced concepts like decorators and generators, file handling for both text and CSV with real-world examples, data structures implementation including stacks and queues with practical applications, MySQL database connectivity with transaction management, data visualization using Matplotlib and Pandas for analysis projects, and NumPy array operations for numerical computing tasks.\n\nThe repository is organized chapter-wise with a clear folder structure matching the textbook. It serves as a valuable resource for students preparing for practical exams and viva voce, with additional practice problems beyond the syllabus, common interview questions for each topic, and tips for explaining code to examiners. Many students have used this repository to score full marks in their practical examinations.",
+        "link": "https://github.com/FTS18/Python-Projects/",
+        "github": "https://github.com/FTS18/Python-Projects",
+        "image": "assets/images/screenshots/3.webp",
+        "date": "May, 2023",
+        "tags": [
+            "Python",
+            "MySQL",
+            "Class 12",
+            "NumPy",
+            "File I/O",
+            "Data Structures",
+            "CLI"
+        ]
+    },
+    {
+        "title": "Spacify",
+        "shortDesc": "YouTube channel featuring tech content, tutorials, and project showcases with regular uploads.",
+        "longDesc": "Spacify is a YouTube channel dedicated to technology, programming tutorials, and project showcases. The channel explores web development technologies, AI/ML projects, coding challenges and competitive programming, tech product reviews, and industry insights, making complex topics accessible and engaging for beginners and intermediate developers alike. Content is designed to be practical and project-based.\n\nContent includes step-by-step tutorials for building real-world projects from scratch, live coding streams where viewers can interact and ask questions, code review sessions analyzing open-source projects, tech news commentary on industry developments, and behind-the-scenes looks at hackathon preparations and experiences. Each tutorial emphasizes understanding concepts rather than just copying code.\n\nThe channel emphasizes practical learning through building, with each video encouraging viewers to code along and experiment with their own variations and improvements. Projects covered range from simple static websites to complex full-stack applications with AI integration. The community aspect is valued highly, with active Discord discussions, code sharing, and collaboration on open-source projects among subscribers.",
+        "link": "https://youtube.com/@Spacify18",
+        "github": "https://youtube.com/@Spacify18",
+        "image": "assets/images/screenshots/yt.webp",
+        "date": "Subscribe",
+        "tags": [
+            "YouTube",
+            "Content",
+            "Space",
+            "Tech",
+            "Web Dev",
+            "Programming"
+        ]
+    },
+    {
+        "title": "Practicals Class 10",
+        "shortDesc": "Web-based computer practicals collection for Class 10 with interactive examples and educational content.",
+        "longDesc": "An interactive web-based collection of computer practicals designed for Class 10 students following the CBSE curriculum. The website transforms dry textbook exercises into engaging, hands-on experiences with live code editors where students can modify and run code, step-by-step guides with explanations at every stage, and instant visual feedback showing results of code execution.\n\nCovering both HTML/CSS web development fundamentals and Python programming basics, the platform makes learning accessible and enjoyable. Each practical includes theory explanations with relatable analogies, worked examples with detailed walkthroughs, practice exercises of varying difficulty levels, and interactive quizzes to test understanding. Progress is tracked so students can identify areas needing more practice.\n\nHosted on GitHub Pages, the project also served as a practical learning experience in web development, version control with Git, and deployment workflows. The website helped many classmates understand concepts they struggled with in traditional classroom settings. The responsive design ensures it works well on school computer labs, home PCs, and mobile devices. This project sparked my passion for creating educational technology that makes learning more effective and enjoyable.",
+        "link": "https://fts18.github.io/Computer-Practical/",
+        "github": "https://github.com/FTS18/Computer-Practical",
+        "image": "assets/images/screenshots/2.webp",
+        "date": "Oct, 2021",
+        "tags": [
+            "HTML5",
+            "CSS3",
+            "JavaScript",
+            "Python",
+            "GitHub Pages",
+            "Responsive",
+            "Class 10"
+        ]
+    },
+    {
+        "title": "First Website",
+        "shortDesc": "My very first portfolio website showcasing early web development skills and personal projects.",
+        "longDesc": "This portfolio holds special significance as my very first web development project, created when I was just beginning to explore HTML, CSS, and JavaScript in 2021. Looking back at this project reminds me of the excitement and wonder of seeing my first webpage come alive in the browser, the satisfaction of getting CSS layouts to work, and the magic of adding interactivity with JavaScript.\n\nWhile simple by today's standards, this project laid the foundation for everything that followed. It taught me fundamental concepts like the box model and CSS layouts, responsive design basics with media queries, JavaScript event handling and DOM manipulation, and the importance of clean, organized code. Every bug fixed and every feature added was a learning experience that built my problem-solving skills.\n\nThe project remains deployed as a reminder that every expert was once a beginner, and that the journey of a thousand projects begins with a single commit. It's a testament to growth - comparing this to my current work shows how far I've come while reminding me to stay humble and keep learning. I occasionally revisit this project to remember the fundamentals and appreciate the journey.",
+        "link": "https://spacify-v1.netlify.app",
+        "github": "https://github.com/FTS18/spacify",
+        "image": "assets/images/screenshots/mfw.webp",
+        "date": "Jan, 2021",
+        "tags": [
+            "HTML5",
+            "CSS3",
+            "JavaScript",
+            "Portfolio",
+            "Responsive"
+        ]
+    }
+]

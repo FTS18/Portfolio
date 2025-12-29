@@ -1,0 +1,104 @@
+.what-i-do {
+    position: relative;
+    padding: 120px 60px;
+    min-height: 80vh;
+    width: 100%;
+    background: var(--bg-secondary);
+    border-bottom: 2px solid var(--border-hard);
+    overflow: hidden;
+}
+
+.what-i-do-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+}
+
+.what-i-do-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.what-i-do-title {
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 900;
+    font-family: 'Monument Extended', 'Inter', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin: 0 0 16px 0;
+}
+
+.what-i-do-subtitle {
+    font-size: clamp(16px, 2vw, 20px);
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+}
+
+.service-card {
+    background: var(--card-bg);
+    border: 3px solid var(--border-hard);
+    padding: 48px 32px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 8px 8px 0 var(--border-hard);
+}
+
+.service-number {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 12px;
+    font-weight: 900;
+    color: var(--text-muted);
+    font-family: 'Monument Extended', monospace;
+}
+
+.service-icon {
+    font-size: 48px;
+    margin-bottom: 24px;
+    color: var(--text-primary);
+}
+
+.service-title {
+    font-size: 24px;
+    font-weight: 900;
+    font-family: 'Monument Extended', 'Inter', sans-serif;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    margin: 0 0 16px 0;
+}
+
+.service-description {
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .what-i-do {
+        padding: 80px 24px;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-card {
+        padding: 32px 24px;
+    }
+}

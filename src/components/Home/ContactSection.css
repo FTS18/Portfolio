@@ -1,0 +1,139 @@
+.contact-section {
+    padding: 100px 40px;
+    background: var(--bg-alternate);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 60px;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+.contact-title {
+    font-size: 72px;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-family: 'Monument Extended', sans-serif;
+    margin-bottom: 15px;
+    color: var(--text-primary);
+    letter-spacing: 5px;
+}
+
+.contact-subtitle {
+    font-size: 18px;
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    animation: fadeInUp 0.8s ease-out 0.2s backwards;
+}
+
+.contact-card {
+    background: var(--card-bg);
+    border: 3px solid var(--border-hard);
+    border-radius: 0;
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 8px 8px 0 var(--border-hard);
+}
+
+.contact-card:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 12px 12px 0 var(--border-hard);
+    background: var(--bg-tertiary);
+}
+
+.contact-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    z-index: 1;
+    border: 2px solid var(--border-hard);
+}
+
+.contact-card:hover .contact-icon {
+    transform: scale(1.1) rotate(10deg);
+}
+
+.contact-icon i {
+    font-size: 32px;
+    color: var(--bg-primary);
+    transition: color 0.3s ease;
+}
+
+.contact-name {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--text-primary);
+    position: relative;
+    z-index: 1;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+    font-family: 'Monument Extended', sans-serif;
+    letter-spacing: 1px;
+}
+
+.contact-arrow {
+    font-size: 18px;
+    color: var(--text-muted);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    z-index: 1;
+}
+
+.contact-card:hover .contact-arrow {
+    color: var(--text-primary);
+    transform: translateX(5px);
+}
+
+
+@media screen and (max-width: 1024px) {
+    .contact-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .contact-section {
+        padding: 60px 20px;
+    }
+
+    .contact-title {
+        font-size: 48px;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .contact-card {
+        padding: 30px 20px;
+    }
+}

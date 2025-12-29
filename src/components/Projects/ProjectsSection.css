@@ -1,0 +1,322 @@
+.projects {
+    position: relative;
+    padding: 120px 60px;
+    min-height: 90vh;
+    width: 100%;
+    background: var(--bg-primary);
+    border-bottom: 2px solid var(--border-hard);
+    overflow: hidden;
+}
+
+.projects-header {
+    text-align: center;
+    margin-bottom: 60px;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.projects-title {
+    font-size: 72px;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-family: 'Monument Extended', sans-serif;
+    margin-bottom: 15px;
+    color: var(--text-primary);
+    letter-spacing: 5px;
+}
+
+.projects-subtitle {
+    font-size: 18px;
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+/* Brutalist Stats Cards */
+.projects-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 60px;
+    animation: fadeInUp 0.8s ease-out 0.2s backwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.stat-card {
+    background: var(--card-bg);
+    border: 3px solid var(--border-hard);
+    padding: 32px 24px;
+    position: relative;
+    box-shadow: 6px 6px 0 var(--border-hard);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.stat-card:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 12px 12px 0 var(--border-hard);
+}
+
+.stat-card-1 {
+    background: #FF6B6B;
+}
+
+.stat-card-2 {
+    background: #4ECDC4;
+}
+
+.stat-card-3 {
+    background: #FFE66D;
+}
+
+.stat-card-4 {
+    background: #A8E6CF;
+}
+
+.projects-stats .stat-number {
+    font-family: 'Monument Extended', sans-serif;
+    font-size: 14px;
+    font-weight: 900;
+    color: currentColor;
+    opacity: 0.5;
+    margin-bottom: 16px;
+    letter-spacing: 2px;
+}
+
+.projects-stats .stat-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    border: 2px solid currentColor;
+}
+
+.projects-stats .stat-icon i {
+    font-size: 28px;
+    color: inherit;
+}
+
+.projects-stats .stat-title {
+    font-family: 'Monument Extended', sans-serif;
+    font-size: 14px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: inherit;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.projects-stats .stat-value {
+    font-family: 'Monument Extended', sans-serif;
+    font-size: 48px;
+    font-weight: 900;
+    color: inherit;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.projects-stats .stat-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: inherit;
+    opacity: 0.8;
+    font-weight: 600;
+}
+
+/* Default Dark/Light Colors */
+.stat-card {
+    color: #000000;
+}
+
+[data-theme='bw'] .stat-card {
+    background: #000000 !important;
+    color: #FFFFFF !important;
+    border-color: #FFFFFF !important;
+}
+
+[data-theme='bw'] .stat-icon {
+    background: #000000;
+    border-color: #FFFFFF;
+}
+
+[data-theme='bw'] .stat-icon i {
+    color: #FFFFFF;
+}
+
+/* Search and Sort Controls */
+.projects-controls {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.search-wrapper {
+    position: relative;
+    flex: 1;
+    max-width: 400px;
+}
+
+.search-wrapper i {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px 16px 12px 45px;
+    border: 3px solid var(--border-hard);
+    background: var(--card-bg);
+    color: var(--text-primary);
+    border-radius: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 4px 4px 0 var(--border-hard);
+}
+
+.search-input:focus {
+    outline: none;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--border-hard);
+}
+
+.sort-select {
+    padding: 12px 16px;
+    border: 3px solid var(--border-hard);
+    border-radius: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    background: var(--card-bg);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 4px 4px 0 var(--border-hard);
+}
+
+.sort-select:focus {
+    outline: none;
+}
+
+.sort-select:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--border-hard);
+}
+
+.projects-filter-bar {
+    margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    animation: slideInLeft 0.8s ease-out;
+    position: relative;
+    z-index: 1;
+}
+
+.project-div {
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media screen and (max-width: 1200px) {
+    .projects-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 968px) {
+    .projects {
+        padding: 80px 30px;
+    }
+
+    .projects-title {
+        font-size: 48px;
+    }
+
+    .projects-stats {
+        gap: 16px;
+    }
+
+    .stat-card {
+        padding: 24px 20px;
+    }
+
+    .stat-value {
+        font-size: 36px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .projects {
+        padding: 60px 20px;
+    }
+
+    .projects-title {
+        font-size: clamp(32px, 10vw, 42px);
+        letter-spacing: 2px;
+    }
+
+    .projects-stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .stat-value {
+        font-size: 28px;
+    }
+
+    .stat-card {
+        padding: 20px 16px;
+    }
+}

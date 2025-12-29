@@ -1,0 +1,234 @@
+.skills-section {
+    padding: 80px 40px;
+    background: linear-gradient(180deg, #0d0d0d 0%, #050505 100%);
+    border-bottom: 2px solid #222;
+    overflow: hidden;
+    position: relative;
+}
+
+.skills-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: radial-gradient(ellipse at top, rgba(94, 255, 143, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.skills-header {
+    text-align: center;
+    margin-bottom: 60px;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.skills-title {
+    font-size: 56px;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-family: 'Darker Grotesque', sans-serif;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, #5eff8f 0%, #00ff73 50%, #5eff8f 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% auto;
+    animation: shimmer 3s linear infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 0% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+}
+
+.skills-subtitle {
+    font-size: 18px;
+    color: #888;
+    animation: fadeIn 1s ease-out 0.3s backwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.skills-marquee {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.marquee-row {
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+    gap: 20px;
+    position: relative;
+}
+
+.marquee-row::before,
+.marquee-row::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.marquee-row::before {
+    left: 0;
+    background: linear-gradient(90deg, #0d0d0d 0%, transparent 100%);
+}
+
+.marquee-row::after {
+    right: 0;
+    background: linear-gradient(270deg, #0d0d0d 0%, transparent 100%);
+}
+
+.marquee-content {
+    flex-shrink: 0;
+    display: flex;
+    gap: 20px;
+    min-width: 100%;
+    animation: scroll-left 30s linear infinite;
+}
+
+.marquee-row[data-direction="right"] .marquee-content {
+    animation: scroll-right 30s linear infinite;
+}
+
+.marquee-row[data-speed="slow"] .marquee-content {
+    animation-duration: 45s;
+}
+
+.marquee-row:hover .marquee-content {
+    animation-play-state: paused;
+}
+
+.skill-pill {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+    border: 2px solid #333;
+    border-radius: 50px;
+    white-space: nowrap;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-pill::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(94, 255, 143, 0.3) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.skill-pill:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.skill-pill:hover {
+    background: linear-gradient(135deg, #252525 0%, #1a1a1a 100%);
+    border-color: var(--accent-green);
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(94, 255, 143, 0.4),
+        0 0 20px rgba(94, 255, 143, 0.2);
+}
+
+.skill-pill i {
+    font-size: 26px;
+    color: var(--accent-green);
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 10px rgba(94, 255, 143, 0.5));
+}
+
+.skill-pill:hover i {
+    transform: rotate(360deg) scale(1.2);
+    filter: drop-shadow(0 0 15px rgba(94, 255, 143, 0.8));
+}
+
+.skill-pill span {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes scroll-left {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes scroll-right {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .skills-section {
+        padding: 60px 20px;
+    }
+
+    .skills-title {
+        font-size: 42px;
+    }
+
+    .skill-pill {
+        padding: 12px 24px;
+    }
+
+    .skill-pill i {
+        font-size: 20px;
+    }
+
+    .skill-pill span {
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,498 @@
+.column {
+    float: left;
+    width: 25%;
+    padding: 0 15px;
+    margin-bottom: 30px;
+    animation: fadeInUp 0.6s ease-out backwards;
+    position: relative;
+    max-width: 400px;
+    /* Constrain card width */
+}
+
+.column:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.column:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.column:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.column:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.column:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.column:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+/* Mobile-only scroll-based focus states */
+@media (hover: none) and (pointer: coarse) {
+    .column .card img {
+        filter: grayscale(100%);
+        transition: filter 0.4s ease;
+    }
+
+    .column.in-focus .card img {
+        filter: grayscale(0%);
+    }
+
+    .column.near-focus .card img {
+        filter: grayscale(50%);
+    }
+}
+
+/* Desktop hover effect - affects 4 surrounding cards */
+@media (hover: hover) and (pointer: fine) {
+    .column .card img {
+        filter: grayscale(100%);
+        transition: filter 0.4s ease;
+    }
+
+    /* Hovered card gets full color */
+    .column:hover .card img {
+        filter: grayscale(0%);
+    }
+
+    /* 4 surrounding cards get partial color (85% grayscale = 15% color) */
+    .column:hover+.column .card img,
+    .column:has(+ .column:hover) .card img,
+    .column:hover+.column+.column .card img,
+    .column:has(+ .column + .column:hover) .card img {
+        filter: grayscale(85%);
+    }
+
+    /* Rest stay grayscale */
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    padding: 0;
+    background: var(--card-bg);
+    overflow: hidden;
+    position: relative;
+    border-radius: 12px;
+    border: 3px solid var(--border-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+[data-theme='light'] .card {
+    background: var(--card-accent-bg, #FFFFFF);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] .card {
+    background: var(--card-accent-dark, var(--card-bg));
+}
+
+.card:hover {
+    border-color: var(--card-accent, var(--text-primary));
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+    transform: translateY(-8px);
+    z-index: 10;
+}
+
+.card-image-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    position: relative;
+    background: #F5F5F5;
+    display: block;
+    line-height: 0;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: block;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .card:hover img {
+        transform: scale(1.08);
+    }
+}
+
+/* Straight marquee after image */
+.card-marquee {
+    position: relative;
+    width: calc(100% + 6px);
+    /* Compensate for card borders */
+    left: -3px;
+    /* Align with card borders */
+    padding: 10px 0;
+    overflow: hidden;
+    border-top: 3px solid var(--border-color);
+    border-bottom: 3px solid var(--border-color);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+}
+
+[data-theme='dark'] .card-marquee {
+    background: #FFFFFF;
+    /* High contrast White bar in Dark mode */
+}
+
+[data-theme='light'] .card-marquee {
+    background: #000000;
+    /* High contrast Black bar in Light mode */
+}
+
+.marquee-content {
+    display: flex;
+    width: fit-content;
+    animation: marquee-scroll 20s linear infinite;
+}
+
+.marquee-content span {
+    font-family: 'Monument Extended', sans-serif;
+    font-size: 11px;
+    font-weight: 900;
+    color: var(--bg-primary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    white-space: nowrap;
+    padding-right: 20px;
+    transition: color 0.3s ease;
+}
+
+[data-theme='light'] .marquee-content span {
+    color: #FFFFFF;
+    /* White text on Black BG */
+}
+
+[data-theme='dark'] .marquee-content span {
+    color: #000000;
+    /* Black text on White BG */
+}
+
+@keyframes marquee-scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-33.33%);
+    }
+}
+
+.card-content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1;
+    background: transparent;
+    transition: background 0.3s ease;
+}
+
+.p-title {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--text-primary);
+    line-height: 1.4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    transition: color 0.3s ease;
+}
+
+[data-theme='light'] .p-title {
+    color: var(--card-accent-contrast, #000000);
+}
+
+[data-theme='dark'] .p-title {
+    color: #FFFFFF;
+}
+
+.p-description {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    transition: color 0.3s ease;
+}
+
+[data-theme='light'] .p-description {
+    color: var(--card-accent-contrast, var(--text-secondary));
+    opacity: 0.9;
+}
+
+[data-theme='dark'] .p-description {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.p-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border-color);
+}
+
+.p-date {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-family: 'Inter', sans-serif;
+    transition: color 0.3s ease;
+}
+
+[data-theme='light'] .p-date {
+    color: var(--card-accent-contrast, #000000);
+    opacity: 0.7;
+}
+
+[data-theme='dark'] .p-date {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.p-views {
+    font-size: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    padding: 4px 10px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+[data-theme='light'] .p-views {
+    background: #FFFFFF;
+    color: var(--card-accent-text, #000000);
+}
+
+[data-theme='dark'] .p-views {
+    background: var(--card-accent, #5227FF);
+    color: #FFFFFF;
+}
+
+.p-views i {
+    font-size: 12px;
+}
+
+.card-actions {
+    margin-top: auto;
+    padding-top: 12px;
+    display: flex;
+    gap: 8px;
+}
+
+[data-theme='light'] .p-btn {
+    background: #FFFFFF;
+    color: var(--card-accent-text, #000000);
+}
+
+.p-btn {
+    padding: 10px 16px;
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    border: none;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex: 1;
+    text-decoration: none;
+}
+
+.p-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    filter: brightness(1.2) contrast(1.1);
+}
+
+.p-btn i {
+    font-size: 11px;
+    transition: transform 0.3s ease;
+    transform: rotate(45deg);
+}
+
+.p-btn:hover i {
+    transform: rotate(45deg) translate(2px, -2px);
+}
+
+[data-theme='light'] .p-btn-secondary {
+    background: #FFFFFF;
+    color: var(--card-accent-text, #000000);
+    opacity: 1;
+}
+
+.p-btn-secondary {
+    flex: 1;
+}
+
+[data-theme='dark'] .p-btn-secondary {
+    background: rgba(255, 255, 255, 0.12);
+    color: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.p-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    filter: brightness(1.2);
+}
+
+.p-btn-secondary:hover {
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    border-color: var(--text-primary);
+}
+
+.p-btn-icon {
+    padding: 10px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 44px;
+}
+
+[data-theme='light'] .p-btn-icon {
+    background: #FFFFFF;
+    color: var(--card-accent-text, #000000);
+}
+
+[data-theme='dark'] .p-btn-icon {
+    background: rgba(255, 255, 255, 0.1);
+    color: #FFFFFF;
+}
+
+.p-btn-icon i {
+    transform: none;
+    font-size: 14px;
+}
+
+.p-btn-icon:hover i {
+    transform: scale(1.15) rotate(15deg);
+}
+
+@media screen and (min-width: 1401px) {
+    .layout.menu-open .column {
+        width: 33.33%;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .column {
+        width: 33.33%;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .column {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 968px) {
+    .column {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+
+    .p-title {
+        font-size: 15px;
+    }
+
+    .p-description {
+        font-size: 12px;
+    }
+
+    .p-btn {
+        padding: 10px 14px;
+        font-size: 11px;
+    }
+
+    .marquee-content span {
+        font-size: 10px;
+    }
+} 
+ 
+/* B&W Theme - Neutral Card Styling */
+[data-theme='bw'] .card {
+    background: var(--card-bg);
+    border-color: var(--border-hard);
+}
+
+[data-theme='bw'] .card-marquee {
+    background: #FFFFFF;
+}
+
+[data-theme='bw'] .marquee-content span {
+    color: #000000;
+}
+
+[data-theme='bw'] .p-btn {
+    background: #FFFFFF;
+    color: #000000;
+    border: 2px solid #FFFFFF;
+}
+
+[data-theme='bw'] .p-btn-secondary {
+    background: transparent;
+    color: #FFFFFF;
+    border: 2px solid #FFFFFF;
+}
+
+[data-theme='bw'] .p-views {
+    background: #FFFFFF;
+    color: #000000;
+}

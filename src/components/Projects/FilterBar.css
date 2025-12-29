@@ -1,0 +1,164 @@
+.filter-wrapper {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+/* Mobile toggle button - hidden on desktop */
+.filter-toggle-mobile {
+    display: none;
+}
+
+.projects-filter-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: wrap;
+    animation: slideInLeft 0.8s ease-out;
+    border: 3px solid var(--border-hard);
+    background: var(--card-bg);
+    padding: 8px;
+    box-shadow: 6px 6px 0 var(--border-hard);
+}
+
+.filter-label {
+    font-size: 14px;
+    font-weight: 900;
+    color: var(--bg-primary);
+    background: var(--text-primary);
+    text-transform: uppercase;
+    font-family: 'Monument Extended', sans-serif;
+    letter-spacing: 2px;
+    padding: 12px 20px;
+    margin-right: 0;
+    border-right: 3px solid var(--border-hard);
+}
+
+.radio-button {
+    display: inline-block;
+    cursor: pointer;
+    background: var(--card-bg);
+    padding: 12px 20px;
+    border-radius: 0;
+    border: none;
+    border-right: 2px solid var(--border-color);
+    transition: all 0.2s ease;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.radio-button:last-child {
+    border-right: none;
+}
+
+.radio-button:hover {
+    background: var(--bg-tertiary);
+}
+
+.radio-button.active {
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    position: relative;
+}
+
+.radio-button.active::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--border-hard);
+}
+
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+    .filter-toggle-mobile {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        background: var(--text-primary);
+        color: var(--bg-primary);
+        border: 3px solid var(--border-hard);
+        padding: 16px 20px;
+        font-family: 'Monument Extended', sans-serif;
+        font-size: 14px;
+        font-weight: 900;
+        letter-spacing: 2px;
+        cursor: pointer;
+        box-shadow: 6px 6px 0 var(--border-hard);
+        margin-bottom: 12px;
+        gap: 12px;
+    }
+
+    .filter-toggle-label {
+        flex: 1;
+    }
+
+    .filter-badge {
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        padding: 4px 10px;
+        border-radius: 0;
+        font-size: 11px;
+        font-weight: 900;
+        min-width: 24px;
+        text-align: center;
+        border: 1px solid var(--border-hard);
+    }
+
+    .filter-toggle-mobile i {
+        font-size: 14px;
+    }
+
+    .projects-filter-bar {
+        display: none;
+        flex-direction: column;
+        gap: 0;
+        padding: 0;
+        animation: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .projects-filter-bar.open {
+        display: flex;
+        max-height: 600px;
+    }
+
+    .filter-label {
+        width: 100%;
+        text-align: center;
+        font-size: 12px;
+        border-right: none;
+        border-bottom: 3px solid var(--border-hard);
+    }
+
+    .radio-button {
+        width: 100%;
+        text-align: center;
+        font-size: 11px;
+        padding: 14px 16px;
+        border-right: none;
+        border-bottom: 2px solid var(--border-color);
+    }
+
+    .radio-button:last-child {
+        border-bottom: none;
+    }
+
+    .radio-button.active::after {
+        bottom: 0;
+        height: 100%;
+        width: 4px;
+        right: auto;
+        left: 0;
+    }
+}
