@@ -92,6 +92,10 @@
     transition: background-color 0.4s ease-in-out, color 0.3s ease;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
         'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
@@ -131,21 +135,13 @@ h6 {
     hyphens: auto;
 }
 
-/* Scrollbar Styling */
+/* Hide Scrollbar */
 ::-webkit-scrollbar {
-    width: 10px;
+    display: none;
 }
 
-::-webkit-scrollbar-track {
-    background: var(--bg-alternate);
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--text-muted);
-    border-radius: 5px;
-    border: 2px solid var(--bg-alternate);
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--text-secondary);
+html,
+body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }

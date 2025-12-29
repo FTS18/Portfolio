@@ -94,6 +94,15 @@ function ProjectsSection() {
         return dateB - dateA
       } else if (sortBy === 'name') {
         return a.title.localeCompare(b.title)
+      } else if (sortBy === 'views') {
+        // Sort by views (simulate views based on project popularity/recency)
+        const getViews = (project) => {
+          const baseViews = Math.floor(Math.random() * 1000) + 100
+          const dateBonus = new Date(project.date).getFullYear() >= 2024 ? 500 : 0
+          const tagBonus = (project.tags?.includes('AI') || project.tags?.includes('React')) ? 300 : 0
+          return baseViews + dateBonus + tagBonus
+        }
+        return getViews(b) - getViews(a)
       }
       return 0
     })
@@ -181,6 +190,43 @@ function ProjectsSection() {
 
     return () => ctx.revert()
   }, [])
+
+  // Project cards brick-by-brick animation
+  useEffect(() => {
+    if (!gridRef.current || filteredProjects.length === 0) return
+
+    const cards = gridRef.current.querySelectorAll('.column')
+    if (!cards.length) return
+
+    const ctx = gsap.context(() => {
+      // Set initial state
+      gsap.set(cards, {
+        opacity: 0,
+        y: 80,
+        scale: 0.9,
+        rotateX: 10,
+      })
+
+      // Animate cards on scroll with stagger
+      ScrollTrigger.batch(cards, {
+        onEnter: (batch) => {
+          gsap.to(batch, {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            rotateX: 0,
+            duration: 0.8,
+            ease: 'back.out(1.4)',
+            stagger: 0.12,
+          })
+        },
+        start: 'top 90%',
+        once: true,
+      })
+    }, gridRef)
+
+    return () => ctx.revert()
+  }, [filteredProjects])
 
   return (
     <section className="projects" id="projects" ref={sectionRef}>

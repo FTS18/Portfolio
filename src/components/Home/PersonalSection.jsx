@@ -1,12 +1,17 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import gsap from 'gsap'
 import './PersonalSection.css'
 
 function PersonalSection() {
   const [age, setAge] = useState(0)
   const [projectCount, setProjectCount] = useState(0)
   const [showGithubModal, setShowGithubModal] = useState(false)
+  const [hasAnimated, setHasAnimated] = useState(false)
   const currentYear = new Date().getFullYear()
   const githubUser = "FTS18" // Central source of truth for GitHub identity
+  
+  const sectionRef = useRef(null)
+  const gridRef = useRef(null)
 
   useEffect(() => {
     const calculateAge = (birthDate) => {
@@ -28,11 +33,55 @@ function PersonalSection() {
       .catch(() => setProjectCount(20))
   }, [])
 
+  // Brick-by-brick animation on scroll
+  useEffect(() => {
+    if (hasAnimated) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          setHasAnimated(true)
+          
+          const tiles = gridRef.current?.querySelectorAll('.bento-tile')
+          if (!tiles) return
+
+          // Set initial state - smooth blur + scale + slide
+          gsap.set(tiles, {
+            opacity: 0,
+            y: 50,
+            scale: 0.95,
+            filter: 'blur(10px)',
+          })
+
+          // Smooth reveal animation
+          gsap.to(tiles, {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            filter: 'blur(0px)',
+            duration: 0.6,
+            ease: 'power2.out',
+            stagger: {
+              amount: 0.8, // Total time for all staggers
+              from: 'start',
+              grid: [3, 7],
+              axis: 'x',
+            },
+          })
+        }
+      },
+      { threshold: 0.2 }
+    )
+
+    if (sectionRef.current) observer.observe(sectionRef.current)
+    return () => observer.disconnect()
+  }, [hasAnimated])
+
   return (
-    <section className="personal-modern">
+    <section className="personal-modern" ref={sectionRef}>
       <div className="personal-modern-container">
         {/* Clean Bento Grid */}
-        <div className="personal-bento-grid">
+        <div className="personal-bento-grid" ref={gridRef}>
           {/* Main Info */}
           <div className="bento-tile bento-info b-s1">
             <span className="bento-label">Portfolio {currentYear}</span>

@@ -254,12 +254,14 @@
     max-width: 1400px;
     margin: 0 auto;
     z-index: 1;
+    perspective: 1200px;
 }
 
 .row {
     display: flex;
     flex-wrap: wrap;
     margin: 0 -15px;
+    transform-style: preserve-3d;
 }
 
 .row:after {

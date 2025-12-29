@@ -1,21 +1,25 @@
+import { useState } from 'react'
 import StaggeredMenu from './StaggeredMenu'
 import GradualBlur from '../common/GradualBlur'
 import ClickSpark from '../common/ClickSpark'
+import Loader from '../common/Loader'
+import PWAInstall from '../common/PWAInstall'
 import { Outlet } from 'react-router-dom'
 import Footer from './Footer'
 import GlassSurface from '../common/GlassSurface'
 import './Layout.css'
-import { useState } from 'react'
 
 function Layout() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
 
   const menuItems = [
     { label: 'Home', ariaLabel: 'Go to home page', link: '/' },
     { label: 'Projects', ariaLabel: 'View all projects', link: '/#project-grid' },
     { label: 'Skills', ariaLabel: 'View my skills', link: '/#skills' },
     { label: 'About', ariaLabel: 'Learn about me', link: '/#about' },
-    { label: 'Contact', ariaLabel: 'Get in touch', link: '/#contact' }
+    { label: 'Contact', ariaLabel: 'Get in touch', link: '/#contact' },
+    { label: 'Ananay V1', ariaLabel: 'View old portfolio', link: 'https://ananay1.netlify.app', external: true }
   ]
 
   const socialItems = [
@@ -28,14 +32,11 @@ function Layout() {
   ]
 
   return (
-    <ClickSpark
-      sparkColor="#5227FF"
-      sparkSize={12}
-      sparkRadius={20}
-      sparkCount={10}
-      duration={500}
-    >
-      <div className={`layout ${isMenuOpen ? 'menu-open' : ''}`}>
+    <>
+      {isLoading && <Loader onComplete={() => setIsLoading(false)} />}
+      
+      <ClickSpark>
+        <div className={`layout ${isMenuOpen ? 'menu-open' : ''}`}>
         {/* Bottom Screen-Edge Blur Only */}
         <GradualBlur
           target="page"
@@ -141,12 +142,14 @@ function Layout() {
         </svg>
         
         <main>
-          <Outlet />
+          <Outlet context={{ isLoaderComplete: !isLoading }} />
         </main>
         
         <Footer />
+        <PWAInstall />
       </div>
     </ClickSpark>
+    </>
   )
 }
 

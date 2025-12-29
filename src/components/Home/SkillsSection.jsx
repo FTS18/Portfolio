@@ -1,35 +1,67 @@
+import { useState, useEffect, useMemo } from 'react'
 import './SkillsSection.css'
 
 function SkillsSection() {
-  const skillRows = [
+  const [isVisible, setIsVisible] = useState(false)
+  const [reducedMotion, setReducedMotion] = useState(false)
+
+  useEffect(() => {
+    // Check for reduced motion preference
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+    setReducedMotion(mediaQuery.matches)
+
+    // Intersection Observer for performance
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting)
+      },
+      { threshold: 0.1 }
+    )
+
+    const section = document.querySelector('.skills-section-marquee')
+    if (section) observer.observe(section)
+
+    return () => observer.disconnect()
+  }, [])
+
+  const skillRows = useMemo(() => [
     [
-      { name: 'React Query', icon: 'reactquery/FF4154' },
       { name: 'React', icon: 'react/61DAFB' },
-      { name: 'Vite', icon: 'vite/646CFF' },
+      { name: 'Next.js', icon: 'nextdotjs/000000' },
       { name: 'TypeScript', icon: 'typescript/3178C6' },
+      { name: 'JavaScript', icon: 'javascript/F7DF1E' },
+      { name: 'HTML5', icon: 'html5/E34F26' },
+      { name: 'CSS3', icon: 'css3/1572B6' },
       { name: 'TailwindCSS', icon: 'tailwindcss/06B6D4' },
-      { name: 'Framer', icon: 'framer/FF0066' },
-      { name: 'ShadCN', icon: 'shadcnui/ffffff' },
-      { name: 'Zod', icon: 'zod/3E67B1' }
+      { name: 'Bootstrap', icon: 'bootstrap/7952B3' },
+      { name: 'Vite', icon: 'vite/646CFF' },
+      { name: 'Framer Motion', icon: 'framer/FF0066' }
     ],
     [
-      { name: 'PostgreSQL', icon: 'postgresql/4169E1' },
-      { name: 'Supabase', icon: 'supabase/3FCF8E' },
-      { name: 'Drizzle', icon: 'drizzle/C5F74F' },
-      { name: 'Redis', icon: 'redis/DC382D' },
+      { name: 'Node.js', icon: 'nodedotjs/339933' },
       { name: 'Python', icon: 'python/3776AB' },
       { name: 'FastAPI', icon: 'fastapi/009688' },
-      { name: 'Node.js', icon: 'nodedotjs/339933' },
-      { name: 'Express', icon: 'express/ffffff' }
+      { name: 'Express', icon: 'express/ffffff' },
+      { name: 'MongoDB', icon: 'mongodb/47A248' },
+      { name: 'MySQL', icon: 'mysql/4479A1' },
+      { name: 'Firebase', icon: 'firebase/FFCA28' },
+      { name: 'Prisma', icon: 'prisma/2D3748' },
+      { name: 'Socket.io', icon: 'socketdotio/010101' },
+      { name: 'WebRTC', icon: 'webrtc/333333' }
     ],
     [
       { name: 'OpenAI', icon: 'openai/00A67E' },
-      { name: 'CrewAI', icon: 'crewai/FF6B35' },
-      { name: 'Hugging Face', icon: 'huggingface/FFD21E' },
       { name: 'Google Gemini', icon: 'googlegemini/8E75B2' },
-      { name: 'LangChain', icon: 'langchain/1C3C3C' }
+      { name: 'LangChain', icon: 'langchain/1C3C3C' },
+      { name: 'LangGraph', icon: 'langchain/1C3C3C' },
+      { name: 'Chart.js', icon: 'chartdotjs/FF6384' },
+      { name: 'GSAP', icon: 'greensock/88CE02' },
+      { name: 'jQuery', icon: 'jquery/0769AD' },
+      { name: 'Git', icon: 'git/F05032' },
+      { name: 'GitHub', icon: 'github/181717' },
+      { name: 'Netlify', icon: 'netlify/00C7B7' }
     ]
-  ]
+  ], [])
 
   return (
     <section className="skills-section-marquee">
@@ -45,14 +77,25 @@ function SkillsSection() {
         <div className="skills-marquee-rows">
           {skillRows.map((row, rowIndex) => (
             <div key={rowIndex} className="skills-marquee-row">
-              <div className={`skills-marquee-track ${rowIndex === 1 ? 'reverse' : rowIndex === 2 ? 'slow' : ''}`}>
-                {/* Triple for seamless loop */}
-                {[...row, ...row, ...row].map((skill, index) => (
-                  <div key={index} className="skill-marquee-badge">
+              <div 
+                className={`skills-marquee-track ${
+                  reducedMotion ? '' : 
+                  rowIndex === 1 ? 'reverse' : 
+                  rowIndex === 2 ? 'slow' : ''
+                }`}
+                style={{
+                  animationPlayState: isVisible && !reducedMotion ? 'running' : 'paused'
+                }}
+              >
+                {/* Only double for better performance */}
+                {[...row, ...row].map((skill, index) => (
+                  <div key={`${skill.name}-${index}`} className="skill-marquee-badge">
                     <img 
                       src={`https://cdn.simpleicons.org/${skill.icon}`} 
                       alt={skill.name}
                       className="skill-marquee-icon"
+                      loading="lazy"
+                      decoding="async"
                     />
                     <span className="skill-marquee-name">{skill.name}</span>
                   </div>

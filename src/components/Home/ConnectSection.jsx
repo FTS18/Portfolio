@@ -1,6 +1,40 @@
+import { useState, useRef, useEffect } from 'react'
 import './ConnectSection.css'
 
 function ConnectSection() {
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const [isMobile, setIsMobile] = useState(false)
+  const [isPaused, setIsPaused] = useState(false)
+  const touchStartX = useRef(0)
+  const touchEndX = useRef(0)
+  const carouselRef = useRef(null)
+  const intervalRef = useRef(null)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768)
+    }
+    
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
+  // Auto-run carousel
+  useEffect(() => {
+    if (!isMobile || isPaused) return
+
+    intervalRef.current = setInterval(() => {
+      setCurrentSlide(prev => (prev + 1) % services.length)
+    }, 3000)
+
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current)
+      }
+    }
+  }, [isMobile, isPaused])
+
   const services = [
     {
       number: '01',
@@ -10,9 +44,9 @@ function ConnectSection() {
     },
     {
       number: '02',
-      title: 'SaaS Development',
-      description: 'Developing end-to-end SaaS solutions with subscription systems, Stripe billing, and multi-tenant management. Ensuring scalability and secure user management.',
-      icon: 'fa-solid fa-cube'
+      title: 'Full Stack Development',
+      description: 'Building scalable and high-performance web applications using Next.js, React, Node.js, and TypeScript, with robust backend architectures, secure RESTful APIs, and clean code practices.',
+      icon: 'fa-solid fa-code'
     },
     {
       number: '03',
@@ -21,6 +55,29 @@ function ConnectSection() {
       icon: 'fa-solid fa-network-wired'
     }
   ]
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX
+  }
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.touches[0].clientX
+  }
+
+  const handleTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return
+    
+    const distance = touchStartX.current - touchEndX.current
+    const isLeftSwipe = distance > 50
+    const isRightSwipe = distance < -50
+
+    if (isLeftSwipe && currentSlide < services.length - 1) {
+      setCurrentSlide(currentSlide + 1)
+    }
+    if (isRightSwipe && currentSlide > 0) {
+      setCurrentSlide(currentSlide - 1)
+    }
+  }
 
   return (
     <section className="connect-section">
@@ -33,18 +90,56 @@ function ConnectSection() {
           </p>
         </div>
 
-        <div className="connect-grid">
-          {services.map((service, index) => (
-            <div key={index} className="connect-card" data-number={service.number}>
-              <div className="connect-card-number">{service.number}</div>
-              <div className="connect-card-icon">
-                <i className={service.icon}></i>
-              </div>
-              <h3 className="connect-card-title">{service.title}</h3>
-              <p className="connect-card-description">{service.description}</p>
+        {isMobile ? (
+          <div 
+            className="connect-carousel"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
+            <div 
+              className="connect-carousel-track"
+              ref={carouselRef}
+              style={{ transform: `translateX(-${currentSlide * 33.33}%)` }}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
+              {services.map((service, index) => (
+                <div key={index} className="connect-card carousel-card" data-number={service.number}>
+                  <div className="connect-card-number">{service.number}</div>
+                  <div className="connect-card-icon">
+                    <i className={service.icon}></i>
+                  </div>
+                  <h3 className="connect-card-title">{service.title}</h3>
+                  <p className="connect-card-description">{service.description}</p>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+            
+            <div className="carousel-dots">
+              {services.map((_, index) => (
+                <button
+                  key={index}
+                  className={`carousel-dot ${index === currentSlide ? 'active' : ''}`}
+                  onClick={() => setCurrentSlide(index)}
+                />
+              ))}
+            </div>
+          </div>
+        ) : (
+          <div className="connect-grid">
+            {services.map((service, index) => (
+              <div key={index} className="connect-card" data-number={service.number}>
+                <div className="connect-card-number">{service.number}</div>
+                <div className="connect-card-icon">
+                  <i className={service.icon}></i>
+                </div>
+                <h3 className="connect-card-title">{service.title}</h3>
+                <p className="connect-card-description">{service.description}</p>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   )

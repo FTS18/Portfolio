@@ -80,6 +80,8 @@
         "info info exp loc loc image image"
         "proj edu quote quote quote image image";
     gap: 14px;
+    perspective: 1000px;
+    transform-style: preserve-3d;
 }
 
 /* Base Tile Styling - Subtle 3D Depth */
@@ -93,6 +95,9 @@
     justify-content: center;
     transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
     color: var(--b-text);
+    will-change: transform, box-shadow;
+    transform: translateZ(0);
+    backface-visibility: hidden;
 
     /* 3D Depth - Borders */
     border-top: 1px solid rgba(255, 255, 255, 0.12);
@@ -325,6 +330,10 @@
     filter: grayscale(0);
     opacity: 1;
     transition: filter 0.5s ease, transform 0.5s ease, opacity 0.5s ease;
+    will-change: transform, filter;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    image-rendering: -webkit-optimize-contrast;
 }
 
 .personal-image-wrapper::after {
@@ -358,6 +367,9 @@
     width: 100%;
     filter: var(--b-chart-filter);
     transition: filter 0.4s ease;
+    will-change: filter;
+    transform: translateZ(0);
+    image-rendering: -webkit-optimize-contrast;
 }
 
 .quote-text {

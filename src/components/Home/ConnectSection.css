@@ -5,6 +5,19 @@
     overflow: hidden;
 }
 
+/* Theme-specific connect section backgrounds */
+[data-theme='light'] .connect-section {
+    background: #00ff88;
+}
+
+[data-theme='dark'] .connect-section {
+    background: #5227FF;
+}
+
+[data-theme='bw'] .connect-section {
+    background: #000000;
+}
+
 .connect-container {
     max-width: 1400px;
     margin: 0 auto;
@@ -148,6 +161,89 @@
     }
 }
 
+/* Mobile Carousel Styles */
+.connect-carousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+}
+
+.connect-carousel-track {
+    display: flex;
+    transition: transform 0.3s ease;
+    will-change: transform;
+    width: 300%;
+    height: auto;
+}
+
+.carousel-card {
+    width: calc(100% / 3);
+    max-width: calc(100% / 3);
+    height: auto;
+    flex-shrink: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 0 10px;
+}
+
+.carousel-card * {
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    box-sizing: border-box;
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.carousel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid var(--border-hard);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.carousel-dot.active {
+    background: var(--text-primary);
+    border-radius: 12px;
+    width: 24px;
+    height: 12px;
+}
+
+.carousel-card .connect-card-description {
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    line-height: 1.6;
+}
+
+@media screen and (max-width: 768px) {
+    .connect-grid {
+        display: none;
+    }
+    
+    .connect-carousel {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .connect-carousel {
+        display: none;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .connect-section {
         padding: 60px 30px;
@@ -156,11 +252,6 @@
     .connect-title {
         font-size: clamp(32px, 10vw, 42px);
         letter-spacing: 2px;
-    }
-
-    .connect-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
     }
 
     .connect-card {

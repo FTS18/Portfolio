@@ -5,6 +5,19 @@
     overflow: hidden;
 }
 
+/* Theme-specific skills section backgrounds */
+[data-theme='light'] .skills-section-marquee {
+    background: #00ff88;
+}
+
+[data-theme='dark'] .skills-section-marquee {
+    background: #5227FF;
+}
+
+[data-theme='bw'] .skills-section-marquee {
+    background: #000000;
+}
+
 .skills-marquee-container {
     max-width: 1400px;
     margin: 0 auto;
@@ -65,14 +78,20 @@
     gap: 12px;
     animation: marquee 30s linear infinite;
     width: fit-content;
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .skills-marquee-track.reverse {
     animation: marquee-reverse 35s linear infinite;
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .skills-marquee-track.slow {
     animation: marquee-slow 40s linear infinite;
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 @keyframes marquee {
@@ -119,12 +138,15 @@
     transition: all 0.3s ease;
     cursor: pointer;
     box-shadow: 2px 2px 0 var(--border-hard);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 .skill-marquee-badge:hover {
     background: var(--bg-tertiary);
     border-color: var(--text-primary);
-    transform: translate(-1px, -1px);
+    transform: translate(-1px, -1px) translateZ(0);
     box-shadow: 3px 3px 0 var(--border-hard);
 }
 
@@ -132,6 +154,9 @@
     width: 20px;
     height: 20px;
     flex-shrink: 0;
+    transform: translateZ(0);
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
 }
 
 /* Fix for icons that are white by default */
@@ -164,6 +189,7 @@
     .skill-marquee-badge {
         height: 40px;
         padding: 0 14px;
+        transform: translateZ(0);
     }
 
     .skill-marquee-icon {
@@ -173,5 +199,17 @@
 
     .skill-marquee-name {
         font-size: 13px;
+    }
+
+    .skills-marquee-track {
+        animation-duration: 40s;
+    }
+
+    .skills-marquee-track.reverse {
+        animation-duration: 45s;
+    }
+
+    .skills-marquee-track.slow {
+        animation-duration: 50s;
     }
 }

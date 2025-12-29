@@ -4,3 +4,20 @@
     position: relative;
     overflow: hidden;
 }
+
+/* Mobile - ensure full coverage */
+@media screen and (max-width: 768px) {
+    .faulty-terminal-container {
+        position: absolute;
+        inset: 0;
+        width: 100vw;
+        height: 100vh;
+        height: 100dvh;
+    }
+
+    .faulty-terminal-container canvas {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover;
+    }
+}
