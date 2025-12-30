@@ -119,7 +119,7 @@ function ProjectModal({ project, projects, currentIndex, onClose, onNavigate }) 
           const overlay = modalRef.current.closest('.project-modal-overlay')
           if (overlay) {
             // Use a very light, whitish version of the accent
-            const overlayL = 0.75 // Very light/whitish
+            const overlayL = 0.05 // Very light/whitish
             const overlayS = s * 0.4 // Reduced saturation for subtle tint
             const olQ = overlayL < 0.5 ? overlayL * (1 + overlayS) : overlayL + overlayS - overlayL * overlayS
             const olP = 2 * overlayL - olQ
