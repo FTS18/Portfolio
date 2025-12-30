@@ -7,6 +7,7 @@
     position: relative;
     max-width: 400px;
     /* Constrain card width */
+    will-change: transform, opacity;
 }
 
 .column:nth-child(1) {
@@ -224,6 +225,7 @@
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
     -webkit-box-orient: vertical;
     transition: color 0.3s ease;
 }
@@ -247,6 +249,7 @@
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 3;
+    line-clamp: 3;
     -webkit-box-orient: vertical;
     transition: color 0.3s ease;
 }

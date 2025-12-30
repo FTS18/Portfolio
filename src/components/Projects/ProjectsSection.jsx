@@ -314,6 +314,7 @@ function ProjectsSection() {
               key={index} 
               project={project} 
               onOpenModal={() => handleOpenModal(index)}
+              priority={index < 4}
             />
           ))}
         </div>

@@ -1,0 +1,84 @@
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.touch-target::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: max(44px, 100%);
+  height: max(44px, 100%);
+  border-radius: inherit;
+  z-index: -1;
+}
+
+.touch-target:active {
+  transform: scale(0.98);
+  transition: transform 0.1s ease;
+}
+
+.touch-target.large {
+  min-height: 56px;
+  min-width: 56px;
+}
+
+.touch-target.small {
+  min-height: 36px;
+  min-width: 36px;
+}
+
+.touch-feedback {
+  position: relative;
+  overflow: hidden;
+}
+
+.touch-feedback::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease;
+  pointer-events: none;
+}
+
+.touch-feedback:active::after {
+  width: 200px;
+  height: 200px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .touch-target:hover {
+    transform: scale(1.02);
+    transition: transform 0.2s ease;
+  }
+  
+  .touch-target:active {
+    transform: scale(0.98);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .touch-target,
+  .touch-target:hover,
+  .touch-target:active,
+  .touch-feedback::after {
+    transform: none !important;
+    transition: none !important;
+  }
+}

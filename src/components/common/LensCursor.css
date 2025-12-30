@@ -58,3 +58,24 @@
 [data-theme='bw'] .lens-cursor-circle {
     background: #fff;
 }
+
+/* WebGPU Enhanced Styles */
+.lens-cursor-canvas {
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 100px;
+    height: 100px;
+    pointer-events: none;
+    border-radius: 50%;
+    opacity: 0.8;
+}
+
+.webgpu-enhanced .lens-cursor-circle {
+    background: linear-gradient(45deg, #5227FF, #00ff88);
+    box-shadow: 0 0 30px rgba(82, 39, 255, 0.5);
+}
+
+.webgpu-enhanced .lens-cursor-label {
+    text-shadow: 0 0 10px rgba(82, 39, 255, 0.8);
+}

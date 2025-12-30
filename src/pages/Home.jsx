@@ -1,13 +1,22 @@
+import { lazy, Suspense } from 'react'
 import { useOutletContext } from 'react-router-dom'
 import HeroSection from '../components/Home/HeroSection'
 import PersonalSection from '../components/Home/PersonalSection'
-import SkillsSection from '../components/Home/SkillsSection'
-import ConnectSection from '../components/Home/ConnectSection'
-import ProjectsSection from '../components/Projects/ProjectsSection'
-import ContactFormSection from '../components/Home/ContactFormSection'
-import GuestbookSection from '../components/Home/GuestbookSection'
 import LazySection from '../components/common/LazySection'
 import SEO from '../components/common/SEO'
+
+// Lazy load sections
+const ConnectSection = lazy(() => import('../components/Home/ConnectSection'))
+const ProjectsSection = lazy(() => import('../components/Projects/ProjectsSection'))
+const SkillsSection = lazy(() => import('../components/Home/SkillsSection'))
+const GuestbookSection = lazy(() => import('../components/Home/GuestbookSection'))
+const ContactFormSection = lazy(() => import('../components/Home/ContactFormSection'))
+
+const SectionLoader = () => (
+  <div style={{ height: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <div className="section-loading-shimmer" style={{ width: '80%', height: '100px', opacity: 0.1, background: 'var(--text-color)', borderRadius: '12px' }} />
+  </div>
+)
 
 function Home() {
   const { isLoaderComplete } = useOutletContext()
@@ -25,23 +34,33 @@ function Home() {
       
       {/* Lazy load sections below the fold */}
       <LazySection rootMargin="100px">
-        <ConnectSection />
+        <Suspense fallback={<SectionLoader />}>
+          <ConnectSection />
+        </Suspense>
       </LazySection>
       
       <LazySection rootMargin="100px">
-        <ProjectsSection />
+        <Suspense fallback={<SectionLoader />}>
+          <ProjectsSection />
+        </Suspense>
       </LazySection>
       
       <LazySection rootMargin="100px">
-        <SkillsSection />
+        <Suspense fallback={<SectionLoader />}>
+          <SkillsSection />
+        </Suspense>
       </LazySection>
       
       <LazySection rootMargin="100px">
-        <GuestbookSection />
+        <Suspense fallback={<SectionLoader />}>
+          <GuestbookSection />
+        </Suspense>
       </LazySection>
       
       <LazySection rootMargin="100px">
-        <ContactFormSection />
+        <Suspense fallback={<SectionLoader />}>
+          <ContactFormSection />
+        </Suspense>
       </LazySection>
     </>
   )

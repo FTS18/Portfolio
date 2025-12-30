@@ -16,12 +16,17 @@ function Loader({ onComplete }) {
     const interval = setInterval(() => {
       if (hasCompleted) return
       
-      currentProgress += Math.random() * 20 + 10 // 10-30% increments
-      if (currentProgress >= 95) {
-        currentProgress = 95 // Hold at 95% until min time
+      // Random increment between 5-25%
+      const increment = Math.random() * 20 + 5
+      currentProgress += increment
+      
+      // Random pause point between 85-98%
+      const pausePoint = 85 + Math.random() * 13
+      if (currentProgress >= pausePoint) {
+        currentProgress = pausePoint // Hold at random point until min time
       }
       setProgress(currentProgress)
-    }, 200)
+    }, 150 + Math.random() * 200) // Random interval 150-350ms
 
     // Check when page is actually loaded
     const completeLoader = () => {
@@ -60,13 +65,13 @@ function Loader({ onComplete }) {
     <div className={`loader-overlay ${isComplete ? 'fade-out' : ''}`}>
       <div className="loader-content">
         <div className="progress-container">
+          <span className="progress-counter">{Math.round(progress)}</span>
           <div className="progress-bar">
             <div 
               className="progress-fill" 
               style={{ width: `${progress}%` }}
             />
           </div>
-          <span className="progress-text">{Math.round(progress)}%</span>
         </div>
       </div>
     </div>

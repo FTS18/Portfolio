@@ -1,0 +1,50 @@
+.webgpu-gallery {
+  width: 100%;
+}
+
+.effect-controls {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.effect-btn {
+  padding: 8px 16px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.effect-btn:hover {
+  background: var(--bg-tertiary);
+  border-color: var(--text-secondary);
+}
+
+.effect-btn.active {
+  background: #5227FF;
+  border-color: #5227FF;
+  color: white;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.gallery-image {
+  aspect-ratio: 16/9;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.gallery-image:hover {
+  transform: scale(1.02);
+}
