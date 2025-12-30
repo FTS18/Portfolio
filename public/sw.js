@@ -1,6 +1,6 @@
 // Service Worker with Auto-Update Cache Strategy
 // Change this version to force cache refresh
-const SW_VERSION = 'v3-' + Date.now()
+const SW_VERSION = 'v4-' + Date.now()
 const CACHE_NAME = 'portfolio-' + SW_VERSION
 const STATIC_CACHE = 'static-' + SW_VERSION
 const DYNAMIC_CACHE = 'dynamic-' + SW_VERSION

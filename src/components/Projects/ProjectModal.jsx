@@ -164,6 +164,42 @@ function ProjectModal({ project, projects, currentIndex, onClose, onNavigate }) 
     }
   }, [handleKeyDown])
 
+  // ARIA Focus Trap - keeps focus within modal for accessibility
+  useEffect(() => {
+    if (!modalRef.current) return
+
+    const focusableElements = modalRef.current.querySelectorAll(
+      'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])'
+    )
+    const firstFocusable = focusableElements[0]
+    const lastFocusable = focusableElements[focusableElements.length - 1]
+
+    const handleTabKey = (e) => {
+      if (e.key !== 'Tab') return
+
+      if (e.shiftKey) {
+        // Shift + Tab
+        if (document.activeElement === firstFocusable) {
+          e.preventDefault()
+          lastFocusable?.focus()
+        }
+      } else {
+        // Tab
+        if (document.activeElement === lastFocusable) {
+          e.preventDefault()
+          firstFocusable?.focus()
+        }
+      }
+    }
+
+    document.addEventListener('keydown', handleTabKey)
+    
+    // Focus first element on mount
+    firstFocusable?.focus()
+
+    return () => document.removeEventListener('keydown', handleTabKey)
+  }, [project]) // Re-run when project changes
+
   const handleShare = async () => {
     if (navigator.share) {
       try {
@@ -186,8 +222,15 @@ function ProjectModal({ project, projects, currentIndex, onClose, onNavigate }) 
   const hasGithub = project.github && project.github !== 'Private'
 
   return (
-    <div className="project-modal-overlay" onClick={onClose}>
-      <div className="project-modal" ref={modalRef} onClick={(e) => e.stopPropagation()}>
+    <div className="project-modal-overlay" onClick={onClose} role="presentation">
+      <div 
+        className="project-modal" 
+        ref={modalRef} 
+        onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+      >
         
         {/* FIXED HEADER - Counter + Nav + Close */}
         <div className="modal-fixed-header">
@@ -252,7 +295,7 @@ function ProjectModal({ project, projects, currentIndex, onClose, onNavigate }) 
           {/* Project Info */}
           <div className="modal-body">
             <div className="modal-title-section">
-              <h2 className="modal-title">{project.title}</h2>
+              <h2 id="modal-title" className="modal-title">{project.title}</h2>
               {isHackathon && (
                 <span className="modal-badge">
                   <i className="fas fa-trophy"></i>

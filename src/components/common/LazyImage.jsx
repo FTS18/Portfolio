@@ -122,6 +122,18 @@ function LazyImage({
 
   const optimizedSrc = getOptimizedSrc(processedSrc)
 
+  // Build srcset for responsive images
+  // Thumbnails: 400w for cards, original for larger displays
+  // Full images: 800w default
+  const srcSetValue = thumbnail 
+    ? `${optimizedSrc} 400w, ${processedSrc} 800w`
+    : `${optimizedSrc} 800w`
+  
+  // Sizes hint tells browser which size to pick based on viewport
+  const sizesValue = sizes || (thumbnail 
+    ? '(max-width: 480px) 90vw, (max-width: 768px) 45vw, 25vw' 
+    : '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw')
+
   return (
     <div 
       ref={imgRef} 
@@ -143,17 +155,16 @@ function LazyImage({
         <img
           ref={innerRef}
           src={optimizedSrc}
+          srcSet={srcSetValue}
+          sizes={sizesValue}
           width={width}
           height={height}
-          sizes={sizes || (thumbnail ? '(max-width: 768px) 50vw, 25vw' : '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw')}
           alt={alt}
           className={`lazy-image ${isLoaded ? 'loaded' : ''}`}
           onLoad={handleLoad}
           onError={handleError}
           loading={priority ? 'eager' : 'lazy'}
-          // Use native decoding for better performance
           decoding="async"
-          // Fetch priority hint
           fetchpriority={priority ? 'high' : 'low'}
         />
       )}
