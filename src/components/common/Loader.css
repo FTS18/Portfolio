@@ -29,7 +29,8 @@
 .loader-overlay.fade-out {
   opacity: 0;
   visibility: hidden;
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .loader-content {
@@ -52,11 +53,14 @@
 }
 
 @keyframes pulse {
-  0%, 100% { 
+
+  0%,
+  100% {
     transform: scale(1);
     opacity: 1;
   }
-  50% { 
+
+  50% {
     transform: scale(1.1);
     opacity: 0.8;
   }
@@ -115,8 +119,13 @@
 }
 
 @keyframes shimmer {
-  0% { transform: translateX(-20px); }
-  100% { transform: translateX(20px); }
+  0% {
+    transform: translateX(-20px);
+  }
+
+  100% {
+    transform: translateX(20px);
+  }
 }
 
 .progress-text {
@@ -145,11 +154,11 @@
     width: 60px;
     height: 60px;
   }
-  
+
   .loader-text h2 {
     font-size: 20px;
   }
-  
+
   .progress-container {
     width: 240px;
   }

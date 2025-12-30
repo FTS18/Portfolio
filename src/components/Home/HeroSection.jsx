@@ -64,22 +64,23 @@ function HeroSection({ isLoaderComplete = false }) {
           onComplete: () => setHasAnimated(true)
         })
 
+        // GPU-accelerated animations only (no blur for mobile perf)
         tl.fromTo(
           firstNameRef.current,
-          { opacity: 0, y: 100, skewY: 5, filter: 'blur(20px)' },
-          { opacity: 1, y: 0, skewY: 0, filter: 'blur(0px)', duration: 1.2, ease: 'power4.out' }
+          { opacity: 0, y: 60, skewY: 3 },
+          { opacity: 1, y: 0, skewY: 0, duration: 0.8, ease: 'power3.out' }
         )
         .fromTo(
           lastNameRef.current,
-          { opacity: 0, y: 100, skewY: -5, filter: 'blur(20px)' },
-          { opacity: 1, y: 0, skewY: 0, filter: 'blur(0px)', duration: 1.2, ease: 'power4.out' },
-          '-=0.8'
+          { opacity: 0, y: 60, skewY: -3 },
+          { opacity: 1, y: 0, skewY: 0, duration: 0.8, ease: 'power3.out' },
+          '-=0.5'
         )
         .fromTo(
           '.hero-ctas',
-          { opacity: 0, y: 50, filter: 'blur(15px)' },
-          { opacity: 1, y: 0, filter: 'blur(0px)', duration: 1, ease: 'power3.out' },
-          '-=0.4'
+          { opacity: 0, y: 30 },
+          { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' },
+          '-=0.3'
         )
       }, heroRef)
 
@@ -144,7 +145,7 @@ function HeroSection({ isLoaderComplete = false }) {
         </h1>
         
         <div className="hero-ctas">
-          <a href="/resume.pdf" download className="hero-cta cta-resume">
+          <a href="/assets/resume.pdf" target="_blank" rel="noopener noreferrer" className="hero-cta cta-resume">
             <i className="fa-solid fa-file-pdf"></i>
             Resume
           </a>

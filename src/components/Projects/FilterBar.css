@@ -11,14 +11,22 @@
 .projects-filter-bar {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 0;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     animation: slideInLeft 0.8s ease-out;
     border: 3px solid var(--border-hard);
     background: var(--card-bg);
     padding: 8px;
     box-shadow: 6px 6px 0 var(--border-hard);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.projects-filter-bar::-webkit-scrollbar {
+    display: none;
 }
 
 .filter-label {
@@ -95,6 +103,10 @@
         box-shadow: 6px 6px 0 var(--border-hard);
         margin-bottom: 12px;
         gap: 12px;
+        position: relative;
+        z-index: 50;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
     }
 
     .filter-toggle-label {

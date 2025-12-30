@@ -204,10 +204,10 @@
 }
 
 .card-content {
-    padding: 24px;
+    padding: 16px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 10px;
     flex: 1;
     background: transparent;
     transition: background 0.3s ease;
@@ -464,8 +464,8 @@
     .marquee-content span {
         font-size: 10px;
     }
-} 
- 
+}
+
 /* B&W Theme - Neutral Card Styling */
 [data-theme='bw'] .card {
     background: var(--card-bg);
@@ -495,4 +495,42 @@
 [data-theme='bw'] .p-views {
     background: #FFFFFF;
     color: #000000;
+}
+
+/* Featured Badge */
+.featured-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    font-family: 'Monument Extended', sans-serif;
+    font-size: 10px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.featured-badge i {
+    font-size: 10px;
+}
+
+[data-theme='dark'] .featured-badge {
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    color: #000;
+}
+
+[data-theme='light'] .featured-badge {
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    color: #000;
+}
+
+[data-theme='bw'] .featured-badge {
+    background: #fff;
+    color: #000;
 }

@@ -2,14 +2,18 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background: #000000;
+    background: var(--bg-primary);
     overflow-x: hidden;
+    position: relative;
 }
 
+/* Prevent flash by ensuring smooth transitions */
 main,
 footer {
-    transition: all 0.65s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: width 0.65s cubic-bezier(0.19, 1, 0.22, 1),
+        opacity 0.65s cubic-bezier(0.19, 1, 0.22, 1);
     width: 100%;
+    background: var(--bg-primary);
 }
 
 main {

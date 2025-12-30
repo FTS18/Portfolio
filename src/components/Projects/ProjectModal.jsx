@@ -92,15 +92,18 @@ function ProjectModal({ project, projects, currentIndex, onClose, onNavigate }) 
       
       if (modalRef.current) {
         if (currentTheme === 'light') {
-          const lightL = 0.55
+          // Vibrant accent color
+          const lightL = 0.5
           const q = lightL < 0.5 ? lightL * (1 + s) : lightL + s - lightL * s
           const p = 2 * lightL - q
           const vr = Math.floor(hue2rgb(p, q, h + 1/3) * 255)
           const vg = Math.floor(hue2rgb(p, q, h) * 255)
           const vb = Math.floor(hue2rgb(p, q, h - 1/3) * 255)
           
-          const bgL = 0.96
-          const bgQ = bgL < 0.5 ? bgL * (1 + s * 0.25) : bgL + s * 0.25 - bgL * s * 0.25
+          // More vibrant background - not pale
+          const bgL = 0.7
+          const bgS = s * 0.8
+          const bgQ = bgL < 0.5 ? bgL * (1 + bgS) : bgL + bgS - bgL * bgS
           const bgP = 2 * bgL - bgQ
           const bgr = Math.floor(hue2rgb(bgP, bgQ, h + 1/3) * 255)
           const bgg = Math.floor(hue2rgb(bgP, bgQ, h) * 255)
@@ -108,9 +111,23 @@ function ProjectModal({ project, projects, currentIndex, onClose, onNavigate }) 
           
           modalRef.current.style.setProperty('--modal-accent-bg', `rgb(${bgr}, ${bgg}, ${bgb})`)
           modalRef.current.style.setProperty('--modal-accent', `rgb(${vr}, ${vg}, ${vb})`)
-          modalRef.current.style.setProperty('--modal-accent-light', `rgba(${vr}, ${vg}, ${vb}, 0.1)`)
-          modalRef.current.style.setProperty('--modal-accent-text', '#1a1a1a')
-          modalRef.current.style.setProperty('--modal-border', `rgba(${vr}, ${vg}, ${vb}, 0.25)`)
+          modalRef.current.style.setProperty('--modal-accent-light', `rgba(${vr}, ${vg}, ${vb}, 0.15)`)
+          modalRef.current.style.setProperty('--modal-accent-text', '#000')
+          modalRef.current.style.setProperty('--modal-border', `rgba(0, 0, 0, 0.15)`)
+          
+          // Set overlay tint for parent - whitish with subtle color tint
+          const overlay = modalRef.current.closest('.project-modal-overlay')
+          if (overlay) {
+            // Use a very light, whitish version of the accent
+            const overlayL = 0.75 // Very light/whitish
+            const overlayS = s * 0.4 // Reduced saturation for subtle tint
+            const olQ = overlayL < 0.5 ? overlayL * (1 + overlayS) : overlayL + overlayS - overlayL * overlayS
+            const olP = 2 * overlayL - olQ
+            const olr = Math.floor(hue2rgb(olP, olQ, h + 1/3) * 255)
+            const olg = Math.floor(hue2rgb(olP, olQ, h) * 255)
+            const olb = Math.floor(hue2rgb(olP, olQ, h - 1/3) * 255)
+            overlay.style.setProperty('--modal-overlay-tint', `rgba(${olr}, ${olg}, ${olb}, 0.88)`)
+          }
         } else {
           const darkL = 0.08
           const q = darkL < 0.5 ? darkL * (1 + s) : darkL + s - darkL * s

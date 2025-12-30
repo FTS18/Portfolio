@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import ProjectCard from './ProjectCard'
 import ProjectModal from './ProjectModal'
 import FilterBar from './FilterBar'
+import { useAllProjectViews } from '../../hooks/useFirebase'
 import './ProjectsSection.css'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -22,6 +23,7 @@ function ProjectsSection() {
   const [searchQuery, setSearchQuery] = useState('')
   const [sortBy, setSortBy] = useState('date')
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(null)
+  const projectViews = useAllProjectViews()
   const [stats, setStats] = useState({
     total: 0,
     technologies: 0,
@@ -95,12 +97,10 @@ function ProjectsSection() {
       } else if (sortBy === 'name') {
         return a.title.localeCompare(b.title)
       } else if (sortBy === 'views') {
-        // Sort by views (simulate views based on project popularity/recency)
+        // Sort by actual Firebase views
         const getViews = (project) => {
-          const baseViews = Math.floor(Math.random() * 1000) + 100
-          const dateBonus = new Date(project.date).getFullYear() >= 2024 ? 500 : 0
-          const tagBonus = (project.tags?.includes('AI') || project.tags?.includes('React')) ? 300 : 0
-          return baseViews + dateBonus + tagBonus
+          const projectId = project.title.replace(/\s/g, '')
+          return projectViews[projectId] || 0
         }
         return getViews(b) - getViews(a)
       }
@@ -108,7 +108,7 @@ function ProjectsSection() {
     })
 
     setFilteredProjects(filtered)
-  }, [selectedTags, projects, searchQuery, sortBy])
+  }, [selectedTags, projects, searchQuery, sortBy, projectViews])
 
   const handleTagToggle = (tag) => {
     setSelectedTags(prev =>

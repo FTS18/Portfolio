@@ -1,0 +1,60 @@
+.lens-cursor {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    font-family: 'Monument Extended', 'Space Grotesk', sans-serif;
+}
+
+.lens-cursor.visible {
+    opacity: 1;
+}
+
+.lens-cursor-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--text-primary);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.lens-cursor-label {
+    font-size: 12px;
+    font-weight: 900;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.lens-cursor-time {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-primary);
+    font-family: 'Space Mono', monospace;
+    letter-spacing: 1px;
+}
+
+/* Hide on mobile */
+@media screen and (max-width: 768px) {
+    .lens-cursor {
+        display: none;
+    }
+}
+
+/* Theme variations */
+[data-theme='dark'] .lens-cursor-circle {
+    background: #fff;
+}
+
+[data-theme='light'] .lens-cursor-circle {
+    background: #000;
+}
+
+[data-theme='bw'] .lens-cursor-circle {
+    background: #fff;
+}

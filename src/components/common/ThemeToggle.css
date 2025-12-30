@@ -2,33 +2,22 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 16px;
-  background: var(--card-bg);
-  border: 2px solid var(--border-hard);
-  border-radius: 8px;
-  color: var(--text-primary);
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 20px;
+  font-family: 'Space Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
   cursor: pointer;
-  transition: all 0.3s ease;
-  will-change: transform, box-shadow;
-  transform: translateZ(0);
-  backface-visibility: hidden;
+  transition: all 0.2s ease;
 }
 
 .theme-toggle:hover {
-  transform: translate(-2px, -2px) translateZ(0);
-  box-shadow: 4px 4px 0 var(--border-hard);
-}
-
-.theme-toggle:active {
-  transform: translate(1px, 1px) translateZ(0);
-  box-shadow: 1px 1px 0 var(--border-hard);
+  opacity: 0.8;
 }
 
 .theme-icon {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1;
 }
 
@@ -37,47 +26,35 @@
   letter-spacing: 0.5px;
 }
 
-/* Theme-specific styles */
+/* Theme-specific styles matching stat-pill */
 [data-theme='light'] .theme-toggle {
-  background: #ffffff;
-  border-color: #000000;
-  color: #000000;
+  background: rgba(0, 0, 0, 0.12);
+  color: #000;
 }
 
 [data-theme='light'] .theme-toggle:hover {
-  box-shadow: 4px 4px 0 #000000;
-}
-
-[data-theme='light'] .theme-toggle:active {
-  box-shadow: 1px 1px 0 #000000;
+  background: #000;
+  color: #22c55e;
 }
 
 [data-theme='dark'] .theme-toggle {
-  background: #111111;
-  border-color: #ffffff;
-  color: #ffffff;
+  background: rgba(0, 0, 0, 0.15);
+  color: #000;
 }
 
 [data-theme='dark'] .theme-toggle:hover {
-  box-shadow: 4px 4px 0 #ffffff;
-}
-
-[data-theme='dark'] .theme-toggle:active {
-  box-shadow: 1px 1px 0 #ffffff;
+  background: #000;
+  color: #a78bfa;
 }
 
 [data-theme='bw'] .theme-toggle {
-  background: #000000;
-  border-color: #ffffff;
-  color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
 }
 
 [data-theme='bw'] .theme-toggle:hover {
-  box-shadow: 4px 4px 0 #ffffff;
-}
-
-[data-theme='bw'] .theme-toggle:active {
-  box-shadow: 1px 1px 0 #ffffff;
+  background: #fff;
+  color: #000;
 }
 
 /* Compact version */
@@ -96,23 +73,11 @@
 /* Mobile optimizations */
 @media screen and (max-width: 768px) {
   .theme-toggle {
-    padding: 10px 14px;
-    font-size: 13px;
+    padding: 6px 12px;
+    font-size: 11px;
   }
-  
+
   .theme-icon {
-    font-size: 14px;
-  }
-  
-  /* Reduce motion on mobile */
-  @media (prefers-reduced-motion: reduce) {
-    .theme-toggle {
-      transition: none;
-    }
-    
-    .theme-toggle:hover {
-      transform: none;
-      box-shadow: 2px 2px 0 var(--border-hard);
-    }
+    font-size: 12px;
   }
 }

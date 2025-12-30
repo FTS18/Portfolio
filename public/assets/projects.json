@@ -7,7 +7,7 @@
         "github": "https://github.com/FTS18/gramin-saathi",
         "image": "assets/images/screenshots/gs.webp",
         "date": "December, 2025",
-        "pptLink": "https://docs.google.com/presentation/d/gramin-saathi-ppt",
+        "pptLink": "/assets/graminsaathi.pdf",
         "hackathon": "Thapar Hackathon 2025",
         "tags": [
             "React",
@@ -35,7 +35,7 @@
         "github": "https://github.com/FTS18/project-orion",
         "image": "assets/images/screenshots/po.webp",
         "date": "November, 2025",
-        "pptLink": "https://docs.google.com/presentation/d/project-orion-ppt",
+        "pptLink": "/assets/scubeAI.pdf",
         "hackathon": "EY Techathon 2025",
         "tags": [
             "React",
@@ -58,6 +58,7 @@
     {
         "title": "PEC Fest 2025",
         "shortDesc": "Official website for PEC's annual technical festival featuring SSR, event management, and real-time updates.",
+        "featured": true,
         "longDesc": "The official website for PEC Chandigarh's flagship annual technical and cultural festival, serving as the digital hub for one of North India's largest college fests. Built with Next.js for server-side rendering, the platform handles thousands of concurrent users during peak registration periods while maintaining exceptional performance and SEO optimization. The website serves as the primary touchpoint for students from colleges across the country.\n\nThe website features comprehensive event management including online registration with team formation, detailed event schedules with calendar integration, live updates during the fest, and real-time results tracking. Participants can browse through various competitions, register their teams, track submission deadlines, and view their standings. The admin panel provides organizers with powerful tools to manage events, participants, schedules, and announcements in real-time.\n\nIntegration with MongoDB and Prisma ensures efficient data management with proper schema validation and query optimization. The Tailwind CSS design system creates a visually stunning and consistent user experience across all pages. Performance optimizations include image optimization, code splitting, and caching strategies that ensure the website remains responsive even during high-traffic periods like registration deadlines and result announcements.",
         "link": "https://pecfest25.vercel.app",
         "github": "Private",
@@ -78,12 +79,13 @@
     {
         "title": "Saksham AI",
         "shortDesc": "EdTech platform with AI-powered internship finder using NLP for matching students with relevant opportunities.",
+        "featured": true,
         "longDesc": "Developed for the prestigious Smart India Hackathon 2025, Saksham AI is an innovative EdTech platform that transforms how students discover and secure internship opportunities. The AI-powered matching engine uses advanced NLP algorithms to analyze student profiles, skills, projects, and preferences, then recommends highly relevant internships from a curated database of opportunities across various industries and domains.\n\nThe platform features a comprehensive skill assessment system with interactive quizzes that evaluate both theoretical knowledge and practical problem-solving abilities. Students can build their professional portfolio directly on the platform, generate ATS-friendly resumes with smart suggestions, and access curated interview preparation resources. Beautiful data visualizations using Chart.js help students track their progress, identify skill gaps, and set achievement goals.\n\nFramer Motion powers smooth animations throughout the interface, creating an engaging and modern user experience that keeps students motivated in their career journey. The platform includes mentorship matching, peer learning communities, and success story showcases from students who secured internships through the platform. Firebase handles authentication, real-time features, and scalable data storage, ensuring a seamless experience for the growing user base.",
         "link": "https://hexaforces.netlify.app",
         "github": "https://github.com/FTS18/saksham-pathfinder",
         "image": "assets/images/screenshots/ss1.webp",
         "date": "September, 2025",
-        "pptLink": "https://docs.google.com/presentation/d/saksham-ai-ppt",
+        "pptLink": "/assets/sakshamAI.pdf",
         "hackathon": "Smart India Hackathon 2025",
         "tags": [
             "React",
@@ -103,6 +105,7 @@
     {
         "title": "Project J",
         "shortDesc": "JEE preparation platform with college predictor algorithm and educational resources for engineering aspirants.",
+        "featured": true,
         "longDesc": "Project J is a comprehensive JEE preparation platform born from personal experience as a JEE aspirant. The platform features an intelligent college predictor that analyzes previous year cutoffs, seat matrices, preference patterns, and historical trends to suggest the best possible college and branch combinations based on the student's expected rank, category, and home state. The predictions are updated annually with latest counseling data.\n\nBeyond prediction, the platform offers extensive study resources including chapter-wise notes organized by exam weightage, previous year questions with detailed solutions and video explanations, topic-wise test series with performance analytics, and a formula sheet generator that creates personalized revision sheets. Students can track their preparation progress, identify weak areas, and receive personalized improvement suggestions.\n\nThe responsive design built with Bootstrap ensures accessibility across all devices, from desktop computers in coaching centers to mobile phones during commute. LocalStorage integration saves student preferences, mock test history, and prediction history for quick future reference without requiring login, respecting privacy while providing convenience. The platform has helped thousands of students make informed decisions about their engineering career.",
         "link": "https://projectjee.netlify.app",
         "github": "https://github.com/FTS18/project-j",
@@ -122,6 +125,7 @@
     {
         "title": "Radioo",
         "shortDesc": "Online radio streaming platform with music discovery and entertainment features built with vanilla JavaScript.",
+        "featured": true,
         "longDesc": "Radioo brings the nostalgic charm of radio to the digital age through a beautifully designed online streaming platform. The application connects to various radio stations worldwide using public radio APIs, offering users an endless stream of music, news, talk shows, and entertainment. The clean, intuitive interface makes discovering new stations effortless, with categories ranging from jazz and classical to pop, electronic, and regional music.\n\nBuilt entirely with vanilla JavaScript, the platform demonstrates the power of native web technologies without framework dependencies. The Web Audio API integration provides real-time audio visualization effects that dance and pulse with the music, creating an immersive listening experience. Users can see frequency bars, waveforms, and color-reactive visuals that respond to the audio being played.\n\nFavorite stations can be bookmarked for quick access, and the platform remembers your listening history to provide personalized recommendations. The responsive design ensures perfect playback whether you're on desktop, tablet, or mobile. Features include sleep timer, station search, genre filtering, and the ability to share stations with friends via social media integration.",
         "link": "https://radioo.netlify.app",
         "github": "https://github.com/FTS18/musify1",
@@ -176,6 +180,7 @@
     {
         "title": "DynWave",
         "shortDesc": "Dynamic chat application with real-time messaging capabilities and modern UI for seamless communication.",
+        "featured": true,
         "longDesc": "DynWave delivers a dynamic real-time chat experience powered by Socket.io and Express.js. The platform supports both private one-on-one messaging and group conversations with unlimited participants. Features include typing indicators that show when someone is composing a message, read receipts for message delivery confirmation, and emoji reactions that make conversations feel natural and engaging.\n\nThe modern UI, developed in collaboration with Divyanshi, features smooth CSS animations, comprehensive emoji picker, file sharing capabilities, and a beautiful color scheme that adapts to user preferences with light and dark modes. Messages support rich formatting, link previews, and image embedding. Users can search through conversation history, star important messages, and create message threads.\n\nBuilt with Node.js on the backend, the application demonstrates full-stack JavaScript capabilities with efficient WebSocket connections handling hundreds of concurrent users without breaking a sweat. The architecture uses event-driven programming for real-time synchronization, ensuring messages appear instantly across all connected devices. Redis integration provides message persistence and enables horizontal scaling for production deployments.",
         "link": "https://dynwave.onrender.com/",
         "github": "https://github.com/FTS18/dynwave",
@@ -223,41 +228,6 @@
             "jQuery",
             "Responsive",
             "SEO"
-        ]
-    },
-    {
-        "title": "Reartify",
-        "shortDesc": "E-commerce platform for YouthZest tech fest with shopping cart functionality and modern design patterns.",
-        "longDesc": "Reartify was developed for the YouthZest tech fest event, serving as an interactive e-commerce demonstration that teaches participants about web development and online business concepts. The platform features a fully functional shopping experience with product browsing across categories, advanced filtering and sorting options, persistent shopping cart management, wishlist functionality, and a simulated multi-step checkout process.\n\nThe project showcases modern e-commerce UI patterns including quick view modals for product details without leaving the page, dynamic wishlisting with sync across sessions, real-time pricing displays with discount calculations, inventory status indicators showing stock availability, and recently viewed products section. The product pages feature image galleries, size selectors, color variants, and related product recommendations.\n\nBuilt with vanilla JavaScript and LocalStorage for cart persistence, it demonstrates how complex shopping experiences can be created without backend dependencies for educational and demonstration purposes. The responsive design ensures the shopping experience works seamlessly on all devices. This project taught valuable lessons about state management, user experience design, and the complexity behind seemingly simple e-commerce interactions.",
-        "link": "https://reartify.netlify.app/",
-        "github": "https://github.com/FTS18/bytekart/pages/base.html",
-        "image": "assets/images/screenshots/yz.webp",
-        "date": "Sept, 2023",
-        "tags": [
-            "HTML5",
-            "CSS3",
-            "JavaScript",
-            "LocalStorage",
-            "Responsive",
-            "E-commerce"
-        ]
-    },
-    {
-        "title": "TechnoFair",
-        "shortDesc": "Space-themed technical fair website with interactive elements and ISRO collaboration showcase.",
-        "longDesc": "TechnoFair is a space-themed website created for a technical fair event that featured collaboration with ISRO (Indian Space Research Organisation). The immersive design transports visitors to the cosmos with stunning visual effects including starfield backgrounds, nebula gradients, planet animations, and parallax scrolling that capture the wonder and excitement of space exploration. Every element reinforces the cosmic theme.\n\nGSAP (GreenSock Animation Platform) powers the smooth scroll-triggered animations and transitions that bring the website to life. As users scroll, content fades in with cinematic timing, rockets launch across the screen, satellites orbit, and text reveals create dramatic reveals. The event schedule, speaker profiles with animated cards, registration forms with validation, countdown timer, and venue map keep visitors engaged and well-informed about event logistics.\n\nThe project demonstrates advanced CSS techniques including custom properties for theme consistency, clip-path for creative shapes, and blend modes for visual effects. Animation libraries are used judiciously to enhance rather than overwhelm the experience. Performance optimization ensures smooth animations even on mid-range devices. The website successfully attracted significant footfall and generated excitement for the technical fair.",
-        "link": "https://fts18.github.io/technofair/",
-        "github": "https://github.com/FTS18/technofair",
-        "image": "assets/images/screenshots/tf.webp",
-        "date": "July, 2023",
-        "tags": [
-            "HTML5",
-            "CSS3",
-            "JavaScript",
-            "GSAP",
-            "Animations",
-            "Responsive",
-            "GitHub Pages"
         ]
     },
     {
@@ -333,23 +303,6 @@
         ]
     },
     {
-        "title": "Spacify",
-        "shortDesc": "YouTube channel featuring tech content, tutorials, and project showcases with regular uploads.",
-        "longDesc": "Spacify is a YouTube channel dedicated to technology, programming tutorials, and project showcases. The channel explores web development technologies, AI/ML projects, coding challenges and competitive programming, tech product reviews, and industry insights, making complex topics accessible and engaging for beginners and intermediate developers alike. Content is designed to be practical and project-based.\n\nContent includes step-by-step tutorials for building real-world projects from scratch, live coding streams where viewers can interact and ask questions, code review sessions analyzing open-source projects, tech news commentary on industry developments, and behind-the-scenes looks at hackathon preparations and experiences. Each tutorial emphasizes understanding concepts rather than just copying code.\n\nThe channel emphasizes practical learning through building, with each video encouraging viewers to code along and experiment with their own variations and improvements. Projects covered range from simple static websites to complex full-stack applications with AI integration. The community aspect is valued highly, with active Discord discussions, code sharing, and collaboration on open-source projects among subscribers.",
-        "link": "https://youtube.com/@Spacify18",
-        "github": "https://youtube.com/@Spacify18",
-        "image": "assets/images/screenshots/yt.webp",
-        "date": "Subscribe",
-        "tags": [
-            "YouTube",
-            "Content",
-            "Space",
-            "Tech",
-            "Web Dev",
-            "Programming"
-        ]
-    },
-    {
         "title": "Practicals Class 10",
         "shortDesc": "Web-based computer practicals collection for Class 10 with interactive examples and educational content.",
         "longDesc": "An interactive web-based collection of computer practicals designed for Class 10 students following the CBSE curriculum. The website transforms dry textbook exercises into engaging, hands-on experiences with live code editors where students can modify and run code, step-by-step guides with explanations at every stage, and instant visual feedback showing results of code execution.\n\nCovering both HTML/CSS web development fundamentals and Python programming basics, the platform makes learning accessible and enjoyable. Each practical includes theory explanations with relatable analogies, worked examples with detailed walkthroughs, practice exercises of varying difficulty levels, and interactive quizzes to test understanding. Progress is tracked so students can identify areas needing more practice.\n\nHosted on GitHub Pages, the project also served as a practical learning experience in web development, version control with Git, and deployment workflows. The website helped many classmates understand concepts they struggled with in traditional classroom settings. The responsive design ensures it works well on school computer labs, home PCs, and mobile devices. This project sparked my passion for creating educational technology that makes learning more effective and enjoyable.",
@@ -365,22 +318,6 @@
             "GitHub Pages",
             "Responsive",
             "Class 10"
-        ]
-    },
-    {
-        "title": "First Website",
-        "shortDesc": "My very first portfolio website showcasing early web development skills and personal projects.",
-        "longDesc": "This portfolio holds special significance as my very first web development project, created when I was just beginning to explore HTML, CSS, and JavaScript in 2021. Looking back at this project reminds me of the excitement and wonder of seeing my first webpage come alive in the browser, the satisfaction of getting CSS layouts to work, and the magic of adding interactivity with JavaScript.\n\nWhile simple by today's standards, this project laid the foundation for everything that followed. It taught me fundamental concepts like the box model and CSS layouts, responsive design basics with media queries, JavaScript event handling and DOM manipulation, and the importance of clean, organized code. Every bug fixed and every feature added was a learning experience that built my problem-solving skills.\n\nThe project remains deployed as a reminder that every expert was once a beginner, and that the journey of a thousand projects begins with a single commit. It's a testament to growth - comparing this to my current work shows how far I've come while reminding me to stay humble and keep learning. I occasionally revisit this project to remember the fundamentals and appreciate the journey.",
-        "link": "https://spacify-v1.netlify.app",
-        "github": "https://github.com/FTS18/spacify",
-        "image": "assets/images/screenshots/mfw.webp",
-        "date": "Jan, 2021",
-        "tags": [
-            "HTML5",
-            "CSS3",
-            "JavaScript",
-            "Portfolio",
-            "Responsive"
         ]
     }
 ]

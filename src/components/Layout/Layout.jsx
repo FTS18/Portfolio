@@ -6,6 +6,7 @@ import Loader from '../common/Loader'
 import PWAInstall from '../common/PWAInstall'
 import { Outlet } from 'react-router-dom'
 import Footer from './Footer'
+import BackToTop from '../common/BackToTop'
 import GlassSurface from '../common/GlassSurface'
 import './Layout.css'
 
@@ -14,7 +15,7 @@ function Layout() {
   const [isLoading, setIsLoading] = useState(true)
 
   const menuItems = [
-    { label: 'Home', ariaLabel: 'Go to home page', link: '/' },
+    { label: 'Home', ariaLabel: 'Go to home page', link: '/#top' },
     { label: 'Projects', ariaLabel: 'View all projects', link: '/#project-grid' },
     { label: 'Skills', ariaLabel: 'View my skills', link: '/#skills' },
     { label: 'About', ariaLabel: 'Learn about me', link: '/#about' },
@@ -76,7 +77,7 @@ function Layout() {
           accentColor="#5227FF"
           isFixed={true}
           closeOnClickAway={false}
-          onMenuOpen={() => setIsMenuOpen(true)}
+          onMenuOpen={() => setTimeout(() => setIsMenuOpen(true), 100)}
           onMenuClose={() => setIsMenuOpen(false)}
         />
         
@@ -146,6 +147,7 @@ function Layout() {
         </main>
         
         <Footer />
+        <BackToTop />
         <PWAInstall />
       </div>
     </ClickSpark>

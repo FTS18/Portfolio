@@ -80,7 +80,7 @@ function ConnectSection() {
   }
 
   return (
-    <section className="connect-section">
+    <section className="connect-section" id="about">
       <div className="connect-container">
         <div className="connect-header">
           <h2 className="connect-title"><span className="fraunces-italic">What</span> I Do</h2>

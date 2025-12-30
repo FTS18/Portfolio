@@ -145,3 +145,70 @@ body {
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
+
+/* ===== ANDROID PERFORMANCE OPTIMIZATIONS ===== */
+
+/* Touch optimization for all interactive elements */
+a,
+button,
+input,
+select,
+textarea,
+[role="button"],
+[onclick] {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+/* GPU acceleration hints for animated elements */
+.card,
+.bento-tile,
+.skill-marquee-badge,
+.connect-card,
+.stat-card,
+.project-modal,
+.back-to-top,
+.featured-badge {
+    will-change: transform;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Mobile-specific optimizations */
+@media (hover: none) and (pointer: coarse) {
+
+    /* Disable expensive blur effects on mobile */
+    .header-wrapper,
+    .header-content .header-links,
+    .header-links ul {
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+    }
+
+    /* Reduce animation complexity */
+    .marquee-content {
+        animation-duration: 30s !important;
+    }
+
+    /* Optimize touch targets - minimum 44px */
+    .p-btn,
+    .footer-nav-link,
+    .filter-tag,
+    .social-icon-link,
+    .mobile-btn-icon {
+        min-height: 44px;
+        min-width: 44px;
+    }
+}

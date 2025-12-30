@@ -175,6 +175,8 @@
     align-items: center;
     margin-bottom: 30px;
     flex-wrap: wrap;
+    position: relative;
+    z-index: 10;
 }
 
 .search-wrapper {
@@ -310,6 +312,17 @@
 
     .projects-stats {
         grid-template-columns: 1fr;
+    }
+
+    .projects-controls {
+        z-index: 100;
+    }
+
+    .search-input,
+    .sort-select {
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+        cursor: pointer;
     }
 }
 

@@ -55,3 +55,18 @@ export function useProjectViews(projectId) {
 
     return [views, incrementViews]
 }
+
+export function useAllProjectViews() {
+    const [viewsMap, setViewsMap] = useState({})
+
+    useEffect(() => {
+        const dbRef = ref(database, 'project_clicks')
+
+        onValue(dbRef, (snapshot) => {
+            const data = snapshot.val() || {}
+            setViewsMap(data)
+        })
+    }, [])
+
+    return viewsMap
+}

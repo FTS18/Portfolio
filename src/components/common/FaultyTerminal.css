@@ -1,23 +1,9 @@
 .faulty-terminal-container {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Mobile - ensure full coverage */
-@media screen and (max-width: 768px) {
-    .faulty-terminal-container {
-        position: absolute;
-        inset: 0;
-        width: 100vw;
-        height: 100vh;
-        height: 100dvh;
-    }
-
-    .faulty-terminal-container canvas {
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover;
-    }
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
 }

@@ -262,6 +262,7 @@ export default function FaultyTerminal({
   const rafRef = useRef(0);
   const loadAnimationStartRef = useRef(0);
   const timeOffsetRef = useRef(Math.random() * 100);
+  const isVisibleRef = useRef(false);
 
   const tintVec = useMemo(() => hexToRgb(tint), [tint]);
   const bgVec = useMemo(() => hexToRgb(backgroundColor), [backgroundColor]);
@@ -337,14 +338,27 @@ export default function FaultyTerminal({
     resizeObserver.observe(ctn);
     resize();
 
+    // Intersection Observer for viewport detection
+    const intersectionObserver = new IntersectionObserver(
+      entries => {
+        if (entries[0]) {
+          isVisibleRef.current = entries[0].isIntersecting;
+        }
+      },
+      { root: null, threshold: 0.01 }
+    );
+    intersectionObserver.observe(ctn);
+
     const update = t => {
       rafRef.current = requestAnimationFrame(update);
 
-      if (pageLoadAnimation && loadAnimationStartRef.current === 0) {
+      const visible = isVisibleRef.current && !document.hidden;
+
+      if (pageLoadAnimation && loadAnimationStartRef.current === 0 && visible) {
         loadAnimationStartRef.current = t;
       }
 
-      if (!pause) {
+      if (!pause && visible) {
         const elapsed = (t * 0.001 + timeOffsetRef.current) * timeScale;
         program.uniforms.iTime.value = elapsed;
         frozenTimeRef.current = elapsed;
@@ -359,7 +373,7 @@ export default function FaultyTerminal({
         program.uniforms.uPageLoadProgress.value = progress;
       }
 
-      if (mouseReact) {
+      if (mouseReact && visible) {
         const dampingFactor = 0.08;
         const smoothMouse = smoothMouseRef.current;
         const mouse = mouseRef.current;
@@ -371,7 +385,9 @@ export default function FaultyTerminal({
         mouseUniform[1] = smoothMouse.y;
       }
 
-      renderer.render({ scene: mesh });
+      if (visible) {
+        renderer.render({ scene: mesh });
+      }
     };
     rafRef.current = requestAnimationFrame(update);
     ctn.appendChild(gl.canvas);
@@ -381,6 +397,7 @@ export default function FaultyTerminal({
     return () => {
       cancelAnimationFrame(rafRef.current);
       resizeObserver.disconnect();
+      intersectionObserver.disconnect();
       if (mouseReact) ctn.removeEventListener('mousemove', handleMouseMove);
       if (gl.canvas.parentElement === ctn) ctn.removeChild(gl.canvas);
       gl.getExtension('WEBGL_lose_context')?.loseContext();

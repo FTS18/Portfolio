@@ -1,0 +1,67 @@
+.back-to-top {
+    position: fixed;
+    bottom: 100px;
+    right: 24px;
+    z-index: 900;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid var(--text-primary);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.8);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.back-to-top:hover {
+    transform: translateY(-4px) scale(1.1);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.back-to-top:active {
+    transform: translateY(0) scale(0.95);
+}
+
+/* Theme-aware styling */
+[data-theme='light'] .back-to-top {
+    background: #000;
+    color: #fff;
+    border-color: #000;
+}
+
+[data-theme='dark'] .back-to-top {
+    background: #5227FF;
+    color: #fff;
+    border-color: #5227FF;
+}
+
+[data-theme='bw'] .back-to-top {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+}
+
+/* Mobile positioning - above fixed CTAs */
+@media screen and (max-width: 768px) {
+    .back-to-top {
+        bottom: 90px;
+        right: 16px;
+        width: 44px;
+        height: 44px;
+        font-size: 16px;
+    }
+}

@@ -27,9 +27,9 @@
 .timeline-bg-circle {
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.15;
-  animation: floatBg 20s ease-in-out infinite;
+  filter: blur(60px);
+  opacity: 0.1;
+  /* Animation disabled for mobile performance */
 }
 
 .circle-1 {
@@ -193,7 +193,7 @@
   align-items: center;
   justify-content: center;
   z-index: 3;
-  animation: pulse 2s ease-in-out infinite;
+  /* Pulse animation disabled for mobile performance */
 }
 
 .dot-year {
@@ -229,10 +229,9 @@
 }
 
 .timeline-event-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-8px) translateZ(0);
   border-color: var(--accent-color);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3),
-    0 0 40px color-mix(in srgb, var(--accent-color) 20%, transparent);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
 }
 
 .card-glow {

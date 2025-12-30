@@ -201,6 +201,12 @@ function ProjectCard({ project, onOpenModal }) {
   return (
     <div className="column">
       <div className="card" data-aos="fade-up" ref={cardRef}>
+        {project.featured && (
+          <div className="featured-badge">
+            <i className="fa-solid fa-star"></i>
+            <span>Featured</span>
+          </div>
+        )}
         <div className="card-image-wrapper" onClick={onOpenModal} style={{ cursor: 'pointer' }}>
           <img
             ref={imgRef}

@@ -268,14 +268,14 @@
     width: clamp(260px, 38vw, 420px);
     height: 100%;
     background: #5227FF;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     display: flex;
     flex-direction: column;
     padding: 6em 2em 2em 2em;
     overflow-y: auto;
     z-index: 10;
-    transition: background 0.4s ease;
+    transition: background 0.3s ease;
     overflow-x: hidden;
     visibility: hidden;
     opacity: 0;
@@ -300,12 +300,12 @@
     opacity: 0.15;
     pointer-events: none;
     z-index: -2;
-    filter: brightness(0) invert(1) blur(4px);
+    filter: brightness(0) invert(1);
     user-select: none;
 }
 
 [data-theme='light'] .sm-panel-watermark {
-    filter: brightness(0) invert(1) blur(2px);
+    filter: brightness(0) invert(1);
     opacity: 0.2;
 }
 

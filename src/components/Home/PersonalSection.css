@@ -93,23 +93,16 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     color: var(--b-text);
-    will-change: transform, box-shadow;
+    will-change: transform;
     transform: translateZ(0);
     backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 
-    /* 3D Depth - Borders */
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
-    border-left: 1px solid rgba(255, 255, 255, 0.08);
-    border-right: 1px solid rgba(0, 0, 0, 0.15);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-
-    /* 3D Depth - Shadow */
-    box-shadow:
-        0 4px 12px rgba(0, 0, 0, 0.15),
-        0 8px 24px rgba(0, 0, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    /* Simplified 3D Depth - single shadow for performance */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 /* 3D Inner Lighting Gradient */
@@ -128,35 +121,14 @@
 }
 
 .bento-tile:hover {
-    transform: translateY(-6px) scale(1.015);
-
-    /* Enhanced 3D on hover */
-    box-shadow:
-        0 12px 24px rgba(0, 0, 0, 0.25),
-        0 24px 48px rgba(0, 0, 0, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.15);
-
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    border-left: 1px solid rgba(255, 255, 255, 0.15);
-    border-right: 1px solid rgba(0, 0, 0, 0.1);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    transform: translateY(-4px) translateZ(0);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
     z-index: 10;
 }
 
-/* Glow effect on hover */
+/* Glow disabled for performance - use simple hover instead */
 .bento-tile::before {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    border-radius: 34px;
-    background: linear-gradient(135deg, var(--b-accent), transparent 60%);
-    opacity: 0;
-    z-index: -1;
-    transition: opacity 0.4s ease;
-}
-
-.bento-tile:hover::before {
-    opacity: 0.15;
+    display: none;
 }
 
 /* Shade Alignment - Editorial Flow */
@@ -305,6 +277,12 @@
 /* Row 3: Quote (3 col × 1 row) */
 .bento-quote-wide {
     grid-area: quote;
+}
+
+/* Oracle internship highlight */
+.oracle-highlight {
+    color: #f80000;
+    font-weight: 700;
 }
 
 /* Full-width Dashboard - Separate row after grid */
@@ -672,7 +650,8 @@
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.95);
-    backdrop-filter: blur(25px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     z-index: 2000;
     display: flex;
     align-items: center;

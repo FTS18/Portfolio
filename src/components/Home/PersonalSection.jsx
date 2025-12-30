@@ -45,24 +45,22 @@ function PersonalSection() {
           const tiles = gridRef.current?.querySelectorAll('.bento-tile')
           if (!tiles) return
 
-          // Set initial state - smooth blur + scale + slide
+          // Set initial state - smooth scale + slide (no blur for mobile perf)
           gsap.set(tiles, {
             opacity: 0,
-            y: 50,
-            scale: 0.95,
-            filter: 'blur(10px)',
+            y: 40,
+            scale: 0.97,
           })
 
-          // Smooth reveal animation
+          // Smooth reveal animation - GPU-accelerated only
           gsap.to(tiles, {
             opacity: 1,
             y: 0,
             scale: 1,
-            filter: 'blur(0px)',
-            duration: 0.6,
+            duration: 0.5,
             ease: 'power2.out',
             stagger: {
-              amount: 0.8, // Total time for all staggers
+              amount: 0.6,
               from: 'start',
               grid: [3, 7],
               axis: 'x',
@@ -78,7 +76,7 @@ function PersonalSection() {
   }, [hasAnimated])
 
   return (
-    <section className="personal-modern" ref={sectionRef}>
+    <section className="personal-modern" id="top" ref={sectionRef}>
       <div className="personal-modern-container">
         {/* Clean Bento Grid */}
         <div className="personal-bento-grid" ref={gridRef}>
@@ -159,7 +157,7 @@ function PersonalSection() {
                 <span></span><span></span><span></span>
               </div>
             </div>
-            <p className="quote-text">Building digital experiences that blend creativity with functionality.</p>
+            <p className="quote-text">Full Stack Webdev Intern <span className="oracle-highlight">@Omacle</span> — Building digital experiences that blend creativity with functionality.</p>
           </div>
 
           {/* Full-width Dashboard Row */}

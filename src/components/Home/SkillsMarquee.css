@@ -159,28 +159,25 @@
 }
 
 .skill-pill:hover::before {
-    width: 300px;
-    height: 300px;
+    width: 0;
+    height: 0;
 }
 
 .skill-pill:hover {
     background: linear-gradient(135deg, #252525 0%, #1a1a1a 100%);
     border-color: var(--accent-green);
-    transform: translateY(-8px) scale(1.05);
-    box-shadow: 0 10px 30px rgba(94, 255, 143, 0.4),
-        0 0 20px rgba(94, 255, 143, 0.2);
+    transform: translateY(-4px) translateZ(0);
+    box-shadow: 0 8px 24px rgba(94, 255, 143, 0.3);
 }
 
 .skill-pill i {
     font-size: 26px;
     color: var(--accent-green);
-    transition: all 0.3s ease;
-    filter: drop-shadow(0 0 10px rgba(94, 255, 143, 0.5));
+    transition: transform 0.3s ease;
 }
 
 .skill-pill:hover i {
-    transform: rotate(360deg) scale(1.2);
-    filter: drop-shadow(0 0 15px rgba(94, 255, 143, 0.8));
+    transform: scale(1.1);
 }
 
 .skill-pill span {

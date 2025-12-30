@@ -220,7 +220,7 @@ const PrismaticBurst = ({
   const pausedRef = useRef(paused);
   const gradTexRef = useRef(null);
   const hoverDampRef = useRef(hoverDampness);
-  const isVisibleRef = useRef(true);
+  const isVisibleRef = useRef(false);
   const meshRef = useRef(null);
   const triRef = useRef(null);
 
@@ -341,7 +341,10 @@ const PrismaticBurst = ({
       const dt = Math.max(0, now - last) * 0.001;
       last = now;
       const visible = isVisibleRef.current && !document.hidden;
-      if (!pausedRef.current) accumTime += dt;
+      
+      if (!pausedRef.current && visible) {
+        accumTime += dt;
+      }
 
       if (!visible) {
         raf = requestAnimationFrame(update);
