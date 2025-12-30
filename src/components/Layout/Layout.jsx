@@ -53,7 +53,7 @@ function Layout() {
 
         {/* Mobile Fixed Bottom CTAs */}
         <div className="mobile-fixed-ctas">
-          <a href="/resume.pdf" download className="mobile-cta-btn cta-resume">
+          <a href="/assets/resume.pdf" download className="mobile-cta-btn cta-resume">
             <i className="fa-solid fa-file-pdf"></i>
             Resume
           </a>
