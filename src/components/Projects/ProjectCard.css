@@ -34,66 +34,23 @@
     animation-delay: 0.6s;
 }
 
-/* Mobile-only scroll-based focus states */
+/* Mobile-only scroll-based focus states - IMAGES ONLY */
 @media (hover: none) and (pointer: coarse) {
 
+    /* Only images start grayscale, everything else stays colored */
     .column .card img,
     .column .lazy-image {
         filter: grayscale(100%);
-        transition: filter 0.5s ease, transform 0.5s ease;
-        transform: scale(1);
+        transition: filter 0.6s ease-out;
     }
 
+    /* Images become colored when card scrolls into view */
     .column.in-focus .card img,
     .column.in-focus .lazy-image {
-        filter: grayscale(0%) saturate(1.2);
-        transform: scale(1.06);
-    }
-
-    /* Optional: Dim the content of non-focused cards slightly */
-    .column:not(.in-focus) .card-content {
-        opacity: 0.8;
-        transition: opacity 0.4s ease;
-    }
-
-    .column.in-focus .card-content {
-        opacity: 1;
-    }
-
-    /* Keep card background neutral on mobile until focused */
-    .column:not(.in-focus) .card {
-        background: var(--bg-secondary) !important;
-        border-color: var(--border-color) !important;
-    }
-
-    /* Hide accent text colors on mobile until focused */
-    .column:not(.in-focus) .p-title,
-    .column:not(.in-focus) .p-description,
-    .column:not(.in-focus) .p-date {
-        color: var(--text-secondary) !important;
-    }
-
-    .column:not(.in-focus) .card-marquee {
-        filter: grayscale(100%);
-        opacity: 0.5;
-    }
-
-    /* Keep buttons and views black/neutral until focused */
-    .column:not(.in-focus) .p-btn,
-    .column:not(.in-focus) .p-btn-secondary,
-    .column:not(.in-focus) .p-btn-icon,
-    .column:not(.in-focus) .p-views {
-        background: #000000 !important;
-        color: #FFFFFF !important;
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    }
-
-    .column:not(.in-focus) .p-btn i,
-    .column:not(.in-focus) .p-btn span,
-    .column:not(.in-focus) .p-views i {
-        color: #FFFFFF !important;
+        filter: grayscale(0%) saturate(1.1);
     }
 }
+
 
 /* Desktop hover effect - affects 4 surrounding cards */
 @media (hover: hover) and (pointer: fine) {

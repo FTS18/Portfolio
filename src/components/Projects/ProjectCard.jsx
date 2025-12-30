@@ -202,6 +202,7 @@ function ProjectCard({ project, onOpenModal, priority = false }) {
             height={225}
             placeholder="/assets/images/placeholder.webp"
             priority={priority}
+            thumbnail={true}
             crossOrigin="anonymous"
           />
         </div>

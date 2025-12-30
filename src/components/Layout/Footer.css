@@ -4,7 +4,7 @@ footer {
     padding: 40px 20px 100px 20px;
     margin-bottom: 20px;
     position: relative;
-    z-index: 10;
+    z-index: 100;
 }
 
 /* Make all interactive elements touch-friendly */

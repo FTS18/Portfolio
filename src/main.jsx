@@ -5,16 +5,44 @@ import { HelmetProvider } from 'react-helmet-async'
 import App from './App.jsx'
 import './styles/globals.css'
 
-// Register service worker
+// Register service worker with auto-update
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js')
-      .then((registration) => {
-        console.log('SW registered: ', registration)
+  window.addEventListener('load', async () => {
+    try {
+      const registration = await navigator.serviceWorker.register('/sw.js')
+      console.log('SW registered:', registration.scope)
+      
+      // Check for updates every 60 seconds
+      setInterval(() => {
+        registration.update()
+      }, 60000)
+      
+      // Handle updates
+      registration.addEventListener('updatefound', () => {
+        const newWorker = registration.installing
+        console.log('SW update found')
+        
+        newWorker.addEventListener('statechange', () => {
+          if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+            // New SW is ready, reload the page to use it
+            console.log('New SW installed, refreshing...')
+            window.location.reload()
+          }
+        })
       })
-      .catch((registrationError) => {
-        console.log('SW registration failed: ', registrationError)
+      
+      // Listen for SW messages
+      navigator.serviceWorker.addEventListener('message', event => {
+        if (event.data.type === 'SW_UPDATED') {
+          console.log('SW updated to version:', event.data.version)
+          // Optionally reload to get fresh content
+          window.location.reload()
+        }
       })
+      
+    } catch (error) {
+      console.log('SW registration failed:', error)
+    }
   })
 }
 

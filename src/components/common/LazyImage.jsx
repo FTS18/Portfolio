@@ -16,6 +16,8 @@ function LazyImage({
   innerRef,
   width,
   height,
+  // New prop: load thumbnail for cards (smaller, faster)
+  thumbnail = false,
   ...props 
 }) {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -27,12 +29,38 @@ function LazyImage({
   // Process image with WebGPU if effects are specified
   const processedSrc = useWebGPUImage(src, webgpuEffects)
 
+  // Generate optimized image URL
+  // For cards (thumbnail mode), use compressed thumbnails from /thumbs/ folder
+  const getOptimizedSrc = (imageSrc) => {
+    if (!imageSrc) return imageSrc
+    
+    // If it's already a data URL or external URL, return as-is
+    if (imageSrc.startsWith('data:') || imageSrc.startsWith('http')) {
+      return imageSrc
+    }
+    
+    // For thumbnail mode, try to use compressed version from thumbs folder
+    if (thumbnail && imageSrc.includes('assets/images/')) {
+      // Handle both "assets/images/..." and "/assets/images/..." formats
+      // Split on 'assets/images/' to get the path after it
+      const parts = imageSrc.split('assets/images/')
+      if (parts.length === 2) {
+        const subPath = parts[1] // e.g., "screenshots/gs.webp" or "1.webp"
+        // Change extension to .webp for thumbnails (smaller)
+        const thumbPath = subPath.replace(/\.(png|jpg|jpeg)$/i, '.webp')
+        return `/assets/images/thumbs/${thumbPath}`
+      }
+    }
+    
+    return imageSrc
+  }
+
   // Generate blur placeholder if not provided
   const defaultPlaceholder = blurDataURL || 
     `data:image/svg+xml;base64,${btoa(`
       <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="100" height="100" fill="#f0f0f0"/>
-        <rect x="25" y="40" width="50" height="20" rx="2" fill="#e0e0e0"/>
+        <rect width="100" height="100" fill="#1a1a1a"/>
+        <rect x="25" y="40" width="50" height="20" rx="2" fill="#333"/>
       </svg>
     `)}`
 
@@ -56,7 +84,8 @@ function LazyImage({
         }
       },
       { 
-        rootMargin: '200px',
+        // Larger margin for thumbnails to preload earlier
+        rootMargin: thumbnail ? '400px' : '200px',
         threshold: 0.01
       }
     )
@@ -66,19 +95,24 @@ function LazyImage({
     }
 
     return () => observerRef.current?.disconnect()
-  }, [priority, isInView])
+  }, [priority, isInView, thumbnail])
 
   const handleLoad = () => {
     setIsLoaded(true)
     onLoad?.()
   }
 
-  const handleError = () => {
+  const handleError = (e) => {
+    // If thumbnail failed, try original source
+    if (thumbnail && e.target.src !== processedSrc) {
+      console.log('[LazyImage] Thumbnail not found, using original:', processedSrc)
+      e.target.src = processedSrc
+      return
+    }
     setError(true)
   }
 
-  // No automatic srcSet generation since files aren't available
-  // Instead, just use the base src
+  const optimizedSrc = getOptimizedSrc(processedSrc)
 
   return (
     <div 
@@ -100,15 +134,19 @@ function LazyImage({
       {(isInView || priority) && !error && (
         <img
           ref={innerRef}
-          src={processedSrc}
+          src={optimizedSrc}
           width={width}
           height={height}
-          sizes={sizes || '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'}
+          sizes={sizes || (thumbnail ? '(max-width: 768px) 50vw, 25vw' : '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw')}
           alt={alt}
           className={`lazy-image ${isLoaded ? 'loaded' : ''}`}
           onLoad={handleLoad}
           onError={handleError}
           loading={priority ? 'eager' : 'lazy'}
+          // Use native decoding for better performance
+          decoding="async"
+          // Fetch priority hint
+          fetchpriority={priority ? 'high' : 'low'}
         />
       )}
       
