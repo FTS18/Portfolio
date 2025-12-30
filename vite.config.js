@@ -19,7 +19,7 @@ export default defineConfig({
                     firebase: ['firebase/app', 'firebase/database', 'firebase/auth', 'firebase/firestore'],
                     three: ['three', '@react-three/fiber', '@react-three/drei'],
                     animations: ['gsap', 'motion'],
-                    utils: ['mathjs', 'maath', 'debug']
+                    utils: ['mathjs', 'maath', 'debug', 'ogl']
                 },
                 chunkFileNames: 'assets/js/[name]-[hash].js',
                 entryFileNames: 'assets/js/[name]-[hash].js',

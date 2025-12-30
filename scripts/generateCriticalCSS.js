@@ -1,10 +1,10 @@
-import critical from 'critical'
+import { generate } from 'critical'
 import { readFileSync, writeFileSync } from 'fs'
 import { resolve } from 'path'
 
 async function generateCriticalCSS() {
   try {
-    const { css } = await critical.generate({
+    const { css } = await generate({
       base: 'dist/',
       src: 'index.html',
       target: {
