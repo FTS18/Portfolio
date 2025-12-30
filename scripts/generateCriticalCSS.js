@@ -21,7 +21,7 @@ async function generateCriticalCSS() {
         rule: [/\.swiper/]
       }
     })
-    
+
     console.log('✅ Critical CSS generated successfully!')
     return css
   } catch (error) {
@@ -30,3 +30,6 @@ async function generateCriticalCSS() {
 }
 
 export default generateCriticalCSS
+
+// Execute if run via node
+generateCriticalCSS()
