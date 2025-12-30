@@ -43,13 +43,11 @@
     <link rel="preconnect" href="https://firebase.googleapis.com" crossorigin>
     <link rel="dns-prefetch" href="https://ghchart.rshah.org">
 
-    <!-- Preload Critical Fonts -->
-    <link rel="preload" href="/fonts/MonumentExtended-Ultrabold.otf" as="font" type="font/otf" crossorigin>
-    <link rel="preload" href="/fonts/MonumentExtended.otf" as="font" type="font/otf" crossorigin>
+    <!-- Preload Critical Fonts (WOFF2 - 40% smaller than OTF) -->
+    <link rel="preload" href="/fonts/MonumentExtended-Ultrabold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/MonumentExtended.woff2" as="font" type="font/woff2" crossorigin>
 
     <!-- Critical Font Styles -->
-    <!-- Note: Convert OTF to WOFF2 using: npx ttf2woff2 MonumentExtended.otf -->
-    <!-- WOFF2 is ~30% smaller than OTF -->
     <style>
         @font-face {
             font-family: 'Monument Extended';

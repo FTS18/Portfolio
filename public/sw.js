@@ -9,6 +9,9 @@ const IMAGE_CACHE = 'images-' + SW_VERSION
 const STATIC_ASSETS = [
   '/',
   '/manifest.json',
+  '/fonts/MonumentExtended.woff2',
+  '/fonts/MonumentExtended-Ultrabold.woff2',
+  // Fallback OTF for older browsers
   '/fonts/MonumentExtended.otf',
   '/fonts/MonumentExtended-Ultrabold.otf'
 ]
