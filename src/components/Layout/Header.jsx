@@ -25,6 +25,7 @@ function Header() {
           htmlFor="show-menu" 
           className="menu-icon"
           onClick={() => setShowMenu(!showMenu)}
+          aria-label={showMenu ? "Close navigation menu" : "Open navigation menu"}
         >
           <i className={showMenu ? "fas fa-times" : "fas fa-bars"}></i>
         </label>
@@ -73,6 +74,7 @@ function Header() {
           htmlFor="show-search" 
           className="search-icon"
           onClick={() => setShowSearch(!showSearch)}
+          aria-label={showSearch ? "Close search bar" : "Open search bar"}
         >
           <i className={showSearch ? "fas fa-times" : "fas fa-search"}></i>
         </label>
@@ -85,6 +87,8 @@ function Header() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               required
+              aria-label="Search projects"
+              title="Search projects"
             />
             <button type="submit" className="go-icon" aria-label="Search">
               <i className="fas fa-long-arrow-alt-right"></i>

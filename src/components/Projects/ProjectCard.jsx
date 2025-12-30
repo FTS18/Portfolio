@@ -32,7 +32,7 @@ function ProjectCard({ project, onOpenModal, priority = false }) {
         let topVibrantPixel = { r: 255, g: 255, b: 255, score: -1 };
         
         // Sample every 4th pixel to reduce computation by 75%
-        for (let i = 0; i < imageData.length; i += 16) {
+        for (let i = 0; i < imageData.length; i += 32) {
           const r = imageData[i];
           const g = imageData[i+1];
           const b = imageData[i+2];
@@ -147,35 +147,17 @@ function ProjectCard({ project, onOpenModal, priority = false }) {
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
-            const card = entry.target
-            const column = card.closest('.column')
-            
+            const column = entry.target.closest('.column')
             if (entry.isIntersecting) {
-              const rect = entry.boundingClientRect
-              const viewportHeight = window.innerHeight
-              const cardCenter = rect.top + rect.height / 2
-              const viewportCenter = viewportHeight / 2
-              const distance = Math.abs(cardCenter - viewportCenter)
-              const maxDistance = viewportHeight / 2
-              const centeredness = Math.min(distance / maxDistance, 1)
-              
-              if (centeredness < 0.3) {
-                column.classList.add('in-focus')
-                column.classList.remove('near-focus')
-              } else if (centeredness < 0.6) {
-                column.classList.add('near-focus')
-                column.classList.remove('in-focus')
-              } else {
-                column.classList.remove('in-focus', 'near-focus')
-              }
+              column.classList.add('in-focus')
             } else {
-              column.classList.remove('in-focus', 'near-focus')
+              column.classList.remove('in-focus')
             }
           })
         },
         {
-          threshold: [0, 0.25, 0.5, 0.75, 1],
-          rootMargin: '-10% 0px -10% 0px'
+          threshold: 0.1,
+          rootMargin: '-45% 0px -45% 0px'
         }
       )
 
@@ -216,6 +198,8 @@ function ProjectCard({ project, onOpenModal, priority = false }) {
             src={project.image}
             alt={project.title}
             onLoad={handleImageLoad}
+            width={400}
+            height={225}
             placeholder="/assets/images/placeholder.webp"
             priority={priority}
             crossOrigin="anonymous"
@@ -223,7 +207,7 @@ function ProjectCard({ project, onOpenModal, priority = false }) {
         </div>
         
         <div className="card-marquee">
-          <div className="marquee-content">
+          <div className="marquee-content" aria-hidden="true">
             <span>{tagString} {tagString} {tagString}</span>
           </div>
         </div>
@@ -234,7 +218,7 @@ function ProjectCard({ project, onOpenModal, priority = false }) {
           
           <div className="p-meta">
             <div className="p-date">{project.date}</div>
-            <span className="p-views">
+            <span className="p-views" aria-label={`${views} views`}>
               <i className="fa-solid fa-eye"></i> {views}
             </span>
           </div>
@@ -246,6 +230,7 @@ function ProjectCard({ project, onOpenModal, priority = false }) {
               rel="noopener noreferrer"
               href={project.link}
               className="p-btn"
+              aria-label={`Open ${project.title}`}
             >
               <span>Open</span>
               <i className="fa-solid fa-arrow-up"></i>
@@ -256,6 +241,7 @@ function ProjectCard({ project, onOpenModal, priority = false }) {
               href={project.github === 'Private' ? '#' : project.github || '#'}
               className={`p-btn p-btn-secondary ${project.github === 'Private' ? 'disabled' : ''}`}
               onClick={project.github === 'Private' ? (e) => e.preventDefault() : undefined}
+              aria-label={`View source for ${project.title} on ${getGithubButtonText()}`}
             >
               <span>{getGithubButtonText()}</span>
               <i className="fa-solid fa-arrow-up"></i>
@@ -264,6 +250,7 @@ function ProjectCard({ project, onOpenModal, priority = false }) {
               onClick={onOpenModal}
               className="p-btn p-btn-secondary p-btn-icon"
               title="View Details"
+              aria-label={`View details for ${project.title}`}
             >
               <i className="fa-solid fa-expand"></i>
             </button>

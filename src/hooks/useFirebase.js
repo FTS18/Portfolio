@@ -6,22 +6,27 @@ export function usePageViews() {
     const [views, setViews] = useState('Loading...')
 
     useEffect(() => {
-        // Get visitor IP and track page view
-        fetch('https://api.ipify.org?format=json')
-            .then(res => res.json())
-            .then(data => {
-                const ip = data.ip.replace(/\./g, '-')
-                const dbRef = ref(database, `page_views/${ip}`)
-                set(dbRef, { ip: data.ip })
-            })
-            .catch(err => console.error('Error tracking view:', err))
+        // Delay tracking to prioritize critical rendering
+        const timer = setTimeout(() => {
+            // Get visitor IP and track page view
+            fetch('https://api.ipify.org?format=json')
+                .then(res => res.json())
+                .then(data => {
+                    const ip = data.ip.replace(/\./g, '-')
+                    const dbRef = ref(database, `page_views/${ip}`)
+                    set(dbRef, { ip: data.ip })
+                })
+                .catch(err => console.error('Error tracking view:', err))
 
-        // Listen to total views
-        const viewsRef = ref(database, 'page_views')
-        onValue(viewsRef, (snapshot) => {
-            const count = snapshot.size || 0
-            setViews(count)
-        })
+            // Listen to total views
+            const viewsRef = ref(database, 'page_views')
+            onValue(viewsRef, (snapshot) => {
+                const count = snapshot.size || 0
+                setViews(count)
+            })
+        }, 2000)
+
+        return () => clearTimeout(timer)
     }, [])
 
     return views

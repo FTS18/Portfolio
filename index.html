@@ -37,21 +37,9 @@
     <meta name="twitter:image" content="https://ananay.netlify.app/assets/images/og-image.png" />
 
     <!-- Preconnect to external resources -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://firestore.googleapis.com">
 
-    <!-- Resource hints -->
-    <link rel="prefetch" href="/assets/projects.json">
-    <link rel="preload" href="/assets/lens.glb" as="fetch">
-    <link rel="prefetch" href="/assets/resume.pdf">
 
-    <!-- Preload Critical LCP Image -->
-    <link rel="preload" href="/assets/images/screenshots/gs.webp" as="image" type="image/webp" crossorigin="anonymous">
-
-    <!-- Critical Font Preloading -->
-    <link rel="preload" href="/fonts/MonumentExtended-Ultrabold.otf" as="font" type="font/otf" crossorigin>
-    <link rel="preload" href="/fonts/MonumentExtended.otf" as="font" type="font/otf" crossorigin>
 
     <!-- Critical Font Styles -->
     <style>
@@ -91,8 +79,6 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:ital,wght@0,400;0,700;1,400;1,700&display=swap"
         rel="stylesheet">
 
-    <!-- FontAwesome - Async for better performance -->
-    <script src="https://kit.fontawesome.com/47c40e1acb.js" crossorigin="anonymous" async></script>
 
     <!-- Swiper CSS - Defer until needed by code splitting -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="print"
@@ -105,12 +91,25 @@
     <!-- Robots -->
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://ananay.netlify.app/" />
+
+    <!-- Theme Initialization Script -->
+    <script>
+        (function () {
+            try {
+                var theme = localStorage.getItem('theme') || 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+                if (theme === 'light') document.body.style.backgroundColor = '#ffffff';
+                else if (theme === 'bw') document.body.style.backgroundColor = '#000000';
+                else document.body.style.backgroundColor = '#000000';
+            } catch (e) { }
+        })();
+    </script>
 </head>
 
 <body>
-    <script src="/font-loader.js"></script>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script src="https://kit.fontawesome.com/47c40e1acb.js" crossorigin="anonymous" defer></script>
 </body>
 
 </html>

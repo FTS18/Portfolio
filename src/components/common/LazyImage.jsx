@@ -14,6 +14,8 @@ function LazyImage({
   webgpuEffects = [],
   onLoad,
   innerRef,
+  width,
+  height,
   ...props 
 }) {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -88,6 +90,8 @@ function LazyImage({
       <img
         src={placeholder || defaultPlaceholder}
         alt=""
+        width={width}
+        height={height}
         className={`lazy-image-placeholder ${isLoaded ? 'loaded' : ''}`}
         aria-hidden="true"
       />
@@ -97,6 +101,8 @@ function LazyImage({
         <img
           ref={innerRef}
           src={processedSrc}
+          width={width}
+          height={height}
           sizes={sizes || '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'}
           alt={alt}
           className={`lazy-image ${isLoaded ? 'loaded' : ''}`}

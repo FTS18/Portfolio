@@ -39,7 +39,7 @@
     border: 2px solid var(--text-primary);
     border-radius: 12px;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.3s ease;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -100,7 +100,7 @@
     height: 64px;
     border-radius: 0;
     /* Pure brutalist sharp corners */
-    transition: all 0.2s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: transform 0.2s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 0.2s cubic-bezier(0.19, 1, 0.22, 1);
     box-shadow: 8px 8px 0px #000000;
     /* Heavy offset shadow */
     z-index: 1020;
@@ -151,7 +151,7 @@
     /* Thick brutalist stroke */
     background: #FFFFFF;
     /* White icons on colored backgrounds */
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 [data-theme='light'] .sm-brutalist-icon span {

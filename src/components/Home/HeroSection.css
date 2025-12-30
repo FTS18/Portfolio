@@ -11,8 +11,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* Smooth transition when menu opens/closes */
-    transition: width 0.65s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 /* FluidGlass Background */
@@ -39,12 +37,6 @@
     backface-visibility: hidden;
     /* Prevent flash during resize */
     background: var(--bg-primary);
-    /* Smooth resize with layout */
-    transition: width 0.65s cubic-bezier(0.19, 1, 0.22, 1);
-}
-
-[data-theme='light'] .prismatic-background {
-    opacity: 1;
 }
 
 [data-theme='bw'] .prismatic-background {
@@ -167,7 +159,7 @@
     letter-spacing: 0.1em;
     text-decoration: none;
     border: 3px solid #000000;
-    transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 0.3s cubic-bezier(0.19, 1, 0.22, 1);
     box-shadow: 6px 6px 0px #000000;
 }
 
@@ -206,6 +198,7 @@
     border-color: #FFFFFF;
     box-shadow: 6px 6px 0px #FFFFFF;
 }
+
 /* WebGPU Background Canvas */
 .webgpu-background {
     position: absolute;

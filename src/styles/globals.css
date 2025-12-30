@@ -69,22 +69,6 @@
     font-family: 'Arial Black', 'Helvetica Neue', sans-serif !important;
 }
 
-/* Optimized font loading with fallbacks */
-@font-face {
-    font-family: 'Monument Extended';
-    src: url('/fonts/MonumentExtended.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Monument Extended';
-    src: url('/fonts/MonumentExtended-Ultrabold.otf') format('opentype');
-    font-weight: 900;
-    font-style: normal;
-    font-display: swap;
-}
 
 /* Fallback font stack */
 @font-face {

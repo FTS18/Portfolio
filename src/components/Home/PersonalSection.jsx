@@ -27,10 +27,14 @@ function PersonalSection() {
 
     setAge(calculateAge('2006-03-13'))
 
-    fetch('/assets/projects.json')
-      .then(res => res.json())
-      .then(data => setProjectCount(data.length))
-      .catch(() => setProjectCount(20))
+    const timer = setTimeout(() => {
+      fetch('/assets/projects.json')
+        .then(res => res.json())
+        .then(data => setProjectCount(data.length))
+        .catch(() => setProjectCount(20))
+    }, 2500)
+
+    return () => clearTimeout(timer)
   }, [])
 
   // Brick-by-brick animation on scroll
@@ -136,7 +140,7 @@ function PersonalSection() {
           {/* Focal Image */}
           <div className="bento-tile bento-image-focal">
             <div className="personal-image-wrapper">
-              <img src="/assets/images/image.webp" alt="Ananay Dubey" className="personal-image" />
+              <img src="/assets/images/image.webp" alt="Ananay Dubey" className="personal-image" width={400} height={400} />
             </div>
           </div>
 
@@ -174,6 +178,8 @@ function PersonalSection() {
                 src={`https://ghchart.rshah.org/00ffac/${githubUser}`} 
                 alt="GitHub Activity" 
                 className="theme-filtered-chart"
+                width={663}
+                height={104}
               />
             </div>
           </div>
@@ -184,7 +190,7 @@ function PersonalSection() {
       {showGithubModal && (
         <div className="github-modal-overlay" onClick={() => setShowGithubModal(false)}>
           <div className="github-modal-content" onClick={e => e.stopPropagation()}>
-            <button className="modal-close-btn" onClick={() => setShowGithubModal(false)}>
+            <button className="modal-close-btn" onClick={() => setShowGithubModal(false)} aria-label="Close GitHub history">
               <i className="fas fa-times"></i>
             </button>
             <div className="modal-header">
@@ -220,6 +226,8 @@ function PersonalSection() {
                         src={`https://ghchart.rshah.org/00ffac/${githubUser}?year=${year}&t=${Date.now()}`} 
                         alt={`GitHub Contributions ${year}`} 
                         className="theme-filtered-chart"
+                        width={663}
+                        height={104}
                       />
                     </div>
                   </div>

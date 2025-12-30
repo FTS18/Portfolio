@@ -288,12 +288,14 @@ function ProjectsSection() {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="search-input"
+            aria-label="Search projects by title, description or tag"
           />
         </div>
         <select
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value)}
           className="sort-select"
+          aria-label="Sort projects by date, name or views"
         >
           <option value="date">Sort by Date</option>
           <option value="name">Sort by Name</option>

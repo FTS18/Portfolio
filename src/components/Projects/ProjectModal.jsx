@@ -202,6 +202,7 @@ function ProjectModal({ project, projects, currentIndex, onClose, onNavigate }) 
               className="header-nav-btn"
               onClick={() => onNavigate(currentIndex - 1)}
               disabled={currentIndex === 0}
+              aria-label="Previous project"
             >
               <i className="fas fa-chevron-left"></i>
             </button>
@@ -209,22 +210,23 @@ function ProjectModal({ project, projects, currentIndex, onClose, onNavigate }) 
               className="header-nav-btn"
               onClick={() => onNavigate(currentIndex + 1)}
               disabled={currentIndex === projects.length - 1}
+              aria-label="Next project"
             >
               <i className="fas fa-chevron-right"></i>
             </button>
             
             {/* Mobile: Share + Close on top right */}
             <div className="mobile-top-actions">
-              <button onClick={handleShare} className="mobile-top-btn">
+              <button onClick={handleShare} className="mobile-top-btn" aria-label="Share project">
                 <i className="fas fa-share-nodes"></i>
               </button>
-              <button className="modal-close" onClick={onClose}>
+              <button className="modal-close" onClick={onClose} aria-label="Close modal">
                 <i className="fas fa-times"></i>
               </button>
             </div>
             
             {/* Desktop: Just close */}
-            <button className="modal-close desktop-only" onClick={onClose}>
+            <button className="modal-close desktop-only" onClick={onClose} aria-label="Close modal">
               <i className="fas fa-times"></i>
             </button>
           </div>
@@ -238,6 +240,8 @@ function ProjectModal({ project, projects, currentIndex, onClose, onNavigate }) 
               ref={imgRef}
               src={`/${project.image}`} 
               alt={project.title}
+              width={800}
+              height={450}
               className="modal-image"
               crossOrigin="anonymous"
               onLoad={handleImageLoad}
@@ -323,6 +327,7 @@ function ProjectModal({ project, projects, currentIndex, onClose, onNavigate }) 
             className="mobile-nav-arrow"
             onClick={() => onNavigate(currentIndex - 1)}
             disabled={currentIndex === 0}
+            aria-label="Previous project"
           >
             <i className="fas fa-chevron-left"></i>
           </button>
@@ -344,6 +349,7 @@ function ProjectModal({ project, projects, currentIndex, onClose, onNavigate }) 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="mobile-btn-icon"
+                aria-label="GitHub repository"
               >
                 <i className="fab fa-github"></i>
               </a>
@@ -354,6 +360,7 @@ function ProjectModal({ project, projects, currentIndex, onClose, onNavigate }) 
             className="mobile-nav-arrow"
             onClick={() => onNavigate(currentIndex + 1)}
             disabled={currentIndex === projects.length - 1}
+            aria-label="Next project"
           >
             <i className="fas fa-chevron-right"></i>
           </button>

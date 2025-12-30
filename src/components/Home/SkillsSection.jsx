@@ -191,6 +191,8 @@ function SkillsSection() {
                     <img 
                       src={`https://cdn.simpleicons.org/${skill.icon}`} 
                       alt={skill.name}
+                      width={24}
+                      height={24}
                       className="skill-marquee-icon"
                       loading="lazy"
                       decoding="async"

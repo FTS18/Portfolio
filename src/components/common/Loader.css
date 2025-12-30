@@ -4,7 +4,9 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: var(--loader-bg);
+  background: #000000;
+  /* Default solid black fallback */
+  background: var(--loader-bg, #000000);
   display: flex;
   align-items: center;
   justify-content: center;

@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState, useMemo } from 'react'
+import { lazy, Suspense, useEffect, useRef, useState, useMemo } from 'react'
 import gsap from 'gsap'
 import { useWebGPU } from '../../utils/webgpu'
-import PrismaticBurst from '../common/PrismaticBurst'
-import FaultyTerminal from '../common/FaultyTerminal'
 import './HeroSection.css'
+
+const PrismaticBurst = lazy(() => import('../common/PrismaticBurst'))
+const FaultyTerminal = lazy(() => import('../common/FaultyTerminal'))
 
 function HeroSection({ isLoaderComplete = false }) {
   const heroRef = useRef(null)
@@ -131,7 +132,7 @@ function HeroSection({ isLoaderComplete = false }) {
       }, heroRef)
 
       return () => ctx.revert()
-    }, 300)
+    }, 50)
 
     return () => clearTimeout(timer)
   }, [isLoaderComplete, hasAnimated, reducedMotion])
@@ -142,39 +143,43 @@ function HeroSection({ isLoaderComplete = false }) {
 
     const isMobileDevice = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
 
-    return theme === 'light' ? (
-      <FaultyTerminal
-        scale={1.2}
-        gridMul={[1.5, 1]}
-        digitSize={1}
-        timeScale={isMobileDevice ? 0.4 : 0.8}
-        pause={false}
-        scanlineIntensity={isMobileDevice ? 0.3 : 0.8}
-        glitchAmount={isMobileDevice ? 0.2 : 0.8}
-        flickerAmount={isMobileDevice ? 0.3 : 0.8}
-        noiseAmp={0.8}
-        chromaticAberration={0}
-        dither={0}
-        curvature={0}
-        tint="#0aff8d"
-        backgroundColor="#ffffff"
-        mouseReact={!isMobileDevice}
-        mouseStrength={isMobileDevice ? 0 : 0.5}
-        pageLoadAnimation={false}
-        brightness={0.9}
-      />
-    ) : (
-      <PrismaticBurst
-        animationType="rotate3d"
-        intensity={isMobileDevice ? 0.8 : 1.5}
-        speed={isMobileDevice ? 0.15 : 0.3}
-        distort={isMobileDevice ? 0.4 : 0.8}
-        paused={!isVisible}
-        offset={{ x: 0, y: 0 }}
-        hoverDampness={0.4}
-        rayCount={isMobileDevice ? 10 : 18}
-        mixBlendMode="lighten"
-      />
+    return (
+      <Suspense fallback={null}>
+        {theme === 'light' ? (
+          <FaultyTerminal
+            scale={1.2}
+            gridMul={[1.5, 1]}
+            digitSize={1}
+            timeScale={isMobileDevice ? 0.4 : 0.8}
+            pause={false}
+            scanlineIntensity={isMobileDevice ? 0.3 : 0.8}
+            glitchAmount={isMobileDevice ? 0.2 : 0.8}
+            flickerAmount={isMobileDevice ? 0.3 : 0.8}
+            noiseAmp={0.8}
+            chromaticAberration={0}
+            dither={0}
+            curvature={0}
+            tint="#0aff8d"
+            backgroundColor="#ffffff"
+            mouseReact={!isMobileDevice}
+            mouseStrength={isMobileDevice ? 0 : 0.5}
+            pageLoadAnimation={false}
+            brightness={0.9}
+          />
+        ) : (
+          <PrismaticBurst
+            animationType="rotate3d"
+            intensity={isMobileDevice ? 0.8 : 1.5}
+            speed={isMobileDevice ? 0.15 : 0.3}
+            distort={isMobileDevice ? 0.4 : 0.8}
+            paused={!isVisible}
+            offset={{ x: 0, y: 0 }}
+            hoverDampness={0.4}
+            rayCount={isMobileDevice ? 10 : 18}
+            mixBlendMode="lighten"
+          />
+        )}
+      </Suspense>
     )
   }, [theme, isVisible, reducedMotion])
 

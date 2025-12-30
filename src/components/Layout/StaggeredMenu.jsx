@@ -250,11 +250,9 @@ export const StaggeredMenu = ({
       colorTweenRef.current?.kill();
       if (changeMenuColorOnOpen) {
         const targetColor = opening ? openMenuButtonColor : menuButtonColor;
-        colorTweenRef.current = gsap.to(btn, {
+        gsap.set(btn, {
           color: targetColor,
-          delay: 0.18,
-          duration: 0.3,
-          ease: 'power2.out'
+          delay: 0.18
         });
       } else {
         gsap.set(btn, { color: menuButtonColor });

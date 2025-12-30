@@ -10,16 +10,20 @@ function Footer() {
 
   // Fetch last commit date from GitHub
   useEffect(() => {
-    fetch('https://api.github.com/repos/FTS18/Portfolio/commits/main')
-      .then(res => res.json())
-      .then(data => {
-        if (data.commit && data.commit.author && data.commit.author.date) {
-          const date = new Date(data.commit.author.date)
-          const options = { month: 'short', day: 'numeric', year: 'numeric' }
-          setLastUpdate(date.toLocaleDateString('en-US', options))
-        }
-      })
-      .catch(() => setLastUpdate('Recently'))
+    const timer = setTimeout(() => {
+      fetch('https://api.github.com/repos/FTS18/Portfolio/commits/main')
+        .then(res => res.json())
+        .then(data => {
+          if (data.commit && data.commit.author && data.commit.author.date) {
+            const date = new Date(data.commit.author.date)
+            const options = { month: 'short', day: 'numeric', year: 'numeric' }
+            setLastUpdate(date.toLocaleDateString('en-US', options))
+          }
+        })
+        .catch(() => setLastUpdate('Recently'))
+    }, 3000)
+    
+    return () => clearTimeout(timer)
   }, [])
 
   const socialLinks = [
@@ -70,6 +74,7 @@ function Footer() {
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="social-icon-link"
+                aria-label={link.label}
               >
                 <i className={`fab fa-${link.icon}`}></i>
               </a>

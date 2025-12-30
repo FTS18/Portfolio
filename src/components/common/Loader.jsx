@@ -6,8 +6,8 @@ function Loader({ onComplete }) {
   const [isComplete, setIsComplete] = useState(false)
 
   useEffect(() => {
-    // Always show loader for minimum 2.5 seconds
-    const minLoadTime = 2500
+    // Always show loader for minimum 0.8 seconds
+    const minLoadTime = 800
     const startTime = Date.now()
     let hasCompleted = false
     
@@ -53,6 +53,16 @@ function Loader({ onComplete }) {
       setTimeout(completeLoader, minLoadTime)
     } else {
       window.addEventListener('load', completeLoader)
+      
+      // Safety net: don't let the loader stay more than 3.5s 
+      // even if external resources are still loading (prevents LCP issues)
+      const safetyTimeout = setTimeout(completeLoader, 3500)
+      
+      return () => {
+        clearInterval(interval)
+        clearTimeout(safetyTimeout)
+        window.removeEventListener('load', completeLoader)
+      }
     }
 
     return () => {
@@ -62,14 +72,21 @@ function Loader({ onComplete }) {
   }, [onComplete])
 
   return (
-    <div className={`loader-overlay ${isComplete ? 'fade-out' : ''}`}>
+    <div 
+      className={`loader-overlay ${isComplete ? 'fade-out' : ''}`}
+      role="progressbar"
+      aria-valuenow={Math.round(progress)}
+      aria-valuemin="0"
+      aria-valuemax="100"
+      aria-label="Loading portfolio"
+    >
       <div className="loader-content">
         <div className="progress-container">
-          <span className="progress-counter">{Math.round(progress)}</span>
+          <span className="progress-counter" aria-hidden="true">{Math.round(progress)}</span>
           <div className="progress-bar">
             <div 
               className="progress-fill" 
-              style={{ width: `${progress}%` }}
+              style={{ transform: `scaleX(${progress / 100})`, transformOrigin: 'left' }}
             />
           </div>
         </div>
