@@ -1,58 +1,45 @@
 {
-  "name": "Ananay Dubey - Portfolio",
-  "short_name": "Ananay Portfolio",
-  "description": "Full-Stack Web Developer & React Specialist - Building Digital Experiences",
+  "name": "Ananay Dubey | Full-Stack Developer",
+  "short_name": "Ananay Dubey",
+  "description": "Full-Stack Web Developer specializing in React, TypeScript, Next.js, and AI-powered applications.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#5227FF",
   "orientation": "portrait-primary",
+  "scope": "/",
   "icons": [
     {
-      "src": "/assets/images/favicon/android-chrome-192x192.png",
+      "src": "/assets/images/favicon/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/images/favicon/favicon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/images/favicon/web-app-manifest-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "maskable any"
+      "purpose": "any maskable"
     },
     {
-      "src": "/assets/images/favicon/android-chrome-384x384.png",
-      "sizes": "384x384",
-      "type": "image/png",
-      "purpose": "maskable any"
-    },
-    {
-      "src": "/assets/images/favicon/android-chrome-512x512.png",
+      "src": "/assets/images/favicon/web-app-manifest-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "maskable any"
+      "purpose": "any maskable"
     }
   ],
-  "shortcuts": [
-    {
-      "name": "Projects",
-      "short_name": "Projects",
-      "description": "View my projects",
-      "url": "/#projects",
-      "icons": [{ "src": "/assets/images/favicon/android-chrome-192x192.png", "sizes": "192x192" }]
-    },
-    {
-      "name": "Contact",
-      "short_name": "Contact",
-      "description": "Get in touch",
-      "url": "/#contact",
-      "icons": [{ "src": "/assets/images/favicon/android-chrome-192x192.png", "sizes": "192x192" }]
-    }
+  "categories": [
+    "portfolio",
+    "developer",
+    "web"
   ],
-  "share_target": {
-    "action": "/share",
-    "method": "GET",
-    "params": {
-      "title": "title",
-      "text": "text",
-      "url": "url"
-    }
-  },
-  "categories": ["portfolio", "developer", "technology"],
-  "lang": "en-US",
-  "dir": "ltr"
+  "lang": "en",
+  "dir": "ltr",
+  "prefer_related_applications": false
 }

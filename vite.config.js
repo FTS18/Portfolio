@@ -1,10 +1,25 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { resolve } from 'path'
+import compression from 'vite-plugin-compression'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [react()],
+    plugins: [
+        react(),
+        // Gzip compression for production
+        compression({
+            algorithm: 'gzip',
+            ext: '.gz',
+            threshold: 1024, // Only compress files > 1KB
+        }),
+        // Brotli compression (better than gzip)
+        compression({
+            algorithm: 'brotliCompress',
+            ext: '.br',
+            threshold: 1024,
+        }),
+    ],
     server: {
         port: 3000,
         open: true

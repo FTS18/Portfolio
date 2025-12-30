@@ -5,39 +5,51 @@ import { HelmetProvider } from 'react-helmet-async'
 import App from './App.jsx'
 import './styles/globals.css'
 
-// Register service worker with auto-update
+// Register service worker with aggressive auto-update
+// Users never need to manually clear cache - it happens automatically!
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', async () => {
     try {
       const registration = await navigator.serviceWorker.register('/sw.js')
       console.log('SW registered:', registration.scope)
       
-      // Check for updates every 60 seconds
+      // Immediately check for updates on page load
+      registration.update()
+      
+      // Check for updates every 30 seconds (more aggressive)
       setInterval(() => {
         registration.update()
-      }, 60000)
+      }, 30000)
       
-      // Handle updates
+      // Handle updates - auto-refresh when new version is ready
       registration.addEventListener('updatefound', () => {
         const newWorker = registration.installing
-        console.log('SW update found')
+        console.log('SW update found, installing...')
         
         newWorker.addEventListener('statechange', () => {
-          if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-            // New SW is ready, reload the page to use it
-            console.log('New SW installed, refreshing...')
-            window.location.reload()
+          if (newWorker.state === 'installed') {
+            if (navigator.serviceWorker.controller) {
+              // New SW is ready - tell it to skip waiting and take over
+              newWorker.postMessage('SKIP_WAITING')
+              console.log('New SW installed, refreshing to activate...')
+              // Small delay to ensure SW activation completes
+              setTimeout(() => window.location.reload(), 100)
+            }
           }
         })
       })
       
-      // Listen for SW messages
+      // Listen for SW activation messages
       navigator.serviceWorker.addEventListener('message', event => {
         if (event.data.type === 'SW_UPDATED') {
           console.log('SW updated to version:', event.data.version)
-          // Optionally reload to get fresh content
-          window.location.reload()
         }
+      })
+      
+      // When a new SW takes over, reload the page
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        console.log('New SW controller, reloading for fresh content...')
+        window.location.reload()
       })
       
     } catch (error) {

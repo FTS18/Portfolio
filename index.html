@@ -38,8 +38,14 @@
 
     <!-- Preconnect to external resources -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://firebaseio.com" crossorigin>
+    <link rel="preconnect" href="https://firebase.googleapis.com" crossorigin>
+    <link rel="dns-prefetch" href="https://ghchart.rshah.org">
 
-
+    <!-- Preload Critical Fonts -->
+    <link rel="preload" href="/fonts/MonumentExtended-Ultrabold.otf" as="font" type="font/otf" crossorigin>
+    <link rel="preload" href="/fonts/MonumentExtended.otf" as="font" type="font/otf" crossorigin>
 
     <!-- Critical Font Styles -->
     <style>
@@ -103,6 +109,40 @@
                 else document.body.style.backgroundColor = '#000000';
             } catch (e) { }
         })();
+    </script>
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Ananay Dubey">
+    <link rel="apple-touch-icon" href="/assets/images/favicon/favicon-96x96.png">
+
+    <!-- Structured Data (JSON-LD) for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Ananay Dubey",
+        "url": "https://ananay.netlify.app",
+        "image": "https://ananay.netlify.app/assets/images/user.webp",
+        "sameAs": [
+            "https://github.com/FTS18",
+            "https://linkedin.com/in/ananaydubey",
+            "https://twitter.com/ananaydubey"
+        ],
+        "jobTitle": "Full-Stack Developer",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "PEC Chandigarh"
+        },
+        "knowsAbout": ["React", "TypeScript", "Next.js", "Node.js", "Python", "AI", "Web Development"],
+        "alumniOf": {
+            "@type": "EducationalOrganization",
+            "name": "Punjab Engineering College, Chandigarh"
+        },
+        "description": "Full-Stack Web Developer specializing in React, TypeScript, Next.js, and AI-powered applications."
+    }
     </script>
 </head>
 

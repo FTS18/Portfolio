@@ -55,12 +55,20 @@ function LazyImage({
     return imageSrc
   }
 
-  // Generate blur placeholder if not provided
+  // Generate blur placeholder if not provided - dark gradient with subtle shimmer
   const defaultPlaceholder = blurDataURL || 
     `data:image/svg+xml;base64,${btoa(`
       <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="100" height="100" fill="#1a1a1a"/>
-        <rect x="25" y="40" width="50" height="20" rx="2" fill="#333"/>
+        <defs>
+          <linearGradient id="shimmer" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#1a1a1a"/>
+            <stop offset="50%" style="stop-color:#2a2a2a"/>
+            <stop offset="100%" style="stop-color:#1a1a1a"/>
+          </linearGradient>
+        </defs>
+        <rect width="100" height="100" fill="url(#shimmer)"/>
+        <rect x="30" y="42" width="40" height="4" rx="2" fill="#333" opacity="0.5"/>
+        <rect x="35" y="50" width="30" height="4" rx="2" fill="#333" opacity="0.3"/>
       </svg>
     `)}`
 

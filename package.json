@@ -29,6 +29,7 @@
     "three": "^0.160.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.28.5",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.4",
@@ -43,6 +44,6 @@
     "imagemin-webp": "^8.0.0",
     "terser": "^5.44.1",
     "vite": "^6.0.3",
-    "@babel/core": "^7.28.5"
+    "vite-plugin-compression": "^0.5.1"
   }
 }

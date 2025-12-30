@@ -8,7 +8,9 @@ const IMAGE_CACHE = 'images-' + SW_VERSION
 
 const STATIC_ASSETS = [
   '/',
-  '/manifest.json'
+  '/manifest.json',
+  '/fonts/MonumentExtended.otf',
+  '/fonts/MonumentExtended-Ultrabold.otf'
 ]
 
 // Don't cache these - always fetch fresh
