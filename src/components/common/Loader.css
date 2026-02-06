@@ -25,7 +25,7 @@
 }
 
 [data-theme='bw'] .loader-overlay {
-  background: #ffffff;
+  background: #000000;
 }
 
 .loader-overlay.fade-out {
@@ -72,14 +72,14 @@
   font-family: 'Monument Extended', sans-serif;
   font-size: 24px;
   font-weight: 900;
-  color: var(--text-primary);
+  color: #FFFFFF;
   margin: 0 0 8px 0;
   letter-spacing: 2px;
 }
 
 .loader-text p {
   font-size: 14px;
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.7);
   margin: 0;
   font-weight: 500;
 }
@@ -96,7 +96,7 @@
   font-family: 'Monument Extended', sans-serif;
   font-size: clamp(120px, 25vw, 200px);
   font-weight: 900;
-  color: var(--text-primary);
+  color: #FFFFFF;
   line-height: 0.8;
   letter-spacing: -0.05em;
   margin: 0;

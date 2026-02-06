@@ -267,7 +267,7 @@
     right: 0;
     width: clamp(260px, 38vw, 420px);
     height: 100%;
-    background: #5227FF;
+    background: rgba(82, 39, 255, 0.85);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     display: flex;
@@ -315,7 +315,7 @@
 }
 
 [data-theme='light'] .staggered-menu-panel {
-    background: #00C853;
+    background: rgba(0, 200, 83, 0.85);
     /* Vibrant Green */
 }
 
@@ -343,7 +343,7 @@
 
 /* B&W Theme - White panel with black text */
 [data-theme='bw'] .staggered-menu-panel {
-    background: #FFFFFF;
+    background: rgba(255, 255, 255, 0.85);
 }
 
 [data-theme='bw'] .sm-panel-item,
@@ -364,12 +364,7 @@
     background: #000000;
 }
 
-[data-theme='bw'] .sm-theme-toggle-btn {
-    background: #000000;
-    color: #FFFFFF;
-    border-color: #000000;
-    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.3);
-}
+
 
 /* Close button theme styles */
 [data-theme='bw'] .sm-close-btn {
@@ -515,19 +510,26 @@
     width: 100%;
 }
 
-/* Theme Toggle Button inside Menu */
-.sm-theme-toggle-btn {
+/* Bottom Controls Container */
+.sm-controls {
     margin-top: 24px;
-    padding: 16px 24px;
+    display: flex;
+    gap: 12px;
+    width: 100%;
+}
+
+/* Control Buttons (Theme & Canvas) inside Menu */
+.sm-control-btn {
+    padding: 16px 20px;
     background: #FFFFFF;
     color: #000000;
     border: 3px solid #000000;
     border-radius: 0;
     font-family: 'Monument Extended', 'Inter', sans-serif;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 900;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     cursor: pointer;
     box-shadow: 4px 4px 0 #000000;
     transition: all 0.2s ease;
@@ -535,26 +537,39 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-    width: 100%;
+    flex: 1;
+    /* Split width evenly */
     position: relative;
     z-index: 100;
     pointer-events: auto;
 }
 
-.sm-theme-toggle-btn:hover {
+.sm-control-btn:hover {
     transform: translate(-2px, -2px);
     box-shadow: 6px 6px 0 #000000;
 }
 
-.sm-theme-toggle-btn:active {
+.sm-control-btn:active {
     transform: translate(2px, 2px);
     box-shadow: 2px 2px 0 #000000;
 }
 
-.sm-theme-label {
+.sm-control-label {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
+}
+
+/* B&W Theme overrides for controls */
+[data-theme='bw'] .sm-control-btn {
+    background: #000000;
+    color: #FFFFFF;
+    border-color: #000000;
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='bw'] .sm-control-btn:hover {
+    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.3);
 }
 
 .sm-panel-list {

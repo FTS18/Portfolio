@@ -5,8 +5,6 @@
     margin-bottom: 30px;
     animation: fadeInUp 0.6s ease-out backwards;
     position: relative;
-    max-width: 400px;
-    /* Constrain card width */
     will-change: transform, opacity;
 }
 
@@ -538,4 +536,10 @@
 [data-theme='bw'] .featured-badge {
     background: #fff;
     color: #000;
+}
+
+/* Force natural colors for images in BW theme (User Request) */
+[data-theme='bw'] .column .card img,
+[data-theme='bw'] .column .lazy-image {
+    filter: grayscale(0%) !important;
 }

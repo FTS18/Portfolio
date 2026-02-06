@@ -221,6 +221,12 @@
 
     .menu-icon {
         display: block;
+        margin-left: 60px;
+    }
+
+    .canvas-toggle-icon {
+        left: 15px;
+        font-size: 16px;
     }
 
     .header-content .header-links {

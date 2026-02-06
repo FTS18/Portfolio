@@ -6,7 +6,7 @@ import './HeroSection.css'
 const PrismaticBurst = lazy(() => import('../common/PrismaticBurst'))
 const FaultyTerminal = lazy(() => import('../common/FaultyTerminal'))
 
-function HeroSection({ isLoaderComplete = false }) {
+function HeroSection({ isLoaderComplete = false, canvasEnabled = true }) {
   const heroRef = useRef(null)
   const firstNameRef = useRef(null)
   const lastNameRef = useRef(null)
@@ -139,7 +139,7 @@ function HeroSection({ isLoaderComplete = false }) {
 
   // Memoize background components for better performance
   const backgroundComponent = useMemo(() => {
-    if (!isVisible && !reducedMotion) return null
+    if (!canvasEnabled || (!isVisible && !reducedMotion)) return null
 
     const isMobileDevice = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
 
@@ -181,12 +181,12 @@ function HeroSection({ isLoaderComplete = false }) {
         )}
       </Suspense>
     )
-  }, [theme, isVisible, reducedMotion])
+  }, [theme, isVisible, reducedMotion, canvasEnabled])
 
   return (
     <section className="welcome-div" ref={heroRef}>
       <div className="prismatic-background">
-        {webgpu && (
+        {canvasEnabled && webgpu && (
           <canvas 
             ref={webgpuCanvasRef}
             className="webgpu-background"

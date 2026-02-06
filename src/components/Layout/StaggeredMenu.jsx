@@ -19,7 +19,9 @@ export const StaggeredMenu = ({
   isFixed = true,
   closeOnClickAway = true,
   onMenuOpen,
-  onMenuClose
+  onMenuClose,
+  canvasEnabled,
+  onToggleCanvas
 }) => {
   const [open, setOpen] = useState(false);
   const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'dark');
@@ -473,20 +475,40 @@ export const StaggeredMenu = ({
               </ul>
             </div>
           )}
-          {/* Theme Toggle Button */}
-          <button
-            className="sm-theme-toggle-btn"
-            onClick={(e) => {
-              e.stopPropagation();
-              toggleTheme();
-            }}
-            aria-label="Toggle Theme"
-            type="button"
-          >
-            <span className="sm-theme-label">
-              {theme === 'dark' ? '🌙 Dark' : theme === 'light' ? '☀️ Light' : '◐ B&W'}
-            </span>
-          </button>
+   {/* Bottom Side-Panel Controls */}
+          <div className="sm-controls">
+             {/* Canvas Toggle Button (Visible on Mobile via Menu) */}
+             <button
+              className="sm-control-btn sm-canvas-toggle"
+              onClick={(e) => {
+                e.stopPropagation();
+                onToggleCanvas?.();
+              }}
+              aria-label={canvasEnabled ? "Disable animated background" : "Enable animated background"}
+              type="button"
+            >
+              <i className={canvasEnabled ? "fas fa-wand-magic-sparkles" : "fas fa-image"}></i>
+              <span className="sm-control-label">
+                {canvasEnabled ? 'Animated' : 'Static'}
+              </span>
+            </button>
+
+            {/* Theme Toggle Button */}
+            <button
+              className="sm-control-btn sm-theme-toggle"
+              onClick={(e) => {
+                e.stopPropagation();
+                toggleTheme();
+              }}
+              aria-label="Toggle Theme"
+              type="button"
+            >
+              <i className={`fas ${theme === 'dark' ? 'fa-moon' : theme === 'light' ? 'fa-sun' : 'fa-adjust'}`}></i>
+              <span className="sm-control-label">
+                {theme === 'dark' ? 'Dark' : theme === 'light' ? 'Light' : 'B&W'}
+              </span>
+            </button>
+          </div>
         </div>
       </aside>
     </div>

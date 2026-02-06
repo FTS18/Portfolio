@@ -1,0 +1,254 @@
+.dsa-section {
+    padding: 100px 60px;
+    background: var(--bg-primary);
+    /* Default to black/theme bg */
+    border-bottom: 2px solid var(--border-hard);
+    width: 100%;
+    position: relative;
+    z-index: 10;
+}
+
+[data-theme='light'] .dsa-section {
+    background: #00ff88;
+}
+
+[data-theme='bw'] .dsa-section {
+    background: #000000;
+}
+
+/* B&W Mode Overrides */
+[data-theme='bw'] .progress-bar {
+    background: #FFFFFF !important;
+}
+
+[data-theme='bw'] .dsa-card {
+    background: #000000;
+    border-color: #FFFFFF;
+    box-shadow: 6px 6px 0 #333333;
+}
+
+[data-theme='bw'] .dsa-icon {
+    background: #FFFFFF;
+    color: #000000;
+    border-color: #FFFFFF;
+}
+
+[data-theme='bw'] .dsa-value {
+    color: #FFFFFF;
+}
+
+[data-theme='bw'] .dsa-label {
+    color: #CCCCCC;
+}
+
+[data-theme='bw'] .profile-link-card {
+    background: #FFFFFF;
+    color: #000000;
+    border: 3px solid #FFFFFF;
+}
+
+.dsa-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.dsa-title {
+    font-family: 'Monument Extended', sans-serif;
+    font-size: 64px;
+    font-weight: 900;
+    color: var(--text-primary);
+    text-transform: uppercase;
+}
+
+.dsa-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Card Styles */
+.dsa-card {
+    background: var(--card-bg);
+    border: 3px solid var(--border-hard);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 180px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 6px 6px 0 var(--border-hard);
+    position: relative;
+    overflow: hidden;
+}
+
+.dsa-card:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 10px 10px 0 var(--border-hard);
+}
+
+/* Specific Card Layouts */
+.total-card,
+.rank-card {
+    grid-column: span 2;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.easy-card,
+.medium-card,
+.hard-card,
+.profile-link-card {
+    grid-column: span 1;
+}
+
+/* Icons & text */
+.dsa-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--border-hard);
+    font-size: 24px;
+}
+
+.dsa-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.dsa-value {
+    font-family: 'Monument Extended', sans-serif;
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--text-primary);
+    line-height: 1.1;
+}
+
+.dsa-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 5px;
+}
+
+/* Progress Bars */
+.dsa-progress {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    margin-top: 20px;
+    position: relative;
+}
+
+.progress-bar {
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* Profile Link Card */
+.profile-link-card {
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    cursor: pointer;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-link-card .link-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-family: 'Monument Extended', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+/* Loading State */
+.dsa-loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px;
+    gap: 20px;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--border-color);
+    border-top: 4px solid var(--text-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Theme specifics */
+[data-theme='light'] .dsa-progress {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive */
+@media screen and (max-width: 1024px) {
+    .dsa-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .total-card,
+    .rank-card {
+        grid-column: span 1;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .dsa-section {
+        padding: 60px 20px;
+    }
+
+    .dsa-title {
+        font-size: 32px;
+    }
+
+    .dsa-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .total-card,
+    .rank-card,
+    .easy-card,
+    .medium-card,
+    .hard-card,
+    .profile-link-card {
+        grid-column: span 1;
+    }
+
+    .dsa-value {
+        font-size: 32px;
+    }
+}

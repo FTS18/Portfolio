@@ -8,6 +8,8 @@ import SEO from '../components/common/SEO'
 // Lazy load sections
 const ConnectSection = lazy(() => import('../components/Home/ConnectSection'))
 const ProjectsSection = lazy(() => import('../components/Projects/ProjectsSection'))
+const ExperienceSection = lazy(() => import('../components/Home/ExperienceSection'))
+const DSASection = lazy(() => import('../components/Home/DSASection'))
 const SkillsSection = lazy(() => import('../components/Home/SkillsSection'))
 const GuestbookSection = lazy(() => import('../components/Home/GuestbookSection'))
 const ContactFormSection = lazy(() => import('../components/Home/ContactFormSection'))
@@ -19,7 +21,7 @@ const SectionLoader = () => (
 )
 
 function Home() {
-  const { isLoaderComplete } = useOutletContext()
+  const { isLoaderComplete, canvasEnabled = true } = useOutletContext()
   
   return (
     <>
@@ -29,7 +31,7 @@ function Home() {
         image="https://ananay.netlify.app/assets/images/og-image.png"
         url="https://ananay.netlify.app"
       />
-      <HeroSection isLoaderComplete={isLoaderComplete} />
+      <HeroSection isLoaderComplete={isLoaderComplete} canvasEnabled={canvasEnabled} />
       <PersonalSection />
       
       {/* Lazy load sections below the fold */}
@@ -42,6 +44,18 @@ function Home() {
       <LazySection rootMargin="100px">
         <Suspense fallback={<SectionLoader />}>
           <ProjectsSection />
+        </Suspense>
+      </LazySection>
+      
+      <LazySection rootMargin="100px">
+        <Suspense fallback={<SectionLoader />}>
+          <DSASection />
+        </Suspense>
+      </LazySection>
+      
+      <LazySection rootMargin="100px">
+        <Suspense fallback={<SectionLoader />}>
+          <ExperienceSection />
         </Suspense>
       </LazySection>
       

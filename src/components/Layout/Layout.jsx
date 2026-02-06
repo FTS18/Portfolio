@@ -15,6 +15,54 @@ const GlassSurface = lazy(() => import('../common/GlassSurface'))
 function Layout() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
+  const [showWarning, setShowWarning] = useState(false)
+  const [canvasEnabled, setCanvasEnabled] = useState(() => {
+    const saved = localStorage.getItem('canvasEnabled')
+    return saved === 'true' // Default: false (Images enabled, Canvas disabled)
+  })
+  // Theme state with device-based default
+  const [theme, setTheme] = useState(() => {
+    const saved = localStorage.getItem('theme')
+    if (saved) return saved
+    // Default to dark on mobile, light on desktop if no preference saved
+    return window.innerWidth <= 768 ? 'dark' : 'light'
+  })
+
+  const toggleTheme = () => {
+    const themes = ['dark', 'light', 'bw']
+    const currentIndex = themes.indexOf(theme)
+    const nextIndex = (currentIndex + 1) % themes.length
+    const newTheme = themes[nextIndex]
+    setTheme(newTheme)
+    localStorage.setItem('theme', newTheme)
+    document.documentElement.setAttribute('data-theme', newTheme)
+  }
+
+  const toggleCanvas = () => {
+    setCanvasEnabled(prev => {
+      const newValue = !prev
+      localStorage.setItem('canvasEnabled', String(newValue))
+      return newValue
+    })
+  }
+
+  const handleCanvasToggle = () => {
+    if (!canvasEnabled) {
+      // Trying to enable canvas
+      const hasAccepted = localStorage.getItem('canvasWarningAccepted')
+      if (!hasAccepted) {
+        setShowWarning(true)
+        return
+      }
+    }
+    toggleCanvas()
+  }
+
+  const confirmEnableCanvas = () => {
+    localStorage.setItem('canvasWarningAccepted', 'true')
+    setShowWarning(false)
+    toggleCanvas()
+  }
 
   const menuItems = [
     { label: 'Home', ariaLabel: 'Go to home page', link: '/#top' },
@@ -40,7 +88,31 @@ function Layout() {
       
       <Suspense fallback={null}>
         <ClickSpark>
-          <div className={`layout ${isMenuOpen ? 'menu-open' : ''}`}>
+          <div className={`layout ${isMenuOpen ? 'menu-open' : ''} ${!canvasEnabled ? 'canvas-disabled' : ''}`}>
+          
+          {/* Top Right Controls Container */}
+          <div className="layout-controls">
+            {/* Theme Toggle Button */}
+            <button 
+              className="app-theme-btn control-btn"
+              onClick={toggleTheme}
+              aria-label="Toggle Theme"
+              title={`Current theme: ${theme}`}
+            >
+              <i className={`fas ${theme === 'dark' ? 'fa-moon' : theme === 'light' ? 'fa-sun' : 'fa-adjust'}`}></i>
+            </button>
+
+            {/* Canvas Toggle Button */}
+            <button
+              className="app-canvas-btn control-btn"
+              onClick={handleCanvasToggle}
+              aria-label={canvasEnabled ? "Disable animated background" : "Enable animated background"}
+              title={canvasEnabled ? "Switch to static background" : "Switch to animated background"}
+            >
+              <i className={canvasEnabled ? "fas fa-wand-magic-sparkles" : "fas fa-image"}></i>
+            </button>
+          </div>
+          
           {/* Bottom Screen-Edge Blur Only */}
           <Suspense fallback={null}>
             <GradualBlur
@@ -85,6 +157,8 @@ function Layout() {
               closeOnClickAway={false}
               onMenuOpen={() => setTimeout(() => setIsMenuOpen(true), 100)}
               onMenuClose={() => setIsMenuOpen(false)}
+              canvasEnabled={canvasEnabled}
+              onToggleCanvas={handleCanvasToggle}
             />
           </Suspense>
           
@@ -150,7 +224,7 @@ function Layout() {
           </svg>
           
           <main>
-            <Outlet context={{ isLoaderComplete: !isLoading }} />
+            <Outlet context={{ isLoaderComplete: !isLoading, canvasEnabled }} />
           </main>
           
           <Suspense fallback={null}>
@@ -165,6 +239,20 @@ function Layout() {
             <PWAInstall />
           </Suspense>
         </div>
+
+        {/* Performance Warning Modal */}
+        {showWarning && (
+            <div className="canvas-warning-overlay">
+              <div className="canvas-warning-modal">
+                <h3>High Performance Mode</h3>
+                <p>Enabling the animated canvas background may cause lag on some devices. Are you sure you want to proceed?</p>
+                <div className="warning-actions">
+                  <button onClick={() => setShowWarning(false)} className="warning-btn cancel">Cancel</button>
+                  <button onClick={confirmEnableCanvas} className="warning-btn confirm">Enable Anyway</button>
+                </div>
+              </div>
+            </div>
+        )}
       </ClickSpark>
     </Suspense>
     </>

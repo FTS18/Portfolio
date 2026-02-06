@@ -71,7 +71,7 @@
 .hero-name-first {
     font-family: 'Inter', sans-serif;
     font-weight: 900;
-    color: var(--text-primary);
+    color: #FFFFFF;
     display: block;
     letter-spacing: -0.06em;
     will-change: transform, opacity;
@@ -85,7 +85,7 @@
     font-family: 'Fraunces', serif;
     font-style: italic;
     font-weight: 400;
-    color: var(--text-secondary);
+    color: #CCCCCC;
     display: block;
     letter-spacing: -0.06em;
     will-change: transform, opacity;
@@ -97,7 +97,7 @@
 
 .hero-subtitle {
     font-size: clamp(16px, 2vw, 24px);
-    color: var(--text-muted);
+    color: #BBBBBB;
     margin-top: 30px;
     font-family: 'Inter', sans-serif;
     font-weight: 400;

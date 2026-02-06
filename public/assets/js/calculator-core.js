@@ -507,7 +507,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // 1. Change Brand
             logo.innerText = 'calc.io';
-            logo.href = 'calculator.html';
+            logo.href = '/calculator';
 
             // 2. Inject Currency Selector
             // 2. Inject Currency Selector (Custom Dropdown)

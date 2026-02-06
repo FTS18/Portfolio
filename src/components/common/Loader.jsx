@@ -83,12 +83,7 @@ function Loader({ onComplete }) {
       <div className="loader-content">
         <div className="progress-container">
           <span className="progress-counter" aria-hidden="true">{Math.round(progress)}</span>
-          <div className="progress-bar">
-            <div 
-              className="progress-fill" 
-              style={{ transform: `scaleX(${progress / 100})`, transformOrigin: 'left' }}
-            />
-          </div>
+
         </div>
       </div>
     </div>

@@ -1,5 +1,27 @@
 [
     {
+        "title": "OmniFlow",
+        "shortDesc": "Universal College ERP Platform designed to streamline institutional operations and enhance academic management.",
+        "longDesc": "OmniFlow is a comprehensive Enterprise Resource Planning (ERP) solution tailored for modern educational institutions. It unifies complex campus operations into a single, intuitive interface, managing everything from student admissions and fee collections to academic grading and library resources. The platform replaces fragmented legacy systems with a cohesive digital ecosystem.\n\nDesigned with a focus on user experience, OmniFlow allows faculty to easily manage attendance, course materials, and assignments, while students get a dedicated portal for tracking their academic progress, viewing timetables, and accessing learning resources. Administrative tools provide real-time insights into institutional performance through advanced analytics and reporting dashboards.\n\nThe system is built for scalability and security, featuring role-based access control to ensure data privacy across different user groups including Students, Faculty, Admin, and Parents. With its responsive design, OmniFlow ensures that critical campus information is accessible anytime, anywhere, fostering better communication and operational efficiency.",
+        "link": "https://omnifloww.netlify.app/",
+        "github": "https://github.com/FTS18/omnifow",
+        "image": "assets/images/of.png",
+        "date": "Feb, 2026",
+        "tags": [
+            "React",
+            "Node.js",
+            "MongoDB",
+            "Express.js",
+            "Tailwind CSS",
+            "Redux",
+            "ERP",
+            "Dashboard",
+            "RBAC",
+            "College",
+            "Ideathon 5.0"
+        ]
+    },
+    {
         "title": "Gramin Saathi",
         "shortDesc": "AI-powered rural financial literacy platform helping farmers access government schemes and weather data through intelligent loan processing.",
         "longDesc": "Gramin Saathi is a revolutionary AI-powered rural financial literacy platform designed specifically for Indian farmers. Built during the Thapar Hackathon 2025, this comprehensive solution bridges the gap between rural communities and government welfare schemes by providing intelligent loan processing, real-time weather data integration, and multilingual support through i18n. The platform addresses the critical need for financial inclusion in rural India.\n\nThe platform leverages Google's Gemini AI for natural language processing, enabling farmers to interact in their native language without any technical barriers. Key features include personalized scheme recommendations based on individual farmer profiles, crop advisory services based on real-time weather patterns, integrated loan eligibility calculators, and a Progressive Web App (PWA) architecture that ensures offline access in areas with limited connectivity.\n\nThe technical architecture combines React with TypeScript for type-safe frontend development, Tailwind CSS for rapid UI development, and Firebase for backend services including authentication and real-time database. The responsive design ensures seamless usage across devices from basic feature phones to modern tablets, making it truly accessible to the rural population it serves.",
@@ -77,6 +99,28 @@
         ]
     },
     {
+        "title": "Conduit",
+        "shortDesc": "Full-stack Medium clone with advanced features including bookmarking, user mentions, notifications, and real-time interactions.",
+        "longDesc": "Conduit is a comprehensive full-stack blogging platform built as a real-world implementation of the RealWorld specification. Developed for PECathon, this Medium-inspired application demonstrates advanced React+Redux patterns, authentication workflows, and complex state management. The platform enables users to create, publish, and discover articles while fostering community engagement through comments, follows, and interactions.\n\nThe frontend leverages React with Redux for predictable state management, implementing sophisticated features like a bookmarking system for saving articles to a reading list, user mentions with @username syntax triggering real-time notifications, smart article recommendations based on tags and reading history, and a complete comment voting system with upvotes and ranking. Additional enhancements include search functionality, offline reading capabilities, user avatars with fallback initials, adjustable font sizes for accessibility, and skeleton loading states for improved UX.\n\nThe backend is built with Node.js and Express, providing a robust REST API with JWT authentication, MongoDB for data persistence, and real-time notification delivery. The architecture follows best practices with proper separation of concerns, middleware for authentication and validation, and optimized database queries. The application handles complex relationships between users, articles, comments, and tags while maintaining performance and scalability.",
+        "link": "https://pecathon.vercel.app",
+        "github": "https://github.com/FTS18/conduit_frontend",
+        "image": "assets/images/conduit.png",
+        "date": "October, 2025",
+        "hackathon": "PECathon",
+        "tags": [
+            "React",
+            "Redux",
+            "Node.js",
+            "Express.js",
+            "MongoDB",
+            "JWT",
+            "REST API",
+            "Real-time",
+            "Hackathon",
+            "PEC"
+        ]
+    },
+    {
         "title": "Saksham AI",
         "shortDesc": "EdTech platform with AI-powered internship finder using NLP for matching students with relevant opportunities.",
         "featured": true,
@@ -143,9 +187,10 @@
     },
     {
         "title": "Calculator",
+        "hidden": true,
         "shortDesc": "Multi-purpose calculator web app with BMI calculator, graphing, and various mathematical operations.",
         "longDesc": "This isn't your ordinary calculator – it's a comprehensive mathematical toolkit that handles everything from basic arithmetic to complex scientific calculations and interactive graph plotting. The multi-mode interface switches seamlessly between standard, scientific, graphing, and specialty calculators including BMI, age, percentage, unit converters, and programmers' calculators with hex/binary/octal conversions.\n\nThe graphing calculator powered by Math.js renders mathematical functions in real-time with smooth animations as you type. It supports multiple simultaneous equations with customizable colors, adjustable axis ranges, zoom and pan controls, and the ability to find intersection points. Users can plot standard functions, parametric equations, and even implicit curves with high precision.\n\nThe clean, modern interface features theme switching between light, dark, and colorful modes, along with comprehensive keyboard shortcuts for power users. Built as a Progressive Web App (PWA), it works completely offline once installed and can be added to your device's home screen for instant access. Calculation history is preserved across sessions, and results can be copied or shared easily.",
-        "link": "/calculator.html",
+        "link": "/calculator",
         "github": "https://github.com/FTS18/calculator-app",
         "image": "assets/images/screenshots/sscc.webp",
         "date": "Jun, 2024",
@@ -232,6 +277,7 @@
     },
     {
         "title": "ByteKart",
+        "hidden": true,
         "shortDesc": "Full-featured e-commerce platform with shopping cart, product catalog, and checkout functionality.",
         "longDesc": "ByteKart is a feature-rich e-commerce platform that simulates a complete online shopping experience from browsing to checkout. The application includes an extensive product catalog organized by categories, advanced search with autocomplete suggestions, filtering options by price range and attributes, sorting by various criteria, a persistent shopping cart with quantity management, wishlist functionality, and a multi-step checkout process with order summary.\n\nThe project taught valuable lessons about state management complexity, data persistence strategies, and user experience design for commercial applications. Products feature detailed views with zoomable images, comprehensive specifications, customer reviews section, Q&A functionality, and intelligently curated related product suggestions. The checkout flow includes address management, payment method selection (simulated), order review, and confirmation with order tracking.\n\nThe admin-like interface allows for product management, demonstrating full CRUD operations without a backend through clever use of LocalStorage and JavaScript object manipulation. Users can add products, update inventory, modify prices, and manage categories. This project serves as a practical demonstration of how complex e-commerce functionality can be prototyped on the frontend before backend integration.",
         "link": "https://bytekart.netlify.app/",

@@ -140,7 +140,10 @@ function PersonalSection() {
           {/* Focal Image */}
           <div className="bento-tile bento-image-focal">
             <div className="personal-image-wrapper">
-              <img src="/assets/images/image.webp" alt="Ananay Dubey" className="personal-image" width={400} height={400} />
+              <picture>
+                <source media="(max-width: 768px)" srcSet="/assets/images/me2.webp" />
+                <img src="/assets/images/me.webp" alt="Ananay Dubey" className="personal-image" width={400} height={400} />
+              </picture>
             </div>
           </div>
 
@@ -161,7 +164,7 @@ function PersonalSection() {
                 <span></span><span></span><span></span>
               </div>
             </div>
-            <p className="quote-text">Full Stack Webdev Intern <span className="oracle-highlight">@Omacle</span> — Building digital experiences that blend creativity with functionality.</p>
+            <p className="quote-text">Building digital experiences that blend creativity with functionality.</p>
           </div>
 
           {/* Full-width Dashboard Row */}

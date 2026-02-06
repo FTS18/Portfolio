@@ -47,20 +47,25 @@
 
 [data-theme='bw'] {
     --b-s1: #000000;
-    --b-s2: #0a0a0a;
-    --b-s3: #111111;
-    --b-s4: #1a1a1a;
-    --b-s5: #222222;
-    --b-s6: #282828;
-    --b-s7: #333333;
-    --b-s8: #444444;
-    --b-s9: #555555;
+    --b-s2: #151515;
+    --b-s3: #202020;
+    --b-s4: #2a2a2a;
+    --b-s5: #353535;
+    --b-s6: #404040;
+    --b-s7: #4a4a4a;
+    --b-s8: #555555;
+    --b-s9: #606060;
     --b-s10: #000000;
     --b-accent: #ffffff;
     --b-text: #ffffff;
     --b-image-filter: grayscale(1);
     --b-image-overlay: rgba(0, 0, 0, 0.3);
-    --b-chart-filter: grayscale(1) contrast(1.5) brightness(1.5);
+    /* Invert colors for proper dark mode visibility: empty cells become dark, filled cells become light */
+    --b-chart-filter: grayscale(1) invert(1) brightness(1.2);
+}
+
+[data-theme='bw'] .personal-modern {
+    background: #FFFFFF;
 }
 
 .personal-modern-container {

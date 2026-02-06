@@ -1,6 +1,10 @@
 .filter-wrapper {
     width: 100%;
     margin-bottom: 30px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 15px;
 }
 
 /* Mobile toggle button - hidden on desktop */
@@ -23,6 +27,7 @@
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    width: 100%;
 }
 
 .projects-filter-bar::-webkit-scrollbar {

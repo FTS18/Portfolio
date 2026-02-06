@@ -431,6 +431,18 @@
     color: #fff;
 }
 
+[data-theme='bw'] .guestbook-section {
+    background: #FFFFFF;
+}
+
+[data-theme='bw'] .guestbook-title {
+    color: #000000;
+}
+
+[data-theme='bw'] .guestbook-subtitle {
+    color: #000000;
+}
+
 /* Mobile */
 @media screen and (max-width: 768px) {
     .guestbook-section {

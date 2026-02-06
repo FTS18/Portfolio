@@ -49,6 +49,11 @@
     gap: 24px;
     margin-bottom: 60px;
     animation: fadeInUp 0.8s ease-out 0.2s backwards;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    padding: 0 15px;
 }
 
 @keyframes fadeInUp {
@@ -166,6 +171,18 @@
     color: #FFFFFF;
 }
 
+[data-theme='bw'] .projects {
+    background: #FFFFFF;
+}
+
+[data-theme='bw'] .projects-title {
+    color: #000000;
+}
+
+[data-theme='bw'] .projects-subtitle {
+    color: #000000;
+}
+
 /* Search and Sort Controls */
 .projects-controls {
     display: flex;
@@ -176,6 +193,10 @@
     flex-wrap: wrap;
     position: relative;
     z-index: 10;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
 }
 
 .search-wrapper {

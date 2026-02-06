@@ -7,6 +7,283 @@
     position: relative;
 }
 
+/* Apply hi1.png (Desktop) directly to HeroSection when canvas disabled */
+.layout.canvas-disabled .welcome-div {
+    background: url('/assets/images/hi1.png') center center / cover no-repeat fixed !important;
+    position: relative;
+    /* Ensure it stays above everything */
+}
+
+/* Add separate blur and theme hue overlays for Desktop */
+.layout.canvas-disabled .welcome-div::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(8px);
+    /* Visible blur */
+    z-index: 1;
+    pointer-events: none;
+}
+
+.layout.canvas-disabled .welcome-div::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #5227FF;
+    /* Default Purple */
+    opacity: 0.4;
+    /* Increased visibility */
+    mix-blend-mode: color;
+    z-index: 1;
+    pointer-events: none;
+}
+
+[data-theme='light'] .layout.canvas-disabled .welcome-div::after {
+    background: #00C853;
+    /* Green for Light Mode */
+    opacity: 0.5;
+}
+
+[data-theme='bw'] .layout.canvas-disabled .welcome-div::after {
+    background: #000000;
+    /* Black for B&W Mode */
+    opacity: 0.7;
+    mix-blend-mode: color;
+}
+
+/* Mobile/Android: Use hi.png - No extra effects */
+@media (max-width: 768px) {
+    .layout.canvas-disabled .welcome-div {
+        background: url('/assets/images/hi.png') center center / cover no-repeat fixed !important;
+    }
+
+    /* Remove overlays on mobile */
+    .layout.canvas-disabled .welcome-div::before,
+    .layout.canvas-disabled .welcome-div::after {
+        display: none;
+    }
+}
+
+/* Ensure prismatic background is transparent so image shows */
+.layout.canvas-disabled .prismatic-background {
+    background: none !important;
+    background-color: transparent !important;
+}
+
+/* Hide and remove all canvas-related elements */
+.layout.canvas-disabled canvas,
+.layout.canvas-disabled .webgpu-background,
+.layout.canvas-disabled .fluid-glass-background {
+    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+}
+
+
+
+/* Layout Controls (Top Right) */
+.layout-controls {
+    position: fixed;
+    top: 2rem;
+    /* Match Logo top */
+    right: 0;
+    z-index: 900;
+    /* Behind sidebar (1000+) */
+    pointer-events: none;
+    /* Let clicks pass through container */
+}
+
+.control-btn {
+    pointer-events: auto;
+    position: fixed;
+    top: 2rem;
+    width: 64px;
+    height: 64px;
+    border-radius: 0;
+    /* Brutalist */
+    border: 4px solid #000000;
+    box-shadow: 8px 8px 0px #000000;
+    color: #FFFFFF;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.2s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 0.2s cubic-bezier(0.19, 1, 0.22, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    justify-content: center;
+    outline: none;
+    z-index: 900;
+    /* Behind sidebar */
+}
+
+/* 1. Hamburger is at right: 2rem (defined in StaggeredMenu.css) */
+
+/* 2. Theme Toggle - Beside Hamburger */
+/* 2. Theme Toggle - Beside Hamburger */
+.app-theme-btn {
+    right: calc(2rem + 64px + 1rem);
+    /* 2rem margin + 64px btn + 1rem gap */
+    background: #5227FF;
+}
+
+/* 3. Canvas Toggle - Beside Theme Toggle */
+.app-canvas-btn {
+    right: calc(2rem + 64px + 1rem + 64px + 1rem);
+    background: #5227FF;
+}
+
+/* Hide Canvas Button on specific pages */
+body.calculator-page .app-canvas-btn {
+    display: none !important;
+}
+
+[data-theme='light'] .control-btn {
+    background: #00C853;
+    border-color: #000000;
+    box-shadow: 8px 8px 0px #000000;
+}
+
+[data-theme='bw'] .control-btn {
+    background: #FFFFFF;
+    color: #000000;
+    border-color: #000000;
+    box-shadow: 8px 8px 0px #000000;
+}
+
+.control-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.control-btn:active {
+    transform: translate(4px, 4px);
+    box-shadow: 4px 4px 0px #000000;
+}
+
+@media (max-width: 768px) {
+    .control-btn {
+        top: 1.5rem;
+        width: 54px;
+        height: 54px;
+        font-size: 20px;
+    }
+
+    /* Hamburger is width 54px in mobile StaggeredMenu */
+    /* Hamburger is width 54px in mobile StaggeredMenu */
+    .app-theme-btn {
+        display: none !important;
+    }
+
+
+    /* Hide canvas button from header on mobile (moved to menu) */
+    .app-canvas-btn {
+        display: none !important;
+    }
+}
+
+
+
+/* Warning Modal */
+.canvas-warning-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.canvas-warning-modal {
+    background: var(--bg-primary);
+    border: 4px solid var(--text-primary);
+    box-shadow: 10px 10px 0px var(--text-primary);
+    padding: 2rem;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+.canvas-warning-modal h3 {
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: var(--text-primary);
+}
+
+.canvas-warning-modal p {
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+}
+
+.warning-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.warning-btn {
+    padding: 12px 24px;
+    font-family: inherit;
+    font-weight: 900;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 3px solid var(--text-primary);
+    background: transparent;
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+    box-shadow: 4px 4px 0px var(--text-primary);
+}
+
+.warning-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px var(--text-primary);
+}
+
+.warning-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px var(--text-primary);
+}
+
+.warning-btn.confirm {
+    background: var(--text-primary);
+    color: var(--bg-primary);
+}
+
+[data-theme='light'] .canvas-warning-modal,
+[data-theme='light'] .warning-btn {
+    border-color: #000;
+    box-shadow: 4px 4px 0px #000;
+    color: #000;
+}
+
+[data-theme='light'] .canvas-warning-modal h3 {
+    color: #000;
+}
+
+[data-theme='light'] .canvas-warning-modal p {
+    color: #333;
+}
+
+[data-theme='light'] .warning-btn.confirm {
+    background: #000;
+    color: #FFF;
+}
+
+
+
 /* Prevent flash by ensuring smooth transitions */
 main,
 footer {

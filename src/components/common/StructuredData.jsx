@@ -13,16 +13,18 @@ function StructuredData({ type = 'Person', data = {} }) {
           ...baseData,
           name: 'Ananay Dubey',
           jobTitle: 'Full Stack Developer',
-          url: 'https://ananaydubey.com',
+          url: 'https://ananay.netlify.app',
           sameAs: [
             'https://linkedin.com/in/ananaydubey',
-            'https://github.com/ananaydubey',
+            'https://github.com/FTS18',
+            'https://youtube.com/@spacify18',
+            'https://instagram.com/ananay_dubey',
             'https://twitter.com/ananaydubey'
           ],
-          knowsAbout: ['React', 'JavaScript', 'Python', 'Machine Learning', 'Web Development'],
+          knowsAbout: ['React', 'JavaScript', 'TypeScript', 'Next.js', 'Python', 'Machine Learning', 'Web Development'],
           alumniOf: {
             '@type': 'Organization',
-            name: 'Your University'
+            name: 'PEC Chandigarh'
           },
           ...data
         }
@@ -31,7 +33,7 @@ function StructuredData({ type = 'Person', data = {} }) {
         return {
           ...baseData,
           name: 'Ananay Dubey - Portfolio',
-          url: 'https://ananaydubey.com',
+          url: 'https://ananay.netlify.app',
           description: 'Full Stack Developer specializing in React, Python, and Machine Learning',
           author: {
             '@type': 'Person',
@@ -39,7 +41,7 @@ function StructuredData({ type = 'Person', data = {} }) {
           },
           potentialAction: {
             '@type': 'SearchAction',
-            target: 'https://ananaydubey.com/search?q={search_term_string}',
+            target: 'https://ananay.netlify.app/search?q={search_term_string}',
             'query-input': 'required name=search_term_string'
           },
           ...data
@@ -55,7 +57,7 @@ function StructuredData({ type = 'Person', data = {} }) {
             name: 'Ananay Dubey'
           },
           description: 'A collection of web development and machine learning projects',
-          url: 'https://ananaydubey.com',
+          url: 'https://ananay.netlify.app',
           ...data
         }
 

@@ -5,6 +5,7 @@ import ProjectCard from './ProjectCard'
 import ProjectModal from './ProjectModal'
 import FilterBar from './FilterBar'
 import { useAllProjectViews } from '../../hooks/useFirebase'
+import { getProjectsCache, getProjectsPromise } from '../../App'
 import './ProjectsSection.css'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -33,39 +34,57 @@ function ProjectsSection() {
   })
 
   useEffect(() => {
-    fetch('/assets/projects.json')
-      .then(response => response.json())
-      .then(data => {
-        setProjects(data)
-        setFilteredProjects(data)
-        
-        // Calculate stats
-        const uniqueTechs = new Set()
-        const currentYear = new Date().getFullYear().toString()
-        const projectsThisYear = data.filter(p => p.date && p.date.includes(currentYear)).length
-        
-        data.forEach(project => {
-          project.tags?.forEach(tag => uniqueTechs.add(tag))
-        })
-        
-        setStats({
-          total: data.length,
-          technologies: uniqueTechs.size,
-          totalViews: 0,
-          featured: data.filter(p => p.featured).length,
-          growth: projectsThisYear || Math.floor(data.length * 0.3)
-        })
-        
-        const techStackTags = ['React', 'TypeScript', 'Tailwind', 'AI', 'NLP', 'FastAPI', 'Python', 'Langchain', 'ML', 'Next.js', 'SSR', 'MongoDB', 'Firebase', 'HTML', 'CSS', 'Javascript', 'WebRTC', 'MySQL', 'Fest', 'TechFest', 'YouthZest', 'PEC Fest']
-        let tags = []
-        data.forEach(project => {
-          tags = tags.concat(project.tags)
-        })
-        const filteredTags = [...new Set(tags.filter(tag => techStackTags.includes(tag)))]
-        setAllTags(filteredTags)
-      })
-      .catch(error => console.error('Error fetching projects:', error))
+    // Try to use cached data first
+    const cachedData = getProjectsCache()
+    if (cachedData) {
+      processProjectsData(cachedData)
+    } else {
+      // If not cached yet, wait for the promise
+      const promise = getProjectsPromise()
+      if (promise) {
+        promise.then(data => processProjectsData(data))
+      } else {
+        // Fallback: fetch directly (shouldn't happen normally)
+        fetch('/assets/projects.json')
+          .then(response => response.json())
+          .then(data => processProjectsData(data))
+          .catch(error => console.error('Error fetching projects:', error))
+      }
+    }
   }, [])
+
+  const processProjectsData = (rawData) => {
+    // Filter out hidden projects (commented out in JSON via _title or hidden: true)
+    const data = rawData.filter(p => !p.hidden && !p.title?.startsWith('_'))
+
+    setProjects(data)
+    setFilteredProjects(data)
+    
+    // Calculate stats
+    const uniqueTechs = new Set()
+    const currentYear = new Date().getFullYear().toString()
+    const projectsThisYear = data.filter(p => p.date && p.date.includes(currentYear)).length
+    
+    data.forEach(project => {
+      project.tags?.forEach(tag => uniqueTechs.add(tag))
+    })
+    
+    setStats({
+      total: data.length,
+      technologies: uniqueTechs.size,
+      totalViews: 0,
+      featured: data.filter(p => p.featured).length,
+      growth: projectsThisYear || Math.floor(data.length * 0.3)
+    })
+    
+    const techStackTags = ['React', 'TypeScript', 'Tailwind', 'AI', 'NLP', 'FastAPI', 'Python', 'Langchain', 'ML', 'Next.js', 'SSR', 'MongoDB', 'Firebase', 'HTML', 'CSS', 'Javascript', 'WebRTC', 'MySQL', 'Fest', 'TechFest', 'YouthZest', 'PEC Fest']
+    let tags = []
+    data.forEach(project => {
+      tags = tags.concat(project.tags)
+    })
+    const filteredTags = [...new Set(tags.filter(tag => techStackTags.includes(tag)))]
+    setAllTags(filteredTags)
+  }
 
   useEffect(() => {
     let filtered = projects
