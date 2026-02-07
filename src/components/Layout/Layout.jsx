@@ -7,7 +7,6 @@ import './Layout.css'
 const StaggeredMenu = lazy(() => import('./StaggeredMenu'))
 const GradualBlur = lazy(() => import('../common/GradualBlur'))
 const ClickSpark = lazy(() => import('../common/ClickSpark'))
-const PWAInstall = lazy(() => import('../common/PWAInstall'))
 const Footer = lazy(() => import('./Footer'))
 const BackToTop = lazy(() => import('../common/BackToTop'))
 const GlassSurface = lazy(() => import('../common/GlassSurface'))
@@ -235,9 +234,7 @@ function Layout() {
             <BackToTop />
           </Suspense>
           
-          <Suspense fallback={null}>
-            <PWAInstall />
-          </Suspense>
+
         </div>
 
         {/* Performance Warning Modal */}
