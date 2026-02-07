@@ -6,12 +6,21 @@ export const handler = async function (event, context) {
     if (!url || !ytdl.validateURL(url)) {
         return {
             statusCode: 400,
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            },
             body: JSON.stringify({ error: 'Invalid YouTube URL' })
         };
     }
 
     try {
         const info = await ytdl.getBasicInfo(url);
+
+        // Ensure video details exist
+        if (!info || !info.videoDetails) {
+            throw new Error('Video details not available');
+        }
 
         // Choose format logic (simplified for metadata display)
         const formats = info.formats
@@ -26,7 +35,7 @@ export const handler = async function (event, context) {
             statusCode: 200,
             headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*' // Enable CORS for local dev
+                'Access-Control-Allow-Origin': '*'
             },
             body: JSON.stringify({
                 title: info.videoDetails.title,
@@ -37,10 +46,17 @@ export const handler = async function (event, context) {
             })
         };
     } catch (error) {
-        console.error('Meta info error:', error);
+        console.error('Meta info error:', error.message, error.stack);
         return {
             statusCode: 500,
-            body: JSON.stringify({ error: 'Failed to fetch video info' })
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            },
+            body: JSON.stringify({
+                error: 'Failed to fetch video info',
+                message: error.message
+            })
         };
     }
 };
