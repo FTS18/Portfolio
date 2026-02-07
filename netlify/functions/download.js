@@ -1,6 +1,27 @@
 import ytdl from '@distube/ytdl-core';
+import { checkRateLimit } from './utils/rateLimit.js';
 
 export const handler = async function (event, context) {
+    // Rate limiting
+    const clientIP = event.headers['x-forwarded-for'] ||
+        event.headers['client-ip'] ||
+        'unknown';
+
+    const rateCheck = checkRateLimit(clientIP);
+    if (!rateCheck.allowed) {
+        return {
+            statusCode: 429,
+            headers: {
+                'Content-Type': 'application/json',
+                'Retry-After': rateCheck.retryAfter.toString()
+            },
+            body: JSON.stringify({
+                error: 'Too many requests',
+                retryAfter: rateCheck.retryAfter
+            })
+        };
+    }
+
     const { url, quality } = event.queryStringParameters;
 
     if (!url || !ytdl.validateURL(url)) {

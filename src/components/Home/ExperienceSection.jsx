@@ -323,7 +323,7 @@ function ExperienceSection() {
           >
             <div className="exp-icon">
               {item.image ? (
-                <img src={item.image} alt={item.organization} className="exp-logo" />
+                <img src={item.image} alt={item.organization} className="exp-logo" loading="lazy" />
               ) : (
                 <i className={`fa-solid ${item.icon}`}></i>
               )}

@@ -142,7 +142,7 @@ function PersonalSection() {
             <div className="personal-image-wrapper">
               <picture>
                 <source media="(max-width: 768px)" srcSet="/assets/images/me2.webp" />
-                <img src="/assets/images/me.webp" alt="Ananay Dubey" className="personal-image" width={400} height={400} />
+                <img src="/assets/images/me.webp" alt="Ananay Dubey" className="personal-image" width={400} height={400} loading="lazy" />
               </picture>
             </div>
           </div>

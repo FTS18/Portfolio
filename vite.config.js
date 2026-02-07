@@ -35,7 +35,7 @@ export default defineConfig({
                 ]
             },
             workbox: {
-                globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}'],
+                globPatterns: ['**/*.{js,css,html,ico,svg,woff2}'], // Exclude png/jpg to avoid precaching large images
                 maximumFileSizeToCacheInBytes: 5 * 1024 * 1024, // 5 MB limit for large images
                 runtimeCaching: [
                     {
@@ -92,11 +92,28 @@ export default defineConfig({
         rollupOptions: {
             output: {
                 manualChunks: {
+                    // Core React libraries - most critical
                     vendor: ['react', 'react-dom', 'react-router-dom'],
-                    firebase: ['firebase/app', 'firebase/database', 'firebase/auth', 'firebase/firestore'],
+
+                    // Firebase split by service for better caching
+                    'firebase-core': ['firebase/app'],
+                    'firebase-db': ['firebase/database', 'firebase/firestore'],
+                    'firebase-auth': ['firebase/auth'],
+
+                    // 3D libraries - large and optional
                     three: ['three', '@react-three/fiber', '@react-three/drei'],
+
+                    // Animation libraries
                     animations: ['gsap', 'motion'],
-                    utils: ['maath', 'debug', 'ogl']
+
+                    // Utilities - only if they exist
+                    ...((() => {
+                        try {
+                            return { utils: ['maath', 'debug', 'ogl'] };
+                        } catch {
+                            return {};
+                        }
+                    })())
                 },
                 chunkFileNames: 'assets/js/[name]-[hash].js',
                 entryFileNames: 'assets/js/[name]-[hash].js',

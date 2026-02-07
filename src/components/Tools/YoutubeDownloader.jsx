@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { deduplicateRequest } from '../../utils/requestDeduplication'
 import './YoutubeDownloader.css'
 
 const YoutubeDownloader = () => {
@@ -15,18 +16,22 @@ const YoutubeDownloader = () => {
         setVideoInfo(null)
 
         try {
-            // Use relative path for Netlify Functions
-            const response = await fetch(`/.netlify/functions/metainfo?url=${encodeURIComponent(url)}`)
-            const data = await response.json()
+            // Use request deduplication to prevent duplicate calls for the same URL
+            const data = await deduplicateRequest(`video-${url}`, async () => {
+                const response = await fetch(`/.netlify/functions/metainfo?url=${encodeURIComponent(url)}`)
+                const json = await response.json()
+                
+                if (!response.ok) {
+                    throw new Error(json.error || 'Failed to fetch video info')
+                }
+                
+                return json
+            })
             
-            if (response.ok) {
-                setVideoInfo(data)
-            } else {
-                setError(data.error || 'Failed to fetch video info')
-            }
+            setVideoInfo(data)
         } catch (err) {
             console.error(err)
-            setError('Failed to connect to backend functions.')
+            setError(err.message || 'Failed to connect to backend functions.')
         } finally {
             setLoading(false)
         }

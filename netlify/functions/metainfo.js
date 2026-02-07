@@ -1,6 +1,29 @@
 import ytdl from '@distube/ytdl-core';
+import { checkRateLimit, getRateLimitHeaders } from './utils/rateLimit.js';
 
 export const handler = async function (event, context) {
+    // Get client IP for rate limiting
+    const clientIP = event.headers['x-forwarded-for'] ||
+        event.headers['client-ip'] ||
+        'unknown';
+
+    // Check rate limit
+    const rateCheck = checkRateLimit(clientIP);
+    if (!rateCheck.allowed) {
+        return {
+            statusCode: 429,
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+                'Retry-After': rateCheck.retryAfter.toString()
+            },
+            body: JSON.stringify({
+                error: 'Too many requests',
+                retryAfter: rateCheck.retryAfter
+            })
+        };
+    }
+
     const { url } = event.queryStringParameters;
 
     if (!url || !ytdl.validateURL(url)) {
@@ -35,7 +58,8 @@ export const handler = async function (event, context) {
             statusCode: 200,
             headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*'
+                'Access-Control-Allow-Origin': '*',
+                'Cache-Control': 'public, max-age=300' // Cache for 5 minutes
             },
             body: JSON.stringify({
                 title: info.videoDetails.title,
