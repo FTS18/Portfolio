@@ -1,8 +1,9 @@
+import GraphingCalculator from '../components/Calculator/GraphingCalculator'
+
 function Graphing() {
   return (
-    <div>
-      <h1>Graphing Calculator</h1>
-      <p>Graphing calculator functionality will be migrated here.</p>
+    <div style={{ paddingTop: '80px', height: '100vh', boxSizing: 'border-box' }}>
+      <GraphingCalculator />
     </div>
   )
 }

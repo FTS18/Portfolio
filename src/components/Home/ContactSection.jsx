@@ -28,7 +28,7 @@ function ContactSection() {
     },
     {
       name: 'WhatsApp',
-      url: 'https://wa.me/919580711960',
+      url: 'https://wa.me/917719767324',
       icon: 'fa-brands fa-whatsapp',
       color: '#25D366'
     },

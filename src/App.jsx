@@ -32,6 +32,7 @@ const CalculatorSuite = lazy(() => import('./pages/CalculatorSuite'))
 const Graphing = lazy(() => import('./pages/Graphing'))
 const Login = lazy(() => import('./pages/Login'))
 const NotFound = lazy(() => import('./pages/NotFound'))
+const Youtube = lazy(() => import('./pages/Youtube'))
 
 function App() {
   // Preload projects data on mount
@@ -47,6 +48,7 @@ function App() {
           <Route path="calculator" element={<CalculatorSuite />} />
           <Route path="graphing" element={<Graphing />} />
           <Route path="login" element={<Login />} />
+          <Route path="youtube" element={<Youtube />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

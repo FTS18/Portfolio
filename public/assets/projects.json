@@ -315,18 +315,18 @@
     {
         "title": "YT Video Downloader",
         "shortDesc": "YouTube video downloader utility with clean interface and multiple format support for content creators.",
-        "longDesc": "This utility provides a clean, ad-free interface for downloading YouTube videos in various formats and qualities. Users simply paste a video URL and select their preferred resolution, from 360p for mobile viewing and data saving to 4K for maximum quality viewing. The tool supports both video downloads in various formats including MP4 and WebM, as well as audio-only downloads in MP3 and M4A for music enthusiasts.\n\nThe interface is intentionally minimal and focused on functionality, avoiding the bloat, confusing options, and intrusive ads found on most download websites. Built with modern JavaScript, it leverages external API services for video processing while handling errors gracefully with helpful, user-friendly feedback messages. The tool shows video thumbnails, titles, duration, and available quality options before download.\n\nThe project demonstrates API integration patterns, asynchronous JavaScript with async/await, Blob handling for file downloads, and progressive enhancement for broad browser compatibility. Features include download progress tracking, batch download queue for multiple videos, remembering preferred quality settings, and the ability to resume interrupted downloads. Note: Users are encouraged to respect copyright and only download content they have rights to use.",
-        "link": "/pages/youtube-video-downloader.html",
+        "longDesc": "This utility provides a clean, ad-free interface for downloading YouTube videos in various formats and qualities. Built with React and serverless Netlify Functions, users simply paste a video URL and the tool fetches video metadata including thumbnail, title, author, and duration. Select your preferred quality from Best Quality (highest available resolution), Lowest Quality (for saving bandwidth), or Audio Only (for music downloads).\n\nThe interface features a modern brutalist design with glassmorphism effects, a convenient clipboard paste button for quick URL input, real-time video preview before downloading, and quality selection with clear descriptions. The tool handles all processing through secure serverless functions, ensuring privacy and avoiding the bloat and intrusive ads found on most download websites.\n\nBuilt with modern technologies including React for the frontend, Netlify Functions for serverless backend processing, ytdl-core for YouTube video extraction, and a responsive design that works beautifully on all devices. Features include error handling with helpful feedback, loading states for better UX, and support for various video formats. Note: Users are encouraged to respect copyright and only download content they have rights to use.",
+        "link": "/youtube",
         "github": "https://github.com/FTS18/Youtube-Video-Downloader",
         "image": "assets/images/screenshots/ss6.webp",
         "date": "May, 2023",
         "tags": [
-            "HTML5",
-            "CSS3",
+            "React",
+            "Netlify Functions",
             "JavaScript",
-            "YouTube API",
+            "ytdl-core",
             "REST API",
-            "Blob",
+            "Serverless",
             "Utility"
         ]
     },

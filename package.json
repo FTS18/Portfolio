@@ -4,20 +4,21 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "npx netlify-cli dev",
     "build": "npm run generate:sitemap && vite build && npm run generate:critical",
     "preview": "vite preview",
     "lint": "eslint .",
     "generate:sitemap": "node scripts/generateSitemap.js",
     "generate:critical": "node scripts/generateCriticalCSS.js",
-    "optimize:images": "node scripts/optimizeImages.js",
     "analyze": "npx vite-bundle-analyzer"
   },
   "dependencies": {
+    "@distube/ytdl-core": "^4.16.12",
     "@react-three/drei": "^9.122.0",
     "@react-three/fiber": "^8.18.0",
     "debug": "^4.4.3",
     "firebase": "^12.9.0",
+    "function-plot": "^1.25.3",
     "gsap": "^3.14.2",
     "maath": "^0.10.8",
     "motion": "^12.23.26",
@@ -26,7 +27,9 @@
     "react-dom": "^18.3.1",
     "react-helmet-async": "^2.0.4",
     "react-router-dom": "^6.22.0",
-    "three": "^0.160.1"
+    "three": "^0.160.1",
+    "vite-plugin-pwa": "^1.2.0",
+    "workbox-window": "^7.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.28.5",
@@ -39,17 +42,11 @@
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.16",
     "glob": "^13.0.0",
-    "imagemin": "^9.0.1",
-    "imagemin-avif": "^0.1.6",
-    "imagemin-webp": "^6.1.0",
     "terser": "^5.44.1",
     "vite": "^6.0.3",
     "vite-plugin-compression": "^0.5.1"
   },
   "overrides": {
-    "imagemin-webp": {
-      "cwebp-bin": "^8.0.0"
-    },
     "cross-spawn": "^7.0.0",
     "semver-regex": "^3.1.4",
     "got": "^11.8.6"

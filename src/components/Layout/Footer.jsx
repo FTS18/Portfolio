@@ -62,9 +62,9 @@ function Footer() {
             <i className="fas fa-envelope"></i>
             <span>dubeyananay@gmail.com</span>
           </a>
-          <a href="tel:+919580711960" className="contact-item contact-link">
+          <a href="tel:+917719767324" className="contact-item contact-link">
             <i className="fas fa-phone"></i>
-            <span>+91 9580711960</span>
+            <span>+91 7719767324</span>
           </a>
           <div className="footer-socials-row">
             {socialLinks.map((link, index) => (

@@ -1,18 +1,13 @@
 [build]
-  publish = "dist"
   command = "npm run build"
+  publish = "dist"
 
-[[headers]]
-  for = "/*.js"
-  [headers.values]
-    Content-Type = "text/javascript"
+[dev]
+  command = "vite"
+  port = 8888
+  targetPort = 3000
+  publish = "dist"
+  functions = "netlify/functions"
 
-[[headers]]
-  for = "/*.jsx"
-  [headers.values]
-    Content-Type = "text/javascript"
-
-[[headers]]
-  for = "/*.mjs"
-  [headers.values]
-    Content-Type = "text/javascript"
+[functions]
+  node_bundler = "esbuild"
