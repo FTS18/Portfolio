@@ -42,8 +42,9 @@
             "Dashboard",
             "RBAC",
             "College",
-            "Ideathon 5.0"
-        ]
+            "PEC","Ideathon 5.0"
+        ],
+        "hackathon": "Special Mention @ PEC Ideathon 5.0"
     },
     {
         "title": "Gramin Saathi",
@@ -54,7 +55,7 @@
         "image": "assets/images/screenshots/gs.webp",
         "date": "December, 2025",
         "pptLink": "/assets/graminsaathi.pdf",
-        "hackathon": "Thapar Hackathon 2025",
+        "hackathon": "2nd Place - Thapar Ideathon 2025",
         "tags": [
             "React",
             "TypeScript",
@@ -82,7 +83,7 @@
         "image": "assets/images/screenshots/po.webp",
         "date": "November, 2025",
         "pptLink": "/assets/scubeAI.pdf",
-        "hackathon": "EY Techathon 2025",
+        "hackathon": "Round 2 - EY Techathon 2025",
         "tags": [
             "React",
             "TypeScript",
@@ -154,7 +155,7 @@
         "image": "assets/images/screenshots/ss1.webp",
         "date": "August, 2025",
         "pptLink": "/assets/sakshamAI.pdf",
-        "hackathon": "Smart India Hackathon 2025",
+        "hackathon": "Round 2 - Smart India Hackathon 2025",
         "tags": [
             "React",
             "TypeScript",

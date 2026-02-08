@@ -171,6 +171,10 @@ function PersonalSection() {
           <div 
             className="bento-tile bento-github-dashboard b-s10" 
             onClick={() => setShowGithubModal(true)}
+            role="button"
+            tabIndex="0"
+            aria-label="Open GitHub activity dashboard"
+            onKeyDown={(e) => e.key === 'Enter' && setShowGithubModal(true)}
           >
             <div className="dashboard-header">
               <span className="bento-label">DASHBOARD</span>

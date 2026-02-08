@@ -146,6 +146,50 @@
     color: #000;
 }
 
+/* Force dark text for light backgrounds (overrides the above white text rules) */
+.exp-item.light-bg {
+    color: #000 !important;
+}
+
+.exp-item.light-bg .exp-title,
+.exp-item.light-bg .exp-description,
+.exp-item.light-bg .exp-org,
+.exp-item.light-bg .exp-date,
+.exp-item.light-bg .exp-meta,
+.exp-item.light-bg .exp-org i,
+.exp-item.light-bg .exp-date i {
+    color: #000 !important;
+}
+
+.exp-item.light-bg .exp-badge {
+    background: rgba(0, 0, 0, 0.9);
+    color: #fff !important;
+    border-color: #000;
+}
+
+.exp-item.light-bg .exp-tag {
+    background: rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.2);
+    color: #000 !important;
+}
+
+.exp-item.light-bg .exp-link-btn {
+    background: #000;
+    color: #fff !important;
+    border-color: #000;
+}
+
+.exp-item.light-bg .exp-link-github {
+    background: rgba(0, 0, 0, 0.05);
+    color: #000 !important;
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+.exp-item.light-bg .exp-link-github:hover {
+    background: #000;
+    color: #fff !important;
+}
+
 /* Ensure icon/logo visibility on colored backgrounds */
 .exp-item[style*="backgroundColor"] .exp-icon {
     background: #fff !important;
@@ -431,12 +475,22 @@
 
     .experience-tabs {
         gap: 12px;
+        position: relative;
+        z-index: 10;
     }
 
     .exp-tab {
-        padding: 12px 20px;
+        padding: 16px 24px;
+        /* Larger touch target */
         font-size: 11px;
         gap: 8px;
+        opacity: 1 !important;
+        /* Override GSAP */
+        visibility: visible !important;
+        pointer-events: auto !important;
+        cursor: pointer;
+        position: relative;
+        z-index: 11;
     }
 
     .exp-tab span {
@@ -444,7 +498,8 @@
     }
 
     .exp-tab i {
-        font-size: 18px;
+        font-size: 20px;
+        /* Slightly larger icon */
     }
 
     .exp-item {
@@ -483,15 +538,35 @@
         width: 100% !important;
         max-width: 100% !important;
         transform: none !important;
-        /* Disable scroll-triggered entrance or hover anims */
+        /* Disable scroll-triggered entrance or hover anims by enforcing state */
         margin-left: 0 !important;
         margin-right: 0 !important;
         opacity: 1 !important;
-        /* Ensure visible if GSAP hides them */
+        cursor: pointer;
+        visibility: visible !important;
+        pointer-events: auto !important;
     }
 
-    /* Keep simple hover effect but remove layout movement */
-    .exp-item:hover {
-        transform: translateY(-2px) !important;
+    /* REMOVE HOVER EFFECTS to prevent double-tap issues on touch */
+    .exp-item:hover,
+    .exp-item:active,
+    .exp-item:focus {
+        transform: none !important;
+        box-shadow: 6px 6px 0 var(--border-hard) !important;
+        /* Keep original shadow */
+    }
+
+    .exp-link-btn:hover,
+    .exp-link-github:hover,
+    .exp-tab:hover {
+        transform: none !important;
+        box-shadow: 4px 4px 0 var(--border-hard) !important;
+        /* Keep original shadow */
+    }
+
+    /* Ensure z-index is safe */
+    .exp-item {
+        position: relative;
+        z-index: 5;
     }
 }

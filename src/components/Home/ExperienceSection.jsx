@@ -34,12 +34,14 @@ function ExperienceSection() {
       title: 'Ideathon 5.0',
       organization: 'Punjab Engineering College',
       date: 'Feb, 2026',
+      achievement: 'Special Mention',
       description: 'Built OmniFlow - Universal College ERP Platform designed to streamline institutional operations and enhance academic management',
       tags: ['React', 'Node.js', 'MongoDB', 'Express.js', 'Tailwind CSS', 'Redux', 'ERP'],
       image: '/assets/images/pec.png',
       link: 'https://omnifloww.netlify.app/',
       github: 'https://github.com/FTS18/omnifow',
-      color: '#FFA500' // Orange
+      color: '#FFA500', // Orange
+      textColor: 'dark'
     },
     {
       id: 2,
@@ -78,7 +80,8 @@ function ExperienceSection() {
       link: 'https://pecathon.vercel.app',
       github: 'https://github.com/FTS18/conduit_frontend',
       githubBackend: 'https://github.com/FTS18/conduit_backend',
-      color: '#FBBF24' // Yellow
+      color: '#FBBF24', // Yellow
+      textColor: 'dark'
     },
     {
       id: 5,
@@ -102,7 +105,8 @@ function ExperienceSection() {
       description: 'Led web development team across 2 interschool tech fests. Won a total of 3 gold medals in the second event',
       tags: ['Leadership', 'Front-End Development', 'HTML', 'Node.js', 'Web Design'],
       image: '/assets/images/yz.png',
-      color: '#48ec56ff' // Pink
+      color: '#48ec56ff', // Pink/Green
+      textColor: 'dark'
     }
   ]
 
@@ -274,7 +278,15 @@ function ExperienceSection() {
       if (projectIndex !== -1) {
         setSelectedProject(projects[projectIndex])
         setSelectedProjectIndex(projectIndex)
+        return
       }
+    }
+
+    // Fallback: If no project modal to open, check for direct links
+    if (item.link) {
+      window.open(item.link, '_blank', 'noopener,noreferrer')
+    } else if (item.github) {
+      window.open(item.github, '_blank', 'noopener,noreferrer')
     }
   }
 
@@ -318,7 +330,7 @@ function ExperienceSection() {
         {(showAll[activeTab] ? data[activeTab] : data[activeTab].slice(0, 3)).map((item) => (
           <div 
             key={item.id} 
-            className="exp-item"
+            className={`exp-item ${item.textColor === 'dark' ? 'light-bg' : ''}`}
             style={item.color ? { backgroundColor: item.color, cursor: 'pointer' } : { cursor: 'pointer' }}
             onClick={() => handleItemClick(item)}
           >
@@ -357,19 +369,37 @@ function ExperienceSection() {
               {(item.link || item.github || item.githubBackend) && (
                 <div className="exp-links">
                   {item.link && (
-                    <a href={item.link} target="_blank" rel="noopener noreferrer" className="exp-link-btn">
+                    <a 
+                      href={item.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="exp-link-btn"
+                      onClick={(e) => e.stopPropagation()}
+                    >
                       <i className="fa-solid fa-arrow-up-right-from-square"></i>
                       View Project
                     </a>
                   )}
                   {item.github && (
-                    <a href={item.github} target="_blank" rel="noopener noreferrer" className="exp-link-btn exp-link-github">
+                    <a 
+                      href={item.github} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="exp-link-btn exp-link-github"
+                      onClick={(e) => e.stopPropagation()}
+                    >
                       <i className="fa-brands fa-github"></i>
                       {item.githubBackend ? 'Frontend' : 'GitHub'}
                     </a>
                   )}
                   {item.githubBackend && (
-                    <a href={item.githubBackend} target="_blank" rel="noopener noreferrer" className="exp-link-btn exp-link-github">
+                    <a 
+                      href={item.githubBackend} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="exp-link-btn exp-link-github"
+                      onClick={(e) => e.stopPropagation()}
+                    >
                       <i className="fa-brands fa-github"></i>
                       Backend
                     </a>

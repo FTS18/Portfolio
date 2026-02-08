@@ -104,7 +104,7 @@ function ProjectCard({ project, onOpenModal, priority = false }) {
           cardRef.current.style.setProperty('--card-accent-text', `rgb(${tr}, ${tg}, ${tb})`);
           
           const brightness = (finalR * 299 + finalG * 587 + finalB * 114) / 1000;
-          const contrastText = brightness > 155 ? '#000000' : '#FFFFFF';
+          const contrastText = brightness > 145 ? '#000000' : '#FFFFFF';
           cardRef.current.style.setProperty('--card-accent-contrast', contrastText);
         }
       } catch (e) {
@@ -129,7 +129,7 @@ function ProjectCard({ project, onOpenModal, priority = false }) {
       try {
         await navigator.share({
           title: project.title,
-          text: project.description || 'Check out this project!',
+          text: project.shortDesc || project.description || 'Check out this project!',
           url: project.link
         })
       } catch (err) {

@@ -281,6 +281,7 @@ function GuestbookSection() {
                 onChange={(e) => setMessage(e.target.value.slice(0, MAX_CHARS))}
                 rows={3}
                 disabled={isSubmitting}
+                aria-label="Your anonymous message"
               />
               <div className="input-footer">
                 <span className={`char-count ${message.length > MAX_CHARS - 20 ? 'warning' : ''}`}>
@@ -290,6 +291,7 @@ function GuestbookSection() {
                   type="submit" 
                   className="submit-btn"
                   disabled={!message.trim() || isSubmitting || cooldown > 0}
+                  aria-label={isSubmitting ? "Sending message..." : "Send anonymous message"}
                 >
                   {isSubmitting ? (
                     <i className="fa-solid fa-spinner fa-spin"></i>

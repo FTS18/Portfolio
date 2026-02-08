@@ -11,6 +11,7 @@ function FilterBar({ tags, selectedTags, onTagToggle }) {
         className="filter-toggle-mobile"
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
+        aria-label={`${isOpen ? 'Close' : 'Open'} technology filters`}
       >
         <span className="filter-toggle-label">FILTER</span>
         <i className={`fa-solid fa-chevron-${isOpen ? 'up' : 'down'}`}></i>
@@ -28,6 +29,7 @@ function FilterBar({ tags, selectedTags, onTagToggle }) {
             className={`radio-button ${selectedTags.includes(tag) ? 'active' : ''}`}
             onClick={() => onTagToggle(tag)}
             aria-pressed={selectedTags.includes(tag)}
+            aria-label={`Filter by ${tag}`}
           >
             {tag}
           </button>

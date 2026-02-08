@@ -204,11 +204,11 @@ function HeroSection({ isLoaderComplete = false, canvasEnabled = true }) {
         </h1>
         
         <div className="hero-ctas">
-          <a href="/assets/resume.pdf" target="_blank" rel="noopener noreferrer" className="hero-cta cta-resume">
+          <a href="/assets/resume.pdf" target="_blank" rel="noopener noreferrer" className="hero-cta cta-resume" aria-label="Download or view my PDF resume">
             <i className="fa-solid fa-file-pdf"></i>
             Resume
           </a>
-          <a href="#project-grid" className="hero-cta cta-projects">
+          <a href="#project-grid" className="hero-cta cta-projects" aria-label="Scroll to projects section">
             <i className="fa-solid fa-grid-2"></i>
             Projects
           </a>
