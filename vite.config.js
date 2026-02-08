@@ -35,9 +35,20 @@ export default defineConfig({
                 ]
             },
             workbox: {
-                globPatterns: ['**/*.{js,css,html,ico,svg,woff2}'], // Exclude png/jpg to avoid precaching large images
-                maximumFileSizeToCacheInBytes: 5 * 1024 * 1024, // 5 MB limit for large images
+                globPatterns: ['**/*.{js,css,html,ico,svg,woff2,json}'], // Include json to ensure projects.json updates
+                maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
                 runtimeCaching: [
+                    {
+                        urlPattern: ({ url }) => url.pathname.endsWith('.json'),
+                        handler: 'NetworkFirst',
+                        options: {
+                            cacheName: 'data-cache',
+                            expiration: {
+                                maxEntries: 10,
+                                maxAgeSeconds: 60 * 60 * 24 // 24 hours
+                            }
+                        }
+                    },
                     {
                         urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
                         handler: 'CacheFirst',

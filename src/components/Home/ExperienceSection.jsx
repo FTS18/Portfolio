@@ -22,7 +22,7 @@ function ExperienceSection() {
 
   // Load projects.json
   useEffect(() => {
-    fetch('/assets/projects.json')
+    fetch('/assets/projects.json?v=1.4.1')
       .then(response => response.json())
       .then(data => setProjects(data))
       .catch(error => console.error('Error loading projects:', error))

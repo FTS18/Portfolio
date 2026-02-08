@@ -9,7 +9,7 @@ let projectsPromise = null
 
 const preloadProjects = () => {
   if (!projectsPromise) {
-    projectsPromise = fetch('/assets/projects.json')
+    projectsPromise = fetch('/assets/projects.json?v=1.4.1')
       .then(response => response.json())
       .then(data => {
         projectsCache = data

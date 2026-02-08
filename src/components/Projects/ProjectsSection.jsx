@@ -45,7 +45,7 @@ function ProjectsSection() {
         promise.then(data => processProjectsData(data))
       } else {
         // Fallback: fetch directly (shouldn't happen normally)
-        fetch('/assets/projects.json')
+        fetch('/assets/projects.json?v=1.4.1')
           .then(response => response.json())
           .then(data => processProjectsData(data))
           .catch(error => console.error('Error fetching projects:', error))
