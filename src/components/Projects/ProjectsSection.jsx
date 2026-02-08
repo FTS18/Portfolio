@@ -77,7 +77,7 @@ function ProjectsSection() {
       growth: projectsThisYear || Math.floor(data.length * 0.3)
     })
     
-    const techStackTags = ['React', 'TypeScript', 'Tailwind', 'AI', 'NLP', 'FastAPI', 'Python', 'Langchain', 'ML', 'Next.js', 'SSR', 'MongoDB', 'Firebase', 'HTML', 'CSS', 'Javascript', 'WebRTC', 'MySQL', 'Fest', 'TechFest', 'YouthZest', 'PEC Fest']
+    const techStackTags = ['React', 'TypeScript', 'Tailwind', 'AI', 'NLP', 'FastAPI', 'Python', 'Langchain', 'ML', 'Next.js', 'SSR', 'MongoDB', 'Firebase', 'HTML', 'CSS', 'Javascript', 'WebRTC', 'MySQL', 'Fest', 'TechFest', 'YouthZest', 'PEC Fest', 'Chrome Extension', 'GraphQL']
     let tags = []
     data.forEach(project => {
       tags = tags.concat(project.tags)

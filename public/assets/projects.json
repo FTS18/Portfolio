@@ -1,5 +1,29 @@
 [
     {
+        "title": "L'Amigo",
+        "shortDesc": "Advanced LeetCode friends analytics and automation tool for tracking peer progress and syncing solutions to GitHub.",
+        "featured": true,
+        "longDesc": "L'Amigo is a sophisticated browser extension engineered for competitive programmers, software engineers, and technical interview candidates. The platform provides a comprehensive suite of analytics, peer-tracking metrics, and automation tools designed to optimize the LeetCode preparation workflow. By integrating directly into the LeetCode environment, L'Amigo bridges the gap between individual practice and collaborative competitive growth.\n\nKey features include a Native UI Injection Engine that modifies the LeetCode DOM in real-time, an Advanced Squad Analytics Dashboard for visualizing problem-solving patterns, and Topic Mastery Profiling which extracts domain specialties like Dynamic Programming or Graph Theory. The extension also features an Automated GitHub Solution Repository Sync, preserving the user's solved problem library by synchronizing accepted submissions with a dedicated GitHub repository using an incremental sync algorithm.\n\nBuilt with React 18 and TypeScript, L'Amigo ensures data privacy by storing all credentials locally via the Chrome Storage API. It leverages the LeetCode GraphQL API and GitHub REST API v3 to provide real-time updates and seamless integration, making it the ultimate tactical companion for serious technical preparation and squad-based competitive learning.",
+        "link": "https://lamigo.netlify.app",
+        "github": "https://github.com/FTS18/l-amigo",
+        "image": "assets/images/lamigo.webp",
+        "date": "Feb, 2026",
+        "tags": [
+            "React",
+            "TypeScript",
+            "Chrome Extension",
+            "GraphQL",
+            "GitHub API",
+            "LeetCode",
+            "Analytics",
+            "Automation",
+            "Recharts",
+            "SVG",
+            "Webpack",
+            "Competitive Programming"
+        ]
+    },
+    {
         "title": "OmniFlow",
         "shortDesc": "Universal College ERP Platform designed to streamline institutional operations and enhance academic management.",
         "longDesc": "OmniFlow is a comprehensive Enterprise Resource Planning (ERP) solution tailored for modern educational institutions. It unifies complex campus operations into a single, intuitive interface, managing everything from student admissions and fee collections to academic grading and library resources. The platform replaces fragmented legacy systems with a cohesive digital ecosystem.\n\nDesigned with a focus on user experience, OmniFlow allows faculty to easily manage attendance, course materials, and assignments, while students get a dedicated portal for tracking their academic progress, viewing timetables, and accessing learning resources. Administrative tools provide real-time insights into institutional performance through advanced analytics and reporting dashboards.\n\nThe system is built for scalability and security, featuring role-based access control to ensure data privacy across different user groups including Students, Faculty, Admin, and Parents. With its responsive design, OmniFlow ensures that critical campus information is accessible anytime, anywhere, fostering better communication and operational efficiency.",

@@ -256,7 +256,8 @@ function ExperienceSection() {
       'Project Orion': 'Project Orion',
       'OmniFlow': 'OmniFlow',
       'Gramin Saathi': 'Gramin Saathi',
-      'Conduit': 'Conduit'
+      'Conduit': 'Conduit',
+      "L'Amigo": "L'Amigo"
     }
 
     // Extract project name from description
