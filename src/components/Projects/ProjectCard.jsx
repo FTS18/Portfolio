@@ -214,7 +214,7 @@ function ProjectCard({ project, onOpenModal, priority = false }) {
         </div>
         
         <div className="card-content">
-          <div className="p-title">{project.title}</div>
+          <h3 className="p-title">{project.title}</h3>
           <div className="p-description">{project.shortDesc || project.description || 'A web development project showcasing modern design and functionality.'}</div>
           
           <div className="p-meta">

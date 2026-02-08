@@ -6,6 +6,7 @@ import ProjectModal from './ProjectModal'
 import FilterBar from './FilterBar'
 import { useAllProjectViews } from '../../hooks/useFirebase'
 import { getProjectsCache, getProjectsPromise } from '../../App'
+import StructuredData from '../common/StructuredData'
 import './ProjectsSection.css'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -249,6 +250,7 @@ function ProjectsSection() {
 
   return (
     <section className="projects" id="projects" ref={sectionRef}>
+      <StructuredData type="ItemList" data={{ items: projects.slice(0, 10) }} />
       <div className="projects-header" ref={headerRef}>
         <h2 className="projects-title"><span className="fraunces-italic">Projects</span></h2>
         <p className="projects-subtitle">A collection of my work</p>

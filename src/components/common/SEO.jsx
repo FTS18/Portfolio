@@ -3,7 +3,7 @@ import StructuredData from './StructuredData'
 
 function SEO({ 
   title = "Ananay Dubey | Full-Stack Developer & React Specialist",
-  description = "Full-Stack Web Developer specializing in React, TypeScript, Next.js, and AI-powered applications. Building digital experiences that matter. View my portfolio of 15+ projects.",
+  description = "Full-Stack Web Developer specializing in React, TypeScript, Next.js, and AI-powered applications. Creator of L'Amigo, OmniFlow, and Gramin Saathi. Building sophisticated digital solutions with 15+ projects.",
   image = "https://ananay.netlify.app/assets/images/og-image.png",
   url = "https://ananay.netlify.app",
   type = "website",

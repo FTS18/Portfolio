@@ -61,6 +61,25 @@ function StructuredData({ type = 'Person', data = {} }) {
           ...data
         }
 
+      case 'ItemList':
+        return {
+          ...baseData,
+          name: 'Projects',
+          description: 'Featured projects by Ananay Dubey',
+          itemListElement: (data.items || []).map((item, index) => ({
+            '@type': 'ListItem',
+            position: index + 1,
+            item: {
+              '@type': 'SoftwareApplication',
+              name: item.title,
+              description: item.shortDesc,
+              applicationCategory: 'WebApplication',
+              operatingSystem: 'Any',
+              url: item.link.startsWith('http') ? item.link : `https://ananay.netlify.app${item.link}`
+            }
+          }))
+        }
+
       default:
         return { ...baseData, ...data }
     }
