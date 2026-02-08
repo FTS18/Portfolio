@@ -16,14 +16,16 @@ const DSASection = () => {
   useEffect(() => {
     const fetchLeetCodeData = async () => {
       const CACHE_KEY = 'leetcode_stats'
-      const CACHE_DURATION = 24 * 60 * 60 * 1000 // 24 hours
+      const CACHE_DURATION = 12 * 60 * 60 * 1000 // 12 hours
 
       // 1. Try to load from cache first
       try {
         const cached = localStorage.getItem(CACHE_KEY)
         if (cached) {
           const { data, timestamp } = JSON.parse(cached)
+          // valid if less than 12 hours old
           if (Date.now() - timestamp < CACHE_DURATION) {
+            console.log('Using cached LeetCode data')
             setStats(data)
             setLoading(false)
             return
@@ -47,6 +49,12 @@ const DSASection = () => {
 
         const solvedData = await solvedRes.json()
         const profileData = await profileRes.json()
+        
+        // Basic validation to ensure we didn't get an error object
+        if (solvedData.errors || profileData.errors) {
+            throw new Error('API returned errors')
+        }
+
         const newData = { solved: solvedData, profile: profileData }
 
         // Update cache
@@ -59,15 +67,12 @@ const DSASection = () => {
       } catch (err) {
         console.error('LeetCode fetch error:', err)
         
-        // 3. Fallback: Try Cache (offline/rate limited but real data)
+        // 3. Fallback: Try Cache (even if expired, better than nothing if API fails)
         const cached = localStorage.getItem(CACHE_KEY)
         if (cached) {
+          console.log('Falling back to expired cache')
           setStats(JSON.parse(cached).data)
-          // Optional: You could show a small 'Offline' badge if you wanted
         } else {
-             // Verification: User said "if not possible dont shw"
-             // So we do NOT load dummy data. We leave stats as null.
-             // This will cause the component to return null below.
              setStats(null) 
         }
         setError('Failed to load real data')
