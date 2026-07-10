@@ -157,30 +157,30 @@
 }
 
 [data-theme='bw'] .stat-card {
-    background: #000000 !important;
-    color: #FFFFFF !important;
-    border-color: #FFFFFF !important;
+    background: var(--card-bg) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-hard) !important;
 }
 
 [data-theme='bw'] .stat-icon {
-    background: #000000;
-    border-color: #FFFFFF;
+    background: var(--bg-primary);
+    border-color: var(--border-hard);
 }
 
 [data-theme='bw'] .stat-icon i {
-    color: #FFFFFF;
+    color: var(--text-primary);
 }
 
 [data-theme='bw'] .projects {
-    background: #FFFFFF;
+    background: var(--bg-primary);
 }
 
 [data-theme='bw'] .projects-title {
-    color: #000000;
+    color: var(--text-primary);
 }
 
 [data-theme='bw'] .projects-subtitle {
-    color: #000000;
+    color: var(--text-secondary);
 }
 
 /* Search and Sort Controls */

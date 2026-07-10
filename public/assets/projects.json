@@ -1,9 +1,172 @@
 [
     {
-        "title": "L'Amigo",
-        "shortDesc": "Advanced LeetCode friends analytics and automation tool for tracking peer progress and syncing solutions to GitHub.",
+        "title": "DSA",
+        "shortDesc": "Multi-Platform Data Structures, Algorithms, and Competitive Programming Solutions synced by L'Amigo.",
         "featured": true,
-        "longDesc": "L'Amigo is a sophisticated browser extension engineered for competitive programmers, software engineers, and technical interview candidates. The platform provides a comprehensive suite of analytics, peer-tracking metrics, and automation tools designed to optimize the LeetCode preparation workflow. By integrating directly into the LeetCode environment, L'Amigo bridges the gap between individual practice and collaborative competitive growth.\n\nKey features include a Native UI Injection Engine that modifies the LeetCode DOM in real-time, an Advanced Squad Analytics Dashboard for visualizing problem-solving patterns, and Topic Mastery Profiling which extracts domain specialties like Dynamic Programming or Graph Theory. The extension also features an Automated GitHub Solution Repository Sync, preserving the user's solved problem library by synchronizing accepted submissions with a dedicated GitHub repository using an incremental sync algorithm.\n\nBuilt with React 18 and TypeScript, L'Amigo ensures data privacy by storing all credentials locally via the Chrome Storage API. It leverages the LeetCode GraphQL API and GitHub REST API v3 to provide real-time updates and seamless integration, making it the ultimate tactical companion for serious technical preparation and squad-based competitive learning.",
+        "longDesc": "A centralized repository showcasing solutions to various Data Structures, Algorithms, and Competitive Programming problems, synchronized automatically using a custom automation engine called L'Amigo. It tracks submissions across multiple platforms, logs detailed submission metadata, and generates real-time analytics.\n\nKey features:\n• Solved Count: 153+ solutions dynamically tracked.\n• Platform Integration: Automated synchronization for LeetCode (117), Codeforces (36), CSES Problemset, and GeeksforGeeks.\n• Codebase Metrics: Organized file structure containing C++23 (88.9%) and Python3 (11.1%) implementations with comprehensive problem statements and metadata.",
+        "link": "https://github.com/FTS18/DSA",
+        "github": "https://github.com/FTS18/DSA",
+        "image": "assets/images/screenshots/dsa.webp",
+        "date": "Jul, 2026",
+        "tags": [
+            "C++",
+            "Python",
+            "Algorithms",
+            "Data Structures",
+            "Competitive Programming",
+            "Automation"
+        ]
+    },
+    {
+        "title": "BitBar",
+        "shortDesc": "An ultra-lightweight, native network speed monitor that lives in your Windows 11 taskbar.",
+        "featured": false,
+        "longDesc": "An ultra-lightweight, native network speed monitor that lives in your Windows 11 taskbar. No bloat, no electron, no background services beyond itself. It shows live upload/download speeds on the taskbar, provides a 60s graph and top process on hover, features a settings menu on right-click, fades out automatically when idle, and detects system theme. Built with .NET 10 Desktop Runtime, it works completely natively without background telemetry or resource-heavy web wrappers.",
+        "link": "https://bitbar.vercel.app",
+        "github": "https://github.com/FTS18/BitBar",
+        "image": "assets/images/screenshots/bitbar.webp",
+        "date": "May, 2026",
+        "tags": [
+            "C#",
+            "PowerShell",
+            ".NET Desktop",
+            "Windows 11",
+            "Network Monitor"
+        ]
+    },
+    {
+        "title": "Apex Win 10 & 11 Debloater",
+        "shortDesc": "A lightweight, modern, and high-performance WPF utility to optimize and debloat Windows.",
+        "featured": false,
+        "longDesc": "ApexDebloater is a lightweight, modern, and high-performance WPF utility designed to optimize, customize, and debloat Windows 10 and 11 environments. It allows you to reclaim system memory, reduce background CPU usage, remove pre-installed bloatware apps, block tracking telemetry, and manage startup programs. Designed with a focus on speed and safety, the tool features a Privacy and Telemetry Blocker that intercepts Microsoft trackers at the hosts file level (0.0.0.0) and completely disables the advertising ID.\n\nAdditionally, the built-in Bloatware (AppX) Uninstaller allows for safe, custom selection for batch uninstallation of pre-installed UWP packages. The utility includes advanced system maintenance tools like a Disk and Component Store Cleaner that utilizes DISM to compress and clean obsolete Windows Update backups, a Context Menu Cleaner to toggle third-party shell extensions, a secure DNS switcher to instantly switch to Cloudflare or Quad9, and a Startup Apps Manager. It also integrates a Live Hardware Monitor displaying real-time CPU, RAM, and Disk metrics securely via low-level Win32 kernel calls, and automatically creates System Restore Points before applying optimizations.",
+        "link": "https://reclaimpc.pages.dev",
+        "github": "https://github.com/FTS18/windows-debloater",
+        "image": "assets/images/screenshots/apex.webp",
+        "date": "Jul, 2026",
+        "tags": [
+            "C#",
+            "Astro",
+            "PowerShell",
+            "WPF",
+            "Windows Optimization",
+            ".NET Desktop"
+        ]
+    },
+    {
+        "title": "Arasaka Energy OS",
+        "shortDesc": "An institutional smart campus framework designed to manage energy consumption, solar energy dispatch, and circular utility assets.",
+        "featured": false,
+        "hidden": true,
+        "longDesc": "Arasaka is a smart campus sustainability framework designed to manage energy consumption, solar energy dispatch, and circular utility assets within large-scale institutional environments. Engineered to eliminate 'Phantom Waste'—energy consumed in classrooms, labs, and facilities when spaces are empty or underutilized—the system integrates real-time occupancy telemetry, scheduling, and energy insights to automate heating, cooling, and lighting dynamically.\n\nDeveloped for the SESI Energy Summit Case-Based Hackathon '26 (hosted at Punjab Engineering College, where it won 1st Place and a ₹2,500 cash prize), this solution was designed as a realistic, phased implementation model balancing the Triple Bottom Line:\n• People: Designing smarter, more comfortable, and responsive spaces for students and staff.\n• Planet: Decreasing energy footprints, minimizing carbon emissions, and prioritizing green power.\n• Profit: Achieving clear ROI through utility savings, CapEx amortization, and new revenue channels.\n\nKey features include occupancy-linked cooling logic, solar-priority routing, EV charging optimization, and circular economy loops (reclaiming PET bottle waste through recycling-linked student credits redeemable at campus stores and canteens). The proposal also includes on-site solar parking canopies with integrated ad panels for additional institutional revenue, designed to justify upfront CapEx through long-term OpEx reductions.",
+        "link": "https://arasaka-sesi.netlify.app/",
+        "github": "https://github.com/FTS18/SESI-26",
+        "image": "assets/images/screenshots/arasaka.webp",
+        "date": "Apr, 2026",
+        "tags": [
+            "Next.js",
+            "React",
+            "Firebase",
+            "Tailwind CSS",
+            "Framer Motion",
+            "BACnet",
+            "MQTT"
+        ]
+    },
+    {
+        "title": "Matcha-AI",
+        "shortDesc": "An AI-powered sports video analysis and automatic commentary generation platform for soccer footage.",
+        "featured": false,
+        "longDesc": "Matcha-AI is a comprehensive, monorepo-structured sports video analysis and automated broadcasting platform. Designed to process raw soccer footage, the platform leverages advanced computer vision to track players and the ball, auto-calibrates to the goal line via a custom GoalDetectionEngine (using Kalman filtering and homography projection), and identifies tactical play distributions to render player heatmaps.\n\nDeveloped for the Synapse.AI DTU Hackathon (Delhi Technological University), where it competed against 60+ finalist teams and placed in the Top 6, the system features a 5-phase AI pipeline:\n1. Video processing and YOLOv8 + ByteTrack object tracking.\n2. SoccerNet action event recognition identifying 11 distinct event types (goals, saves, penalties, etc.).\n3. Dynamic context-aware commentary generation using Google Gemini 2.0 Flash.\n4. High-fidelity audio synthesis via a 3-tier neural TTS pipeline (Kokoro-82M and Edge-TTS).\n5. Automated highlight reel compilation and video concatenation via FFmpeg.\n\nThe stack is architected around a NestJS orchestrator with Prisma ORM, a Next.js web application utilizing Tailwind CSS and Framer Motion, an Expo React Native mobile app, and a Python FastAPI AI engine.",
+        "link": "https://github.com/FTS18/Matcha-AI-DTU",
+        "github": "https://github.com/FTS18/Matcha-AI-DTU",
+        "image": "assets/images/screenshots/matcha.webp",
+        "date": "Mar, 2026",
+        "tags": [
+            "Next.js",
+            "NestJS",
+            "FastAPI",
+            "Python",
+            "PyTorch",
+            "YOLOv8",
+            "Prisma",
+            "PostgreSQL",
+            "Redis",
+            "Docker",
+            "TTS",
+            "Gemini AI"
+        ]
+    },
+    {
+        "title": "Mirr",
+        "shortDesc": "AI-powered geospatial climate twin and forecasting platform fusing satellite data with ground observations.",
+        "featured": true,
+        "longDesc": "Mirr is an advanced India Climate Digital Twin system developed for the ISRO BAH 2026 hackathon. The platform operates as a 2D spatiotemporal geospatial reanalysis and prognostic forecasting engine. It assimilates geostationary satellite remote sensing telemetry (MOSDAC INSAT-3D/3DR) and ground-based meteorological observations (India Meteorological Department - IMD) to model and forecast atmospheric and land-surface processes at high resolutions.\n\nThe core of the platform is a hybrid 5-layer spatiotemporal forecasting engine that blends a PyTorch ConvLSTM neural anomaly model, a daily climatological reanalysis atlas, and a NOAA CPC spatial analog selection algorithm with Mean Bias Correction (MBC). This allows it to generate precipitation and temperature forecasts up to 7 days out. Additionally, the system computes high-level hydrological and agricultural indices (Standardized Precipitation Index, Crop Water Stress Index, and Flash Flood Guidance) and incorporates a conversational RAG copilot grounded in local weather metrics and ICAR-CRIDA district contingency plans to provide actionable agricultural recommendations.\n\nResult: Awaited.",
+        "link": "https://ananaydubey-mirr.hf.space",
+        "github": "https://github.com/FTS18/ISRO-BAH-2026",
+        "image": "assets/images/screenshots/mirr.webp",
+        "date": "Jun, 2026",
+        "tags": [
+            "Streamlit",
+            "Python",
+            "PyTorch",
+            "Deep Learning",
+            "ConvLSTM",
+            "Geospatial",
+            "Remote Sensing",
+            "GIS",
+            "FastAPI",
+            "RAG",
+            "AI Copilot"
+        ]
+    },
+    {
+        "title": "Footy90",
+        "shortDesc": "Real-time sports live-streaming platform with P2P chat, ESPN news parser, and match auto-switching engine.",
+        "featured": true,
+        "longDesc": "Footy90 is a next-generation sports streaming dashboard developed to deliver high-performance live match broadcasts and real-time fan engagement. Built on Next.js 16 (App Router), React 19, and Tailwind CSS v4, the application is optimized for fast load times and features a custom Cloudflare Proxy Worker that secures API routes and handles caching parameters.\n\nThe platform integrates a variety of advanced features, including a smart stream auto-switching engine that automatically prioritizes active matches and recovers from stream 403 Forbidden segment errors, a PeerJS-powered peer-to-peer live chat with a Firebase Realtime Database moderation center, and an in-site ESPN news reader that proxies content APIs. It also includes database indexing optimization for viewer telemetry, device tracking using UA-Parser, and code obfuscation to protect proprietary streaming endpoints.",
+        "link": "https://footy90.vercel.app",
+        "github": "https://github.com/FTS18/Footy90",
+        "image": "assets/images/screenshots/footy90.webp",
+        "date": "JUn, 2026",
+        "tags": [
+            "Next.js",
+            "React",
+            "Tailwind CSS",
+            "Firebase",
+            "PeerJS",
+            "Cloudflare Workers",
+            "TypeScript",
+            "SWR",
+            "Obfuscation",
+            "Web Streaming",
+            "Live Chat"
+        ]
+    },
+    {
+        "title": "Triage-OSS",
+        "shortDesc": "VS Code extension to search GitHub issues, track PR activity, find good first issues, and explore GSoC orgs directly in your editor.",
+        "featured": true,
+        "longDesc": "Triage-OSS is a powerful VS Code extension developed in TypeScript to streamline open-source contributions directly within the developer's editing environment. Integrating deep features for open-source discovery, the extension connects to the GitHub API to fetch filtered issues by language, labels, stars, and age, highlighting cash bounties from Algora and Polar.\n\nThe extension introduces several custom tree-views, including a Daily Challenge showing good first issues from major projects, a persistent Watchlist, a Trending & Hot feed tracking active issues and GSoC (Google Summer of Code) organization participants, and a My Activity dashboard displaying the developer's PR merge rates and issue engagement statistics. Additionally, it implements CodeLens and hover provider overlays showing npm package metadata and open issue counts upon hovering code imports, terminal error string parsing for instant issue searches, and automated one-click repository fork-and-cloning workflows.",
+        "link": "https://marketplace.visualstudio.com/items?itemName=fts18.triage-oss",
+        "github": "https://github.com/FTS18/Triage-OSS",
+        "image": "assets/images/screenshots/tf.webp",
+        "date": "Apr, 2026",
+        "tags": [
+            "VS Code Extension",
+            "TypeScript",
+            "GitHub API",
+            "Node.js",
+            "Webviews",
+            "GSoC",
+            "Developer Tools",
+            "Automation"
+        ]
+    },
+    {
+        "title": "L'Amigo",
+        "shortDesc": "Multi-platform competitive programming companion tracking peer activity on LeetCode, Codeforces, and CodeChef with automated GitHub sync.",
+        "featured": true,
+        "longDesc": "L'Amigo is a browser extension engineered for competitive programmers and software engineering candidates to monitor peer performance and automate progress management. Natively supporting LeetCode (GraphQL), Codeforces (REST API), and CodeChef (DOM Scraper), it injects native action buttons, contest alarm reminders, and interactive rating heatmaps directly into host platforms.\n\nKey components include a Peer Progress Dashboard rendering Recharts SVG distribution metrics, a full-page Leaderboard tab featuring customizable rating normalization modes, and an integrated Monaco-based code editor with Wandbox API compilation support. Additionally, the extension integrates an incremental sync algorithm that serializes accepted submissions into structured source files, pushing them to a user's GitHub repository via OAuth device flows or personal access tokens.",
         "link": "https://lamigo.netlify.app",
         "github": "https://github.com/FTS18/l-amigo",
         "image": "assets/images/lamigo.webp",
@@ -11,16 +174,17 @@
         "tags": [
             "React",
             "TypeScript",
-            "Chrome Extension",
+            "Monaco Editor",
+            "Wandbox API",
             "GraphQL",
-            "GitHub API",
-            "LeetCode",
-            "Analytics",
-            "Automation",
+            "Chrome Storage",
             "Recharts",
-            "SVG",
             "Webpack",
-            "Competitive Programming"
+            "Codeforces API",
+            "CodeChef",
+            "LeetCode",
+            "GitHub API",
+            "Automation"
         ]
     },
     {
@@ -29,7 +193,7 @@
         "longDesc": "OmniFlow is a comprehensive Enterprise Resource Planning (ERP) solution tailored for modern educational institutions. It unifies complex campus operations into a single, intuitive interface, managing everything from student admissions and fee collections to academic grading and library resources. The platform replaces fragmented legacy systems with a cohesive digital ecosystem.\n\nDesigned with a focus on user experience, OmniFlow allows faculty to easily manage attendance, course materials, and assignments, while students get a dedicated portal for tracking their academic progress, viewing timetables, and accessing learning resources. Administrative tools provide real-time insights into institutional performance through advanced analytics and reporting dashboards.\n\nThe system is built for scalability and security, featuring role-based access control to ensure data privacy across different user groups including Students, Faculty, Admin, and Parents. With its responsive design, OmniFlow ensures that critical campus information is accessible anytime, anywhere, fostering better communication and operational efficiency.",
         "link": "https://omnifloww.netlify.app/",
         "github": "https://github.com/FTS18/omnifow",
-        "image": "assets/images/of.png",
+        "image": "assets/images/of.webp",
         "date": "Jan, 2026",
         "tags": [
             "React",
@@ -126,10 +290,10 @@
     {
         "title": "Conduit",
         "shortDesc": "Full-stack Medium clone with advanced features including bookmarking, user mentions, notifications, and real-time interactions.",
-        "longDesc": "Conduit is a comprehensive full-stack blogging platform built as a real-world implementation of the RealWorld specification. Developed for PECathon, this Medium-inspired application demonstrates advanced React+Redux patterns, authentication workflows, and complex state management. The platform enables users to create, publish, and discover articles while fostering community engagement through comments, follows, and interactions.\n\nThe frontend leverages React with Redux for predictable state management, implementing sophisticated features like a bookmarking system for saving articles to a reading list, user mentions with @username syntax triggering real-time notifications, smart article recommendations based on tags and reading history, and a complete comment voting system with upvotes and ranking. Additional enhancements include search functionality, offline reading capabilities, user avatars with fallback initials, adjustable font sizes for accessibility, and skeleton loading states for improved UX.\n\nThe backend is built with Node.js and Express, providing a robust REST API with JWT authentication, MongoDB for data persistence, and real-time notification delivery. The architecture follows best practices with proper separation of concerns, middleware for authentication and validation, and optimized database queries. The application handles complex relationships between users, articles, comments, and tags while maintaining performance and scalability.",
+        "longDesc": "Conduit is a comprehensive full-stack blogging platform built as a real-world implementation of the RealWorld specification. Developed for PECathon, this Medium-inspired application demonstrates advanced React+Redux patterns, authentication workflows, and complex state management. The platform enables users to create, publish, and discover articles while fostering community engagement through comments, follows, and interactions.\n\nThe frontend leverages React with Redux for predictable state management, implementing sophisticated features like a bookmarking system for saving articles to a reading list, user mentions with @username syntax triggering real-time notifications, smart article recommendations based on tags and reading history, and a complete comment voting system with upvotes and ranking. Additional enhancements include search functionality, offline reading capabilities, user avatars with fallback initials, adjustable font sizes for accessibility, and skeleton loading states for improved UX.\n\nThe backend is built with Node.js and Express, providing a robust REST API with JWT authentication, MongoDB for data persistence, and real-time notification delivery. The architecture follows best practices with proper separation of concerns, middleware for authentication and validation, and optimized database queries. The application handles complex relationships between users, articles, comments, and tags while maintaining performance and scalability.\n\nConduit serves as a sister project to [DynWave](https://dynwave.onrender.com/), which utilizes a similar Express-based backend architecture but operates as a dynamic real-time messaging and chat application rather than a publication platform.",
         "link": "https://pecathon.vercel.app",
         "github": "https://github.com/FTS18/conduit_frontend",
-        "image": "assets/images/conduit.png",
+        "image": "assets/images/conduit.webp",
         "date": "September, 2025",
         "hackathon": "PECathon",
         "tags": [
@@ -229,26 +393,28 @@
         ]
     },
     {
-        "title": "Lyncc",
-        "shortDesc": "Real-time video calling application with WebRTC integration and Firebase backend for seamless communication.",
-        "longDesc": "Lyncc is a peer-to-peer video calling solution that proves you don't need complicated backend infrastructure for real-time communication. Using WebRTC technology with Firebase for signaling, the application establishes direct connections between users, ensuring low-latency, high-quality video calls without routing through central servers. This architecture provides better privacy and reduces operational costs.\n\nThe application features room-based calling with shareable invite links, full-featured screen sharing capabilities for presentations and collaboration, text chat during calls for sharing links and notes, and intuitive camera/microphone controls with device selection. Users can switch cameras mid-call, blur their background, and adjust audio settings in real-time. The clean UI provides visual feedback for connection status and call quality indicators.\n\nDeveloped in collaboration with Arunjay, the project demonstrates advanced real-time web technologies while maintaining simplicity. Whether for casual catch-ups with friends and family or professional meetings and interviews, Lyncc delivers a reliable video calling experience entirely within the browser. No downloads, no plugins, no account required – just create a room and share the link.",
-        "link": "https://lyncc.netlify.app/",
+        "title": "Lync",
+        "shortDesc": "Real-time video calling application built with Next.js, Agora RTC SDK, and Firebase backend for seamless communication.",
+        "longDesc": "Lync is a modern video calling platform that provides seamless real-time communication directly in the browser. Powered by the Agora RTC SDK for low-latency video and audio streaming and Firebase for database and signaling, the application establishes robust rooms for users to connect instantly without installing external downloads or plugins.\n\nKey features include room-based calling with shareable invite links, camera and microphone toggles, and device selection. The UI is built using Next.js App Router and Tailwind CSS, featuring glassmorphism and modern dark mode styling. Developed in collaboration with Arunjay, the project showcases the implementation of production-ready real-time communication protocols and secure token generation workflows.",
+        "link": "https://lynccc.vercel.app/",
         "github": "https://github.com/FTS18/lync",
         "image": "assets/images/screenshots/4.webp",
         "date": "Apr, 2024",
         "tags": [
-            "HTML5",
-            "CSS3",
-            "JavaScript",
-            "WebRTC",
+            "Next.js",
+            "React",
+            "TypeScript",
+            "Tailwind CSS",
+            "Agora RTC SDK",
             "Firebase",
             "Firestore",
             "Real-time",
-            "Peer.js"
+            "Video Calling"
         ]
     },
     {
         "title": "DynWave",
+        "hidden": true,
         "shortDesc": "Dynamic chat application with real-time messaging capabilities and modern UI for seamless communication.",
         "featured": true,
         "longDesc": "DynWave delivers a dynamic real-time chat experience powered by Socket.io and Express.js. The platform supports both private one-on-one messaging and group conversations with unlimited participants. Features include typing indicators that show when someone is composing a message, read receipts for message delivery confirmation, and emoji reactions that make conversations feel natural and engaging.\n\nThe modern UI, developed in collaboration with Divyanshi, features smooth CSS animations, comprehensive emoji picker, file sharing capabilities, and a beautiful color scheme that adapts to user preferences with light and dark modes. Messages support rich formatting, link previews, and image embedding. Users can search through conversation history, star important messages, and create message threads.\n\nBuilt with Node.js on the backend, the application demonstrates full-stack JavaScript capabilities with efficient WebSocket connections handling hundreds of concurrent users without breaking a sweat. The architecture uses event-driven programming for real-time synchronization, ensuring messages appear instantly across all connected devices. Redis integration provides message persistence and enables horizontal scaling for production deployments.",
@@ -268,6 +434,7 @@
     },
     {
         "title": "MySQL Project",
+        "hidden": true,
         "shortDesc": "Database management system project with Python integration for Class 12 computer science practicals.",
         "longDesc": "This project showcases the integration of Python with MySQL database, developed as part of the Class 12 Computer Science CBSE curriculum. The application implements a complete inventory management system with full CRUD operations (Create, Read, Update, Delete) through an intuitive command-line interface. The system manages product information, tracks stock levels, records transactions, and generates reports.\n\nThe system features secure user authentication with role-based access control, comprehensive data validation to prevent incorrect entries, advanced search functionality with multiple filter options, and detailed reporting capabilities including sales summaries and inventory status. The menu-driven interface makes navigation intuitive even for users unfamiliar with databases. Error handling ensures graceful recovery from invalid inputs or connection issues.\n\nDetailed documentation explains database normalization principles, SQL query optimization techniques, and Python's mysql.connector library usage with best practices. Each function is commented explaining the logic and algorithm used. This project serves as both a practical learning resource for students preparing for board exams and a functional application that demonstrates proper software development practices including separation of concerns and modular design.",
         "link": "https://github.com/FTS18/mysql-python",
@@ -321,24 +488,27 @@
     },
     {
         "title": "Finixx",
-        "shortDesc": "Online gaming platform with multiplayer functionality and entertainment features for collaborative gaming.",
-        "longDesc": "Finixx is an exciting space-themed arcade game built with HTML5 Canvas and vanilla JavaScript. Players navigate their spacecraft through an asteroid field while collecting power-ups, avoiding obstacles, and battling enemy ships. The game features multiple levels with progressively increasing difficulty, high score tracking with local leaderboards, smooth 60fps animations, and satisfying visual feedback for every action.\n\nDeveloped in collaboration with Arunjay, the project demonstrates game development fundamentals including sprite-based animation with sprite sheets, precise collision detection using bounding boxes and pixel-perfect techniques, particle effects for explosions and thrust, game state management with pause and resume, and progressive difficulty scaling that keeps players engaged without frustrating them.\n\nSound effects and a retro-inspired synthesized soundtrack enhance the gaming experience, with volume controls and mute options. The responsive controls work seamlessly with both keyboard arrows/WASD and touch inputs with virtual joystick, making it playable on desktop and mobile devices alike. The game includes multiple ship skins, weapon upgrades, and achievement badges that add replay value and encourage players to improve their skills.",
-        "link": "https://finixx.netlify.app",
+        "shortDesc": "Online arcade and board gaming platform with multiplayer integration, player authentication, and global leaderboards.",
+        "longDesc": "Finixx is a comprehensive web-based gaming platform that hosts a collection of classic arcade, board, and multiplayer games. Powered by Next.js and React, the platform integrates Firebase for secure player authentication, database storage, and real-time multiplayer synchronization. It features a curated game selection including Space Fire, PacMan, Ludo, Ping Pong, Tic Tac Toe, Scribble, and 2048.\n\nDeveloped in collaboration with Arunjay, the application provides an immersive app store layout for discovering games, individual player logins, and real-time leaderboards. The user interface leverages Framer Motion for smooth transitions and Swiper for interactive sliders. Finixx demonstrates production-ready game state management, real-time networking, and responsive canvas integrations across both desktop and mobile platforms.",
+        "link": "https://finixx.vercel.app",
         "github": "https://github.com/FTS18/space-game",
         "image": "assets/images/screenshots/5.webp",
         "date": "May, 2022",
         "tags": [
-            "HTML5",
-            "CSS3",
-            "JavaScript",
-            "JS Canvas",
-            "Game Dev",
-            "Animations",
-            "Responsive"
+            "Next.js",
+            "React",
+            "TypeScript",
+            "Firebase",
+            "Framer Motion",
+            "Swiper",
+            "HTML5 Canvas",
+            "Multiplayer",
+            "Authentication"
         ]
     },
     {
         "title": "YT Video Downloader",
+        "hidden":true,
         "shortDesc": "YouTube video downloader utility with clean interface and multiple format support for content creators.",
         "longDesc": "This utility provides a clean, ad-free interface for downloading YouTube videos in various formats and qualities. Built with React and serverless Netlify Functions, users simply paste a video URL and the tool fetches video metadata including thumbnail, title, author, and duration. Select your preferred quality from Best Quality (highest available resolution), Lowest Quality (for saving bandwidth), or Audio Only (for music downloads).\n\nThe interface features a modern brutalist design with glassmorphism effects, a convenient clipboard paste button for quick URL input, real-time video preview before downloading, and quality selection with clear descriptions. The tool handles all processing through secure serverless functions, ensuring privacy and avoiding the bloat and intrusive ads found on most download websites.\n\nBuilt with modern technologies including React for the frontend, Netlify Functions for serverless backend processing, ytdl-core for YouTube video extraction, and a responsive design that works beautifully on all devices. Features include error handling with helpful feedback, loading states for better UX, and support for various video formats. Note: Users are encouraged to respect copyright and only download content they have rights to use.",
         "link": "/youtube",
@@ -357,6 +527,7 @@
     },
     {
         "title": "Practicals Class 12",
+        "hidden": true,
         "shortDesc": "Comprehensive collection of Python programming practicals and projects for Class 12 computer science.",
         "longDesc": "A comprehensive repository of Python programming practicals covering the entire Class 12 Computer Science (CBSE) curriculum. Each practical includes a clear problem statement, well-commented solution code following PEP-8 guidelines, sample inputs/outputs demonstrating various edge cases, and detailed explanations of the logic, algorithms, and time complexity considerations used in the solution.\n\nTopics covered include Python fundamentals with advanced concepts like decorators and generators, file handling for both text and CSV with real-world examples, data structures implementation including stacks and queues with practical applications, MySQL database connectivity with transaction management, data visualization using Matplotlib and Pandas for analysis projects, and NumPy array operations for numerical computing tasks.\n\nThe repository is organized chapter-wise with a clear folder structure matching the textbook. It serves as a valuable resource for students preparing for practical exams and viva voce, with additional practice problems beyond the syllabus, common interview questions for each topic, and tips for explaining code to examiners. Many students have used this repository to score full marks in their practical examinations.",
         "link": "https://github.com/FTS18/Python-Projects/",
@@ -375,6 +546,7 @@
     },
     {
         "title": "Practicals Class 10",
+        "hidden": true,
         "shortDesc": "Web-based computer practicals collection for Class 10 with interactive examples and educational content.",
         "longDesc": "An interactive web-based collection of computer practicals designed for Class 10 students following the CBSE curriculum. The website transforms dry textbook exercises into engaging, hands-on experiences with live code editors where students can modify and run code, step-by-step guides with explanations at every stage, and instant visual feedback showing results of code execution.\n\nCovering both HTML/CSS web development fundamentals and Python programming basics, the platform makes learning accessible and enjoyable. Each practical includes theory explanations with relatable analogies, worked examples with detailed walkthroughs, practice exercises of varying difficulty levels, and interactive quizzes to test understanding. Progress is tracked so students can identify areas needing more practice.\n\nHosted on GitHub Pages, the project also served as a practical learning experience in web development, version control with Git, and deployment workflows. The website helped many classmates understand concepts they struggled with in traditional classroom settings. The responsive design ensures it works well on school computer labs, home PCs, and mobile devices. This project sparked my passion for creating educational technology that makes learning more effective and enjoyable.",
         "link": "https://fts18.github.io/Computer-Practical/",

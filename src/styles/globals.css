@@ -1,3 +1,5 @@
+@import './fonts.css';
+
 /* CSS Containment for performance */
 .card,
 .project-card,
@@ -83,64 +85,65 @@
 }
 
 :root {
-    /* Default - Dark Theme */
-    --bg-primary: #000000;
-    --bg-alternate: #080808;
+    /* Default - Dark Theme - Softened for Low Contrast */
+    --bg-primary: #121212;
+    --bg-alternate: #181818;
     /* Slightly less black */
-    --bg-secondary: #0A0A0A;
-    --bg-tertiary: #111111;
-    --bg-white-section: #FFFFFF;
+    --bg-secondary: #1f1f1f;
+    --bg-tertiary: #282828;
+    --bg-white-section: #e0e0e0;
 
-    --text-primary: #FFFFFF;
-    --text-secondary: #CCCCCC;
-    --text-muted: #888888;
-    --text-inverse: #000000;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --text-muted: #707070;
+    --text-inverse: #121212;
 
-    --border-color: rgba(255, 255, 255, 0.1);
-    --border-hard: #FFFFFF;
+    --border-color: rgba(255, 255, 255, 0.08);
+    --border-hard: #555555;
 
-    --card-bg: #111111;
+    --card-bg: #1a1a1a;
     --card-border: #333333;
 
     --font-heading: 'Monument Extended', 'Monument Extended Fallback', 'Arial Black', 'Helvetica Neue', sans-serif;
 }
 
 [data-theme='light'] {
-    --bg-primary: #FFFFFF;
-    --bg-alternate: #F8F8F8;
+    /* Light Theme - Softened for Low Contrast */
+    --bg-primary: #fafafa;
+    --bg-alternate: #f4f4f4;
     /* Slightly less white */
-    --bg-secondary: #F0F0F0;
-    --bg-tertiary: #EAEAEA;
+    --bg-secondary: #eaeaea;
+    --bg-tertiary: #dddddd;
 
-    --text-primary: #000000;
-    --text-secondary: #333333;
-    --text-muted: #666666;
-    --text-inverse: #FFFFFF;
+    --text-primary: #222222;
+    --text-secondary: #555555;
+    --text-muted: #888888;
+    --text-inverse: #fafafa;
 
-    --border-color: rgba(0, 0, 0, 0.1);
-    --border-hard: #000000;
+    --border-color: rgba(0, 0, 0, 0.08);
+    --border-hard: #a0a0a0;
 
-    --card-bg: #FFFFFF;
-    --card-border: #E0E0E0;
+    --card-bg: #ffffff;
+    --card-border: #d2d2d2;
 }
 
-/* Black & White Theme - Pure Monochrome */
+/* Black & White Theme - Softened Monochrome */
 [data-theme='bw'] {
-    --bg-primary: #000000;
-    --bg-alternate: #0A0A0A;
-    --bg-secondary: #111111;
-    --bg-tertiary: #1A1A1A;
+    --bg-primary: #0a0a0a;
+    --bg-alternate: #121212;
+    --bg-secondary: #181818;
+    --bg-tertiary: #202020;
 
-    --text-primary: #FFFFFF;
-    --text-secondary: #CCCCCC;
-    --text-muted: #888888;
-    --text-inverse: #000000;
+    --text-primary: #dddddd;
+    --text-secondary: #999999;
+    --text-muted: #666666;
+    --text-inverse: #0a0a0a;
 
-    --border-color: rgba(255, 255, 255, 0.2);
-    --border-hard: #FFFFFF;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --border-hard: #383838;
 
-    --card-bg: #111111;
-    --card-border: #333333;
+    --card-bg: #121212;
+    --card-border: #262626;
 
     /* Flag to disable dynamic colors on cards */
     --disable-dynamic-colors: 1;

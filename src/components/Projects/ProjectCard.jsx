@@ -185,7 +185,7 @@ function ProjectCard({ project, onOpenModal, priority = false }) {
 
   return (
     <div className="column">
-      <div className="card" data-aos="fade-up" ref={cardRef}>
+      <div className="card" ref={cardRef}>
         {project.featured && (
           <div className="featured-badge">
             <i className="fa-solid fa-star"></i>

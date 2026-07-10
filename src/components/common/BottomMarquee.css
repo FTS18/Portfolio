@@ -1,0 +1,117 @@
+.bottom-marquee-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 48px;
+  background: var(--text-primary);
+  border-top: 3px solid var(--border-hard);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  pointer-events: auto;
+}
+
+.bottom-marquee-track {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.bottom-marquee-content {
+  display: flex;
+  white-space: nowrap;
+  animation: bottom-marquee-scroll 35s linear infinite;
+  width: max-content;
+}
+
+.bottom-marquee-content:hover {
+  animation-play-state: paused;
+}
+
+.bottom-marquee-link {
+  font-family: 'Monument Extended', sans-serif;
+  font-size: 11px;
+  font-weight: 900;
+  color: var(--bg-primary);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 0 10px;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.bottom-marquee-link:hover {
+  color: var(--accent-primary, #5227FF);
+  transform: scale(1.05);
+}
+
+[data-theme='light'] .bottom-marquee-link:hover {
+  color: #00ff88;
+}
+
+[data-theme='bw'] .bottom-marquee-link:hover {
+  color: #888888;
+}
+
+.bottom-marquee-star-separator {
+  width: 14px;
+  height: 14px;
+  margin: 0 20px;
+  display: inline-block;
+  object-fit: contain;
+  filter: brightness(0) invert(1); /* Default: white star */
+  animation: bottom-marquee-star-spin 6s linear infinite;
+  will-change: transform;
+}
+
+/* Match the marquee text color dynamically based on theme */
+[data-theme='dark'] .bottom-marquee-star-separator {
+  filter: brightness(0); /* Black star */
+}
+
+[data-theme='bw'] .bottom-marquee-star-separator {
+  filter: brightness(0); /* Black star */
+}
+
+@keyframes bottom-marquee-star-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bottom-marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Desktop layout has bottom padding to prevent fixed bar overlap */
+@media screen and (min-width: 1025px) {
+  body, html {
+    padding-bottom: 48px !important;
+  }
+}
+
+/* Mobile: Inline placement below the Bento grid, no sticky bar */
+@media screen and (max-width: 1024px) {
+  .bottom-marquee-bar {
+    position: relative;
+    border-bottom: 3px solid var(--border-hard);
+    margin: 8px 0 0 0;
+  }
+  
+  body, html {
+    padding-bottom: 0px !important;
+  }
+}

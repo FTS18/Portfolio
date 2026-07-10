@@ -1,15 +1,12 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, lazy, Suspense } from 'react'
 import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import ProjectCard from './ProjectCard'
-import ProjectModal from './ProjectModal'
+const ProjectModal = lazy(() => import('./ProjectModal'))
 import FilterBar from './FilterBar'
 import { useAllProjectViews } from '../../hooks/useFirebase'
 import { getProjectsCache, getProjectsPromise } from '../../App'
 import StructuredData from '../common/StructuredData'
 import './ProjectsSection.css'
-
-gsap.registerPlugin(ScrollTrigger)
 
 function ProjectsSection() {
   const sectionRef = useRef(null)
@@ -46,7 +43,7 @@ function ProjectsSection() {
         promise.then(data => processProjectsData(data))
       } else {
         // Fallback: fetch directly (shouldn't happen normally)
-        fetch('/assets/projects.json?v=1.4.1')
+        fetch('/assets/projects.json?v=1.5.0')
           .then(response => response.json())
           .then(data => processProjectsData(data))
           .catch(error => console.error('Error fetching projects:', error))
@@ -150,7 +147,7 @@ function ProjectsSection() {
     }
   }
 
-  // GSAP Scroll Animations
+  // GSAP Entrance Animations (run immediately on mount)
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
@@ -160,12 +157,7 @@ function ProjectsSection() {
           opacity: 1,
           y: 0,
           duration: 1,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: headerRef.current,
-            start: 'top 85%',
-            toggleActions: 'play none none none'
-          }
+          ease: 'power3.out'
         }
       )
 
@@ -178,13 +170,9 @@ function ProjectsSection() {
             y: 0,
             scale: 1,
             duration: 0.8,
-            stagger: 0.15,
+            stagger: 0.1,
             ease: 'power3.out',
-            scrollTrigger: {
-              trigger: statsRef.current,
-              start: 'top 80%',
-              toggleActions: 'play none none none'
-            }
+            delay: 0.1
           }
         )
       }
@@ -198,11 +186,7 @@ function ProjectsSection() {
             y: 0,
             duration: 0.8,
             ease: 'power3.out',
-            scrollTrigger: {
-              trigger: controlsRef.current,
-              start: 'top 85%',
-              toggleActions: 'play none none none'
-            }
+            delay: 0.2
           }
         )
       }
@@ -227,21 +211,16 @@ function ProjectsSection() {
         rotateX: 10,
       })
 
-      // Animate cards on scroll with stagger
-      ScrollTrigger.batch(cards, {
-        onEnter: (batch) => {
-          gsap.to(batch, {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            rotateX: 0,
-            duration: 0.8,
-            ease: 'back.out(1.4)',
-            stagger: 0.12,
-          })
-        },
-        start: 'top 90%',
-        once: true,
+      // Animate cards on load without waiting for scroll
+      gsap.to(cards, {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        rotateX: 0,
+        duration: 0.8,
+        ease: 'back.out(1.4)',
+        stagger: 0.05,
+        delay: 0.2
       })
     }, gridRef)
 
@@ -343,15 +322,16 @@ function ProjectsSection() {
         </div>
       </div>
 
-      {/* Project Modal */}
       {selectedProjectIndex !== null && (
-        <ProjectModal
-          project={filteredProjects[selectedProjectIndex]}
-          projects={filteredProjects}
-          currentIndex={selectedProjectIndex}
-          onClose={() => setSelectedProjectIndex(null)}
-          onNavigate={handleModalNavigate}
-        />
+        <Suspense fallback={null}>
+          <ProjectModal
+            project={filteredProjects[selectedProjectIndex]}
+            projects={filteredProjects}
+            currentIndex={selectedProjectIndex}
+            onClose={() => setSelectedProjectIndex(null)}
+            onNavigate={handleModalNavigate}
+          />
+        </Suspense>
       )}
     </section>
   )

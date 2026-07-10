@@ -43,10 +43,9 @@ function Header() {
               <a href="#" className="desktop-link">Explore</a>
               <label>Explore</label>
               <ul>
-                <li><a href="https://finixx.netlify.app" target="_blank" rel="noopener noreferrer">Finixx</a></li>
+                <li><a href="https://finixx.vercel.app" target="_blank" rel="noopener noreferrer">Finixx</a></li>
                 <li><a href="https://radioo.netlify.app" target="_blank" rel="noopener noreferrer">Musify</a></li>
                 <li><a href="https://dynwave.onrender.com" target="_blank" rel="noopener noreferrer">DynWave</a></li>
-                <li><Link to="/youtube">YouTube DL</Link></li>
               </ul>
             </li>
             <li>

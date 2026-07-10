@@ -15,12 +15,13 @@
 }
 
 .contact-form-title {
-  font-size: 64px;
-  font-weight: 700;
-  font-family: 'Inter', sans-serif;
+  font-size: 54px;
+  font-weight: 900;
+  font-family: var(--font-heading);
+  text-transform: uppercase;
   margin-bottom: 15px;
   color: var(--text-primary, #000);
-  letter-spacing: -1px;
+  letter-spacing: 2px;
 }
 
 .contact-form-subtitle {
@@ -163,4 +164,43 @@
     font-size: 14px;
     min-width: 180px;
   }
+}
+
+/* Form submission feedback styles */
+.form-submit-btn.btn-success {
+  background: #10b981 !important;
+  color: #ffffff !important;
+  border-color: #10b981 !important;
+  cursor: default !important;
+  transform: none !important;
+  box-shadow: 4px 4px 0 var(--border-hard) !important;
+}
+
+.form-submit-btn.btn-error {
+  background: #ef4444 !important;
+  color: #ffffff !important;
+  border-color: #ef4444 !important;
+}
+
+.form-status-msg {
+  font-family: 'Space Mono', monospace;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 15px 20px;
+  border: 2px solid var(--border-hard, #000);
+  margin-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.msg-success {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  border-color: #10b981;
+}
+
+.msg-error {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border-color: #ef4444;
 }

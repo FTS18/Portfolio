@@ -25,7 +25,7 @@ function PersonalSection() {
       return age
     }
 
-    setAge(calculateAge('2006-03-13'))
+    setAge(calculateAge('2008-01-17'))
 
     const timer = setTimeout(() => {
       fetch('/assets/projects.json')
@@ -121,13 +121,16 @@ function PersonalSection() {
           <div className="bento-tile bento-location-small b-s5">
             <span className="bento-label">BASE</span>
             <div className="location-scroll">
-              {/* Desktop: Full names with double arrow */}
+              {/* Desktop: Full names */}
               <span className="bento-value-small location-full">KANPUR</span>
-              <i className="fas fa-arrows-left-right location-full"></i>
-              <span className="bento-value-small location-full">CHANDIGARH</span>
-              {/* Mobile: Short names with single arrow */}
+              {/* Mobile: Short names */}
               <span className="bento-value-small location-compact">KNP</span>
-              <i className="fas fa-arrow-right location-compact"></i>
+              
+              <i className="fas fa-arrows-left-right"></i>
+              
+              {/* Desktop: Full names */}
+              <span className="bento-value-small location-full">CHANDIGARH</span>
+              {/* Mobile: Short names */}
               <span className="bento-value-small location-compact">CHD</span>
             </div>
           </div>

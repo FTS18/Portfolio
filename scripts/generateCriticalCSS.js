@@ -14,7 +14,6 @@ async function generateCriticalCSS() {
       width: 1300,
       height: 900,
       inline: true,
-      minify: true,
       extract: true,
       ignore: {
         atrule: ['@font-face'],

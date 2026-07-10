@@ -154,16 +154,7 @@
     display: flex;
     align-items: center;
     z-index: 2;
-}
-
-[data-theme='dark'] .card-marquee {
-    background: #FFFFFF;
-    /* High contrast White bar in Dark mode */
-}
-
-[data-theme='light'] .card-marquee {
-    background: #000000;
-    /* High contrast Black bar in Light mode */
+    background: var(--bg-secondary);
 }
 
 .marquee-content {
@@ -176,22 +167,12 @@
     font-family: 'Monument Extended', sans-serif;
     font-size: 11px;
     font-weight: 900;
-    color: var(--bg-primary);
+    color: var(--text-primary);
     text-transform: uppercase;
     letter-spacing: 2px;
     white-space: nowrap;
     padding-right: 20px;
     transition: color 0.3s ease;
-}
-
-[data-theme='light'] .marquee-content span {
-    color: #FFFFFF;
-    /* White text on Black BG */
-}
-
-[data-theme='dark'] .marquee-content span {
-    color: #000000;
-    /* Black text on White BG */
 }
 
 @keyframes marquee-scroll {
@@ -476,28 +457,28 @@
 }
 
 [data-theme='bw'] .card-marquee {
-    background: #FFFFFF;
+    background: var(--bg-secondary);
 }
 
 [data-theme='bw'] .marquee-content span {
-    color: #000000;
+    color: var(--text-primary);
 }
 
 [data-theme='bw'] .p-btn {
-    background: #FFFFFF;
-    color: #000000;
-    border: 2px solid #FFFFFF;
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    border: 2px solid var(--border-hard);
 }
 
 [data-theme='bw'] .p-btn-secondary {
     background: transparent;
-    color: #FFFFFF;
-    border: 2px solid #FFFFFF;
+    color: var(--text-primary);
+    border: 2px solid var(--border-hard);
 }
 
 [data-theme='bw'] .p-views {
-    background: #FFFFFF;
-    color: #000000;
+    background: var(--text-primary);
+    color: var(--bg-primary);
 }
 
 /* Featured Badge */
@@ -534,8 +515,9 @@
 }
 
 [data-theme='bw'] .featured-badge {
-    background: #fff;
-    color: #000;
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    border: 2px solid var(--border-hard);
 }
 
 /* Force natural colors for images in BW theme (User Request) */

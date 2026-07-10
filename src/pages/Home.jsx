@@ -13,6 +13,7 @@ const DSASection = lazy(() => import('../components/Home/DSASection'))
 const SkillsSection = lazy(() => import('../components/Home/SkillsSection'))
 const GuestbookSection = lazy(() => import('../components/Home/GuestbookSection'))
 const ContactFormSection = lazy(() => import('../components/Home/ContactFormSection'))
+const BottomMarquee = lazy(() => import('../components/common/BottomMarquee'))
 
 const SectionLoader = () => (
   <div style={{ height: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -33,6 +34,10 @@ function Home() {
       />
       <HeroSection isLoaderComplete={isLoaderComplete} canvasEnabled={canvasEnabled} />
       <PersonalSection />
+      
+      <Suspense fallback={null}>
+        <BottomMarquee />
+      </Suspense>
       
       {/* Lazy load sections below the fold */}
       <LazySection rootMargin="100px">

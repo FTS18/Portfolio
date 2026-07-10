@@ -1,10 +1,21 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, lazy, Suspense } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import ProjectModal from '../Projects/ProjectModal'
+const ProjectModal = lazy(() => import('../Projects/ProjectModal'))
 import './ExperienceSection.css'
 
 gsap.registerPlugin(ScrollTrigger)
+
+const isColorLight = (hexColor) => {
+  if (!hexColor) return false
+  const hex = hexColor.replace('#', '')
+  if (hex.length < 6) return false
+  const r = parseInt(hex.substring(0, 2), 16)
+  const g = parseInt(hex.substring(2, 4), 16)
+  const b = parseInt(hex.substring(4, 6), 16)
+  const luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b
+  return luminance > 140
+}
 
 function ExperienceSection() {
   const [activeTab, setActiveTab] = useState('hackathons')
@@ -15,20 +26,79 @@ function ExperienceSection() {
   const [projects, setProjects] = useState([])
   const [selectedProject, setSelectedProject] = useState(null)
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(null)
+  const [theme, setTheme] = useState('dark')
   const sectionRef = useRef(null)
   const headerRef = useRef(null)
   const tabsRef = useRef(null)
   const contentRef = useRef(null)
 
+  // Track theme changes dynamically
+  useEffect(() => {
+    const getTheme = () => document.documentElement.getAttribute('data-theme') || 'dark'
+    setTheme(getTheme())
+
+    const observer = new MutationObserver(() => {
+      setTheme(getTheme())
+    })
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme']
+    })
+
+    return () => observer.disconnect()
+  }, [])
+
   // Load projects.json
   useEffect(() => {
-    fetch('/assets/projects.json?v=1.4.1')
+    fetch('/assets/projects.json?v=1.5.0')
       .then(response => response.json())
       .then(data => setProjects(data))
       .catch(error => console.error('Error loading projects:', error))
   }, [])
 
   const hackathons = [
+    {
+      id: 9,
+      title: "Bharatiya Antariksh Hackathon 2026",
+      organization: 'ISRO & Hack2Skill',
+      date: 'Jun, 2026',
+      achievement: 'Result Awaited',
+      description: "Developing Mirr—an India Climate Digital Twin platform for ISRO Problem Statement 5. Assimilates INSAT-3D/3DR geostationary satellite imagery and ground observations (IMD) to generate 2D spatiotemporal climate forecasts using a hybrid 5-layer pipeline (PyTorch ConvLSTM, NOAA CPC analogs, and Mean Bias Correction). Includes a conversational RAG copilot grounded on ICAR-CRIDA district contingency plans.",
+      tags: ['Python', 'PyTorch', 'Streamlit', 'FastAPI', 'GIS', 'RAG'],
+      image: '/assets/images/screenshots/isro.webp',
+      link: 'https://github.com/Shikharyadav25/ISRO--Climate-Visuals',
+      github: 'https://github.com/Shikharyadav25/ISRO--Climate-Visuals',
+      color: '#ff6f00', // ISRO Orange
+      textColor: 'light'
+    },
+    {
+      id: 7,
+      title: "SESI Energy Summit Case-Based Hackathon '26",
+      organization: 'Punjab Engineering College',
+      date: 'Apr, 2026',
+      achievement: '1st Place - ₹2,500',
+      description: "Pitched Arasaka—a smart campus sustainability blueprint reducing Phantom Waste. Balanced Triple Bottom Line (People, Planet, Profit) using occupancy data, solar parking canopies, EV optimization, and circular credit loops.",
+      tags: ['Ideation', 'Systems Thinking', 'Next.js', 'Firebase', 'IoT', 'CleanTech'],
+      image: '/assets/images/pec.png',
+      link: 'https://arasaka-sesi.netlify.app/',
+      github: 'https://github.com/FTS18/SESI-26',
+      color: '#00ff88', // Green
+      textColor: 'dark'
+    },
+    {
+      id: 8,
+      title: "Synapse.AI DTU Hackathon",
+      organization: 'Delhi Technological University',
+      date: 'Mar, 2026',
+      achievement: 'Top 6 Finalist',
+      description: "Pitched and built Matcha-AI—an AI-powered sports video analysis and automated broadcasting platform. Combines computer vision (YOLOv8 + ByteTrack) with Google Gemini LLMs and Kokoro TTS to generate tactical heatmaps, track peak ball speeds, and produce high-quality audio commentary.",
+      tags: ['Next.js', 'NestJS', 'FastAPI', 'YOLOv8', 'Gemini AI', 'TTS', 'Computer Vision'],
+      image: '/assets/images/dtu.png',
+      link: 'https://github.com/FTS18/Matcha-AI-DTU',
+      github: 'https://github.com/FTS18/Matcha-AI-DTU',
+      color: '#1b4d3e' // Matcha Green
+    },
     {
       id: 1,
       title: 'Ideathon 5.0',
@@ -70,6 +140,19 @@ function ExperienceSection() {
       color: '#868686ff' // Grey
     },
     {
+      id: 5,
+      title: 'Smart India Hackathon 2025',
+      organization: 'Government of India',
+      date: 'Nov, 2025',
+      achievement: 'Round 2',
+      description: 'Built Saksham AI - An EdTech platform with AI-powered internship finder using NLP for matching students with relevant opportunities',
+      tags: ['React', 'TypeScript', 'Tailwind CSS', 'Firebase', 'Gemini AI', 'NLP', 'AI'],
+      image: '/assets/images/sih.png',
+      link: 'https://hexaforces.netlify.app',
+      github: 'https://github.com/FTS18/saksham-pathfinder',
+      color: '#6366F1' // Indigo
+    },
+    {
       id: 4,
       title: 'PECathon',
       organization: 'Punjab Engineering College',
@@ -82,19 +165,6 @@ function ExperienceSection() {
       githubBackend: 'https://github.com/FTS18/conduit_backend',
       color: '#FBBF24', // Yellow
       textColor: 'dark'
-    },
-    {
-      id: 5,
-      title: 'Smart India Hackathon 2024',
-      organization: 'Government of India',
-      date: 'Nov 2024',
-      achievement: 'Round 2',
-      description: 'Built Saksham AI - An EdTech platform with AI-powered internship finder using NLP for matching students with relevant opportunities',
-      tags: ['React', 'TypeScript', 'Tailwind CSS', 'Firebase', 'Gemini AI', 'NLP', 'AI'],
-      image: '/assets/images/sih.png',
-      link: 'https://hexaforces.netlify.app',
-      github: 'https://github.com/FTS18/saksham-pathfinder',
-      color: '#6366F1' // Indigo
     },
     {
       id: 6,
@@ -256,6 +326,9 @@ function ExperienceSection() {
   const handleItemClick = (item) => {
     // Map hackathon descriptions to project titles in projects.json
     const projectTitleMap = {
+      'Mirr': 'Mirr',
+      'Arasaka': 'Arasaka Energy OS',
+      'Matcha': 'Matcha-AI',
       'Saksham AI': 'Saksham AI',
       'Project Orion': 'Project Orion',
       'OmniFlow': 'OmniFlow',
@@ -306,7 +379,7 @@ function ExperienceSection() {
     <section className="experience" id="experience" ref={sectionRef}>
       <div className="experience-header" ref={headerRef}>
         <h2 className="experience-title"><span className="fraunces-italic">Experience</span></h2>
-        <p className="experience-subtitle">Hackathons, Certifications & Achievements</p>
+        <p className="experience-subtitle">Hackathons, Work Experience & Contributions</p>
       </div>
 
       <div className="experience-tabs" ref={tabsRef}>
@@ -321,19 +394,24 @@ function ExperienceSection() {
           className={`exp-tab ${activeTab === 'achievements' ? 'active' : ''}`}
           onClick={() => setActiveTab('achievements')}
         >
-          <i className="fa-solid fa-award"></i>
-          <span>Achievements</span>
+          <i className="fa-solid fa-briefcase"></i>
+          <span>Experience</span>
         </button>
       </div>
 
       <div className="experience-content" ref={contentRef}>
-        {(showAll[activeTab] ? data[activeTab] : data[activeTab].slice(0, 3)).map((item) => (
-          <div 
-            key={item.id} 
-            className={`exp-item ${item.textColor === 'dark' ? 'light-bg' : ''}`}
-            style={item.color ? { backgroundColor: item.color, cursor: 'pointer' } : { cursor: 'pointer' }}
-            onClick={() => handleItemClick(item)}
-          >
+        {(showAll[activeTab] ? data[activeTab] : data[activeTab].slice(0, 3)).map((item) => {
+          const isBw = theme === 'bw'
+          const hasCustomBg = activeTab === 'hackathons' && item.color && !isBw
+          const isLight = hasCustomBg && isColorLight(item.color)
+
+          return (
+            <div 
+              key={item.id} 
+              className={`exp-item ${isLight ? 'light-bg' : ''}`}
+              style={hasCustomBg ? { backgroundColor: item.color, borderColor: item.color, cursor: 'pointer' } : { cursor: 'pointer' }}
+              onClick={() => handleItemClick(item)}
+            >
             <div className="exp-icon">
               {item.image ? (
                 <img src={item.image} alt={item.organization} className="exp-logo" loading="lazy" />
@@ -366,7 +444,7 @@ function ExperienceSection() {
                   ))}
                 </div>
               )}
-              {(item.link || item.github || item.githubBackend) && (
+              {(item.link || item.github || item.linkedin || item.githubBackend) && (
                 <div className="exp-links">
                   {item.link && (
                     <a 
@@ -378,6 +456,19 @@ function ExperienceSection() {
                     >
                       <i className="fa-solid fa-arrow-up-right-from-square"></i>
                       View Project
+                    </a>
+                  )}
+                  {item.linkedin && (
+                    <a 
+                      href={item.linkedin} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="exp-link-btn exp-link-linkedin"
+                      style={{ backgroundColor: '#0a66c2', color: '#ffffff' }}
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <i className="fa-brands fa-linkedin"></i>
+                      LinkedIn Post
                     </a>
                   )}
                   {item.github && (
@@ -414,8 +505,9 @@ function ExperienceSection() {
               )}
             </div>
           </div>
-        ))}
-      </div>
+        )
+      })}
+    </div>
 
       {data[activeTab].length > 3 && (
         <div className="exp-view-all-container">
@@ -439,13 +531,15 @@ function ExperienceSection() {
       )}
 
       {selectedProject && (
-        <ProjectModal
-          project={selectedProject}
-          projects={projects}
-          currentIndex={selectedProjectIndex}
-          onClose={handleCloseModal}
-          onNavigate={handleNavigateModal}
-        />
+        <Suspense fallback={null}>
+          <ProjectModal
+            project={selectedProject}
+            projects={projects}
+            currentIndex={selectedProjectIndex}
+            onClose={handleCloseModal}
+            onNavigate={handleNavigateModal}
+          />
+        </Suspense>
       )}
     </section>
   )

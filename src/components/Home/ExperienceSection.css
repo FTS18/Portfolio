@@ -101,49 +101,57 @@
     padding: 32px;
     transition: all 0.3s ease;
     box-shadow: 6px 6px 0 var(--border-hard);
+    will-change: transform, opacity;
 }
 
-.exp-item[style*="backgroundColor"] {
+.exp-item[style*="background-color"] {
     color: #fff !important;
 }
 
-.exp-item[style*="backgroundColor"] .exp-title,
-.exp-item[style*="backgroundColor"] .exp-description,
-.exp-item[style*="backgroundColor"] .exp-org,
-.exp-item[style*="backgroundColor"] .exp-date,
-.exp-item[style*="backgroundColor"] .exp-meta,
-.exp-item[style*="backgroundColor"] .exp-org i,
-.exp-item[style*="backgroundColor"] .exp-date i {
+.exp-item[style*="background-color"] .exp-title,
+.exp-item[style*="background-color"] .exp-description,
+.exp-item[style*="background-color"] .exp-org,
+.exp-item[style*="background-color"] .exp-date,
+.exp-item[style*="background-color"] .exp-meta,
+.exp-item[style*="background-color"] .exp-org i,
+.exp-item[style*="background-color"] .exp-date i {
     color: #fff !important;
 }
 
-.exp-item[style*="backgroundColor"] .exp-badge {
+.exp-item[style*="background-color"] .exp-badge {
     background: rgba(255, 255, 255, 0.95);
     color: #000 !important;
     border-color: #fff;
 }
 
-.exp-item[style*="backgroundColor"] .exp-tag {
+.exp-item[style*="background-color"] .exp-tag {
     background: rgba(255, 255, 255, 0.25);
     border-color: rgba(255, 255, 255, 0.4);
     color: #fff !important;
 }
 
-.exp-item[style*="backgroundColor"] .exp-link-btn {
+.exp-item[style*="background-color"] .exp-link-btn:not(.exp-link-github):not(.exp-link-linkedin) {
     background: #fff;
     color: #000 !important;
     border-color: #fff;
 }
 
-.exp-item[style*="backgroundColor"] .exp-link-github {
-    background: rgba(255, 255, 255, 0.15);
+.exp-item[style*="background-color"] .exp-link-btn:not(.exp-link-github):not(.exp-link-linkedin):hover {
+    background: rgba(255, 255, 255, 0.2);
     color: #fff !important;
     border-color: rgba(255, 255, 255, 0.4);
 }
 
-.exp-item[style*="backgroundColor"] .exp-link-github:hover {
-    background: #fff;
-    color: #000;
+.exp-item[style*="background-color"] .exp-link-github {
+    background: rgba(255, 255, 255, 0.15) !important;
+    color: #fff !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.exp-item[style*="background-color"] .exp-link-github:hover {
+    background: #fff !important;
+    color: #000 !important;
+    border-color: #fff !important;
 }
 
 /* Force dark text for light backgrounds (overrides the above white text rules) */
@@ -173,25 +181,32 @@
     color: #000 !important;
 }
 
-.exp-item.light-bg .exp-link-btn {
+.exp-item.light-bg .exp-link-btn:not(.exp-link-github):not(.exp-link-linkedin) {
     background: #000;
     color: #fff !important;
     border-color: #000;
 }
 
-.exp-item.light-bg .exp-link-github {
-    background: rgba(0, 0, 0, 0.05);
+.exp-item.light-bg .exp-link-btn:not(.exp-link-github):not(.exp-link-linkedin):hover {
+    background: rgba(0, 0, 0, 0.1);
     color: #000 !important;
     border-color: rgba(0, 0, 0, 0.2);
 }
 
+.exp-item.light-bg .exp-link-github {
+    background: rgba(0, 0, 0, 0.05) !important;
+    color: #000 !important;
+    border-color: rgba(0, 0, 0, 0.2) !important;
+}
+
 .exp-item.light-bg .exp-link-github:hover {
-    background: #000;
+    background: #000 !important;
     color: #fff !important;
+    border-color: #000 !important;
 }
 
 /* Ensure icon/logo visibility on colored backgrounds */
-.exp-item[style*="backgroundColor"] .exp-icon {
+.exp-item[style*="background-color"] .exp-icon {
     background: #fff !important;
     border-color: rgba(255, 255, 255, 0.8);
 }
@@ -416,31 +431,31 @@
 
 [data-theme='bw'] .exp-item {
     background: var(--card-bg);
-    border-color: #FFFFFF;
+    border-color: var(--border-hard);
 }
 
 [data-theme='bw'] .exp-icon {
-    background: #FFFFFF;
-    color: #000000;
-    border-color: #FFFFFF;
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    border-color: var(--border-hard);
 }
 
 [data-theme='bw'] .exp-badge {
-    background: #FFFFFF;
-    color: #000000;
-    border-color: #FFFFFF;
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    border-color: var(--border-hard);
 }
 
 [data-theme='bw'] .experience {
-    background: #FFFFFF;
+    background: var(--bg-primary);
 }
 
 [data-theme='bw'] .experience-title {
-    color: #000000;
+    color: var(--text-primary);
 }
 
 [data-theme='bw'] .experience-subtitle {
-    color: #000000;
+    color: var(--text-secondary);
 }
 
 /* Responsive */

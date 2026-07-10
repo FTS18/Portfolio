@@ -22,6 +22,38 @@ const languageColors = {
   'Chrome Extension': '#4285f4'
 }
 
+const renderDescriptionWithLinks = (text) => {
+  if (!text) return null;
+  const regex = /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g;
+  const parts = [];
+  let lastIndex = 0;
+  let match;
+
+  while ((match = regex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(text.substring(lastIndex, match.index));
+    }
+    parts.push(
+      <a 
+        key={match.index} 
+        href={match[2]} 
+        target="_blank" 
+        rel="noopener noreferrer"
+        style={{ color: 'var(--accent-color, #6366f1)', textDecoration: 'underline' }}
+      >
+        {match[1]}
+      </a>
+    );
+    lastIndex = regex.lastIndex;
+  }
+
+  if (lastIndex < text.length) {
+    parts.push(text.substring(lastIndex));
+  }
+
+  return parts.length > 0 ? parts : text;
+};
+
 function ProjectModal({ project, projects, currentIndex, onClose, onNavigate }) {
   const modalRef = useRef(null)
   const imgRef = useRef(null)
@@ -107,6 +139,68 @@ function ProjectModal({ project, projects, currentIndex, onClose, onNavigate }) 
       }
     }
   }, [project.github])
+
+  // Dynamic SEO and OG Metadata
+  useEffect(() => {
+    // 1. Keep track of original values
+    const originalTitle = document.title
+    const originalMetaTitle = document.querySelector('meta[name="title"]')?.getAttribute('content')
+    const originalDescription = document.querySelector('meta[name="description"]')?.getAttribute('content')
+    const originalOgTitle = document.querySelector('meta[property="og:title"]')?.getAttribute('content')
+    const originalOgDesc = document.querySelector('meta[property="og:description"]')?.getAttribute('content')
+    const originalOgImage = document.querySelector('meta[property="og:image"]')?.getAttribute('content')
+    const originalOgUrl = document.querySelector('meta[property="og:url"]')?.getAttribute('content')
+    const originalTwitterTitle = document.querySelector('meta[name="twitter:title"]')?.getAttribute('content')
+    const originalTwitterDesc = document.querySelector('meta[name="twitter:description"]')?.getAttribute('content')
+    const originalTwitterImage = document.querySelector('meta[name="twitter:image"]')?.getAttribute('content')
+
+    // Helper: Update meta content
+    const setMetaContent = (selector, content) => {
+      if (!content) return
+      const element = document.querySelector(selector)
+      if (element) {
+        element.setAttribute('content', content)
+      }
+    }
+
+    // 2. Set dynamic project values
+    const projectTitle = `${project.title} | Ananay Dubey Portfolio`
+    const projectDesc = project.shortDesc || `Explore ${project.title} - a project by Ananay Dubey.`
+    const projectUrl = `${window.location.origin}/?project=${encodeURIComponent(project.title)}`
+    
+    // Resolve absolute image path
+    let projectImage = originalOgImage
+    if (project.image) {
+      projectImage = project.image.startsWith('http') 
+        ? project.image 
+        : `${window.location.origin}/${project.image.startsWith('/') ? project.image.slice(1) : project.image}`
+    }
+
+    document.title = projectTitle
+    setMetaContent('meta[name="title"]', projectTitle)
+    setMetaContent('meta[name="description"]', projectDesc)
+    setMetaContent('meta[property="og:title"]', projectTitle)
+    setMetaContent('meta[property="og:description"]', projectDesc)
+    setMetaContent('meta[property="og:image"]', projectImage)
+    setMetaContent('meta[property="og:url"]', projectUrl)
+    setMetaContent('meta[name="twitter:title"]', projectTitle)
+    setMetaContent('meta[name="twitter:description"]', projectDesc)
+    setMetaContent('meta[name="twitter:image"]', projectImage)
+
+    // 3. Cleanup on unmount / project change
+    return () => {
+      document.title = originalTitle
+      setMetaContent('meta[name="title"]', originalMetaTitle)
+      setMetaContent('meta[name="description"]', originalDescription)
+      setMetaContent('meta[property="og:title"]', originalOgTitle)
+      setMetaContent('meta[property="og:description"]', originalOgDesc)
+      setMetaContent('meta[property="og:image"]', originalOgImage)
+      setMetaContent('meta[property="og:url"]', originalOgUrl)
+      setMetaContent('meta[name="twitter:title"]', originalTwitterTitle)
+      setMetaContent('meta[name="twitter:description"]', originalTwitterDesc)
+      setMetaContent('meta[name="twitter:image"]', originalTwitterImage)
+    }
+  }, [project])
 
   // Extract accent color from image - THEME AWARE
   const handleImageLoad = () => {
@@ -389,7 +483,7 @@ function ProjectModal({ project, projects, currentIndex, onClose, onNavigate }) 
               )}
             </div>
 
-            <p className="modal-description">{project.longDesc || project.shortDesc || project.description}</p>
+            <p className="modal-description">{renderDescriptionWithLinks(project.longDesc || project.shortDesc || project.description)}</p>
 
             <div className="modal-tags">
               {tags.slice(0, 12).map((tag, i) => (

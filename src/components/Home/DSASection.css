@@ -1,179 +1,226 @@
 .dsa-section {
-    padding: 100px 60px;
-    background: var(--bg-primary);
-    /* Default to black/theme bg */
-    border-bottom: 2px solid var(--border-hard);
+    padding: 80px 60px;
     width: 100%;
     position: relative;
     z-index: 10;
+    border-bottom: 2px solid var(--border-color);
+    transition: background 0.3s ease;
+    
+    /* Default Dark Theme Variables (Purple Background) */
+    --card-border-softer: rgba(255, 255, 255, 0.1);
+    --card-border-hover: rgba(255, 255, 255, 0.25);
+    --shadow-color-softer: rgba(0, 0, 0, 0.3);
+    background: #180b30;
 }
 
 [data-theme='light'] .dsa-section {
+    /* Neon Green Background in Light Mode */
+    --card-border-softer: rgba(0, 0, 0, 0.08);
+    --card-border-hover: rgba(0, 0, 0, 0.2);
+    --shadow-color-softer: rgba(0, 0, 0, 0.05);
     background: #00ff88;
 }
 
 [data-theme='bw'] .dsa-section {
+    /* Pure Black Background in B&W Mode */
+    --card-border-softer: #262626;
+    --card-border-hover: #3b3b3b;
+    --shadow-color-softer: #0d0d0d;
     background: #000000;
-}
-
-/* B&W Mode Overrides */
-[data-theme='bw'] .progress-bar {
-    background: #FFFFFF !important;
-}
-
-[data-theme='bw'] .dsa-card {
-    background: #000000;
-    border-color: #FFFFFF;
-    box-shadow: 6px 6px 0 #333333;
-}
-
-[data-theme='bw'] .dsa-icon {
-    background: #FFFFFF;
-    color: #000000;
-    border-color: #FFFFFF;
-}
-
-[data-theme='bw'] .dsa-value {
-    color: #FFFFFF;
-}
-
-[data-theme='bw'] .dsa-label {
-    color: #CCCCCC;
-}
-
-[data-theme='bw'] .profile-link-card {
-    background: #FFFFFF;
-    color: #000000;
-    border: 3px solid #FFFFFF;
 }
 
 .dsa-header {
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
 }
 
 .dsa-title {
     font-family: 'Monument Extended', sans-serif;
-    font-size: 64px;
+    font-size: 48px;
     font-weight: 900;
     color: var(--text-primary);
     text-transform: uppercase;
 }
 
-.dsa-grid {
+/* Compact Bento Grid */
+.dsa-grid-compact {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    max-width: 1400px;
+    gap: 24px;
+    max-width: 1200px;
     margin: 0 auto;
+    width: 100%;
 }
 
-/* Card Styles */
-.dsa-card {
+.dsa-bento-card {
+    grid-column: span 2;
     background: var(--card-bg);
-    border: 3px solid var(--border-hard);
-    padding: 30px;
+    border: 2px solid var(--card-border-softer);
+    padding: 28px;
     display: flex;
     flex-direction: column;
+    gap: 20px;
+    box-shadow: 6px 6px 0 var(--shadow-color-softer);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    will-change: transform, opacity;
+}
+
+.dsa-bento-card:hover {
+    transform: translate(-3px, -3px);
+    border-color: var(--card-border-hover);
+    box-shadow: 9px 9px 0 var(--shadow-color-softer);
+}
+
+.bento-header {
+    display: flex;
     justify-content: space-between;
-    min-height: 180px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 6px 6px 0 var(--border-hard);
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 12px;
+}
+
+.bento-title-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.bento-title-group i {
+    font-size: 18px;
+    color: var(--text-primary);
+}
+
+.bento-title-group h3 {
+    font-family: 'Monument Extended', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+.bento-username {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.bento-stats-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.bento-stat {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-secondary);
+    padding: 16px;
+    border: 1px solid var(--border-color);
+    transition: background-color 0.3s ease;
+}
+
+.stat-val {
+    font-family: 'Monument Extended', sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1.2;
+}
+
+.stat-lbl {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    margin-top: 4px;
+}
+
+.bento-progress-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.bento-progress-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.progress-track {
+    width: 100%;
+    height: 6px;
+    background: var(--bg-secondary);
     position: relative;
     overflow: hidden;
 }
 
-.dsa-card:hover {
-    transform: translate(-4px, -4px);
-    box-shadow: 10px 10px 0 var(--border-hard);
-}
-
-/* Specific Card Layouts */
-.total-card,
-.rank-card {
-    grid-column: span 2;
-    flex-direction: row;
-    align-items: center;
-    gap: 20px;
-}
-
-.easy-card,
-.medium-card,
-.hard-card,
-.profile-link-card {
-    grid-column: span 1;
-}
-
-/* Icons & text */
-.dsa-icon {
-    width: 60px;
-    height: 60px;
-    background: var(--text-primary);
-    color: var(--bg-primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid var(--border-hard);
-    font-size: 24px;
-}
-
-.dsa-info {
-    display: flex;
-    flex-direction: column;
-}
-
-.dsa-value {
-    font-family: 'Monument Extended', sans-serif;
-    font-size: 36px;
-    font-weight: 900;
-    color: var(--text-primary);
-    line-height: 1.1;
-}
-
-.dsa-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--text-secondary);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-top: 5px;
-}
-
-/* Progress Bars */
-.dsa-progress {
-    width: 100%;
-    height: 8px;
-    background: rgba(255, 255, 255, 0.1);
-    margin-top: 20px;
-    position: relative;
-}
-
-.progress-bar {
+.progress-fill {
     height: 100%;
     position: absolute;
     left: 0;
     top: 0;
+    transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Profile Link Card */
+.progress-fill.easy { background: #10b981; }
+.progress-fill.medium { background: #f59e0b; }
+.progress-fill.hard { background: #ef4444; }
+
+/* Profile Link Cards */
 .profile-link-card {
-    background: var(--text-primary);
-    color: var(--bg-primary);
-    cursor: pointer;
-    text-decoration: none;
+    grid-column: span 2;
+    background: var(--bg-secondary);
+    border: 2px solid var(--card-border-softer);
+    padding: 20px;
+    display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 6px 6px 0 var(--shadow-color-softer);
+    transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-link-card:hover {
+    transform: translate(-3px, -3px);
+    background: var(--card-bg);
+    border-color: var(--card-border-hover);
+    box-shadow: 9px 9px 0 var(--shadow-color-softer);
 }
 
 .profile-link-card .link-content {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
     font-family: 'Monument Extended', sans-serif;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 800;
     text-transform: uppercase;
+    color: var(--text-primary);
+}
+
+.profile-link-card .link-content i {
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+.profile-link-card:hover .link-content i {
+    transform: translateX(4px);
 }
 
 /* Loading State */
@@ -182,50 +229,98 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 100px;
-    gap: 20px;
+    padding: 80px;
+    gap: 16px;
 }
 
 .spinner {
-    width: 40px;
-    height: 40px;
-    border: 4px solid var(--border-color);
-    border-top: 4px solid var(--text-primary);
+    width: 32px;
+    height: 32px;
+    border: 3px solid var(--border-color);
+    border-top: 3px solid var(--text-primary);
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
-/* Theme specifics */
-[data-theme='light'] .dsa-progress {
-    background: rgba(0, 0, 0, 0.1);
+/* B&W Theme Progress Overrides */
+[data-theme='bw'] .progress-fill.easy,
+[data-theme='bw'] .progress-fill.medium,
+[data-theme='bw'] .progress-fill.hard {
+    background: #aaaaaa !important;
+}
+
+/* Codeforces Rating Badges styles */
+.cf-ratings-section {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.cf-ratings-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.cf-ratings-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.cf-rating-badge {
+    display: flex;
+    align-items: center;
+    border: 1.5px solid var(--border-color);
+    background: var(--bg-secondary);
+    padding: 3px 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    gap: 5px;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.cf-rating-badge:hover {
+    transform: translateY(-2px);
+    background: var(--bg-tertiary);
+}
+
+.cf-badge-count {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-secondary);
+    padding: 1px 4px;
+    font-size: 9px;
+    font-weight: 600;
+}
+
+[data-theme='light'] .cf-badge-count {
+    background: rgba(0, 0, 0, 0.05);
+    color: var(--text-primary);
+}
+
+[data-theme='bw'] .cf-rating-badge {
+    border-color: #262626 !important;
+    color: #eeeeee !important;
 }
 
 /* Responsive */
 @media screen and (max-width: 1024px) {
-    .dsa-grid {
+    .dsa-grid-compact {
         grid-template-columns: repeat(2, 1fr);
-    }
-
-    .total-card,
-    .rank-card {
-        grid-column: span 1;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
     .dsa-section {
         padding: 60px 20px;
     }
@@ -234,21 +329,23 @@
         font-size: 32px;
     }
 
-    .dsa-grid {
+    .dsa-grid-compact {
         grid-template-columns: 1fr;
-        gap: 15px;
+        gap: 16px;
     }
 
-    .total-card,
-    .rank-card,
-    .easy-card,
-    .medium-card,
-    .hard-card,
+    .dsa-bento-card,
     .profile-link-card {
         grid-column: span 1;
+        padding: 20px;
     }
-
-    .dsa-value {
-        font-size: 32px;
+    
+    .bento-stats-row {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .stat-val {
+        font-size: 24px;
     }
 }
