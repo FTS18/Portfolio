@@ -6,7 +6,7 @@ async function generateCriticalCSS() {
   try {
     const { css } = await generate({
       base: 'dist/',
-      src: 'index.html',
+      src: 'dist/index.html',
       target: {
         css: 'critical.css',
         html: 'index.html'
