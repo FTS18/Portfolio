@@ -3,6 +3,29 @@
 
 <head>
     <meta charset="UTF-8" />
+    <!-- Auto-recovery handler for script loading & cache mismatch errors -->
+    <script>
+        window.addEventListener('error', function (e) {
+            var isScript = e.target && e.target.tagName === 'SCRIPT';
+            var isSyntax = e.message && (e.message.indexOf("Unexpected token") !== -1 || e.message.indexOf("SyntaxError") !== -1);
+            if (isScript || isSyntax) {
+                if (!sessionStorage.getItem('site_auto_recovered')) {
+                    sessionStorage.setItem('site_auto_recovered', 'true');
+                    console.warn("Script load or syntax error detected. Clearing SW and forcing reload...");
+                    if (navigator.serviceWorker) {
+                        navigator.serviceWorker.getRegistrations().then(function (regs) {
+                            for (var i = 0; i < regs.length; i++) regs[i].unregister();
+                            window.location.reload(true);
+                        }).catch(function () {
+                            window.location.reload(true);
+                        });
+                    } else {
+                        window.location.reload(true);
+                    }
+                }
+            }
+        }, true);
+    </script>
     <link rel="icon" type="image/png" href="/assets/images/favicon/favicon-32x32.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ananay Dubey | Full-Stack Developer & React Specialist</title>
