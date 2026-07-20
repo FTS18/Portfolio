@@ -28,6 +28,15 @@
     </script>
     <link rel="icon" type="image/png" href="/assets/images/favicon/favicon-32x32.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Prevent FOUC for theme colors -->
+    <script>
+        (function() {
+            try {
+                var theme = localStorage.getItem('theme') || 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (e) {}
+        })();
+    </script>
     <title>Ananay Dubey | Full-Stack Developer & React Specialist</title>
 
     <!-- Primary Meta Tags -->

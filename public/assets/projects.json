@@ -145,11 +145,11 @@
     {
         "title": "Triage-OSS",
         "shortDesc": "VS Code extension to search GitHub issues, track PR activity, find good first issues, and explore GSoC orgs directly in your editor.",
-        "featured": true,
+        "featured": false,
         "longDesc": "Triage-OSS is a powerful VS Code extension developed in TypeScript to streamline open-source contributions directly within the developer's editing environment. Integrating deep features for open-source discovery, the extension connects to the GitHub API to fetch filtered issues by language, labels, stars, and age, highlighting cash bounties from Algora and Polar.\n\nThe extension introduces several custom tree-views, including a Daily Challenge showing good first issues from major projects, a persistent Watchlist, a Trending & Hot feed tracking active issues and GSoC (Google Summer of Code) organization participants, and a My Activity dashboard displaying the developer's PR merge rates and issue engagement statistics. Additionally, it implements CodeLens and hover provider overlays showing npm package metadata and open issue counts upon hovering code imports, terminal error string parsing for instant issue searches, and automated one-click repository fork-and-cloning workflows.",
         "link": "https://marketplace.visualstudio.com/items?itemName=fts18.triage-oss",
         "github": "https://github.com/FTS18/Triage-OSS",
-        "image": "assets/images/screenshots/tf.webp",
+        "image": "assets/images/screenshots/triage.webp",
         "date": "Apr, 2026",
         "tags": [
             "VS Code Extension",
@@ -206,7 +206,8 @@
             "Dashboard",
             "RBAC",
             "College",
-            "PEC","Ideathon 5.0"
+            "PEC",
+            "Ideathon 5.0"
         ],
         "hackathon": "Special Mention @ PEC Ideathon 5.0"
     },
@@ -288,12 +289,32 @@
         ]
     },
     {
+        "title": "Traf AI",
+        "shortDesc": "Institutional Traffic Simulation Engine featuring a stochastic flow engine and adaptive signaling intelligence.",
+        "featured": false,
+        "longDesc": "Traf AI is a high-fidelity, deterministic traffic simulation platform designed for urban planning and corridor management. Originally conceptualized for an Environmental Studies (EVS) project, the system was driven by an ambitious self-initiative to bridge the gap between ECE (Electronics & Communication Engineering) and CSE (Computer Science Engineering). Due to hardware cost constraints for physical modeling, I engineered it purely as an advanced Digital Twin simulation.\n\nThe system utilizes a stochastic flow engine and adaptive signaling intelligence to model complex intersection dynamics, focusing heavily on throughput optimization and environmental impact analytics.\n\nKey features include:\n• Stochastic Urban Flow Engine with pulse oscillation and micro-platooning.\n• Adaptive Signal Intelligence (ASI) leveraging pressure-weighted scaling and safety-red clearance.\n• Environmental & Performance Analytics computing CO2 emissions, fuel efficiency, and a driver frustration heatmap.\n• Atmospheric Simulation rendering dynamic diurnal cycles and reactive weather physics.\n\nThe system features a reactive architecture with a decoupled physics loop and UI rendering layer, using Zustand for 60 FPS flicker-free telemetry.",
+        "link": "https://ai-traffic-management-system-two.vercel.app",
+        "github": "https://github.com/FTS18/AI-Traffic-Management-System",
+        "image": "assets/images/screenshots/trafai.jpg",
+        "date": "Apr, 2026",
+        "tags": [
+            "React",
+            "TypeScript",
+            "Vite",
+            "Zustand",
+            "Tailwind CSS",
+            "Shadcn/UI",
+            "Recharts",
+            "Simulation"
+        ]
+    },
+    {
         "title": "Conduit",
         "shortDesc": "Full-stack Medium clone with advanced features including bookmarking, user mentions, notifications, and real-time interactions.",
         "longDesc": "Conduit is a comprehensive full-stack blogging platform built as a real-world implementation of the RealWorld specification. Developed for PECathon, this Medium-inspired application demonstrates advanced React+Redux patterns, authentication workflows, and complex state management. The platform enables users to create, publish, and discover articles while fostering community engagement through comments, follows, and interactions.\n\nThe frontend leverages React with Redux for predictable state management, implementing sophisticated features like a bookmarking system for saving articles to a reading list, user mentions with @username syntax triggering real-time notifications, smart article recommendations based on tags and reading history, and a complete comment voting system with upvotes and ranking. Additional enhancements include search functionality, offline reading capabilities, user avatars with fallback initials, adjustable font sizes for accessibility, and skeleton loading states for improved UX.\n\nThe backend is built with Node.js and Express, providing a robust REST API with JWT authentication, MongoDB for data persistence, and real-time notification delivery. The architecture follows best practices with proper separation of concerns, middleware for authentication and validation, and optimized database queries. The application handles complex relationships between users, articles, comments, and tags while maintaining performance and scalability.\n\nConduit serves as a sister project to [DynWave](https://dynwave.onrender.com/), which utilizes a similar Express-based backend architecture but operates as a dynamic real-time messaging and chat application rather than a publication platform.",
         "link": "https://pecathon.vercel.app",
         "github": "https://github.com/FTS18/conduit_frontend",
-        "image": "assets/images/conduit.webp",
+        "image": "assets/images/screenshots/conduit.webp",
         "date": "September, 2025",
         "hackathon": "PECathon",
         "tags": [
@@ -312,7 +333,7 @@
     {
         "title": "Upskillers AI",
         "shortDesc": "EdTech platform with AI-powered internship finder using NLP for matching students with relevant opportunities.",
-        "featured": true,
+        "featured": false,
         "longDesc": "Developed for the prestigious Smart India Hackathon 2025, Upskillers AI is an innovative EdTech platform that transforms how students discover and secure internship opportunities. The AI-powered matching engine uses advanced NLP algorithms to analyze student profiles, skills, projects, and preferences, then recommends highly relevant internships from a curated database of opportunities across various industries and domains.\n\nThe platform features a comprehensive skill assessment system with interactive quizzes that evaluate both theoretical knowledge and practical problem-solving abilities. Students can build their professional portfolio directly on the platform, generate ATS-friendly resumes with smart suggestions, and access curated interview preparation resources. Beautiful data visualizations using Chart.js help students track their progress, identify skill gaps, and set achievement goals.\n\nFramer Motion powers smooth animations throughout the interface, creating an engaging and modern user experience that keeps students motivated in their career journey. The platform includes mentorship matching, peer learning communities, and success story showcases from students who secured internships through the platform. Firebase handles authentication, real-time features, and scalable data storage, ensuring a seamless experience for the growing user base.",
         "link": "https://upskillers.vercel.app",
         "github": "https://github.com/FTS18/saksham-pathfinder",
@@ -358,7 +379,7 @@
     {
         "title": "Radioo",
         "shortDesc": "Online radio streaming platform with music discovery and entertainment features built with vanilla JavaScript.",
-        "featured": true,
+        "featured": false,
         "longDesc": "Radioo brings the nostalgic charm of radio to the digital age through a beautifully designed online streaming platform. The application connects to various radio stations worldwide using public radio APIs, offering users an endless stream of music, news, talk shows, and entertainment. The clean, intuitive interface makes discovering new stations effortless, with categories ranging from jazz and classical to pop, electronic, and regional music.\n\nBuilt entirely with vanilla JavaScript, the platform demonstrates the power of native web technologies without framework dependencies. The Web Audio API integration provides real-time audio visualization effects that dance and pulse with the music, creating an immersive listening experience. Users can see frequency bars, waveforms, and color-reactive visuals that respond to the audio being played.\n\nFavorite stations can be bookmarked for quick access, and the platform remembers your listening history to provide personalized recommendations. The responsive design ensures perfect playback whether you're on desktop, tablet, or mobile. Features include sleep timer, station search, genre filtering, and the ability to share stations with friends via social media integration.",
         "link": "https://radioo.netlify.app",
         "github": "https://github.com/FTS18/musify1",
@@ -398,7 +419,7 @@
         "longDesc": "Lync is a modern video calling platform that provides seamless real-time communication directly in the browser. Powered by the Agora RTC SDK for low-latency video and audio streaming and Firebase for database and signaling, the application establishes robust rooms for users to connect instantly without installing external downloads or plugins.\n\nKey features include room-based calling with shareable invite links, camera and microphone toggles, and device selection. The UI is built using Next.js App Router and Tailwind CSS, featuring glassmorphism and modern dark mode styling. Developed in collaboration with Arunjay, the project showcases the implementation of production-ready real-time communication protocols and secure token generation workflows.",
         "link": "https://lynccc.vercel.app/",
         "github": "https://github.com/FTS18/lync",
-        "image": "assets/images/screenshots/4.webp",
+        "image": "assets/images/screenshots/lync.webp",
         "date": "Apr, 2024",
         "tags": [
             "Next.js",
@@ -416,7 +437,7 @@
         "title": "DynWave",
         "hidden": true,
         "shortDesc": "Dynamic chat application with real-time messaging capabilities and modern UI for seamless communication.",
-        "featured": true,
+        "featured": false,
         "longDesc": "DynWave delivers a dynamic real-time chat experience powered by Socket.io and Express.js. The platform supports both private one-on-one messaging and group conversations with unlimited participants. Features include typing indicators that show when someone is composing a message, read receipts for message delivery confirmation, and emoji reactions that make conversations feel natural and engaging.\n\nThe modern UI, developed in collaboration with Divyanshi, features smooth CSS animations, comprehensive emoji picker, file sharing capabilities, and a beautiful color scheme that adapts to user preferences with light and dark modes. Messages support rich formatting, link previews, and image embedding. Users can search through conversation history, star important messages, and create message threads.\n\nBuilt with Node.js on the backend, the application demonstrates full-stack JavaScript capabilities with efficient WebSocket connections handling hundreds of concurrent users without breaking a sweat. The architecture uses event-driven programming for real-time synchronization, ensuring messages appear instantly across all connected devices. Redis integration provides message persistence and enables horizontal scaling for production deployments.",
         "link": "https://dynwave.onrender.com/",
         "github": "https://github.com/FTS18/dynwave",
@@ -508,7 +529,7 @@
     },
     {
         "title": "YT Video Downloader",
-        "hidden":true,
+        "hidden": true,
         "shortDesc": "YouTube video downloader utility with clean interface and multiple format support for content creators.",
         "longDesc": "This utility provides a clean, ad-free interface for downloading YouTube videos in various formats and qualities. Built with React and serverless Netlify Functions, users simply paste a video URL and the tool fetches video metadata including thumbnail, title, author, and duration. Select your preferred quality from Best Quality (highest available resolution), Lowest Quality (for saving bandwidth), or Audio Only (for music downloads).\n\nThe interface features a modern brutalist design with glassmorphism effects, a convenient clipboard paste button for quick URL input, real-time video preview before downloading, and quality selection with clear descriptions. The tool handles all processing through secure serverless functions, ensuring privacy and avoiding the bloat and intrusive ads found on most download websites.\n\nBuilt with modern technologies including React for the frontend, Netlify Functions for serverless backend processing, ytdl-core for YouTube video extraction, and a responsive design that works beautifully on all devices. Features include error handling with helpful feedback, loading states for better UX, and support for various video formats. Note: Users are encouraged to respect copyright and only download content they have rights to use.",
         "link": "/youtube",

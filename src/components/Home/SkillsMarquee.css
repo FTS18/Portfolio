@@ -1,6 +1,6 @@
 .skills-section {
     padding: 80px 40px;
-    background: linear-gradient(180deg, #0d0d0d 0%, #050505 100%);
+    background: #000000;
     border-bottom: 2px solid #222;
     overflow: hidden;
     position: relative;
@@ -102,12 +102,12 @@
 
 .marquee-row::before {
     left: 0;
-    background: linear-gradient(90deg, #0d0d0d 0%, transparent 100%);
+    background: linear-gradient(90deg, #000000 0%, transparent 100%);
 }
 
 .marquee-row::after {
     right: 0;
-    background: linear-gradient(270deg, #0d0d0d 0%, transparent 100%);
+    background: linear-gradient(270deg, #000000 0%, transparent 100%);
 }
 
 .marquee-content {
@@ -183,7 +183,7 @@
 .skill-pill span {
     font-size: 18px;
     font-weight: 600;
-    color: var(--text-primary);
+    color: #ffffff;
     position: relative;
     z-index: 1;
 }

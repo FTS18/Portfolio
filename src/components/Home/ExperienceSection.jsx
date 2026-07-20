@@ -187,13 +187,37 @@ function ExperienceSection() {
 
   const achievements = [
     {
+      id: 4,
+      title: 'Freelance Full Stack Developer',
+      organization: 'B2B SaaS Client',
+      date: 'July 2026',
+      achievement: 'Delivered for ₹4,000',
+      description: 'Built NextWave SMM, a custom full-stack Social Media Marketing dashboard that centralizes campaign management. By extensively integrating the BuzzSMM API, I engineered a custom workaround for their native single-campaign limit—empowering the client to launch, automate, and track multiple marketing campaigns simultaneously with a single click.',
+      tags: ['Next.js', 'React', 'BuzzSMM API', 'SMM', 'Full Stack', 'Freelance'],
+      link: 'https://nextwavesmm.vercel.app/',
+      image: '/assets/images/smm.jpg',
+      color: '#0284c7' // SMM Cyan/Blue
+    },
+    {
       id: 1,
       title: 'Frontend Web Developer',
       organization: "PECFEST'25",
       date: 'Oct 2025 - Nov 2025',
       description: 'Part-time role developing and maintaining the official PECFEST website and web applications',
       tags: ['React', 'Frontend', 'Web Development'],
-      image: '/assets/images/pecfest.png'
+      image: '/assets/images/pecfest.png',
+      color: '#8b5cf6' // PECFEST Purple
+    },
+    {
+      id: 5,
+      title: 'Freelance Software Developer',
+      organization: 'Contract',
+      date: 'May 2025',
+      achievement: 'Monetized',
+      description: 'Developed a full-stack EdTech web application from scratch to help students accurately predict their JEE and NEET exam ranks based on raw scores. Using custom data algorithms, the platform maps student performance to highly probable engineering and medical college acceptances. I successfully monetized the project by rolling out premium, personalized career counseling features directly to users.',
+      tags: ['Algorithms', 'Data Analysis', 'React', 'EdTech', 'Full Stack', 'Freelance'],
+      image: '/assets/images/jee.png',
+      color: '#f97316' // JEE Orange
     },
     {
       id: 2,
@@ -203,7 +227,8 @@ function ExperienceSection() {
       achievement: '3 Gold Medals',
       description: 'Led web development team across 2 interschool tech fests. Won a total of 3 gold medals in the second event',
       tags: ['Leadership', 'Front-End Development', 'HTML', 'Node.js', 'Web Design'],
-      image: '/assets/images/yz.png'
+      image: '/assets/images/yz.png',
+      color: '#ec4899' // YouthZest Pink
     },
     {
       id: 3,
@@ -212,7 +237,8 @@ function ExperienceSection() {
       date: 'Oct 2021',
       description: 'Participated in the global open-source contribution event. Won swags and certificate of accomplishment',
       tags: ['Open Source', 'Git', 'Collaboration'],
-      image: '/assets/images/hf.png'
+      image: '/assets/images/hf.png',
+      color: '#1e40af' // Hacktoberfest Blue
     }
   ]
 
@@ -442,7 +468,7 @@ function ExperienceSection() {
       <div className="experience-content" ref={contentRef}>
         {(showAll[activeTab] ? data[activeTab] : data[activeTab].slice(0, 3)).map((item) => {
           const isBw = theme === 'bw'
-          const hasCustomBg = activeTab === 'hackathons' && item.color && !isBw
+          const hasCustomBg = item.color && !isBw
           const isLight = hasCustomBg && isColorLight(item.color)
 
           return (

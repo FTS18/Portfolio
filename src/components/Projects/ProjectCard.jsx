@@ -112,12 +112,16 @@ function ProjectCard({ project, onOpenModal, priority = false }) {
       }
     };
 
-    // Use requestIdleCallback if available, otherwise fallback to setTimeout
-    if ('requestIdleCallback' in window) {
-      window.requestIdleCallback(extractColors, { timeout: 2000 });
-    } else {
-      setTimeout(extractColors, 100);
-    }
+    // Defer color extraction significantly so it doesn't block GSAP animations
+    // during the section's lazy-load mount. Add a random stagger.
+    const delay = 1500 + Math.random() * 2000;
+    setTimeout(() => {
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(extractColors, { timeout: 2000 });
+      } else {
+        extractColors();
+      }
+    }, delay);
   }
 
   const handleClick = () => {

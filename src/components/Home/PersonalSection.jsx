@@ -49,30 +49,33 @@ function PersonalSection() {
           const tiles = gridRef.current?.querySelectorAll('.bento-tile')
           if (!tiles) return
 
-          // Set initial state - smooth scale + slide (no blur for mobile perf)
+          // Big Tech Style: Smooth scale, subtle 3D flip, graceful slide
           gsap.set(tiles, {
             opacity: 0,
-            y: 40,
-            scale: 0.97,
+            y: 50,
+            scale: 0.92,
+            rotateX: 15,
+            transformPerspective: 1000
           })
 
-          // Smooth reveal animation - GPU-accelerated only
+          // Smooth reveal animation - GPU-accelerated
           gsap.to(tiles, {
             opacity: 1,
             y: 0,
             scale: 1,
-            duration: 0.5,
-            ease: 'power2.out',
-            stagger: {
-              amount: 0.6,
-              from: 'start',
-              grid: [3, 7],
-              axis: 'x',
-            },
+            rotateX: 0,
+            duration: 1.2,
+            ease: 'expo.out',
+            stagger: 0.06,
+            onComplete: () => {
+              if (sectionRef.current) {
+                sectionRef.current.classList.add('ready');
+              }
+            }
           })
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.15 }
     )
 
     if (sectionRef.current) observer.observe(sectionRef.current)

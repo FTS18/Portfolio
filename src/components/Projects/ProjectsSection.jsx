@@ -198,7 +198,14 @@ function ProjectsSection() {
             duration: 0.8,
             stagger: 0.1,
             ease: 'power3.out',
-            delay: 0.1,
+            scrollTrigger: {
+              trigger: statsRef.current,
+              start: 'top 85%',
+              toggleActions: 'play none none none'
+            },
+            onComplete: () => {
+              if (statsRef.current) statsRef.current.classList.add('ready')
+            },
             onStart: function() {
               // Number counter animation
               const statValues = statsRef.current.querySelectorAll('.stat-value')
@@ -230,7 +237,14 @@ function ProjectsSection() {
             y: 0,
             duration: 0.8,
             ease: 'power3.out',
-            delay: 0.2
+            scrollTrigger: {
+              trigger: controlsRef.current,
+              start: 'top 85%',
+              toggleActions: 'play none none none'
+            },
+            onComplete: () => {
+              if (controlsRef.current) controlsRef.current.classList.add('ready')
+            }
           }
         )
       }
@@ -255,7 +269,7 @@ function ProjectsSection() {
         rotateX: 10,
       })
 
-      // Animate cards on load without waiting for scroll
+      // Animate cards on scroll
       gsap.to(cards, {
         opacity: 1,
         y: 0,
@@ -264,7 +278,11 @@ function ProjectsSection() {
         duration: 0.8,
         ease: 'back.out(1.4)',
         stagger: 0.05,
-        delay: 0.2
+        scrollTrigger: {
+          trigger: gridRef.current,
+          start: 'top 85%',
+          toggleActions: 'play none none none'
+        }
       })
     }, gridRef)
 
