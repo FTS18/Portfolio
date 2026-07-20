@@ -16,15 +16,20 @@
 .bottom-marquee-track {
   overflow: hidden;
   width: 100%;
-  display: flex;
-  align-items: center;
 }
 
 .bottom-marquee-content {
   display: flex;
+  align-items: center;
   white-space: nowrap;
   animation: bottom-marquee-scroll 35s linear infinite;
   width: max-content;
+  min-width: 200%;
+  flex-shrink: 0;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .bottom-marquee-content:hover {
@@ -80,10 +85,13 @@
 
 @keyframes bottom-marquee-star-spin {
   0% {
-    transform: rotate(0deg);
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.3);
   }
   100% {
-    transform: rotate(360deg);
+    transform: rotate(360deg) scale(1);
   }
 }
 

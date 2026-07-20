@@ -95,6 +95,12 @@
     opacity: 0;
 }
 
+.hero-name-first .char,
+.hero-name-last .char {
+    display: inline-block;
+    will-change: transform, opacity;
+}
+
 .hero-subtitle {
     font-size: clamp(16px, 2vw, 24px);
     color: #BBBBBB;

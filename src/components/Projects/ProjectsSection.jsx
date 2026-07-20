@@ -1,5 +1,8 @@
 import { useState, useEffect, useRef, lazy, Suspense } from 'react'
 import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 import ProjectCard from './ProjectCard'
 const ProjectModal = lazy(() => import('./ProjectModal'))
 import FilterBar from './FilterBar'
@@ -124,6 +127,23 @@ function ProjectsSection() {
       return 0
     })
 
+    // If there are existing cards in the grid, animate them out before updating state
+    if (gridRef.current && filteredProjects.length > 0) {
+      const cards = gridRef.current.querySelectorAll('.column')
+      if (cards.length > 0) {
+        gsap.to(cards, {
+          opacity: 0,
+          scale: 0.9,
+          y: 20,
+          duration: 0.3,
+          stagger: 0.02,
+          ease: 'power2.in',
+          onComplete: () => setFilteredProjects(filtered)
+        })
+        return
+      }
+    }
+
     setFilteredProjects(filtered)
   }, [selectedTags, projects, searchQuery, sortBy, projectViews])
 
@@ -152,12 +172,18 @@ function ProjectsSection() {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         headerRef.current,
-        { opacity: 0, y: 60 },
+        { opacity: 0, y: 60, clipPath: 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)' },
         {
           opacity: 1,
           y: 0,
-          duration: 1,
-          ease: 'power3.out'
+          clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+          duration: 1.2,
+          ease: 'power4.out',
+          scrollTrigger: {
+            trigger: headerRef.current,
+            start: 'top 75%',
+            toggleActions: 'play none none none'
+          }
         }
       )
 
@@ -172,7 +198,25 @@ function ProjectsSection() {
             duration: 0.8,
             stagger: 0.1,
             ease: 'power3.out',
-            delay: 0.1
+            delay: 0.1,
+            onStart: function() {
+              // Number counter animation
+              const statValues = statsRef.current.querySelectorAll('.stat-value')
+              statValues.forEach(el => {
+                const target = parseInt(el.innerText, 10)
+                if (!isNaN(target)) {
+                  const counter = { val: 0 }
+                  gsap.to(counter, {
+                    val: target,
+                    duration: 1.5,
+                    ease: 'power2.out',
+                    onUpdate: () => {
+                      el.innerText = Math.round(counter.val)
+                    }
+                  })
+                }
+              })
+            }
           }
         )
       }

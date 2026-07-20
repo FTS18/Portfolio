@@ -7,7 +7,7 @@ import './styles/globals.css'
 
 // Register service worker with aggressive auto-update
 // Users never need to manually clear cache - it happens automatically!
-if ('serviceWorker' in navigator) {
+if ('serviceWorker' in navigator && import.meta.env.PROD) {
   window.addEventListener('load', async () => {
     try {
       const registration = await navigator.serviceWorker.register('/sw.js')

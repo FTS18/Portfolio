@@ -31,6 +31,7 @@ function ExperienceSection() {
   const headerRef = useRef(null)
   const tabsRef = useRef(null)
   const contentRef = useRef(null)
+  const viewAllRef = useRef(null)
 
   // Track theme changes dynamically
   useEffect(() => {
@@ -145,10 +146,10 @@ function ExperienceSection() {
       organization: 'Government of India',
       date: 'Nov, 2025',
       achievement: 'Round 2',
-      description: 'Built Saksham AI - An EdTech platform with AI-powered internship finder using NLP for matching students with relevant opportunities',
+      description: 'Built Upskillers AI - An EdTech platform with AI-powered internship finder using NLP for matching students with relevant opportunities',
       tags: ['React', 'TypeScript', 'Tailwind CSS', 'Firebase', 'Gemini AI', 'NLP', 'AI'],
       image: '/assets/images/sih.png',
-      link: 'https://hexaforces.netlify.app',
+      link: 'https://upskillers.vercel.app',
       github: 'https://github.com/FTS18/saksham-pathfinder',
       color: '#6366F1' // Indigo
     },
@@ -224,15 +225,16 @@ function ExperienceSection() {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         headerRef.current,
-        { opacity: 0, y: 60 },
+        { opacity: 0, y: 60, clipPath: 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)' },
         {
           opacity: 1,
           y: 0,
-          duration: 1,
-          ease: 'power3.out',
+          clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+          duration: 1.2,
+          ease: 'power4.out',
           scrollTrigger: {
             trigger: headerRef.current,
-            start: 'top 85%',
+            start: 'top 75%',
             toggleActions: 'play none none none'
           }
         }
@@ -260,21 +262,59 @@ function ExperienceSection() {
     return () => ctx.revert()
   }, [])
 
+  const prevTabRef = useRef('hackathons')
+
   useEffect(() => {
     if (contentRef.current) {
       const items = contentRef.current.querySelectorAll('.exp-item')
-      gsap.fromTo(
-        items,
-        { opacity: 0, y: 40, scale: 0.95 },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.6,
-          stagger: 0.1,
-          ease: 'power3.out'
+      const tabOrder = ['hackathons', 'achievements', 'experience']
+      const currentIndex = tabOrder.indexOf(activeTab)
+      const prevIndex = tabOrder.indexOf(prevTabRef.current)
+      
+      const slideDistance = currentIndex > prevIndex ? 100 : currentIndex < prevIndex ? -100 : 0
+      
+      const ctx = gsap.context(() => {
+        gsap.fromTo(
+          items,
+          { opacity: 0, x: slideDistance, y: 10, scale: 0.98 },
+          {
+            opacity: 1,
+            x: 0,
+            y: 0,
+            scale: 1,
+            duration: 0.6,
+            stagger: 0.08,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: contentRef.current,
+              start: 'top 85%',
+              toggleActions: 'play none none none'
+            }
+          }
+        )
+
+        if (viewAllRef.current) {
+          gsap.fromTo(
+            viewAllRef.current,
+            { opacity: 0, y: 30 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.8,
+              ease: 'power3.out',
+              delay: 0.2,
+              scrollTrigger: {
+                trigger: viewAllRef.current,
+                start: 'top 95%',
+                toggleActions: 'play none none none'
+              }
+            }
+          )
         }
-      )
+      })
+      
+      prevTabRef.current = activeTab
+      return () => ctx.revert()
     }
   }, [activeTab])
 
@@ -329,7 +369,7 @@ function ExperienceSection() {
       'Mirr': 'Mirr',
       'Arasaka': 'Arasaka Energy OS',
       'Matcha': 'Matcha-AI',
-      'Saksham AI': 'Saksham AI',
+      'Saksham AI': 'Upskillers AI',
       'Project Orion': 'Project Orion',
       'OmniFlow': 'OmniFlow',
       'Gramin Saathi': 'Gramin Saathi',
@@ -510,7 +550,7 @@ function ExperienceSection() {
     </div>
 
       {data[activeTab].length > 3 && (
-        <div className="exp-view-all-container">
+        <div className="exp-view-all-container" ref={viewAllRef}>
           <button 
             className="exp-view-all-btn"
             onClick={() => setShowAll(prev => ({ ...prev, [activeTab]: !prev[activeTab] }))}

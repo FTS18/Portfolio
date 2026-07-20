@@ -1,4 +1,4 @@
-import { useState, lazy, Suspense } from 'react'
+import { useState, lazy, Suspense, useEffect, useRef } from 'react'
 import { Outlet } from 'react-router-dom'
 import Loader from '../common/Loader'
 import './Layout.css'
@@ -26,6 +26,29 @@ function Layout() {
     // Default to dark on mobile, light on desktop if no preference saved
     return window.innerWidth <= 768 ? 'dark' : 'light'
   })
+  const mobileCTAsRef = useRef(null)
+
+  // Hide mobile CTAs when user scrolls past hero to prevent blocking Android touches
+  useEffect(() => {
+    const isMobile = window.innerWidth <= 1024
+    if (!isMobile) return
+
+    const handleScroll = () => {
+      const el = mobileCTAsRef.current
+      if (!el) return
+      // Hide once scrolled past 80% of viewport height (past hero)
+      if (window.scrollY > window.innerHeight * 0.8) {
+        el.classList.add('hidden-on-scroll')
+      } else {
+        el.classList.remove('hidden-on-scroll')
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll() // run once on mount
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
 
   const toggleTheme = () => {
     const themes = ['dark', 'light', 'bw']
@@ -87,7 +110,7 @@ function Layout() {
       
       <Suspense fallback={null}>
         <ClickSpark>
-          <div className={`layout ${isMenuOpen ? 'menu-open' : ''} ${!canvasEnabled ? 'canvas-disabled' : ''}`}>
+          <div className={`layout ${isMenuOpen ? 'menu-open' : ''} ${!canvasEnabled ? 'canvas-disabled' : ''} ${!isLoading ? 'loaded' : ''}`}>
           
           {/* Top Right Controls Container */}
           <div className="layout-controls">
@@ -128,7 +151,7 @@ function Layout() {
           </Suspense>
 
           {/* Mobile Fixed Bottom CTAs */}
-          <div className="mobile-fixed-ctas">
+          <div className="mobile-fixed-ctas" ref={mobileCTAsRef}>
             <a href="/assets/resume.pdf" download className="mobile-cta-btn cta-resume">
               <i className="fa-solid fa-file-pdf"></i>
               Resume

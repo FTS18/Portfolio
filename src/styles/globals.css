@@ -223,7 +223,7 @@ body {
 
 /* ===== ANDROID PERFORMANCE OPTIMIZATIONS ===== */
 
-/* Touch optimization for all interactive elements */
+/* Touch optimization for all interactive elements - Android fix */
 a,
 button,
 input,
@@ -233,6 +233,23 @@ textarea,
 [onclick] {
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
+    cursor: pointer;
+}
+
+/* Minimum tap target size for accessibility and Android touch reliability */
+button,
+[role="button"],
+.p-btn,
+.exp-view-all-btn,
+.exp-link-btn,
+.hero-cta,
+.mobile-cta-btn,
+.filter-tag,
+.sort-select,
+.view-all-btn,
+.back-to-top {
+    min-height: 44px;
+    min-width: 44px;
 }
 
 /* GPU acceleration hints for animated elements */
@@ -249,15 +266,13 @@ textarea,
     backface-visibility: hidden;
 }
 
-/* Reduce motion for users who prefer it */
+/* Reduce motion for users who prefer it - only non-critical visual animations */
 @media (prefers-reduced-motion: reduce) {
 
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
+    /* Only reduce non-essential decorative animations */
+    .prismatic-background,
+    .webgpu-background {
+        animation: none !important;
     }
 }
 

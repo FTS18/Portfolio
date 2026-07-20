@@ -177,12 +177,11 @@ function SkillsSection() {
             <div key={rowIndex} className="skills-marquee-row">
               <div 
                 className={`skills-marquee-track ${
-                  reducedMotion ? '' : 
                   rowIndex === 1 ? 'reverse' : 
                   rowIndex === 2 ? 'slow' : ''
                 }`}
                 style={{
-                  animationPlayState: isVisible && !reducedMotion ? 'running' : 'paused'
+                  animationPlayState: isVisible ? 'running' : 'paused'
                 }}
               >
                 {/* Only double for better performance */}

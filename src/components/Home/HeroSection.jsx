@@ -100,41 +100,47 @@ function HeroSection({ isLoaderComplete = false, canvasEnabled = true }) {
 
   // Trigger animation when loader completes
   useEffect(() => {
-    if (!isLoaderComplete || hasAnimated || reducedMotion) return
+    if (!isLoaderComplete || hasAnimated) return
 
+    let ctx;
     // Small delay to ensure DOM is ready after loader fades out
     const timer = setTimeout(() => {
       setIsVisible(true)
       
-      const ctx = gsap.context(() => {
+      ctx = gsap.context(() => {
         const tl = gsap.timeline({
           onComplete: () => setHasAnimated(true)
         })
 
-        // GPU-accelerated animations only (no blur for mobile perf)
+        // Make parents visible immediately, we will animate the children
+        gsap.set([firstNameRef.current, lastNameRef.current], { opacity: 1 })
+
+        // BigTech-style clip-path text reveal for the hero name (character stagger)
         tl.fromTo(
-          firstNameRef.current,
-          { opacity: 0, y: 60, skewY: 3 },
-          { opacity: 1, y: 0, skewY: 0, duration: 0.8, ease: 'power3.out' }
+          firstNameRef.current.querySelectorAll('.char'),
+          { opacity: 0, y: 100, skewY: 10, clipPath: 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)' },
+          { opacity: 1, y: 0, skewY: 0, clipPath: 'polygon(0% -20%, 100% -20%, 100% 120%, 0% 120%)', duration: 1, ease: 'power4.out', stagger: 0.05 }
         )
         .fromTo(
-          lastNameRef.current,
-          { opacity: 0, y: 60, skewY: -3 },
-          { opacity: 1, y: 0, skewY: 0, duration: 0.8, ease: 'power3.out' },
-          '-=0.5'
+          lastNameRef.current.querySelectorAll('.char'),
+          { opacity: 0, y: 100, skewY: -10, clipPath: 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)' },
+          { opacity: 1, y: 0, skewY: 0, clipPath: 'polygon(0% -20%, 100% -20%, 100% 120%, 0% 120%)', duration: 1, ease: 'power4.out', stagger: 0.05 },
+          '-=0.8'
         )
         .fromTo(
           '.hero-ctas',
-          { opacity: 0, y: 30 },
-          { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' },
-          '-=0.3'
+          { opacity: 0, y: 40, clipPath: 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)' },
+          { opacity: 1, y: 0, clipPath: 'polygon(0% -20%, 100% -20%, 100% 120%, 0% 120%)', duration: 1.0, ease: 'power3.out' },
+          '-=0.6'
         )
       }, heroRef)
+    }, 150)
 
-      return () => ctx.revert()
-    }, 50)
-
-    return () => clearTimeout(timer)
+    return () => {
+      clearTimeout(timer)
+      // Removed ctx.revert() because reverting after completion causes 
+      // the elements to lose their inline styles and go back to opacity: 0
+    }
   }, [isLoaderComplete, hasAnimated, reducedMotion])
 
   // Memoize background components for better performance
@@ -199,8 +205,16 @@ function HeroSection({ isLoaderComplete = false, canvasEnabled = true }) {
 
       <div className="hero-content">
         <h1 className="hero-name">
-          <span className="hero-name-first" ref={firstNameRef}>Ananay</span>
-          <span className="hero-name-last" ref={lastNameRef}>Dubey</span>
+          <span className="hero-name-first" ref={firstNameRef}>
+            {'Ananay'.split('').map((char, index) => (
+              <span key={index} className="char">{char}</span>
+            ))}
+          </span>
+          <span className="hero-name-last" ref={lastNameRef}>
+            {'Dubey'.split('').map((char, index) => (
+              <span key={index} className="char">{char}</span>
+            ))}
+          </span>
         </h1>
         
         <div className="hero-ctas">

@@ -1,11 +1,17 @@
 import { useEffect, useRef, useState } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import './TimelineSection.css'
+
+gsap.registerPlugin(ScrollTrigger)
 
 function TimelineSection() {
   const sectionRef = useRef(null)
   const containerRef = useRef(null)
+  const headerRef = useRef(null)
   const [scrollProgress, setScrollProgress] = useState(0)
 
+  // ... (keeping array content as is, I will replace the useEffect instead)
   const timelineData = [
     {
       year: '2021',
@@ -68,6 +74,30 @@ function TimelineSection() {
   ]
 
   useEffect(() => {
+    if (headerRef.current) {
+      const ctx = gsap.context(() => {
+        gsap.fromTo(
+          headerRef.current,
+          { opacity: 0, y: 40, clipPath: 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)' },
+          {
+            opacity: 1,
+            y: 0,
+            clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+            duration: 1,
+            ease: 'power4.out',
+            scrollTrigger: {
+              trigger: headerRef.current,
+              start: 'top 75%',
+              toggleActions: 'play none none none'
+            }
+          }
+        )
+      })
+      return () => ctx.revert()
+    }
+  }, [])
+
+  useEffect(() => {
     const handleScroll = () => {
       if (!sectionRef.current || !containerRef.current) return
 
@@ -104,7 +134,7 @@ function TimelineSection() {
           <div className="timeline-bg-circle circle-3"></div>
         </div>
 
-        <div className="timeline-header">
+        <div className="timeline-header" ref={headerRef}>
           <span className="timeline-label">MY JOURNEY</span>
           <h2 className="timeline-title">
             <span className="title-gradient">Timeline</span>

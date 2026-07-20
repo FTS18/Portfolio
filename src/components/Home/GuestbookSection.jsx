@@ -1,5 +1,9 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import './GuestbookSection.css'
+
+gsap.registerPlugin(ScrollTrigger)
 
 // Random username generator
 const ADJECTIVES = [
@@ -43,8 +47,31 @@ function GuestbookSection() {
   const [cooldown, setCooldown] = useState(0)
   const [showModal, setShowModal] = useState(false)
   const [modalMessage, setModalMessage] = useState('')
+  const feedRef = useRef(null)
 
   const MAX_CHARS = 280
+
+  // Animate messages on load
+  useEffect(() => {
+    if (!isLoading && feedRef.current && messages.length > 0) {
+      const messageCards = feedRef.current.querySelectorAll('.message-card')
+      if (messageCards.length > 0) {
+        gsap.fromTo(
+          messageCards,
+          { opacity: 0, y: 30, scale: 0.95 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: 'back.out(1.2)',
+            clearProps: 'all' // Cleanup inline styles after animation
+          }
+        )
+      }
+    }
+  }, [isLoading, messages.length])
 
   // Initialize username
   useEffect(() => {
@@ -256,12 +283,37 @@ function GuestbookSection() {
   }
 
   const recentMessages = messages.slice(0, 3)
+  const headerRef = useRef(null)
+
+  useEffect(() => {
+    if (headerRef.current) {
+      const ctx = gsap.context(() => {
+        gsap.fromTo(
+          headerRef.current,
+          { opacity: 0, y: 40, clipPath: 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)' },
+          {
+            opacity: 1,
+            y: 0,
+            clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+            duration: 1,
+            ease: 'power4.out',
+            scrollTrigger: {
+              trigger: headerRef.current,
+              start: 'top 75%',
+              toggleActions: 'play none none none'
+            }
+          }
+        )
+      })
+      return () => ctx.revert()
+    }
+  }, [])
 
   return (
     <>
       <section className="guestbook-section" id="guestbook">
         <div className="guestbook-container">
-          <div className="guestbook-header">
+          <div className="guestbook-header" ref={headerRef}>
             <h2 className="guestbook-title">
               <span className="brutalist-symbol symbol-hash">#</span>
               <span className="fraunces-italic">Guest</span>book
@@ -309,7 +361,7 @@ function GuestbookSection() {
           </form>
 
           {/* Recent Messages (Last 3) */}
-          <div className="guestbook-feed">
+          <div className="guestbook-feed" ref={feedRef}>
             {isLoading ? (
               <div className="loading-state">
                 <i className="fa-solid fa-spinner fa-spin"></i>

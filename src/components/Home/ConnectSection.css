@@ -204,20 +204,34 @@
 }
 
 .carousel-dot {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    touch-action: manipulation;
+}
+
+.carousel-dot::after {
+    content: '';
     width: 12px;
     height: 12px;
     border-radius: 50%;
     border: 2px solid var(--border-hard);
-    background: transparent;
-    cursor: pointer;
     transition: all 0.3s ease;
 }
 
-.carousel-dot.active {
+.carousel-dot.active::after {
     background: var(--text-primary);
     border-radius: 12px;
     width: 24px;
-    height: 12px;
 }
 
 .carousel-card .connect-card-description {

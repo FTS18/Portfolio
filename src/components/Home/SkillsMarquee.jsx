@@ -1,6 +1,12 @@
+import { useEffect, useRef } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import './SkillsMarquee.css'
 
+gsap.registerPlugin(ScrollTrigger)
+
 function SkillsMarquee() {
+  const headerRef = useRef(null)
   const row1Skills = [
     { icon: 'fa-brands fa-python', name: 'Python' },
     { icon: 'fa-brands fa-react', name: 'React' },
@@ -36,9 +42,33 @@ function SkillsMarquee() {
     { icon: 'fa-solid fa-cloud', name: 'Netlify' },
   ]
 
+  useEffect(() => {
+    if (headerRef.current) {
+      const ctx = gsap.context(() => {
+        gsap.fromTo(
+          headerRef.current,
+          { opacity: 0, y: 40, clipPath: 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)' },
+          {
+            opacity: 1,
+            y: 0,
+            clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+            duration: 1,
+            ease: 'power4.out',
+            scrollTrigger: {
+              trigger: headerRef.current,
+              start: 'top 75%',
+              toggleActions: 'play none none none'
+            }
+          }
+        )
+      })
+      return () => ctx.revert()
+    }
+  }, [])
+
   return (
     <section className="skills-section" id="skills">
-      <div className="skills-header">
+      <div className="skills-header" ref={headerRef}>
         <h2 className="skills-title">Built With</h2>
         <p className="skills-subtitle">The technologies I use to build amazing projects</p>
       </div>

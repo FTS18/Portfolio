@@ -91,9 +91,7 @@
 /* Layout Controls (Top Right) */
 .layout-controls {
     position: fixed;
-    top: 2rem;
-    /* Match Logo top */
-    right: 0;
+    inset: 0;
     z-index: 900;
     /* Behind sidebar (1000+) */
     pointer-events: none;
@@ -166,6 +164,35 @@ body.calculator-page .app-canvas-btn {
 .control-btn:active {
     transform: translate(4px, 4px);
     box-shadow: 4px 4px 0px #000000;
+}
+
+.control-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.control-btn:active::after {
+    animation: ripple-burst 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+@keyframes ripple-burst {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(2.5);
+        opacity: 0;
+    }
 }
 
 @media (max-width: 768px) {
@@ -318,7 +345,7 @@ main {
     }
 }
 
-/* Mobile Fixed Bottom CTAs */
+/* Mobile Fixed Bottom CTAs - only shown on hero section */
 .mobile-fixed-ctas {
     position: fixed;
     bottom: 0;
@@ -326,12 +353,20 @@ main {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    z-index: 900;
+    z-index: 850;
     padding: 12px;
     gap: 12px;
     background: linear-gradient(to top, var(--bg-primary) 60%, transparent);
     pointer-events: none;
     /* Let clicks pass through to content except buttons */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Hide mobile CTAs when user has scrolled past hero - prevents blocking page content */
+.mobile-fixed-ctas.hidden-on-scroll {
+    opacity: 0;
+    transform: translateY(100%);
+    pointer-events: none !important;
 }
 
 .mobile-cta-btn {
@@ -383,5 +418,48 @@ main {
 @media screen and (min-width: 1025px) {
     .mobile-fixed-ctas {
         display: none !important;
+    }
+}
+
+/* Layout Entrance Animations */
+.layout:not(.loaded) .layout-controls,
+.layout:not(.loaded) .mobile-fixed-ctas,
+.layout:not(.loaded) .sm-floating-actions {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.layout.loaded .layout-controls,
+.layout.loaded .sm-floating-actions {
+    animation: layoutEntranceTop 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+}
+
+.layout.loaded .mobile-fixed-ctas {
+    animation: layoutEntranceBottom 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+}
+
+@keyframes layoutEntranceTop {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+        pointer-events: none;
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+}
+
+@keyframes layoutEntranceBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+        pointer-events: none;
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
     }
 }

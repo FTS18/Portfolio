@@ -1,5 +1,9 @@
 import { useState, useRef, useEffect } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import './ConnectSection.css'
+
+gsap.registerPlugin(ScrollTrigger)
 
 function ConnectSection() {
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -9,6 +13,31 @@ function ConnectSection() {
   const touchEndX = useRef(0)
   const carouselRef = useRef(null)
   const intervalRef = useRef(null)
+  const headerRef = useRef(null)
+
+  useEffect(() => {
+    if (headerRef.current) {
+      const ctx = gsap.context(() => {
+        gsap.fromTo(
+          headerRef.current,
+          { opacity: 0, y: 40, clipPath: 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)' },
+          {
+            opacity: 1,
+            y: 0,
+            clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+            duration: 1,
+            ease: 'power4.out',
+            scrollTrigger: {
+              trigger: headerRef.current,
+              start: 'top 75%',
+              toggleActions: 'play none none none'
+            }
+          }
+        )
+      })
+      return () => ctx.revert()
+    }
+  }, [])
 
   useEffect(() => {
     const checkMobile = () => {
@@ -58,6 +87,7 @@ function ConnectSection() {
 
   const handleTouchStart = (e) => {
     touchStartX.current = e.touches[0].clientX
+    touchEndX.current = e.touches[0].clientX // Reset on new touch
   }
 
   const handleTouchMove = (e) => {
@@ -68,21 +98,17 @@ function ConnectSection() {
     if (!touchStartX.current || !touchEndX.current) return
     
     const distance = touchStartX.current - touchEndX.current
-    const isLeftSwipe = distance > 50
-    const isRightSwipe = distance < -50
-
-    if (isLeftSwipe && currentSlide < services.length - 1) {
-      setCurrentSlide(currentSlide + 1)
-    }
-    if (isRightSwipe && currentSlide > 0) {
-      setCurrentSlide(currentSlide - 1)
+    if (distance > 50) {
+      setCurrentSlide(prev => (prev + 1) % services.length)
+    } else if (distance < -50) {
+      setCurrentSlide(prev => (prev === 0 ? services.length - 1 : prev - 1))
     }
   }
 
   return (
     <section className="connect-section" id="about">
       <div className="connect-container">
-        <div className="connect-header">
+        <div className="connect-header" ref={headerRef}>
           <h2 className="connect-title"><span className="fraunces-italic">What</span> I Do</h2>
           <p className="connect-subtitle">
             Specialized services for modern web development

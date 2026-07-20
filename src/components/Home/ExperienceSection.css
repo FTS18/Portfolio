@@ -389,6 +389,9 @@
     justify-content: center;
     margin-top: 32px;
     padding-top: 24px;
+    position: relative;
+    z-index: 10;
+    pointer-events: auto;
 }
 
 .exp-view-all-btn {
@@ -407,6 +410,10 @@
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 4px 4px 0 var(--border-hard);
+    position: relative;
+    z-index: 10;
+    pointer-events: auto;
+    touch-action: manipulation;
 }
 
 .exp-view-all-btn:hover {

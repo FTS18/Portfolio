@@ -1,7 +1,9 @@
 import { useState, useEffect, useRef } from 'react'
 import './DSASection.css'
 import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
+gsap.registerPlugin(ScrollTrigger)
 const DSASection = () => {
   const [stats, setStats] = useState({ leetcode: null, codeforces: null })
   const [loading, setLoading] = useState(true)
@@ -157,11 +159,18 @@ const DSASection = () => {
     if (!loading && (stats.leetcode || stats.codeforces) && sectionRef.current) {
       // Animate title
       gsap.fromTo(titleRef.current,
-        { y: 50, opacity: 0 },
+        { opacity: 0, y: 30, clipPath: 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)' },
         {
-          y: 0,
-          opacity: 1,
-          duration: 0.8
+          opacity: 1, 
+          y: 0, 
+          clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+          duration: 1.2,
+          ease: 'power4.out',
+          scrollTrigger: {
+            trigger: titleRef.current,
+            start: 'top 75%',
+            toggleActions: 'play none none none'
+          }
         }
       )
 
